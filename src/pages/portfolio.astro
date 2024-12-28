@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const projects = [
+    {
+        title: "E-commerce Platform for Artisanal Goods",
+        description: "Developed a custom e-commerce solution for a boutique marketplace, featuring secure payments and a user-friendly interface.",
+        tech: ["React", "Node.js", "MongoDB"]
+    },
+    {
+        title: "Real Estate Listing Web Application",
+        description: "Built a comprehensive web application for real estate listings, including advanced search functionality and virtual tour integration.",
+        tech: ["Vue.js", "Django", "PostgreSQL"]
+    }
+];
+---
+
+<Layout title="Portfolio - App Development Projects by Luke">
+    <div class="flex flex-col min-h-screen">
+        <Navbar />
+        <main class="flex-grow bg-blue-200 py-8 sm:py-16 overflow-y-auto border-y-4 border-black">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white border-4 border-black p-4 sm:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-black mb-4 sm:mb-8 transform -rotate-1 break-words">My Portfolio</h1>
+                    <p class="text-lg sm:text-xl text-black mb-8 sm:mb-12 bg-blue-100 p-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block transform rotate-1">
+                        Explore some of the projects I've brought to life. Each application is crafted with attention to detail and a focus on solving real-world problems.
+                    </p>
+
+                    <div class="space-y-8 sm:space-y-12">
+                        {projects.map((project, index) => (
+                            <div class={`bg-white border-4 border-black p-4 sm:p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform ${index % 2 === 0 ? 'rotate-1' : '-rotate-1'} transition-shadow duration-300 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]`}>
+                                <h2 class="text-2xl sm:text-3xl font-black text-black mb-4 break-words">{project.title}</h2>
+                                <p class="text-black mb-4">{project.description}</p>
+                                <div class="flex flex-wrap gap-2">
+                                    {project.tech.map((tech) => (
+                                        <span class="bg-blue-300 text-black px-2 py-1 border-2 border-black text-xs sm:text-sm font-bold">{tech}</span>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </main>
+        <Footer />
+    </div>
+</Layout>
