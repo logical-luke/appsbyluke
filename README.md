@@ -1,15 +1,39 @@
-# AppsByLuke - Developer Services Website
+# AppsByLuke - Web Apps Development Services Website
 
 ## Project Overview
 
 AppsByLuke is a developer services website offering custom app development solutions and subscription plans. 
 The website showcases various app packages and subscription plans tailored to different business needs.
 
-## Tech Stack
+Project URL: [AppsByLuke](https://appsbyluke.com/)
 
-- **Frontend**: Astro, Tailwind CSS
-- **Fonts**: Bebas Neue, Rubik
-- **Build Tools**: npm
+## Project Structure:
+
+- `/landing` - landing page
+    - Stack:
+      - Astro
+      - Tailwind CSS
+- `/api` - API for the website
+    - Stack:
+      - Node.js
+      - Fastify
+      - PostgreSQL
+- `/subscription` - subscription form and payment gateway
+    - Stack:
+      - Vue.js
+      - TypeScript
+      - Tailwind CSS
+      - Stripe (?) / Padddle (?) / Lemon Squeezy (?)
+- `/panel` - user requests and subscription management panel
+    - Stack:
+      - Vue.js
+      - TypeScript
+      - Tailwind CSS
+
+## Prerequisites
+
+- Docker
+- Docker Compose
 
 ## Installation
 
@@ -22,19 +46,8 @@ git clone https://github.com/logical-luke/appsbyluke.git
 # Navigate to the project directory
 cd appsbyluke
 
-# Install dependencies
-npm install
+# Build and start containers
+docker compose up -d
 ```
 
-### Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+**Please note that provided instructions are for development purposes only.**
