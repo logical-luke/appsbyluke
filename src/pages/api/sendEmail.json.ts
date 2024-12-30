@@ -1,5 +1,11 @@
+// src/pages/api/sendEmail.json.ts
+
 export const prerender = false;
+
 import type { APIRoute } from "astro";
+import { Resend } from "resend";
+
+const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
 export const POST: APIRoute = async ({ request }) => {
   const data = await request.formData();
@@ -8,36 +14,54 @@ export const POST: APIRoute = async ({ request }) => {
   const message = data.get("message");
 
   if (!name || !email || !message) {
-    return new Response(JSON.stringify({ message: "Fill out all fields." }), { status: 400 });
+    return new Response(
+      JSON.stringify({
+        message: `Please fill out all fields.`,
+      }),
+      {
+        status: 400,
+        statusText: "Bad Request",
+      }
+    );
   }
 
-  const body = JSON.stringify({
-    personalizations: [{ to: [{ email: "get@appsbyluke.com" }] }],
-    from: { email: "get@appsbyluke.com" },
-    subject: `New message from ${name}`,
-    content: [{
-      type: "text/plain",
-      value: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
-    }]
-  });
-
   try {
-    const response = await fetch("https://api.sendgrid.com/v3/mail/send", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${import.meta.env.SENDGRID_API_KEY}`,
-        "Content-Type": "application/json"
-      },
-      body: body
+    const sendResult = await resend.emails.send({
+      from: "get@appsbyluke.com",
+      to: "get@appsbyluke.com",
+      subject: `New contact form submission from ${name}`,
+      html: `
+        <h1>New contact form submission</h1>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+      `,
     });
 
-    if (response.ok) {
-      return new Response(JSON.stringify({ message: "Message sent successfully!" }), { status: 200 });
+    if (sendResult.data) {
+      return new Response(
+        JSON.stringify({
+          message: `Thank you for your message! We'll get back to you soon.`,
+        }),
+        {
+          status: 200,
+          statusText: "OK",
+        }
+      );
     } else {
-      throw new Error(`SendGrid API responded with status ${response.status}`);
+      throw new Error("Failed to send email");
     }
   } catch (error) {
-    console.error(error);
-    return new Response(JSON.stringify({ message: "Failed to send message." }), { status: 500 });
+    console.error("Error sending email:", error);
+    return new Response(
+      JSON.stringify({
+        message: `Sorry, there was an error sending your message. Please try again later.`,
+      }),
+      {
+        status: 500,
+        statusText: "Internal Server Error",
+      }
+    );
   }
 };
