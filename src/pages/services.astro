@@ -3,6 +3,37 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 
+const subscriptionPlans = [
+    {
+        name: "Standard",
+        price: {
+            monthly: 4999,
+            quarterly: 4499,
+            annually: 3999,
+        },
+        concurrentTasks: 1,
+        features: [
+            "Ideal for small to medium ongoing projects",
+            "Bug fixes and feature enhancements",
+            "Standard support during business hours",
+        ]
+    },
+    {
+        name: "Pro",
+        price: {
+            monthly: 7999,
+            quarterly: 7199,
+            annually: 6399,
+        },
+        concurrentTasks: 2,
+        features: [
+            "Perfect for medium to large projects",
+            "Feature development and performance optimization",
+            "Priority support with extended hours",
+        ]
+    }
+];
+
 const readySolutions = [
     {
         name: "MVP Launchpad",
@@ -14,9 +45,7 @@ const readySolutions = [
             "Basic user authentication",
             "Data storage and retrieval",
         ],
-        stack: "Modern frontend framework, Backend API, Database",
         deliveryTime: "4-6 weeks",
-        revisions: 3
     },
     {
         name: "Scale-up Accelerator",
@@ -29,9 +58,7 @@ const readySolutions = [
             "Performance optimization",
             "Basic analytics setup",
         ],
-        stack: "Full-stack JavaScript framework, Database, Caching layer",
         deliveryTime: "8-10 weeks",
-        revisions: 5
     },
     {
         name: "Enterprise Powerhouse",
@@ -44,46 +71,7 @@ const readySolutions = [
             "Comprehensive testing suite",
             "DevOps setup and deployment",
         ],
-        stack: "Enterprise-grade frameworks, Cloud infrastructure, Microservices architecture",
         deliveryTime: "12-16 weeks",
-        revisions: 8
-    }
-];
-
-const subscriptionPlans = [
-    {
-        name: "Code Sprout",
-        price: 2999,
-        deliveryTime: "Up to 48 hours",
-        concurrentTasks: 1,
-        features: [
-            "Ideal for small ongoing projects",
-            "Bug fixes and minor enhancements",
-            "Standard support during business hours",
-        ]
-    },
-    {
-        name: "Tech Bloom",
-        price: 5999,
-        deliveryTime: "Up to 36 hours",
-        concurrentTasks: 2,
-        features: [
-            "Perfect for medium-sized projects",
-            "Feature development",
-            "Performance optimization",
-            "Priority support with extended hours",
-        ]
-    },
-    {
-        name: "Innovation Forest",
-        price: 9999,
-        deliveryTime: "Up to 24 hours",
-        concurrentTasks: 3,
-        features: [
-            "Suited for large, complex projects",
-            "Architecture consulting",
-            "24/7 emergency support",
-        ]
     }
 ];
 ---
@@ -91,81 +79,119 @@ const subscriptionPlans = [
 <Layout title="Services - Custom App Development by Luke">
     <div class="flex flex-col min-h-screen">
         <Navbar/>
-        <main class="flex-grow bg-blue-200 py-8 sm:py-16 overflow-y-auto border-y-4 border-black">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-white border-4 border-black p-4 sm:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative">
-                    <!-- Decorative elements -->
-                    <div class="absolute top-0 left-0 w-12 h-12 sm:w-16 sm:h-16 bg-yellow-400 border-4 border-black transform -rotate-12 -translate-x-6 -translate-y-6 sm:-translate-x-8 sm:-translate-y-8"></div>
-                    <div class="absolute bottom-0 right-0 w-16 h-16 sm:w-20 sm:h-20 bg-pink-400 border-4 border-black rounded-full translate-x-8 translate-y-8 sm:translate-x-10 sm:translate-y-10"></div>
+        <main class="flex-grow bg-blue-200 py-8 md:py-16 overflow-y-auto border-y-4 border-black">
+            <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+                <div class="bg-white border-4 border-black p-4 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative">
+                    <div class="absolute top-0 right-0 w-16 h-16 md:w-24 md:h-24 bg-yellow-400 border-4 border-black transform rotate-12 translate-x-4 -translate-y-4 md:translate-x-8 md:-translate-y-8 z-0"></div>
+                    <div class="absolute bottom-0 left-0 w-12 h-12 md:w-20 md:h-20 bg-pink-400 border-4 border-black rounded-full -translate-x-6 translate-y-6 md:-translate-x-10 md:translate-y-10 z-0"></div>
 
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-black mb-4 sm:mb-8 transform -rotate-1 break-words relative z-10">
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-8 transform -rotate-1 break-words relative z-10 pr-20 md:pr-0">
                         App Development Services
                     </h1>
-                    <p class="text-lg sm:text-xl text-black mb-8 sm:mb-12 bg-yellow-300 p-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block transform rotate-1 relative z-10">
-                        Choose between ready solutions or flexible subscription plans. Tailored to your needs!
-                    </p>
 
-                    <h2 class="text-2xl sm:text-3xl font-black text-black mb-6 transform -rotate-1">Ready Solutions</h2>
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                    <div class="mb-16 relative">
+                        <h2 class="text-2xl md:text-3xl font-bold text-black mb-6 transform -rotate-2 relative z-10 inline-block bg-blue-300 px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                            Developer as Subscription
+                        </h2>
+                        <div class="absolute top-0 right-0 w-12 h-12 bg-yellow-400 border-4 border-black transform rotate-12 translate-x-2 -translate-y-2 z-0"></div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8 mb-16">
+                        {subscriptionPlans.map((plan, index) => (
+                            <div class={`bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform ${index % 2 === 0 ? '-rotate-1' : 'rotate-1'} transition-all duration-300 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden`}>
+                                <h3 class="text-2xl font-bold text-black mb-4">{plan.name}</h3>
+                                <div class="price-toggle flex flex-wrap justify-between mb-4 border-4 border-black">
+                                    <button class="flex-1 py-2 px-2 md:px-4 text-sm md:text-base font-bold price-btn active bg-blue-400 text-white"
+                                            data-period="monthly">Monthly
+                                    </button>
+                                    <button class="flex-1 py-2 px-2 md:px-4 text-sm md:text-base font-bold price-btn bg-gray-200 text-gray-600"
+                                            data-period="quarterly">Quarterly
+                                    </button>
+                                    <button class="flex-1 py-2 px-2 md:px-4 text-sm md:text-base font-bold price-btn bg-gray-200 text-gray-600"
+                                            data-period="annually">Annually
+                                    </button>
+                                </div>
+                                <p class="text-2xl font-bold mt-4 text-center">
+                                    $<span class="price monthly">{plan.price.monthly}</span>
+                                    <span class="price quarterly hidden">{plan.price.quarterly}</span>
+                                    <span class="price annually hidden">{plan.price.annually}</span>
+                                    <span class="text-lg font-normal">/month</span>
+                                </p>
+                                <p class="text-lg font-bold text-black mb-4">{plan.concurrentTasks}
+                                    task{plan.concurrentTasks > 1 ? 's' : ''} at a time</p>
+                                <ul class="list-disc list-inside mb-4">
+                                    {plan.features.map((feature) => (
+                                        <li class="text-black">{feature}</li>
+                                    ))}
+                                </ul>
+                                <ul class="list-disc list-inside mb-4">
+                                    <li>Unlimited requests</li>
+                                    <li>Unlimited users</li>
+                                    <li>Unlimited features/requirements</li>
+                                    <li>Unlimited refactors/bug fixes</li>
+                                    <li>Cancel anytime</li>
+                                    <li>No hidden fees or penalties</li>
+                                </ul>
+                                <p class="text-lg font-bold text-black mb-4">Average delivery time: 24-48 hours</p>
+                                <a href="/contact"
+                                   class="mt-6 inline-block w-full text-center bg-blue-400 font-bold py-2 px-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:bg-blue-500 group">
+                                    <span class="text-black group-hover:text-white">Subscribe Now</span>
+                                </a>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div class="text-center mb-16">
+                        <a href="/schedule"
+                           class="inline-block bg-green-400 font-bold py-3 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:bg-green-500 transform hover:-rotate-1 group">
+                            <span class="text-black group-hover:text-white">Book a 15-min Intro Call</span>
+                        </a>
+                    </div>
+
+                    <div class="mb-16 relative">
+                        <h2 class="text-2xl md:text-3xl font-bold text-black mb-6 transform rotate-1 relative z-10 inline-block bg-yellow-300 px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                            Ready Solutions
+                        </h2>
+                        <div class="absolute bottom-0 left-0 w-10 h-10 bg-pink-400 border-4 border-black rounded-full -translate-x-4 translate-y-4 z-0"></div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                         {readySolutions.map((solution, index) => (
-                            <div class={`bg-white border-4 border-black p-4 sm:p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform ${index % 2 === 0 ? 'rotate-1' : '-rotate-1'} transition-shadow duration-300 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden`}>
-                                <div class="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 bg-green-300 border-b-4 border-l-4 border-black transform rotate-12 translate-x-6 -translate-y-6 sm:translate-x-8 sm:-translate-y-8"></div>
-                                <h3 class="text-xl sm:text-2xl font-black text-black mb-4 break-words">{solution.name}</h3>
-                                <p class="text-2xl sm:text-3xl font-black text-blue-500 mb-4">${solution.price}</p>
+                            <div class={`bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform ${index % 2 === 0 ? 'rotate-1' : '-rotate-1'} transition-all duration-300 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden`}>
+                                <h3 class="text-2xl font-bold text-black mb-4">{solution.name}</h3>
+                                <p class="text-3xl font-bold text-blue-500 mb-4">${solution.price}</p>
                                 <p class="text-black mb-4">{solution.description}</p>
                                 <ul class="list-disc list-inside mb-4">
                                     {solution.features.map((feature) => (
                                         <li class="text-black">{feature}</li>
                                     ))}
                                 </ul>
-                                <div class="mt-4">
-                                    <h4 class="text-base sm:text-lg font-bold text-black mb-2">Tech Stack:</h4>
-                                    <p class="text-sm text-gray-600">{solution.stack}</p>
-                                </div>
                                 <p class="mt-4 text-lg font-bold text-purple-600">Estimated delivery: {solution.deliveryTime}</p>
-                                <p class="mt-2 text-md font-bold text-green-600">{solution.revisions} rounds of revisions included</p>
-                                <a href="/contact" class="mt-6 inline-block bg-blue-500 hover:bg-blue-600 text-white font-black py-2 px-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
-                                    Get Started
-                                </a>
-                            </div>
-                        ))}
-                    </div>
-
-                    <h2 class="text-2xl sm:text-3xl font-black text-black mb-6 transform rotate-1">Developer as Subscription</h2>
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                        {subscriptionPlans.map((plan, index) => (
-                            <div class={`bg-white border-4 border-black p-4 sm:p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform ${index % 2 === 0 ? '-rotate-1' : 'rotate-1'} transition-shadow duration-300 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden`}>
-                                <div class="absolute top-0 left-0 w-12 h-12 sm:w-16 sm:h-16 bg-purple-300 border-b-4 border-r-4 border-black transform -rotate-12 -translate-x-6 -translate-y-6 sm:-translate-x-8 sm:-translate-y-8"></div>
-                                <h3 class="text-xl sm:text-2xl font-black text-black mb-4 break-words">{plan.name}</h3>
-                                <p class="text-2xl sm:text-3xl font-black text-purple-500 mb-4">${plan.price}/month</p>
-                                <p class="text-lg font-bold text-black mb-2">{plan.deliveryTime} delivery</p>
-                                <p class="text-lg font-bold text-black mb-4">{plan.concurrentTasks} task{plan.concurrentTasks > 1 ? 's' : ''} at a time</p>
-                                <ul class="list-disc list-inside mb-4">
-                                    {plan.features.map((feature) => (
-                                        <li class="text-black">{feature}</li>
-                                    ))}
-                                </ul>
-                                <a href="/contact" class="mt-6 inline-block bg-purple-500 hover:bg-purple-600 text-white font-black py-2 px-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
-                                    Subscribe Now
+                                <a href="/contact"
+                                   class="mt-6 inline-block w-full text-center bg-blue-400 font-bold py-2 px-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:bg-blue-500 group">
+                                    <span class="text-black group-hover:text-white">Get Started</span>
                                 </a>
                             </div>
                         ))}
                     </div>
 
                     <div class="mb-16 bg-green-200 border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-1 relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-16 h-16 sm:w-24 sm:h-24 bg-yellow-300 border-b-4 border-l-4 border-black transform -rotate-12 translate-x-8 -translate-y-8 sm:translate-x-12 sm:-translate-y-12"></div>
-                        <h2 class="text-2xl sm:text-3xl font-black text-black mb-6 relative z-10">What's Included in Every Package</h2>
+                        <h2 class="text-2xl md:text-3xl font-bold text-black mb-6 relative z-10">What's Included in Every Package</h2>
                         <ul class="list-disc list-inside text-lg mb-6 relative z-10">
-                            <li>Daily progress updates</li>
+                            <li>On-time updates</li>
                             <li>Weekly summary reports</li>
                             <li>Monthly detailed reports</li>
-                            <li>Code reviews (for subscription plans)</li>
+                            <li>Code reviews</li>
                             <li>Direct communication channel</li>
                             <li>Version control and project management tools</li>
                         </ul>
-                        <p class="text-lg font-bold text-black mb-4 relative z-10">
-                            Subscription plans differ mainly in task concurrency, delivery speed, and support level. Higher tiers offer faster turnaround times and more comprehensive support.
-                        </p>
+                    </div>
+
+                    <div class="text-center">
+                        <a href="/faq"
+                           class="inline-block bg-yellow-300 font-bold py-2 px-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:bg-yellow-400 transform hover:rotate-1 group">
+                            <span class="text-black">Check out our FAQ</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -173,3 +199,39 @@ const subscriptionPlans = [
         <Footer/>
     </div>
 </Layout>
+
+<script>
+    function initializePriceToggle() {
+        const priceBtns = document.querySelectorAll('.price-btn');
+        priceBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const period = btn.getAttribute('data-period');
+                const priceToggle = btn.closest('.price-toggle');
+                const priceContainer = btn.closest('.price-toggle')?.parentElement;
+
+                if (priceToggle) {
+                    priceToggle.querySelectorAll('.price-btn').forEach(b => {
+                        b.classList.remove('active', 'bg-blue-400', 'text-white');
+                        b.classList.add('bg-gray-200', 'text-gray-600');
+                    });
+                    btn.classList.add('active', 'bg-blue-400', 'text-white');
+                    btn.classList.remove('bg-gray-200', 'text-gray-600');
+                }
+
+                if (priceContainer) {
+                    priceContainer.querySelectorAll('.price').forEach(p => p.classList.add('hidden'));
+                    const selectedPrice = priceContainer.querySelector(`.price.${period}`);
+                    if (selectedPrice) {
+                        selectedPrice.classList.remove('hidden');
+                    }
+                }
+            });
+        });
+    }
+
+    // Run on initial load
+    document.addEventListener('DOMContentLoaded', initializePriceToggle);
+
+    // Run on each Astro page change
+    document.addEventListener('astro:page-load', initializePriceToggle);
+</script>
