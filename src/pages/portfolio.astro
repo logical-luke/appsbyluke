@@ -5,14 +5,59 @@ import Footer from '../components/Footer.astro';
 
 const projects = [
     {
-        title: "E-commerce Platform for Artisanal Goods",
-        description: "Developed a custom e-commerce solution for a boutique marketplace, featuring secure payments and a user-friendly interface.",
-        tech: ["React", "Node.js", "MongoDB"]
+        title: "E-commerce Platform with Personalization",
+        description: "Developed a sophisticated e-commerce platform with personalized product recommendations and an intuitive user interface.",
+        tech: ["Vue.js", "Node.js", "Elasticsearch", "AWS", "Docker", "Redis"]
     },
     {
-        title: "Real Estate Listing Web Application",
-        description: "Built a comprehensive web application for real estate listings, including advanced search functionality and virtual tour integration.",
-        tech: ["Vue.js", "Django", "PostgreSQL"]
+        title: "Real-Time Fleet Management System",
+        description: "Built a comprehensive fleet management solution with real-time tracking and analytics for a logistics company.",
+        tech: ["TypeScript", "Vue.js", "Symfony", "MySQL", "Apache Kafka", "Docker"]
+    },
+    {
+        title: "Blockchain-based Supply Chain Tracker",
+        description: "Created a transparent supply chain tracking system using blockchain technology for a multinational corporation.",
+        tech: ["JavaScript", "Node.js", "Vue.js", "Kubernetes", "Elasticsearch", "GCP"]
+    },
+    {
+        title: "Smart City IoT Dashboard",
+        description: "Designed and implemented a centralized dashboard for monitoring and managing various IoT devices across a smart city infrastructure.",
+        tech: ["TypeScript", "React", "Laravel", "PostgreSQL", "Grafana", "Terraform"]
+    },
+    {
+        title: "Collaborative Project Management Tool",
+        description: "Developed a feature-rich project management platform with real-time collaboration capabilities and integrations with popular tools.",
+        tech: ["PHP", "Symfony", "Vue.js", "MySQL", "RabbitMQ", "Docker"]
+    },
+    {
+        title: "High-Performance Gaming Leaderboard",
+        description: "Engineered a scalable, real-time leaderboard system capable of handling millions of concurrent users for a popular online game.",
+        tech: ["Node.js", "Redis", "Kubernetes", "Prometheus", "AWS", "Cloudflare"]
+    },
+    {
+        title: "Automated Continuous Integration Pipeline",
+        description: "Designed and implemented a robust CI/CD pipeline, significantly improving development workflow and reducing deployment times.",
+        tech: ["Python", "Docker", "Kubernetes", "GitHub Actions", "Terraform", "Sentry"]
+    },
+    {
+        title: "AI-Powered Content Recommendation Engine",
+        description: "Built an intelligent content recommendation system for a major media company, improving user engagement and content discovery.",
+        tech: ["Python", "Vue.js", "Node.js", "Elasticsearch", "AWS", "OpenAI"]
+    },
+    {
+        title: "Scalable Microservices Architecture",
+        description: "Designed and implemented a highly scalable microservices architecture for a rapidly growing fintech startup.",
+        tech: ["TypeScript", "Node.js", "Kubernetes", "RabbitMQ", "PostgreSQL", "Terraform"]
+    },
+    {
+        title: "Advanced Analytics Dashboard",
+        description: "Created a comprehensive analytics dashboard integrating multiple data sources for real-time business intelligence and decision-making.",
+        tech: ["React", "Node.js", "Elasticsearch", "Kibana", "AWS", "Grafana"]
+    },
+    {
+        title: "Automated Trading Platform",
+        description: "Developed a high-frequency trading platform with advanced algorithms and real-time market data integration.",
+        tech: ["Python", "Vue.js", "PostgreSQL", "Redis", "Kubernetes", "Prometheus"]
     }
 ];
 ---
@@ -20,26 +65,40 @@ const projects = [
 <Layout title="Portfolio - App Development Projects by Luke">
     <div class="flex flex-col min-h-screen">
         <Navbar />
-        <main class="flex-grow bg-blue-200 py-8 sm:py-16 overflow-y-auto border-y-4 border-black">
+        <main class="flex-grow bg-yellow-200 py-8 sm:py-16 overflow-y-auto border-y-4 border-black">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-white border-4 border-black p-4 sm:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-black mb-4 sm:mb-8 transform -rotate-1 break-words">My Portfolio</h1>
-                    <p class="text-lg sm:text-xl text-black mb-8 sm:mb-12 bg-blue-100 p-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block transform rotate-1">
+                <div class="bg-white border-4 border-black p-4 sm:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative">
+                    <!-- Decorative elements -->
+                    <div class="absolute top-0 left-0 w-16 h-16 bg-blue-400 border-4 border-black transform -rotate-12 -translate-x-8 -translate-y-8"></div>
+                    <div class="absolute bottom-0 right-0 w-20 h-20 bg-pink-400 border-4 border-black rounded-full translate-x-10 translate-y-10"></div>
+
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-black mb-4 sm:mb-8 transform -rotate-1 break-words relative z-10">My Portfolio</h1>
+                    <p class="text-lg sm:text-xl text-black mb-8 sm:mb-12 bg-green-300 p-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block transform rotate-1 relative z-10">
                         Explore some of the projects I've brought to life. Each application is crafted with attention to detail and a focus on solving real-world problems.
                     </p>
 
-                    <div class="space-y-8 sm:space-y-12">
+                    <div class="grid sm:grid-cols-2 gap-8 relative z-10">
                         {projects.map((project, index) => (
-                            <div class={`bg-white border-4 border-black p-4 sm:p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform ${index % 2 === 0 ? 'rotate-1' : '-rotate-1'} transition-shadow duration-300 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]`}>
-                                <h2 class="text-2xl sm:text-3xl font-black text-black mb-4 break-words">{project.title}</h2>
+                            <div class={`bg-white border-4 border-black p-4 sm:p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform ${index % 2 === 0 ? 'rotate-1' : '-rotate-1'} transition-all duration-300 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]`}>
+                                <h2 class="text-xl sm:text-2xl font-black text-black mb-4 break-words">{project.title}</h2>
                                 <p class="text-black mb-4">{project.description}</p>
-                                <div class="flex flex-wrap gap-2">
+                                <div class="flex flex-wrap gap-2 mt-4">
                                     {project.tech.map((tech) => (
-                                        <span class="bg-blue-300 text-black px-2 py-1 border-2 border-black text-xs sm:text-sm font-bold">{tech}</span>
+                                        <span class="bg-blue-300 text-black px-2 py-1 border-2 border-black text-xs sm:text-sm font-bold transform rotate-2 hover:rotate-0 transition-transform duration-300">{tech}</span>
                                     ))}
                                 </div>
                             </div>
                         ))}
+                    </div>
+
+                    <div class="mt-12 bg-purple-300 border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 relative z-10">
+                        <h2 class="text-2xl sm:text-3xl font-black text-black mb-4">Want to see more?</h2>
+                        <p class="text-lg text-black mb-4">
+                            These are just a few examples of the projects I've worked on. If you're interested in seeing more or discussing a potential project, don't hesitate to get in touch!
+                        </p>
+                        <a href="/contact" class="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-black py-2 px-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 transform hover:rotate-2">
+                            Contact Me
+                        </a>
                     </div>
                 </div>
             </div>

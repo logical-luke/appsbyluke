@@ -3,106 +3,179 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 
-const packages = [
+const readySolutions = [
     {
-        name: "Starter Web App",
-        price: 5000,
-        description: "Perfect for small businesses or startups looking to establish their online presence.",
+        name: "MVP Launchpad",
+        price: 4999,
+        description: "Perfect for startups and small businesses looking to validate their ideas quickly.",
         features: [
-            "Custom designed responsive website",
-            "Up to 5 pages",
-            "Basic SEO optimization",
-            "Contact form integration",
-            "3 rounds of revisions",
+            "Custom designed responsive web app",
+            "Core feature implementation",
+            "Basic user authentication",
+            "Data storage and retrieval",
         ],
-        technologies: ["JavaScript", "Vue.js", "Tailwind CSS", "Node.js", "Nginx"]
+        stack: "Modern frontend framework, Backend API, Database",
+        deliveryTime: "4-6 weeks",
+        revisions: 3
     },
     {
-        name: "E-commerce Solution",
-        price: 10000,
-        description: "Ideal for businesses ready to start selling products online.",
+        name: "Scale-up Accelerator",
+        price: 9999,
+        description: "Ideal for businesses ready to expand their digital footprint and capabilities.",
         features: [
-            "Custom e-commerce website",
-            "Up to 100 product listings",
-            "Secure payment gateway integration",
-            "Order management system",
-            "Basic inventory tracking",
-            "SEO optimization",
-            "5 rounds of revisions",
+            "Advanced web application",
+            "Complex business logic implementation",
+            "Third-party API integrations",
+            "Performance optimization",
+            "Basic analytics setup",
         ],
-        technologies: ["PHP", "Laravel", "MySQL", "WooCommerce", "Cloudflare", "Docker"]
+        stack: "Full-stack JavaScript framework, Database, Caching layer",
+        deliveryTime: "8-10 weeks",
+        revisions: 5
     },
     {
-        name: "Enterprise Web Application",
-        price: 25000,
+        name: "Enterprise Powerhouse",
+        price: 24999,
         description: "Comprehensive solution for large-scale businesses with complex requirements.",
         features: [
-            "Fully custom web application",
-            "Advanced user authentication and authorization",
-            "Database design and optimization",
-            "API development and integration",
-            "Automated testing suite",
-            "Performance optimization",
-            "Scalable infrastructure setup",
-            "Comprehensive documentation",
-            "10 rounds of revisions",
+            "Fully custom enterprise-grade application",
+            "Advanced user roles and permissions",
+            "Scalable architecture",
+            "Comprehensive testing suite",
+            "DevOps setup and deployment",
         ],
-        technologies: ["TypeScript", "Vue.js", "Node.js", "Elasticsearch", "Kubernetes", "AWS", "GitHub Actions", "Cypress", "Grafana"]
+        stack: "Enterprise-grade frameworks, Cloud infrastructure, Microservices architecture",
+        deliveryTime: "12-16 weeks",
+        revisions: 8
+    }
+];
+
+const subscriptionPlans = [
+    {
+        name: "Code Sprout",
+        price: 2999,
+        deliveryTime: "Up to 48 hours",
+        concurrentTasks: 1,
+        features: [
+            "Ideal for small ongoing projects",
+            "Bug fixes and minor enhancements",
+            "Standard support during business hours",
+        ]
+    },
+    {
+        name: "Tech Bloom",
+        price: 5999,
+        deliveryTime: "Up to 36 hours",
+        concurrentTasks: 2,
+        features: [
+            "Perfect for medium-sized projects",
+            "Feature development",
+            "Performance optimization",
+            "Priority support with extended hours",
+        ]
+    },
+    {
+        name: "Innovation Forest",
+        price: 9999,
+        deliveryTime: "Up to 24 hours",
+        concurrentTasks: 3,
+        features: [
+            "Suited for large, complex projects",
+            "Architecture consulting",
+            "24/7 emergency support",
+        ]
     }
 ];
 ---
 
-<Layout title="Services - Custom App Development Packages by Luke">
+<Layout title="Services - Custom App Development by Luke">
     <div class="flex flex-col min-h-screen">
         <Navbar/>
         <main class="flex-grow bg-blue-200 py-8 sm:py-16 overflow-y-auto border-y-4 border-black">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-white border-4 border-black p-4 sm:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-black mb-4 sm:mb-8 transform -rotate-1 break-words">
-                        App Development Packages
+                <div class="bg-white border-4 border-black p-4 sm:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative">
+                    <!-- Decorative elements -->
+                    <div class="absolute top-0 left-0 w-12 h-12 sm:w-16 sm:h-16 bg-yellow-400 border-4 border-black transform -rotate-12 -translate-x-6 -translate-y-6 sm:-translate-x-8 sm:-translate-y-8"></div>
+                    <div class="absolute bottom-0 right-0 w-16 h-16 sm:w-20 sm:h-20 bg-pink-400 border-4 border-black rounded-full translate-x-8 translate-y-8 sm:translate-x-10 sm:translate-y-10"></div>
+
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-black mb-4 sm:mb-8 transform -rotate-1 break-words relative z-10">
+                        App Development Services
                     </h1>
-                    <p class="text-lg sm:text-xl text-black mb-8 sm:mb-12 bg-blue-100 p-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block transform rotate-1">
-                        Choose the perfect package for your business needs. Each package is customizable and includes
-                        end-to-end development services.
+                    <p class="text-lg sm:text-xl text-black mb-8 sm:mb-12 bg-yellow-300 p-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block transform rotate-1 relative z-10">
+                        Choose between ready solutions or flexible subscription plans. Tailored to your needs!
                     </p>
 
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {packages.map((pkg, index) => (
-                                <div class={`bg-white border-4 border-black p-4 sm:p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform ${index % 2 === 0 ? 'rotate-1' : '-rotate-1'} transition-shadow duration-300 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]`}>
-                                    <h2 class="text-xl sm:text-2xl font-black text-black mb-4 break-words">{pkg.name}</h2>
-                                    <p class="text-2xl sm:text-3xl font-black text-blue-500 mb-4">${pkg.price}</p>
-                                    <p class="text-black mb-4">{pkg.description}</p>
-                                    <ul class="list-disc list-inside mb-4">
-                                        {pkg.features.map((feature) => (
-                                                <li class="text-black">{feature}</li>
-                                        ))}
-                                    </ul>
-                                    <div class="mt-4">
-                                        <h3 class="text-base sm:text-lg font-bold text-black mb-2">Technologies:</h3>
-                                        <div class="flex flex-wrap gap-2">
-                                            {pkg.technologies.map((tech) => (
-                                                    <span class="bg-blue-300 text-black px-2 py-1 border-2 border-black text-xs sm:text-sm font-bold">{tech}</span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                    <a href="/contact"
-                                       class="mt-6 inline-block bg-blue-500 hover:bg-blue-600 text-white font-black py-2 px-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
-                                        Get Started
-                                    </a>
+                    <h2 class="text-2xl sm:text-3xl font-black text-black mb-6 transform -rotate-1">Ready Solutions</h2>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                        {readySolutions.map((solution, index) => (
+                            <div class={`bg-white border-4 border-black p-4 sm:p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform ${index % 2 === 0 ? 'rotate-1' : '-rotate-1'} transition-shadow duration-300 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden`}>
+                                <div class="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 bg-green-300 border-b-4 border-l-4 border-black transform rotate-12 translate-x-6 -translate-y-6 sm:translate-x-8 sm:-translate-y-8"></div>
+                                <h3 class="text-xl sm:text-2xl font-black text-black mb-4 break-words">{solution.name}</h3>
+                                <p class="text-2xl sm:text-3xl font-black text-blue-500 mb-4">${solution.price}</p>
+                                <p class="text-black mb-4">{solution.description}</p>
+                                <ul class="list-disc list-inside mb-4">
+                                    {solution.features.map((feature) => (
+                                        <li class="text-black">{feature}</li>
+                                    ))}
+                                </ul>
+                                <div class="mt-4">
+                                    <h4 class="text-base sm:text-lg font-bold text-black mb-2">Tech Stack:</h4>
+                                    <p class="text-sm text-gray-600">{solution.stack}</p>
                                 </div>
+                                <p class="mt-4 text-lg font-bold text-purple-600">Estimated delivery: {solution.deliveryTime}</p>
+                                <p class="mt-2 text-md font-bold text-green-600">{solution.revisions} rounds of revisions included</p>
+                                <a href="/contact" class="mt-6 inline-block bg-blue-500 hover:bg-blue-600 text-white font-black py-2 px-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
+                                    Get Started
+                                </a>
+                            </div>
                         ))}
                     </div>
 
-                    <div class="mt-16 bg-blue-100 border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
-                        <h2 class="text-3xl font-black text-black mb-4">Need a Custom Solution?</h2>
-                        <p class="text-xl text-black mb-4">
-                            Don't see a package that fits your needs? I specialize in creating tailored solutions for
-                            unique business requirements. Let's discuss your project and create a custom package that's
-                            perfect for you.
+                    <h2 class="text-2xl sm:text-3xl font-black text-black mb-6 transform rotate-1">Developer as Subscription</h2>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                        {subscriptionPlans.map((plan, index) => (
+                            <div class={`bg-white border-4 border-black p-4 sm:p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform ${index % 2 === 0 ? '-rotate-1' : 'rotate-1'} transition-shadow duration-300 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden`}>
+                                <div class="absolute top-0 left-0 w-12 h-12 sm:w-16 sm:h-16 bg-purple-300 border-b-4 border-r-4 border-black transform -rotate-12 -translate-x-6 -translate-y-6 sm:-translate-x-8 sm:-translate-y-8"></div>
+                                <h3 class="text-xl sm:text-2xl font-black text-black mb-4 break-words">{plan.name}</h3>
+                                <p class="text-2xl sm:text-3xl font-black text-purple-500 mb-4">${plan.price}/month</p>
+                                <p class="text-lg font-bold text-black mb-2">{plan.deliveryTime} delivery</p>
+                                <p class="text-lg font-bold text-black mb-4">{plan.concurrentTasks} task{plan.concurrentTasks > 1 ? 's' : ''} at a time</p>
+                                <ul class="list-disc list-inside mb-4">
+                                    {plan.features.map((feature) => (
+                                        <li class="text-black">{feature}</li>
+                                    ))}
+                                </ul>
+                                <a href="/contact" class="mt-6 inline-block bg-purple-500 hover:bg-purple-600 text-white font-black py-2 px-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
+                                    Subscribe Now
+                                </a>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div class="mb-16 bg-green-200 border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-1 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-16 h-16 sm:w-24 sm:h-24 bg-yellow-300 border-b-4 border-l-4 border-black transform -rotate-12 translate-x-8 -translate-y-8 sm:translate-x-12 sm:-translate-y-12"></div>
+                        <h2 class="text-2xl sm:text-3xl font-black text-black mb-6 relative z-10">What's Included in Every Package</h2>
+                        <ul class="list-disc list-inside text-lg mb-6 relative z-10">
+                            <li>Daily progress updates</li>
+                            <li>Weekly summary reports</li>
+                            <li>Monthly detailed reports</li>
+                            <li>Code reviews (for subscription plans)</li>
+                            <li>Direct communication channel</li>
+                            <li>Version control and project management tools</li>
+                        </ul>
+                        <p class="text-lg font-bold text-black mb-4 relative z-10">
+                            Subscription plans differ mainly in task concurrency, delivery speed, and support level. Higher tiers offer faster turnaround times and more comprehensive support.
                         </p>
-                        <a href="/contact"
-                           class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-black py-3 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 transform hover:rotate-2">
-                            Contact for Custom Quote
+                    </div>
+
+                    <div class="mt-16 bg-pink-200 border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 relative overflow-hidden">
+                        <div class="absolute bottom-0 left-0 w-16 h-16 sm:w-24 sm:h-24 bg-blue-300 border-t-4 border-r-4 border-black transform rotate-12 -translate-x-8 translate-y-8 sm:-translate-x-12 sm:translate-y-12"></div>
+                        <h2 class="text-3xl font-black text-black mb-4 relative z-10">Need a Custom Solution?</h2>
+                        <p class="text-xl text-black mb-4 relative z-10">
+                            Don't see a package that fits your needs? Let's create a tailored solution just for you!
+                        </p>
+                        <a href="/contact" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-black py-3 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 transform hover:rotate-2 relative z-10">
+                            Get Custom Quote
                         </a>
                     </div>
                 </div>
