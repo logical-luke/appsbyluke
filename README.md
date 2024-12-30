@@ -3,7 +3,7 @@
 ## Project Overview
 
 AppsByLuke is a developer services website offering custom app development solutions and subscription plans. 
-The website showcases various ready solutions and subscription plans tailored to different business needs.
+The website showcases various app packages and subscription plans tailored to different business needs.
 
 ## Tech Stack
 

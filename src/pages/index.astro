@@ -14,3 +14,14 @@ import Faq from "../components/Faq.astro";
 		<Footer />
 	</div>
 </Layout>
+
+<script>
+    document.addEventListener('astro:page-load', () => {
+        if (window.location.hash === '#faq') {
+            const faqSection = document.getElementById('faq');
+            if (faqSection) {
+                faqSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    });
+</script>

@@ -12,11 +12,6 @@ const subscriptionPlans = [
             annually: 3999,
         },
         concurrentTasks: 1,
-        features: [
-            "Ideal for small to medium ongoing projects",
-            "Bug fixes and feature enhancements",
-            "Standard support during business hours",
-        ]
     },
     {
         name: "Pro",
@@ -26,11 +21,6 @@ const subscriptionPlans = [
             annually: 6399,
         },
         concurrentTasks: 2,
-        features: [
-            "Perfect for medium to large projects",
-            "Feature development and performance optimization",
-            "Priority support with extended hours",
-        ]
     }
 ];
 
@@ -86,11 +76,11 @@ const readySolutions = [
                     <div class="absolute bottom-0 left-0 w-12 h-12 md:w-20 md:h-20 bg-pink-400 border-4 border-black rounded-full -translate-x-6 translate-y-6 md:-translate-x-10 md:translate-y-10 z-0"></div>
 
                     <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-8 transform -rotate-1 break-words relative z-10 pr-20 md:pr-0">
-                        App Development Services
+                        Web Apps Development
                     </h1>
 
                     <div class="mb-16 relative">
-                        <h2 class="text-2xl md:text-3xl font-bold text-black mb-6 transform -rotate-2 relative z-10 inline-block bg-blue-300 px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                        <h2 class="text-2xl md:text-3xl font-bold text-black mb-6 transform -rotate-2 relative z-10 inline-block bg-sky-200 px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                             Developer as Subscription
                         </h2>
                         <div class="absolute top-0 right-0 w-12 h-12 bg-yellow-400 border-4 border-black transform rotate-12 translate-x-2 -translate-y-2 z-0"></div>
@@ -98,86 +88,93 @@ const readySolutions = [
 
                     <div class="grid md:grid-cols-2 gap-8 mb-16">
                         {subscriptionPlans.map((plan, index) => (
-                            <div class={`bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform ${index % 2 === 0 ? '-rotate-1' : 'rotate-1'} transition-all duration-300 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden`}>
-                                <h3 class="text-2xl font-bold text-black mb-4">{plan.name}</h3>
-                                <div class="price-toggle flex flex-wrap justify-between mb-4 border-4 border-black">
-                                    <button class="flex-1 py-2 px-2 md:px-4 text-sm md:text-base font-bold price-btn active bg-blue-400 text-white"
-                                            data-period="monthly">Monthly
-                                    </button>
-                                    <button class="flex-1 py-2 px-2 md:px-4 text-sm md:text-base font-bold price-btn bg-gray-200 text-gray-600"
-                                            data-period="quarterly">Quarterly
-                                    </button>
-                                    <button class="flex-1 py-2 px-2 md:px-4 text-sm md:text-base font-bold price-btn bg-gray-200 text-gray-600"
-                                            data-period="annually">Annually
-                                    </button>
+                                <div class={`bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform ${index % 2 === 0 ? '-rotate-1' : 'rotate-1'} transition-all duration-300 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden`}>
+                                    <h3 class="text-2xl font-bold text-black mb-4">{plan.name}</h3>
+                                    <div class="price-toggle flex flex-wrap justify-between mb-4 border-4 border-black">
+                                        <button class="flex-1 py-2 px-2 md:px-4 text-sm md:text-base font-bold price-btn active bg-blue-400 text-white"
+                                                data-period="monthly">Monthly
+                                        </button>
+                                        <button class="flex-1 py-2 px-2 md:px-4 text-sm md:text-base font-bold price-btn bg-gray-200 text-gray-600"
+                                                data-period="quarterly">Quarterly
+                                        </button>
+                                        <button class="flex-1 py-2 px-2 md:px-4 text-sm md:text-base font-bold price-btn bg-gray-200 text-gray-600"
+                                                data-period="annually">Annually
+                                        </button>
+                                    </div>
+                                    <p class="text-3xl font-bold text-blue-500 mb-4">
+                                        <span class="price monthly">${plan.price.monthly}</span>
+                                        <span class="price quarterly hidden">${plan.price.quarterly}</span>
+                                        <span class="price annually hidden">${plan.price.annually}</span>
+                                        <span class="text-lg font-normal">/month</span>
+                                        <span class="savings quarterly hidden ml-2 inline-block">
+                                            <span class="text-sm font-bold bg-green-300 text-black px-2 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+                                                Save ${(plan.price.monthly - plan.price.quarterly).toFixed(2)}/month
+                                            </span>
+                                        </span>
+                                        <span class="savings annually hidden ml-2 inline-block">
+                                            <span class="text-sm font-bold bg-green-300 text-black px-2 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+                                                Save ${(plan.price.monthly - plan.price.annually).toFixed(2)}/month
+                                            </span>
+                                        </span>
+                                    </p>
+                                    <p class="text-lg font-bold text-black mb-4">{plan.concurrentTasks}
+                                        task{plan.concurrentTasks > 1 ? 's' : ''} at a time</p>
+                                    <ul class="list-disc list-inside mb-4">
+                                        <li>Unlimited requests</li>
+                                        <li>Unlimited users</li>
+                                        <li>Unlimited features/requirements</li>
+                                        <li>Unlimited refactors/bug fixes</li>
+                                        <li>Cancel or pause anytime</li>
+                                        <li>No hidden fees or penalties</li>
+                                    </ul>
+                                    <p class="text-lg font-bold text-black mb-4">Average delivery time: 24-48 hours</p>
+                                    <a href="/contact"
+                                       class="mt-6 inline-block w-full text-center bg-green-400 font-bold py-2 px-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:bg-green-500 group">
+                                        <span class="text-black group-hover:text-white">Subscribe Now</span>
+                                    </a>
+                                    <a href="https://calendar.app.google/uDz6rZrYgUxqAC2i9"
+                                       class="mt-2 inline-block w-full text-center text-sm text-gray-600 hover:text-black transition-colors duration-300">
+                                        or book a quick call to learn more
+                                    </a>
                                 </div>
-                                <p class="text-2xl font-bold mt-4 text-center">
-                                    $<span class="price monthly">{plan.price.monthly}</span>
-                                    <span class="price quarterly hidden">{plan.price.quarterly}</span>
-                                    <span class="price annually hidden">{plan.price.annually}</span>
-                                    <span class="text-lg font-normal">/month</span>
-                                </p>
-                                <p class="text-lg font-bold text-black mb-4">{plan.concurrentTasks}
-                                    task{plan.concurrentTasks > 1 ? 's' : ''} at a time</p>
-                                <ul class="list-disc list-inside mb-4">
-                                    {plan.features.map((feature) => (
-                                        <li class="text-black">{feature}</li>
-                                    ))}
-                                </ul>
-                                <ul class="list-disc list-inside mb-4">
-                                    <li>Unlimited requests</li>
-                                    <li>Unlimited users</li>
-                                    <li>Unlimited features/requirements</li>
-                                    <li>Unlimited refactors/bug fixes</li>
-                                    <li>Cancel anytime</li>
-                                    <li>No hidden fees or penalties</li>
-                                </ul>
-                                <p class="text-lg font-bold text-black mb-4">Average delivery time: 24-48 hours</p>
-                                <a href="/contact"
-                                   class="mt-6 inline-block w-full text-center bg-blue-400 font-bold py-2 px-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:bg-blue-500 group">
-                                    <span class="text-black group-hover:text-white">Subscribe Now</span>
-                                </a>
-                            </div>
                         ))}
                     </div>
 
-                    <div class="text-center mb-16">
-                        <a href="https://calendar.app.google/uDz6rZrYgUxqAC2i9"
-                            target="_blank"
-                           class="inline-block bg-green-400 font-bold py-3 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:bg-green-500 transform hover:-rotate-1 group">
-                            <span class="text-black group-hover:text-white">Book a 15-min Intro Call</span>
-                        </a>
-                    </div>
-
                     <div class="mb-16 relative">
-                        <h2 class="text-2xl md:text-3xl font-bold text-black mb-6 transform rotate-1 relative z-10 inline-block bg-yellow-300 px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                            Ready Solutions
+                        <h2 class="text-2xl md:text-3xl font-bold text-black mb-6 transform rotate-1 relative z-10 inline-block bg-yellow-200 px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                            App Packages
                         </h2>
                         <div class="absolute bottom-0 left-0 w-10 h-10 bg-pink-400 border-4 border-black rounded-full -translate-x-4 translate-y-4 z-0"></div>
                     </div>
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                         {readySolutions.map((solution, index) => (
-                            <div class={`bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform ${index % 2 === 0 ? 'rotate-1' : '-rotate-1'} transition-all duration-300 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden`}>
-                                <h3 class="text-2xl font-bold text-black mb-4">{solution.name}</h3>
-                                <p class="text-3xl font-bold text-blue-500 mb-4">${solution.price}</p>
-                                <p class="text-black mb-4">{solution.description}</p>
-                                <ul class="list-disc list-inside mb-4">
-                                    {solution.features.map((feature) => (
-                                        <li class="text-black">{feature}</li>
-                                    ))}
-                                </ul>
-                                <p class="mt-4 text-lg font-bold text-purple-600">Estimated delivery: {solution.deliveryTime}</p>
-                                <a href="/contact"
-                                   class="mt-6 inline-block w-full text-center bg-blue-400 font-bold py-2 px-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:bg-blue-500 group">
-                                    <span class="text-black group-hover:text-white">Get Started</span>
-                                </a>
-                            </div>
+                                <div class={`bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform ${index % 2 === 0 ? 'rotate-1' : '-rotate-1'} transition-all duration-300 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden`}>
+                                    <h3 class="text-2xl font-bold text-black mb-4">{solution.name}</h3>
+                                    <p class="text-3xl font-bold text-blue-500 mb-4">${solution.price}</p>
+                                    <p class="text-black mb-4">{solution.description}</p>
+                                    <ul class="list-disc list-inside mb-4">
+                                        {solution.features.map((feature) => (
+                                                <li class="text-black">{feature}</li>
+                                        ))}
+                                    </ul>
+                                    <p class="mt-4 text-lg font-bold text-purple-600">Estimated
+                                        delivery: {solution.deliveryTime}</p>
+                                    <a href="/contact"
+                                       class="mt-6 inline-block w-full text-center bg-green-400 font-bold py-2 px-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:bg-green-500 group">
+                                        <span class="text-black group-hover:text-white">Get Started</span>
+                                    </a>
+                                    <a href="https://calendar.app.google/uDz6rZrYgUxqAC2i9"
+                                       class="mt-2 inline-block w-full text-center text-sm text-gray-600 hover:text-black transition-colors duration-300">
+                                        or book a quick call to learn more
+                                    </a>
+                                </div>
                         ))}
                     </div>
 
-                    <div class="mb-16 bg-green-200 border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-1 relative overflow-hidden">
-                        <h2 class="text-2xl md:text-3xl font-bold text-black mb-6 relative z-10">What's Included in Every Package</h2>
+                    <div class="mb-16 bg-violet-200 border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-1 relative overflow-hidden">
+                        <h2 class="text-2xl md:text-3xl font-bold text-black mb-6 relative z-10">What's Included in
+                            Every Package</h2>
                         <ul class="list-disc list-inside text-lg mb-6 relative z-10">
                             <li>On-time updates</li>
                             <li>Weekly summary reports</li>
@@ -188,12 +185,23 @@ const readySolutions = [
                         </ul>
                     </div>
 
-                    <!--<div class="text-center">-->
-                    <!--    <a href="/faq"-->
-                    <!--       class="inline-block bg-yellow-300 font-bold py-2 px-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:bg-yellow-400 transform hover:rotate-1 group">-->
-                    <!--        <span class="text-black">Check out our FAQ</span>-->
-                    <!--    </a>-->
-                    <!--</div>-->
+                    <div class="text-center space-y-6">
+                        <p class="text-3xl font-extrabold transform -rotate-2 inline-block bg-pink-300 px-6 py-3 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                            Got questions?
+                        </p>
+                        <div class="flex flex-col items-center space-y-4 md:flex-row md:space-y-0 md:space-x-4 justify-center">
+                            <a href="/#faq"
+                               class="inline-block bg-yellow-300 font-bold py-3 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:bg-yellow-400 transform hover:rotate-1">
+                                <span class="text-black">Check out FAQ</span>
+                            </a>
+                            <p class="text-2xl font-bold">
+                                OR</p>
+                            <a href="/contact"
+                               class="inline-block bg-green-300 font-bold py-3 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:bg-green-400 transform hover:-rotate-1">
+                                <span class="text-black">Contact Me</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
@@ -220,10 +228,14 @@ const readySolutions = [
                 }
 
                 if (priceContainer) {
-                    priceContainer.querySelectorAll('.price').forEach(p => p.classList.add('hidden'));
+                    priceContainer.querySelectorAll('.price, .savings').forEach(p => p.classList.add('hidden'));
                     const selectedPrice = priceContainer.querySelector(`.price.${period}`);
+                    const selectedSavings = priceContainer.querySelector(`.savings.${period}`);
                     if (selectedPrice) {
                         selectedPrice.classList.remove('hidden');
+                    }
+                    if (selectedSavings) {
+                        selectedSavings.classList.remove('hidden');
                     }
                 }
             });
