@@ -5,3 +5,5 @@ services:
       dockerfile: Dockerfile
     ports:
       - "4321:4321"
+    volumes:
+      - ./landing:/app
