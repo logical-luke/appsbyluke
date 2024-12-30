@@ -15,28 +15,29 @@ const navItems = [
             <div class="flex-shrink-0 flex items-center transform -rotate-2">
                 <a href="/" class="inline-block">
                     <img
-                        src={appsByLukeLogo.src}
-                        width="256.2"
-                        height="120"
-                        alt="AppsByLuke Logo"
+                            src={appsByLukeLogo.src}
+                            width="256.2"
+                            height="120"
+                            alt="AppsByLuke Logo"
                     />
                 </a>
             </div>
             <div class="hidden md:block">
                 <div class="ml-10 flex items-baseline space-x-4">
                     {navItems.map((item, index) => (
-                        <a
-                            href={item.href}
-                            class={`text-black hover:bg-blue-500 hover:text-white px-4 py-3 text-lg font-bold transition duration-150 ease-in-out border-4 border-black transform ${index % 2 === 0 ? 'rotate-1' : '-rotate-1'} shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]`}
-                        >
-                            {item.name}
-                        </a>
+                            <a
+                                    href={item.href}
+                                    class={`text-black hover:bg-blue-500 hover:text-white px-4 py-3 text-lg font-bold transition duration-150 ease-in-out border-4 border-black transform ${index % 2 === 0 ? 'rotate-1' : '-rotate-1'} shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]`}
+                            >
+                                {item.name}
+                            </a>
                     ))}
                 </div>
             </div>
             <div class="md:hidden">
                 <button id="mobile-menu-button"
-                        class="text-black hover:text-blue-500 border-4 border-black p-2 transform rotate-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 bg-blue-200">
+                        class="text-black hover:text-blue-500 border-4 border-black p-2 transform rotate-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 bg-blue-200"
+                        aria-label="Toggle mobile menu">
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                               d="M4 6h16M4 12h16M4 18h16"></path>
@@ -48,12 +49,12 @@ const navItems = [
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t-4 border-black">
         <div class="px-2 pt-2 pb-3 space-y-4 sm:px-3">
             {navItems.map((item, index) => (
-                <a
-                    href={item.href}
-                    class={`text-black hover:bg-blue-500 hover:text-white block px-3 py-2 text-base font-bold border-4 border-black my-2 transform ${index % 2 === 0 ? 'rotate-1' : '-rotate-1'} shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300`}
-                >
-                    {item.name}
-                </a>
+                    <a
+                            href={item.href}
+                            class={`text-black hover:bg-blue-500 hover:text-white block px-3 py-2 text-base font-bold border-4 border-black my-2 transform ${index % 2 === 0 ? 'rotate-1' : '-rotate-1'} shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300`}
+                    >
+                        {item.name}
+                    </a>
             ))}
         </div>
     </div>
