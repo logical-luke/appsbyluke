@@ -1,8 +1,5 @@
 export const prerender = false;
 import type { APIRoute } from "astro";
-import sgMail from "@sendgrid/mail";
-
-sgMail.setApiKey(import.meta.env.SENDGRID_API_KEY);
 
 export const POST: APIRoute = async ({ request }) => {
   const data = await request.formData();
@@ -14,17 +11,31 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(JSON.stringify({ message: "Fill out all fields." }), { status: 400 });
   }
 
-  const msg = {
-    to: 'get@appsbyluke.com',
-    from: 'get@appsbyluke.com',
+  const body = JSON.stringify({
+    personalizations: [{ to: [{ email: "get@appsbyluke.com" }] }],
+    from: { email: "get@appsbyluke.com" },
     subject: `New message from ${name}`,
-    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-    html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong> ${message}</p>`,
-  };
+    content: [{
+      type: "text/plain",
+      value: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+    }]
+  });
 
   try {
-    await sgMail.send(msg);
-    return new Response(JSON.stringify({ message: "Message sent successfully!" }), { status: 200 });
+    const response = await fetch("https://api.sendgrid.com/v3/mail/send", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${import.meta.env.SENDGRID_API_KEY}`,
+        "Content-Type": "application/json"
+      },
+      body: body
+    });
+
+    if (response.ok) {
+      return new Response(JSON.stringify({ message: "Message sent successfully!" }), { status: 200 });
+    } else {
+      throw new Error(`SendGrid API responded with status ${response.status}`);
+    }
   } catch (error) {
     console.error(error);
     return new Response(JSON.stringify({ message: "Failed to send message." }), { status: 500 });
