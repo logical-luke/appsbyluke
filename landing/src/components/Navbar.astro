@@ -73,13 +73,30 @@ const navItems = [
     </div>
 </nav>
 
-<script>
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
+<script is:inline>
+    document.addEventListener('astro:page-load', () => {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-    }
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', (event) => {
+                if (event.target === mobileMenuButton || mobileMenuButton.contains(event.target)) {
+                    mobileMenu.classList.toggle('hidden');
+                    event.stopPropagation();
+                }
+            });
+        }
+    });
+
+    document.addEventListener('click', (event) => {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+
+        if (mobileMenu && !mobileMenu.classList.contains('hidden') &&
+            !mobileMenu.contains(event.target) &&
+            event.target !== mobileMenuButton &&
+            !mobileMenuButton.contains(event.target)) {
+            mobileMenu.classList.add('hidden');
+        }
+    });
 </script>
