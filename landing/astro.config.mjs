@@ -5,14 +5,10 @@ import tailwind from '@astrojs/tailwind';
 
 import sitemap from '@astrojs/sitemap';
 
-import cloudflare from '@astrojs/cloudflare';
-
 // https://astro.build/config
 export default defineConfig({
     site: 'https://appsbyluke.com',
     integrations: [tailwind(), sitemap()],
-    output: 'server',
-    adapter: cloudflare(),
     server: {
         host: '0.0.0.0',
         port: 4321

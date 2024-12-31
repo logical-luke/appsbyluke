@@ -1,0 +1,206 @@
+---
+const subscriptionPlans = [
+    {
+        name: "Standard",
+        price: {
+            monthly: 5999,
+            quarterly: 5499,
+            annually: 4999,
+        },
+        concurrentTasks: 1,
+    },
+    {
+        name: "Pro",
+        price: {
+            monthly: 8499,
+            quarterly: 7799,
+            annually: 6999,
+        },
+        concurrentTasks: 2,
+    }
+];
+
+const readySolutions = [
+    {
+        name: "MVP Launchpad",
+        price: 6999,
+        description: "Perfect for startups and small businesses looking to validate their ideas quickly.",
+        features: [
+            "Custom designed responsive web app",
+            "Core feature implementation",
+            "Basic user authentication",
+            "Data storage and retrieval",
+        ],
+        deliveryTime: "4-6 weeks",
+    },
+    {
+        name: "Scale-up Accelerator",
+        price: 10999,
+        description: "Ideal for businesses ready to expand their digital footprint and capabilities.",
+        features: [
+            "Advanced web application",
+            "Complex business logic implementation",
+            "Third-party API integrations",
+            "Performance optimization",
+            "Basic analytics setup",
+        ],
+        deliveryTime: "8-10 weeks",
+    },
+    {
+        name: "Enterprise Powerhouse",
+        price: 28999,
+        description: "Comprehensive solution for large-scale businesses with complex requirements.",
+        features: [
+            "Fully custom enterprise-grade application",
+            "Advanced user roles and permissions",
+            "Scalable architecture",
+            "Comprehensive testing suite",
+            "DevOps setup and deployment",
+        ],
+        deliveryTime: "12-16 weeks",
+    }
+];
+---
+
+<div class="mb-16 relative">
+    <h2 class="text-2xl md:text-3xl font-bold text-black mb-6 transform -rotate-2 relative z-10 inline-block bg-sky-200 px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+        Developer as Subscription
+    </h2>
+    <div class="absolute top-0 right-0 w-12 h-12 bg-yellow-400 border-4 border-black transform rotate-12 translate-x-2 -translate-y-2 z-0"></div>
+</div>
+
+<div class="grid md:grid-cols-2 gap-8 mb-16">
+    {subscriptionPlans.map((plan, index) => (
+            <div class={`bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform ${index % 2 === 0 ? '-rotate-1' : 'rotate-1'} transition-all duration-300 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden`}>
+                <h3 class="text-2xl font-bold text-black mb-4">{plan.name}</h3>
+                <div class="price-toggle flex flex-wrap justify-between mb-4 border-4 border-black">
+                    <button class="flex-1 py-2 px-2 md:px-4 text-sm md:text-base font-bold price-btn active bg-blue-400 text-white"
+                            data-period="monthly">Monthly
+                    </button>
+                    <button class="flex-1 py-2 px-2 md:px-4 text-sm md:text-base font-bold price-btn bg-gray-200 text-gray-600"
+                            data-period="quarterly">Quarterly
+                    </button>
+                    <button class="flex-1 py-2 px-2 md:px-4 text-sm md:text-base font-bold price-btn bg-gray-200 text-gray-600"
+                            data-period="annually">Annually
+                    </button>
+                </div>
+                <p class="text-3xl font-bold text-blue-500 mb-4">
+                    <span class="price monthly">${plan.price.monthly}</span>
+                    <span class="price quarterly hidden">${plan.price.quarterly}</span>
+                    <span class="price annually hidden">${plan.price.annually}</span>
+                    <span class="text-lg font-normal">/month</span>
+                    <span class="savings quarterly hidden ml-2 inline-block">
+                                            <span class="text-sm font-bold bg-green-300 text-black px-2 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+                                                Save ${(plan.price.monthly - plan.price.quarterly).toFixed(2)}/month
+                                            </span>
+                                        </span>
+                    <span class="savings annually hidden ml-2 inline-block">
+                                            <span class="text-sm font-bold bg-green-300 text-black px-2 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+                                                Save ${(plan.price.monthly - plan.price.annually).toFixed(2)}/month
+                                            </span>
+                                        </span>
+                </p>
+                <p class="text-lg font-bold text-black mb-4">{plan.concurrentTasks}
+                    task{plan.concurrentTasks > 1 ? 's' : ''} at a time</p>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Unlimited requests</li>
+                    <li>Unlimited users</li>
+                    <li>Unlimited features/requirements</li>
+                    <li>Unlimited refactors/bug fixes</li>
+                    <li>Cancel or pause anytime</li>
+                    <li>No hidden fees or penalties</li>
+                </ul>
+                <p class="text-lg font-bold text-black mb-4">Average delivery time: 24-48 hours</p>
+                <a href="/contact"
+                   class="mt-6 inline-block w-full text-center bg-green-400 font-bold py-2 px-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:bg-green-500 group">
+                    <span class="text-black group-hover:text-white">Subscribe Now</span>
+                </a>
+                <a href="https://calendar.app.google/uDz6rZrYgUxqAC2i9"
+                   class="mt-2 inline-block w-full text-center text-sm text-gray-600 hover:text-black transition-colors duration-300">
+                    or book a quick call to learn more
+                </a>
+            </div>
+    ))}
+</div>
+
+<div class="mb-16 relative">
+    <h2 class="text-2xl md:text-3xl font-bold text-black mb-6 transform rotate-1 relative z-10 inline-block bg-yellow-200 px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+        App Packages
+    </h2>
+    <div class="absolute bottom-0 left-0 w-10 h-10 bg-pink-400 border-4 border-black rounded-full -translate-x-4 translate-y-4 z-0"></div>
+</div>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+    {readySolutions.map((solution, index) => (
+            <div class={`bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform ${index % 2 === 0 ? 'rotate-1' : '-rotate-1'} transition-all duration-300 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden`}>
+                <h3 class="text-2xl font-bold text-black mb-4">{solution.name}</h3>
+                <p class="text-3xl font-bold text-blue-500 mb-4">${solution.price}</p>
+                <p class="text-black mb-4">{solution.description}</p>
+                <ul class="list-disc list-inside mb-4">
+                    {solution.features.map((feature) => (
+                            <li class="text-black">{feature}</li>
+                    ))}
+                </ul>
+                <p class="mt-4 text-lg font-bold text-purple-600">Estimated
+                    delivery: {solution.deliveryTime}</p>
+                <a href="/contact"
+                   class="mt-6 inline-block w-full text-center bg-green-400 font-bold py-2 px-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:bg-green-500 group">
+                    <span class="text-black group-hover:text-white">Get Started</span>
+                </a>
+                <a href="https://calendar.app.google/uDz6rZrYgUxqAC2i9"
+                   class="mt-2 inline-block w-full text-center text-sm text-gray-600 hover:text-black transition-colors duration-300">
+                    or book a quick call to learn more
+                </a>
+            </div>
+    ))}
+</div>
+
+<div class="mb-16 bg-violet-200 border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-1 relative overflow-hidden">
+    <h2 class="text-2xl md:text-3xl font-bold text-black mb-6 relative z-10">What's Included in
+        Every Package</h2>
+    <ul class="list-disc list-inside text-lg mb-6 relative z-10">
+        <li>On-time updates</li>
+        <li>Weekly summary reports</li>
+        <li>Monthly detailed reports</li>
+        <li>Code reviews</li>
+        <li>Direct communication channel</li>
+        <li>Version control and project management tools</li>
+    </ul>
+</div>
+
+<script>
+    function initializePriceToggle() {
+        const priceBtns = document.querySelectorAll('.price-btn');
+        priceBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const period = btn.getAttribute('data-period');
+                const priceToggle = btn.closest('.price-toggle');
+                const priceContainer = btn.closest('.price-toggle')?.parentElement;
+
+                if (priceToggle) {
+                    priceToggle.querySelectorAll('.price-btn').forEach(b => {
+                        b.classList.remove('active', 'bg-blue-400', 'text-white');
+                        b.classList.add('bg-gray-200', 'text-gray-600');
+                    });
+                    btn.classList.add('active', 'bg-blue-400', 'text-white');
+                    btn.classList.remove('bg-gray-200', 'text-gray-600');
+                }
+
+                if (priceContainer) {
+                    priceContainer.querySelectorAll('.price, .savings').forEach(p => p.classList.add('hidden'));
+                    const selectedPrice = priceContainer.querySelector(`.price.${period}`);
+                    const selectedSavings = priceContainer.querySelector(`.savings.${period}`);
+                    if (selectedPrice) {
+                        selectedPrice.classList.remove('hidden');
+                    }
+                    if (selectedSavings) {
+                        selectedSavings.classList.remove('hidden');
+                    }
+                }
+            });
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', initializePriceToggle);
+    document.addEventListener('astro:page-load', initializePriceToggle);
+</script>
