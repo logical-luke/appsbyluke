@@ -323,9 +323,6 @@ const techGroups = [
         });
     }
 
-    // Run on initial load
     document.addEventListener('DOMContentLoaded', initializePriceToggle);
-
-    // Run on each Astro page change
     document.addEventListener('astro:page-load', initializePriceToggle);
 </script>
