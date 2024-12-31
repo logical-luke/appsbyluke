@@ -3,7 +3,14 @@
         <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative">
             <h2 class="text-3xl font-bold text-black mb-8 transform -rotate-1 inline-block bg-yellow-300 px-4 py-2 border-4 border-black">Frequently Asked Questions</h2>
 
-            <div class="space-y-4">
+            <div class="mb-8 flex justify-center">
+                <div class="inline-flex border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    <button id="subscriptionToggle" class="px-4 py-2 bg-blue-400 text-white font-bold transition-all duration-300">Subscription</button>
+                    <button id="packagesToggle" class="px-4 py-2 bg-gray-200 text-gray-700 font-bold transition-all duration-300">App Packages</button>
+                </div>
+            </div>
+
+            <div id="subscriptionFAQ" class="space-y-4">
                 {[
                     {
                         question: "How do I get started with AppsByLuke?",
@@ -54,23 +61,63 @@
                         answer: "No, you retain access to all the code I've developed for you, even after cancelling your subscription."
                     }
                 ].map((faq, index) => (
-                    <div class="bg-pink-100 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-300 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                        <button
-                            class="w-full text-left p-4 font-bold text-black focus:outline-none flex justify-between items-center"
-                            onclick={`document.getElementById('faq-answer-${index}').classList.toggle('hidden')`}
-                        >
-                            <span>{faq.question}</span>
-                            <span class="text-2xl">+</span>
-                        </button>
-                        <div id={`faq-answer-${index}`} class="bg-white hidden p-4 border-t-4 border-black">
-                            <p class="text-black">{faq.answer}</p>
+                        <div class="bg-pink-100 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-300 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                            <button
+                                    class="w-full text-left p-4 font-bold text-black focus:outline-none flex justify-between items-center"
+                                    onclick={`document.getElementById('faq-answer-${index}').classList.toggle('hidden')`}
+                            >
+                                <span>{faq.question}</span>
+                                <span class="text-2xl">+</span>
+                            </button>
+                            <div id={`faq-answer-${index}`} class="bg-white hidden p-4 border-t-4 border-black">
+                                <p class="text-black">{faq.answer}</p>
+                            </div>
                         </div>
-                    </div>
+                ))}
+            </div>
+
+            <div id="packagesFAQ" class="space-y-4 hidden">
+                {[
+                    {
+                        question: "What's included in the app packages?",
+                        answer: "Each app package includes custom designed responsive web app, core feature implementation, and varies based on the package level. The MVP Launchpad includes basic features, while the Enterprise Powerhouse offers a fully custom enterprise-grade application with advanced features."
+                    },
+                    {
+                        question: "How long does it take to deliver an app package?",
+                        answer: "Delivery times vary depending on the package. The MVP Launchpad typically takes 4-6 weeks, the Scale-up Accelerator 8-10 weeks, and the Enterprise Powerhouse 12-16 weeks."
+                    },
+                    {
+                        question: "What if I need more features than what's included in a package?",
+                        answer: "If you need additional features beyond what's included in a package, we can discuss custom additions or upgrading to a more comprehensive package. Alternatively, you might consider the subscription model for ongoing development."
+                    },
+                    {
+                        question: "Do the app packages include hosting and maintenance?",
+                        answer: "The packages primarily cover development. Hosting and long-term maintenance are typically separate considerations, but we can discuss these aspects and provide recommendations or additional services as needed."
+                    },
+                    {
+                        question: "What technologies are used for the app packages?",
+                        answer: "We use a modern tech stack including JavaScript, TypeScript, PHP, or Python for backend, and frameworks like Vue.js or Astro for frontend. The specific technologies are chosen based on the project requirements and what's best suited for your application."
+                    }
+                ].map((faq, index) => (
+                        <div class="bg-pink-100 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-300 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                            <button
+                                    class="w-full text-left p-4 font-bold text-black focus:outline-none flex justify-between items-center"
+                                    onclick={`document.getElementById('packages-faq-answer-${index}').classList.toggle('hidden')`}
+                            >
+                                <span>{faq.question}</span>
+                                <span class="text-2xl">+</span>
+                            </button>
+                            <div id={`packages-faq-answer-${index}`}
+                                 class="bg-white hidden p-4 border-t-4 border-black">
+                                <p class="text-black">{faq.answer}</p>
+                            </div>
+                        </div>
                 ))}
             </div>
 
             <div class="mt-12 text-center">
-                <a href="/contact" class="inline-block bg-green-400 font-bold py-3 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:bg-green-500 group">
+                <a href="/contact"
+                   class="inline-block bg-green-400 font-bold py-3 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:bg-green-500 group">
                     <span class="text-black group-hover:text-white">Still have questions? Contact me!</span>
                 </a>
             </div>
@@ -79,9 +126,38 @@
 </div>
 
 <script>
-    document.addEventListener('astro:page-load', () => {
-        document.querySelectorAll('[id^="faq-answer-"]').forEach((el) => {
+    function initializeFAQ() {
+        const subscriptionToggle = document.getElementById('subscriptionToggle');
+        const packagesToggle = document.getElementById('packagesToggle');
+        const subscriptionFAQ = document.getElementById('subscriptionFAQ');
+        const packagesFAQ = document.getElementById('packagesFAQ');
+
+        function showSubscriptionFAQ() {
+            subscriptionFAQ?.classList.remove('hidden');
+            packagesFAQ?.classList.add('hidden');
+            subscriptionToggle?.classList.remove('bg-gray-200', 'text-gray-700');
+            subscriptionToggle?.classList.add('bg-blue-400', 'text-white');
+            packagesToggle?.classList.remove('bg-blue-400', 'text-white');
+            packagesToggle?.classList.add('bg-gray-200', 'text-gray-700');
+        }
+
+        function showPackagesFAQ() {
+            packagesFAQ?.classList.remove('hidden');
+            subscriptionFAQ?.classList.add('hidden');
+            packagesToggle?.classList.remove('bg-gray-200', 'text-gray-700');
+            packagesToggle?.classList.add('bg-blue-400', 'text-white');
+            subscriptionToggle?.classList.remove('bg-blue-400', 'text-white');
+            subscriptionToggle?.classList.add('bg-gray-200', 'text-gray-700');
+        }
+
+        subscriptionToggle?.addEventListener('click', showSubscriptionFAQ);
+        packagesToggle?.addEventListener('click', showPackagesFAQ);
+
+        document.querySelectorAll('[id^="faq-answer-"], [id^="packages-faq-answer-"]').forEach((el) => {
             el.classList.add('hidden');
         });
-    });
+    }
+
+    document.addEventListener('DOMContentLoaded', initializeFAQ);
+    document.addEventListener('astro:page-load', initializeFAQ);
 </script>
