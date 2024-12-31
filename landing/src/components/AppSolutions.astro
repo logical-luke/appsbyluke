@@ -1,0 +1,120 @@
+<div id="app-solutions" class="bg-green-200 py-16 border-y-4 border-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 transform -rotate-1 inline-block bg-yellow-300 px-6 py-3 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            Web Solutions I Build for You
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16">
+            {[
+                {
+                    title: "MVP & Prototypes",
+                    description: "Quickly validate your ideas with functional prototypes and MVPs",
+                    items: [
+                        "Rapid MVP Development",
+                        "Prototype Iteration",
+                        "User Feedback Integration",
+                        "Scalable Architecture Planning"
+                    ],
+                    icon: "🚀"
+                },
+                {
+                    title: "E-commerce Solutions",
+                    description: "Build robust online stores with advanced features",
+                    items: [
+                        "Custom E-commerce Platforms",
+                        "Payment Gateway Integration",
+                        "Inventory Management Systems",
+                        "Personalized Recommendation Engines"
+                    ],
+                    icon: "🛒"
+                },
+                {
+                    title: "SaaS Applications",
+                    description: "Develop scalable cloud-based software solutions",
+                    items: [
+                        "Multi-tenant Architecture",
+                        "Subscription Management",
+                        "User Authentication & Authorization",
+                        "Automated Billing Systems"
+                    ],
+                    icon: "☁️"
+                },
+                {
+                    title: "Business Management",
+                    description: "Streamline operations with tailored management systems",
+                    items: [
+                        "CRM Solutions",
+                        "Booking Systems",
+                        "Project Management Tools",
+                        "Resource Allocation Platforms"
+                    ],
+                    icon: "💼"
+                },
+                {
+                    title: "Data & Analytics",
+                    description: "Gain insights with powerful data visualization tools",
+                    items: [
+                        "Analytics Dashboards",
+                        "Real-time Reporting",
+                        "Custom KPI Tracking",
+                        "Predictive Analytics Integration"
+                    ],
+                    icon: "📊"
+                },
+                {
+                    title: "AI & Machine Learning Integration",
+                    description: "Enhance your apps with intelligent features using existing AI services",
+                    items: [
+                        "AI-powered Chatbots",
+                        "Intelligent Search Functionality",
+                        "Content Generation Assistance",
+                        "Predictive User Behavior Analysis"
+                    ],
+                    icon: "🤖"
+                },
+                {
+                    title: "Integration & APIs",
+                    description: "Connect your systems and leverage external services",
+                    items: [
+                        "API Development",
+                        "Third-party Integrations",
+                        "Webhook Implementation",
+                        "Microservices Architecture"
+                    ],
+                    icon: "🔗"
+                },
+                {
+                    title: "Security & Performance",
+                    description: "Optimize your app's speed, reliability, and security",
+                    items: [
+                        "Security Audits",
+                        "Performance Optimization",
+                        "Load Balancing Solutions",
+                        "Data Encryption Implementation"
+                    ],
+                    icon: "🔒"
+                }
+            ].map((group) => (
+                    <div class="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                        <div class="text-4xl mb-4">{group.icon}</div>
+                        <h3 class="text-xl font-bold mb-2">{group.title}</h3>
+                        <p class="mb-4 text-sm">{group.description}</p>
+                        <ul class="list-disc list-inside text-sm">
+                            {group.items.map((item) => (
+                                    <li>{item}</li>
+                            ))}
+                        </ul>
+                    </div>
+            ))}
+        </div>
+
+        <div class="mt-12 text-center">
+            <p class="text-xl font-bold mb-6">Whether you need a complete app or ongoing development support, I'm here
+                to help!</p>
+            <a href="/contact"
+               class="inline-block bg-blue-400 font-bold py-3 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:bg-blue-500 group">
+                <span class="text-black group-hover:text-white">Discuss Your Project</span>
+            </a>
+        </div>
+    </div>
+</div>
