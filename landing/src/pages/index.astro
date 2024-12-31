@@ -15,10 +15,12 @@ import Faq from "../components/Faq.astro";
 
 <script>
     document.addEventListener('astro:page-load', () => {
+        const yOffset = 30;
         if (window.location.hash === '#faq') {
-            const faqSection = document.getElementById('faq');
-            if (faqSection) {
-                faqSection.scrollIntoView({behavior: 'smooth'});
+            const faqElement = document.getElementById('faq');
+            if (faqElement) {
+                const y = faqElement.getBoundingClientRect().top + window.scrollY + yOffset;
+                window.scrollTo({top: y, behavior: 'smooth'});
             }
         }
     });
