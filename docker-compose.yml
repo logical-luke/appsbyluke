@@ -7,3 +7,11 @@ services:
       - "4321:4321"
     volumes:
       - ./landing:/app
+  api:
+    build:
+      context: api
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./api:/api

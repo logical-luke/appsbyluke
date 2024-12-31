@@ -13,11 +13,14 @@ Project URL: [AppsByLuke](https://appsbyluke.com/)
     - Stack:
       - Astro
       - Tailwind CSS
+    - Default exposed port: 4321
 - `/api` - API for the website
     - Stack:
+      - Nest
       - Node.js
       - Fastify
       - PostgreSQL
+    - Default exposed port: 3000
 - `/subscription` - subscription form and payment gateway
     - Stack:
       - Vue.js
