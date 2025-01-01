@@ -64,159 +64,194 @@ const readySolutions = [
 ];
 ---
 
-<div class="mb-16 relative">
+<div class="mb-4 relative">
     <h2 class="text-2xl md:text-3xl font-bold text-black mb-6 transform -rotate-2 relative z-10 inline-block bg-yellow-300 px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
         Developer as Subscription
     </h2>
     <div class="absolute top-0 right-0 w-12 h-12 bg-yellow-400 border-4 border-black transform rotate-12 translate-x-2 -translate-y-2 z-0"></div>
 </div>
 
-<div class="grid md:grid-cols-2 gap-8 mb-16">
-    {subscriptionPlans.map((plan, index) => (
-            <div class={`bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform ${index % 2 === 0 ? '-rotate-1' : 'rotate-1'} relative overflow-hidden`}>
-                <h3 class="text-2xl font-bold text-black mb-4">{plan.name}</h3>
-                <div class="price-toggle flex flex-wrap justify-between mb-4 border-4 border-black">
-                    <button class="flex-1 py-2 px-2 md:px-4 text-sm md:text-base font-bold price-btn active bg-blue-400 text-white"
-                            data-period="monthly">Monthly
-                    </button>
-                    <button class="flex-1 py-2 px-2 md:px-4 text-sm md:text-base font-bold price-btn bg-gray-200 text-gray-600"
-                            data-period="quarterly">Quarterly
-                    </button>
-                    <button class="flex-1 py-2 px-2 md:px-4 text-sm md:text-base font-bold price-btn bg-gray-200 text-gray-600"
-                            data-period="annually">Annually
-                    </button>
+<div class="max-w-2xl mx-auto mb-16">
+    <div class="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-1 relative">
+        <div class="product-toggle flex flex-wrap mb-4 border-4 border-black">
+            <button class="flex-1 py-2 px-4 font-bold product-btn active bg-blue-400 text-white"
+                    data-product="standard">Standard
+            </button>
+            <button class="flex-1 py-2 px-4 font-bold product-btn bg-gray-200 text-gray-600" data-product="pro">Pro
+            </button>
+        </div>
+
+        {subscriptionPlans.map((plan, index) => (
+                <div class={`product-content ${index === 0 ? 'standard' : 'pro'} ${index === 0 ? '' : 'hidden'}`}>
+                    <div class="price-toggle flex flex-wrap mb-4 border-4 border-black">
+                        <button class="flex-1 py-2 px-4 font-bold price-btn active bg-blue-400 text-white"
+                                data-period="monthly">Monthly
+                        </button>
+                        <button class="flex-1 py-2 px-4 font-bold price-btn bg-gray-200 text-gray-600"
+                                data-period="quarterly">Quarterly
+                        </button>
+                        <button class="flex-1 py-2 px-4 font-bold price-btn bg-gray-200 text-gray-600"
+                                data-period="annually">Annually
+                        </button>
+                    </div>
+                    <p class="text-3xl font-bold text-blue-500 mb-4">
+                        <span class="price monthly">${plan.price.monthly}</span>
+                        <span class="price quarterly hidden">${plan.price.quarterly}</span>
+                        <span class="price annually hidden">${plan.price.annually}</span>
+                        <span class="text-lg font-normal">/month</span>
+                        <span class="savings quarterly hidden ml-2 inline-block">
+                            <span class="text-sm font-bold bg-green-300 text-black px-2 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+                                Save ${(plan.price.monthly - plan.price.quarterly).toFixed(2)}/month
+                            </span>
+                        </span>
+                        <span class="savings annually hidden ml-2 inline-block">
+                            <span class="text-sm font-bold bg-green-300 text-black px-2 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+                                Save ${(plan.price.monthly - plan.price.annually).toFixed(2)}/month
+                            </span>
+                        </span>
+                    </p>
+
+                    <p class="text-lg font-bold text-black mb-4">{plan.concurrentTasks}
+                        task{plan.concurrentTasks > 1 ? 's' : ''} at a time</p>
+                    <div class="flex items-center justify-center gap-2 p-3 bg-blue-100 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                        <Icon name="tabler:clock" class="w-6 h-6"/>
+                        <p class="text-lg font-bold text-black">Avg. solution delivery: 24-48h</p>
+                    </div>
+                    <ul class="list-disc list-inside my-4 font-bold">
+                        <li>Unlimited requests</li>
+                        <li>Unlimited users</li>
+                        <li>Unlimited features/requirements</li>
+                        <li>Cancel or pause anytime</li>
+                    </ul>
+                    <a href="/contact"
+                       class="inline-block w-full text-center bg-green-500 font-bold py-3 px-6 border-black border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl hover:bg-green-600 text-white">
+                        Subscribe Now
+                    </a>
                 </div>
-                <p class="text-3xl font-bold text-blue-500 mb-4">
-                    <span class="price monthly">${plan.price.monthly}</span>
-                    <span class="price quarterly hidden">${plan.price.quarterly}</span>
-                    <span class="price annually hidden">${plan.price.annually}</span>
-                    <span class="text-lg font-normal">/month</span>
-                    <span class="savings quarterly hidden ml-2 inline-block">
-                                            <span class="text-sm font-bold bg-green-300 text-black px-2 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
-                                                Save ${(plan.price.monthly - plan.price.quarterly).toFixed(2)}/month
-                                            </span>
-                                        </span>
-                    <span class="savings annually hidden ml-2 inline-block">
-                                            <span class="text-sm font-bold bg-green-300 text-black px-2 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
-                                                Save ${(plan.price.monthly - plan.price.annually).toFixed(2)}/month
-                                            </span>
-                                        </span>
-                </p>
-                <p class="text-lg font-bold text-black mb-4">{plan.concurrentTasks}
-                    task{plan.concurrentTasks > 1 ? 's' : ''} at a time</p>
-                <div class="flex text-center items-center justify-center gap-2 p-3 bg-blue-100 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                    <Icon name="tabler:clock" class="w-6 h-6"/>
-                    <p class="text-lg font-bold text-black">Avg. solution delivery: 24-48h</p>
-                </div>
-                <span
-                        class="mt-2 mb-4 inline-block w-full text-center text-sm text-gray-600 hover:text-black transition-colors duration-300">
-                    Depends on complexity of task. Smaller tasks may be delivered in hours.
-                </span>
-                <ul class="list-disc list-inside mb-4 font-bold">
-                    <li>Unlimited requests</li>
-                    <li>Unlimited users</li>
-                    <li>Unlimited features/requirements</li>
-                    <li>Unlimited refactors/bug fixes</li>
-                    <li>Cancel or pause anytime</li>
-                    <li>No hidden fees or penalties</li>
-                </ul>
-                <a href="/contact"
-                   class="mt-6 inline-block w-full text-center bg-green-500 font-bold py-3 px-6 rounded-none border-black border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl hover:bg-green-600 text-white">
-                    Subscribe Now
-                </a>
-                <a href="https://calendar.app.google/uDz6rZrYgUxqAC2i9"
-                   class="mt-2 inline-block w-full text-center text-sm text-gray-600 hover:text-black transition-colors duration-300">
-                    or book a quick call to learn more
-                </a>
-            </div>
-    ))}
+        ))}
+    </div>
 </div>
 
-<div class="mb-16 relative">
+<div class="mb-4 relative">
     <h2 class="text-2xl md:text-3xl font-bold text-black mb-6 transform rotate-1 relative z-10 inline-block bg-yellow-300 px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
         App Packages
     </h2>
-    <div class="absolute bottom-0 left-0 w-10 h-10 bg-pink-400 border-4 border-black rounded-full -translate-x-4 translate-y-4 z-0"></div>
 </div>
 
-<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-    {readySolutions.map((solution, index) => (
-            <div class={`bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform ${index % 2 === 0 ? 'rotate-1' : '-rotate-1'} relative overflow-hidden`}>
-                <h3 class="text-2xl font-bold text-black mb-4">{solution.name}</h3>
-                <p class="text-3xl font-bold text-blue-500 mb-4">${solution.price}</p>
-                <p class="text-black mb-4">{solution.description}</p>
-                <ul class="list-disc list-inside mb-4 font-bold">
-                    {solution.features.map((feature) => (
-                            <li class="text-black">{feature}</li>
-                    ))}
-                </ul>
-                <div class="flex text-center items-center justify-center gap-2 p-3 bg-blue-100 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                    <Icon name="tabler:clock" class="w-6 h-6"/>
-                    <p class="text-lg font-bold text-black">Estimated
-                        delivery: {solution.deliveryTime}</p>
+<div class="max-w-2xl mx-auto mb-16">
+    <div class="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-1 relative">
+        <div class="solution-toggle flex flex-wrap mb-4 border-4 border-black">
+            <button class="flex-1 py-2 px-4 font-bold solution-btn active bg-blue-400 text-white"
+                    data-solution="mvp">MVP
+            </button>
+            <button class="flex-1 py-2 px-4 font-bold solution-btn bg-gray-200 text-gray-600"
+                    data-solution="scaleup">Scale-up
+            </button>
+            <button class="flex-1 py-2 px-4 font-bold solution-btn bg-gray-200 text-gray-600"
+                    data-solution="enterprise">Enterprise
+            </button>
+        </div>
+
+        {readySolutions.map((solution, index) => (
+                <div class={`solution-content ${index === 0 ? 'mvp' : index === 1 ? 'scaleup' : 'enterprise'} ${index === 0 ? '' : 'hidden'}`}>
+                    <p class="text-3xl font-bold text-blue-500 mb-4">${solution.price}</p>
+                    <p class="text-black mb-4">{solution.description}</p>
+                    <ul class="list-disc list-inside mb-4 font-bold">
+                        {solution.features.map((feature) => (
+                                <li class="text-black">{feature}</li>
+                        ))}
+                    </ul>
+                    <div class="flex items-center justify-center gap-2 p-3 bg-blue-100 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                        <Icon name="tabler:clock" class="w-6 h-6"/>
+                        <p class="text-lg font-bold text-black">Estimated delivery: {solution.deliveryTime}</p>
+                    </div>
+                    <a href="/contact"
+                       class="mt-6 inline-block w-full text-center bg-green-500 font-bold py-3 px-6 border-black border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl hover:bg-green-600 text-white">
+                        Get Started
+                    </a>
                 </div>
-                <span
-                        class="mt-2 mb-4 inline-block w-full text-center text-sm text-gray-600 hover:text-black transition-colors duration-300">
-                    Detailed timeline and milestones will be provided upon project kickoff.
-                </span>
-                <a href="/contact"
-                   class="mt-6 inline-block w-full text-center bg-green-500 font-bold py-3 px-6 rounded-none border-black border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl hover:bg-green-600 text-white">
-                    Get Started
-                </a>
-                <a href="https://calendar.app.google/uDz6rZrYgUxqAC2i9"
-                   class="mt-2 inline-block w-full text-center text-sm text-gray-600 hover:text-black transition-colors duration-300">
-                    or book a quick call to learn more
-                </a>
-            </div>
-    ))}
+        ))}
+    </div>
 </div>
-
-<div class="mb-16 bg-violet-200 border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-1 relative overflow-hidden">
-    <h2 class="text-2xl md:text-3xl font-bold text-black mb-6 relative z-10">What's Included in
-        Every Package</h2>
-    <ul class="list-disc list-inside text-lg mb-6 relative z-10">
-        <li>On-time updates</li>
-        <li>Weekly summary reports</li>
-        <li>Monthly detailed reports</li>
-        <li>Code reviews</li>
-        <li>Direct communication channel</li>
-        <li>Version control and project management tools</li>
-    </ul>
-</div>
-
 <script>
-    function initializePriceToggle() {
+    function initializeToggles() {
+        const productBtns = document.querySelectorAll('.product-btn');
+        const solutionBtns = document.querySelectorAll('.solution-btn');
         const priceBtns = document.querySelectorAll('.price-btn');
+
+        function updateAllSubscriptionPeriods(selectedPeriod: string) {
+            document.querySelectorAll('.product-content').forEach(content => {
+                // Update toggle buttons
+                content.querySelectorAll('.price-btn').forEach(btn => {
+                    if (btn.getAttribute('data-period') === selectedPeriod) {
+                        btn.classList.add('active', 'bg-blue-400', 'text-white');
+                        btn.classList.remove('bg-gray-200', 'text-gray-600');
+                    } else {
+                        btn.classList.remove('active', 'bg-blue-400', 'text-white');
+                        btn.classList.add('bg-gray-200', 'text-gray-600');
+                    }
+                });
+
+                // Update visible price
+                content.querySelectorAll('.price').forEach(p => p.classList.add('hidden'));
+                content.querySelector(`.price.${selectedPeriod}`)?.classList.remove('hidden');
+
+                // Update savings display
+                content.querySelectorAll('.savings').forEach(s => s.classList.add('hidden'));
+                if (selectedPeriod !== 'monthly') {
+                    content.querySelector(`.savings.${selectedPeriod}`)?.classList.remove('hidden');
+                }
+            });
+        }
+
+        productBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const product = btn.getAttribute('data-product');
+
+                // Update product buttons
+                productBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-blue-400', 'text-white');
+                    b.classList.add('bg-gray-200', 'text-gray-600');
+                });
+                btn.classList.add('active', 'bg-blue-400', 'text-white');
+                btn.classList.remove('bg-gray-200', 'text-gray-600');
+
+                // Switch visible content
+                document.querySelectorAll('.product-content').forEach(content => {
+                    content.classList.add('hidden');
+                });
+                document.querySelector(`.product-content.${product}`)?.classList.remove('hidden');
+            });
+        });
+
+        solutionBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const solution = btn.getAttribute('data-solution');
+                solutionBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-blue-400', 'text-white');
+                    b.classList.add('bg-gray-200', 'text-gray-600');
+                });
+                btn.classList.add('active', 'bg-blue-400', 'text-white');
+                btn.classList.remove('bg-gray-200', 'text-gray-600');
+
+                document.querySelectorAll('.solution-content').forEach(content => {
+                    content.classList.add('hidden');
+                });
+                document.querySelector(`.solution-content.${solution}`)?.classList.remove('hidden');
+            });
+        });
+
         priceBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const period = btn.getAttribute('data-period');
-                const priceToggle = btn.closest('.price-toggle');
-                const priceContainer = btn.closest('.price-toggle')?.parentElement;
-
-                if (priceToggle) {
-                    priceToggle.querySelectorAll('.price-btn').forEach(b => {
-                        b.classList.remove('active', 'bg-blue-400', 'text-white');
-                        b.classList.add('bg-gray-200', 'text-gray-600');
-                    });
-                    btn.classList.add('active', 'bg-blue-400', 'text-white');
-                    btn.classList.remove('bg-gray-200', 'text-gray-600');
-                }
-
-                if (priceContainer) {
-                    priceContainer.querySelectorAll('.price, .savings').forEach(p => p.classList.add('hidden'));
-                    const selectedPrice = priceContainer.querySelector(`.price.${period}`);
-                    const selectedSavings = priceContainer.querySelector(`.savings.${period}`);
-                    if (selectedPrice) {
-                        selectedPrice.classList.remove('hidden');
-                    }
-                    if (selectedSavings) {
-                        selectedSavings.classList.remove('hidden');
-                    }
+                if (period) {
+                    updateAllSubscriptionPeriods(period);
                 }
             });
         });
     }
 
-    document.addEventListener('DOMContentLoaded', initializePriceToggle);
-    document.addEventListener('astro:page-load', initializePriceToggle);
+    document.addEventListener('DOMContentLoaded', initializeToggles);
+    document.addEventListener('astro:page-load', initializeToggles);
+
 </script>
