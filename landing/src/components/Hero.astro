@@ -1,3 +1,7 @@
+---
+import {Icon} from 'astro-icon/components'
+---
+
 <div class="bg-blue-200 flex items-center justify-center border-y-4 border-black relative overflow-hidden py-16">
     <div class="absolute inset-0 grid grid-cols-10 grid-rows-10 opacity-10">
         {Array(100).fill(null).map((_, i) => (
@@ -33,13 +37,8 @@
                         <h2 class="text-2xl font-bold mb-4">Services Offered:</h2>
                         <div class="space-y-4">
                             <div class="flex items-center">
-                                <div class="w-12 h-12 bg-yellow-300 border-4 border-black flex items-center justify-center mr-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                         viewBox="0 0 24 24"
-                                         stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                                    </svg>
+                                <div class="w-12 h-12 bg-emerald-200 border-4 border-black flex items-center justify-center mr-4">
+                                    <Icon name="tabler:infinity" class="text-2xl "/>
                                 </div>
                                 <div>
                                     <h3 class="font-bold">Developer as Subscription</h3>
@@ -47,13 +46,8 @@
                                 </div>
                             </div>
                             <div class="flex items-center">
-                                <div class="w-12 h-12 bg-pink-300 border-4 border-black flex items-center justify-center mr-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                         viewBox="0 0 24 24"
-                                         stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
-                                    </svg>
+                                <div class="w-12 h-12 bg-teal-200 border-4 border-black flex items-center justify-center mr-4">
+                                    <Icon name="tabler:package" class="text-2xl "/>
                                 </div>
                                 <div>
                                     <h3 class="font-bold">App Packages</h3>
@@ -66,17 +60,17 @@
                             <div class="relative p-4 bg-yellow-100 border-4 border-black">
                                 <div class="flex justify-between items-center">
                                     <div class="text-center z-10">
-                                        <div class="w-20 h-20 bg-blue-300 border-4 border-black flex items-center justify-center mx-auto mb-2">
+                                        <div class="w-20 h-20 bg-blue-200 border-4 border-black flex items-center justify-center mx-auto mb-2">
                                             <span class="text-sm font-bold">Request</span>
                                         </div>
                                     </div>
                                     <div class="text-center z-10">
-                                        <div class="w-20 h-20 bg-green-300 border-4 border-black flex items-center justify-center mx-auto mb-2">
+                                        <div class="w-20 h-20 bg-green-200 border-4 border-black flex items-center justify-center mx-auto mb-2">
                                             <span class="text-sm font-bold">Resolve</span>
                                         </div>
                                     </div>
                                     <div class="text-center z-10">
-                                        <div class="w-20 h-20 bg-purple-300 border-4 border-black flex items-center justify-center mx-auto mb-2">
+                                        <div class="w-20 h-20 bg-purple-200 border-4 border-black flex items-center justify-center mx-auto mb-2">
                                             <span class="text-sm font-bold">Repeat</span>
                                         </div>
                                     </div>
