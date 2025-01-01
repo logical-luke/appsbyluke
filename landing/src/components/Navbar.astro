@@ -1,5 +1,6 @@
 ---
 import appsByLukeLogo from '../assets/appsbyluke.svg';
+import {Icon} from 'astro-icon/components'
 
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
@@ -49,10 +50,7 @@ const isCurrentPath = (href: string): boolean => {
                 <button id="mobile-menu-button"
                         class="text-black hover:text-blue-500 border-4 border-black p-2 transform rotate-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 bg-blue-200"
                         aria-label="Toggle mobile menu">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
+                    <Icon name="tabler:menu-2" class="w-6 h-6" />
                 </button>
             </div>
         </div>
