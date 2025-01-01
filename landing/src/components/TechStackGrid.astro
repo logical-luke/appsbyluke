@@ -68,7 +68,7 @@ const techGroups = [
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
     {techGroups.map((group, index) => (
-            <div class={`${group.color} border-8 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transform ${index % 2 === 0 ? 'rotate-2' : '-rotate-2'} transition-all duration-300 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden`}>
+            <div class={`${group.color} border-8 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transform ${index % 2 === 0 ? 'rotate-2' : '-rotate-2'} relative overflow-hidden`}>
                 <h3 class="text-3xl font-black text-black mb-4 pb-2 border-b-8 border-black transform -rotate-2">{group.name}</h3>
                 <ul class="space-y-2 space-x-3 relative z-10">
                     {group.items.map((tech) => (
