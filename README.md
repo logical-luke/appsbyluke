@@ -21,7 +21,7 @@ Project URL: [AppsByLuke](https://appsbyluke.com/)
       - Fastify
       - PostgreSQL
     - Default exposed port: 3000
-- `/subscription` - subscription form and payment gateway
+- `/get` - subscription/app package order form and payment gateway
     - Stack:
       - Vue.js
       - TypeScript
