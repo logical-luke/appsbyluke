@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import {Icon} from "astro-icon/components";
 ---
 <Layout
         title="Privacy Policy | AppsByLuke"
@@ -189,6 +190,7 @@ import Layout from '../layouts/Layout.astro';
                             <li>Use of international service providers including:
                                 <ul class="list-disc list-inside ml-8 mt-2">
                                     <li>Cloudflare (USA)</li>
+                                    <li>Google Analytics (USA)</li>
                                     <li>Other US-based cloud service providers</li>
                                 </ul>
                             </li>
@@ -196,22 +198,33 @@ import Layout from '../layouts/Layout.astro';
                                 <ul class="list-disc list-inside ml-8 mt-2">
                                     <li>Standard Contractual Clauses (SCCs)</li>
                                     <li>Service providers' compliance with EU-US Data Privacy Framework</li>
+                                    <li>Google Analytics data processing amendment</li>
                                     <li>Additional technical and organizational measures</li>
                                 </ul>
                             </li>
                             <li>Compliance with GDPR international transfer requirements</li>
+                            <li>Analytics data collection with privacy-focused configuration:
+                                <ul class="list-disc list-inside ml-8 mt-2">
+                                    <li>IP anonymization enabled</li>
+                                    <li>Cookie consent requirements respected</li>
+                                    <li>Data retention periods minimized</li>
+                                </ul>
+                            </li>
                         </ul>
 
                         <h3 class="text-xl font-bold mb-2">6.2. Retention Period</h3>
                         <ul class="list-disc list-inside ml-4 space-y-4">
                             <li>Data retained only as long as necessary</li>
+                            <li>Analytics data retained for 14 months</li>
                             <li>Regular review of stored information</li>
                             <li>Secure deletion of unnecessary data</li>
                         </ul>
                         <p class="mt-4">By using my Services, you acknowledge and consent to the transfer of your data
-                            to these international service providers.</p>
+                            to these international service providers, including Google Analytics for website analytics
+                            purposes.</p>
                     </div>
                 </div>
+
 
                 <div class="mb-4">
                     <h2 class="text-2xl font-bold mb-4">7. Your Rights</h2>
@@ -253,7 +266,7 @@ import Layout from '../layouts/Layout.astro';
                 <div class="mb-4">
                     <h2 class="text-2xl font-bold mb-4">9. Children's Privacy</h2>
                     <div class="ml-4 space-y-4">
-                        <p>My Services are not intended for use by children under 16 years of age. I do not knowingly
+                        <p>My Services are not intended for use by children under 18 years of age. I do not knowingly
                             collect personal information from children. If you become aware that a child has provided me
                             with personal information, please contact me.</p>
                     </div>
@@ -293,23 +306,92 @@ import Layout from '../layouts/Layout.astro';
                 </div>
 
                 <div class="mb-4">
-                    <h2 class="text-2xl font-bold mb-4">12. Contact Information</h2>
+                    <h2 class="text-2xl font-bold mb-4">12. Contact and Data Protection Officer</h2>
                     <div class="ml-4 space-y-4">
-                        <p>For privacy-related inquiries:</p>
-                        <ul class="list-none ml-4 space-y-4 mt-2">
-                            <li>Łukasz Ziaja</li>
-                            <li>AppsByLuke</li>
-                            <li>al. Wiśniowa 36a/304</li>
-                            <li>53-137 Wrocław</li>
-                            <li>Poland</li>
-                            <li>Email: <a href="mailto:luke@appsbyluke.com">luke@appsbyluke.com</a></li>
-                        </ul>
+                        <div class="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                            <p class="mb-4">For any questions about this Privacy Policy or my data practices:</p>
+                            <ul class="list-none ml-4 space-y-4 mt-2">
+                                <li>Data Controller: Łukasz Ziaja</li>
+                                <li>Operating as: AppsByLuke</li>
+                                <li>Address: al. Wiśniowa 36a/304</li>
+                                <li>53-137 Wrocław</li>
+                                <li>Poland</li>
+                                <li>Email: <a href="mailto:privacy@appsbyluke.com"
+                                              class="text-blue-600 hover:text-blue-800 underline">privacy@appsbyluke.com</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-6">
+                            <h3 class="text-xl font-bold mb-2">Response Times for Data Requests</h3>
+                            <ul class="list-disc list-inside ml-4 space-y-4">
+                                <li>Access requests: Within 30 days</li>
+                                <li>Deletion requests: Within 30 days</li>
+                                <li>Data portability requests: Within 30 days</li>
+                                <li>Privacy concerns: Within 5 business days</li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-6">
+                            <h3 class="text-xl font-bold mb-2">Supervisory Authority</h3>
+                            <p class="mb-4">You have the right to lodge a complaint with a supervisory authority. For
+                                Poland, the supervisory authority is:</p>
+                            <ul class="list-none ml-4 space-y-4">
+                                <li>President of the Personal Data Protection Office (UODO)</li>
+                                <li>ul. Stawki 2, 00-193 Warsaw</li>
+                                <li>Poland</li>
+                                <li>Website: <a href="https://uodo.gov.pl/"
+                                                class="text-blue-600 hover:text-blue-800 underline">https://uodo.gov.pl/</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <h2 class="text-2xl font-bold mb-4">13. Changes to This Privacy Policy</h2>
+                    <div class="ml-4 space-y-4">
+                        <div class="bg-yellow-100 border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                            <h3 class="text-xl font-bold mb-4">Policy Updates</h3>
+                            <ul class="list-disc list-inside ml-4 space-y-4">
+                                <li>I reserve the right to update this Privacy Policy at any time</li>
+                                <li>Material changes will be notified via email 30 days in advance</li>
+                                <li>Minor changes may be posted directly to the website</li>
+                                <li>Continued use of services after changes constitutes acceptance</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-blue-100 border-4 border-black p-6 mt-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                            <h3 class="text-xl font-bold mb-4">Your Rights and Choices</h3>
+                            <ul class="list-disc list-inside ml-4 space-y-4">
+                                <li>You will be informed of any material changes to this policy</li>
+                                <li>You have the right to review updated terms before they take effect</li>
+                                <li>You may discontinue service use if you disagree with changes</li>
+                                <li>Previous versions of this policy will remain accessible upon request</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-green-100 border-4 border-black p-6 mt-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                            <h3 class="text-xl font-bold mb-4">Notification Methods</h3>
+                            <ul class="list-disc list-inside ml-4 space-y-4">
+                                <li>Email notifications for registered users</li>
+                                <li>Website announcements</li>
+                                <li>Service dashboard notifications</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
                 <div class="mt-8 pt-8 border-t-2 border-black">
-                    <p class="text-sm">Last Updated: January 1, 2025</p>
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <p class="text-sm mb-2 md:mb-0">Last Updated: January 2, 2025</p>
+                        <div class="flex items-center gap-2">
+                            <Icon name="tabler:shield-lock" class="w-5 h-5"/>
+                            <span class="text-sm font-bold">Official Privacy Policy Document</span>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
