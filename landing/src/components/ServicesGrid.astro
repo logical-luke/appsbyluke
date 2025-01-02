@@ -83,21 +83,8 @@ const readySolutions = [
 
         {subscriptionPlans.map((plan, index) => (
                 <div class={`product-content ${index === 0 ? 'standard' : 'pro'} ${index === 0 ? '' : 'hidden'}`}>
-                    <div class="price-toggle flex flex-wrap mb-4 border-4 border-black">
-                        <button class="flex-1 py-2 px-4 font-bold price-btn active bg-blue-400 text-white"
-                                data-period="monthly">Monthly
-                        </button>
-                        <button class="flex-1 py-2 px-4 font-bold price-btn bg-gray-200 text-gray-600"
-                                data-period="quarterly">Quarterly
-                        </button>
-                        <button class="flex-1 py-2 px-4 font-bold price-btn bg-gray-200 text-gray-600"
-                                data-period="annually">Annually
-                        </button>
-                    </div>
                     <p class="text-3xl font-bold text-blue-500 mb-4">
                         <span class="price monthly">${plan.price.monthly}</span>
-                        <span class="price quarterly hidden">${plan.price.quarterly}</span>
-                        <span class="price annually hidden">${plan.price.annually}</span>
                         <span class="text-lg font-normal">/month</span>
                         <span class="savings quarterly hidden ml-2 inline-block">
                             <span class="text-sm font-bold bg-green-300 text-black px-2 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
@@ -179,29 +166,7 @@ const readySolutions = [
     function initializeToggles() {
         const productBtns = document.querySelectorAll('.product-btn');
         const solutionBtns = document.querySelectorAll('.solution-btn');
-        const priceBtns = document.querySelectorAll('.price-btn');
 
-        function updateAllSubscriptionPeriods(selectedPeriod: string) {
-            document.querySelectorAll('.product-content').forEach(content => {
-                content.querySelectorAll('.price-btn').forEach(btn => {
-                    if (btn.getAttribute('data-period') === selectedPeriod) {
-                        btn.classList.add('active', 'bg-blue-400', 'text-white');
-                        btn.classList.remove('bg-gray-200', 'text-gray-600');
-                    } else {
-                        btn.classList.remove('active', 'bg-blue-400', 'text-white');
-                        btn.classList.add('bg-gray-200', 'text-gray-600');
-                    }
-                });
-
-                content.querySelectorAll('.price').forEach(p => p.classList.add('hidden'));
-                content.querySelector(`.price.${selectedPeriod}`)?.classList.remove('hidden');
-
-                content.querySelectorAll('.savings').forEach(s => s.classList.add('hidden'));
-                if (selectedPeriod !== 'monthly') {
-                    content.querySelector(`.savings.${selectedPeriod}`)?.classList.remove('hidden');
-                }
-            });
-        }
 
         productBtns.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -235,15 +200,6 @@ const readySolutions = [
                     content.classList.add('hidden');
                 });
                 document.querySelector(`.solution-content.${solution}`)?.classList.remove('hidden');
-            });
-        });
-
-        priceBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const period = btn.getAttribute('data-period');
-                if (period) {
-                    updateAllSubscriptionPeriods(period);
-                }
             });
         });
     }
