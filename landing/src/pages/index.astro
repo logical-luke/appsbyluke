@@ -1,8 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
-import Faq from "../components/Faq.astro";
-import CostComparsion from "../components/CostComparsion.astro";
 import HowItWorks from "../components/HowItWorks.astro";
 import AppSolutions from "../components/AppSolutions.astro";
 ---
@@ -13,19 +11,4 @@ import AppSolutions from "../components/AppSolutions.astro";
     <Hero/>
     <AppSolutions />
     <HowItWorks />
-    <CostComparsion />
-    <Faq/>
 </Layout>
-
-<script>
-    document.addEventListener('astro:page-load', () => {
-        const yOffset = 30;
-        if (window.location.hash === '#faq') {
-            const faqElement = document.getElementById('faq');
-            if (faqElement) {
-                const y = faqElement.getBoundingClientRect().top + window.scrollY + yOffset;
-                window.scrollTo({top: y, behavior: 'smooth'});
-            }
-        }
-    });
-</script>

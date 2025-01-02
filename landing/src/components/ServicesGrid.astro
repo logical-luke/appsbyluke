@@ -4,21 +4,139 @@ import {Icon} from 'astro-icon/components'
 const subscriptionPlans = [
     {
         name: "Standard",
-        price: {
-            monthly: 5999,
-            quarterly: 5699,
-            annually: 5299,
-        },
+        price: 799,
         concurrentTasks: 1,
+        description: "Perfect for small businesses and startups",
+        features: [
+            {
+                icon: "tabler:code",
+                text: "1 active request at a time"
+            },
+            {
+                icon: "tabler:users",
+                text: "Unlimited team members"
+            },
+            {
+                icon: "tabler:clock",
+                text: "48-72h average delivery"
+            },
+            {
+                icon: "tabler:refresh",
+                text: "Cancel or pause anytime"
+            },
+            {
+                icon: "tabler:messages",
+                text: "Email support"
+            }
+        ],
+        promoted: false
     },
     {
         name: "Pro",
-        price: {
-            monthly: 8499,
-            quarterly: 7999,
-            annually: 7499,
-        },
+        price: 1499,
         concurrentTasks: 2,
+        description: "Ideal for growing companies with regular needs",
+        features: [
+            {
+                icon: "tabler:code",
+                text: "2 active requests at a time"
+            },
+            {
+                icon: "tabler:users",
+                text: "Unlimited team members"
+            },
+            {
+                icon: "tabler:clock",
+                text: "24-48h average delivery"
+            },
+            {
+                icon: "tabler:refresh",
+                text: "Cancel or pause anytime"
+            },
+            {
+                icon: "tabler:brand-slack",
+                text: "Dedicated Slack channel"
+            }
+        ],
+        promoted: true
+    }
+];
+
+const taskPackages = [
+    {
+        name: "Starter",
+        requests: 1,
+        price: 199,
+        description: "Try service with a single request",
+        features: [
+            {
+                icon: "tabler:code",
+                text: "One development request"
+            },
+            {
+                icon: "tabler:clock",
+                text: "48-72h average delivery"
+            },
+            {
+                icon: "tabler:refresh",
+                text: "1 round of revisions"
+            },
+            {
+                icon: "tabler:messages",
+                text: "Email support"
+            }
+        ],
+        promoted: false
+    },
+    {
+        name: "Growth",
+        requests: 5,
+        price: 899,
+        description: "Best for multiple small features or improvements",
+        features: [
+            {
+                icon: "tabler:code",
+                text: "5 development requests"
+            },
+            {
+                icon: "tabler:clock",
+                text: "48h average delivery"
+            },
+            {
+                icon: "tabler:refresh",
+                text: "2 rounds of revisions per request"
+            },
+            {
+                icon: "tabler:brand-slack",
+                text: "Slack channel support"
+            }
+        ],
+        promoted: true
+    },
+    {
+        name: "Scale",
+        requests: 10,
+        price: 1599,
+        description: "Perfect for significant platform improvements",
+        features: [
+            {
+                icon: "tabler:code",
+                text: "10 development requests"
+            },
+            {
+                icon: "tabler:clock",
+                text: "24-48h average delivery"
+            },
+            {
+                icon: "tabler:refresh",
+                text: "2 rounds of revisions per request"
+            },
+            {
+                icon: "tabler:brand-slack",
+                text: "Priority Slack support"
+            }
+        ],
+        promoted: false
     }
 ];
 
@@ -26,40 +144,166 @@ const readySolutions = [
     {
         name: "MVP Launchpad",
         price: 7999,
-        description: "Perfect for startups and small businesses looking to validate their ideas quickly.",
-        features: [
-            "Custom designed responsive web app",
-            "Core feature implementation",
-            "Basic user authentication",
-            "Data storage and retrieval",
+        priceInfo: "Split into 3 milestone payments",
+        description: "Perfect for validating your business idea quickly with minimal investment",
+        idealFor: [
+            "Non-technical founders with new ideas",
+            "Startups seeking investor interest",
+            "Small businesses going digital"
         ],
-        deliveryTime: "4-6 weeks",
+        features: [
+            {
+                icon: "tabler:layout-dashboard",
+                text: "Custom designed responsive web app"
+            },
+            {
+                icon: "tabler:puzzle",
+                text: "Core feature implementation"
+            },
+            {
+                icon: "tabler:lock",
+                text: "Basic user authentication"
+            },
+            {
+                icon: "tabler:database",
+                text: "Data storage and retrieval"
+            }
+        ],
+        milestones: [
+            {
+                phase: "Design & Planning",
+                duration: "1-2 weeks",
+                payment: "30%"
+            },
+            {
+                phase: "Core Development",
+                duration: "2-3 weeks",
+                payment: "40%"
+            },
+            {
+                phase: "Testing & Launch",
+                duration: "1 week",
+                payment: "30%"
+            }
+        ],
+        deliveryTime: "~4-6 weeks",
     },
     {
         name: "Scale-up Accelerator",
         price: 16999,
-        description: "Ideal for businesses ready to expand their digital footprint and capabilities.",
-        features: [
-            "Advanced web application",
-            "Complex business logic implementation",
-            "Third-party API integrations",
-            "Performance optimization",
-            "Basic analytics setup",
+        priceInfo: "Split into 4 milestone payments",
+        description: "Ideal for businesses ready to expand their digital capabilities",
+        idealFor: [
+            "Growing startups with proven concept",
+            "Businesses needing automation",
+            "Companies with increasing user base"
         ],
-        deliveryTime: "8-10 weeks",
+        features: [
+            {
+                icon: "tabler:apps",
+                text: "Advanced web application"
+            },
+            {
+                icon: "tabler:settings",
+                text: "Complex business logic implementation"
+            },
+            {
+                icon: "tabler:link",
+                text: "Third-party API integrations"
+            },
+            {
+                icon: "tabler:rocket",
+                text: "Performance optimization"
+            },
+            {
+                icon: "tabler:chart-line",
+                text: "Basic analytics setup"
+            }
+        ],
+        milestones: [
+            {
+                phase: "Analysis & Design",
+                duration: "2 weeks",
+                payment: "25%"
+            },
+            {
+                phase: "Core Development",
+                duration: "3-4 weeks",
+                payment: "30%"
+            },
+            {
+                phase: "Advanced Features",
+                duration: "2-3 weeks",
+                payment: "25%"
+            },
+            {
+                phase: "Testing & Launch",
+                duration: "1-2 weeks",
+                payment: "20%"
+            }
+        ],
+        deliveryTime: "~8-14 weeks",
     },
     {
         name: "Enterprise Powerhouse",
         price: 37999,
-        description: "Comprehensive solution for large-scale businesses with complex requirements.",
-        features: [
-            "Fully custom enterprise-grade application",
-            "Advanced user roles and permissions",
-            "Scalable architecture",
-            "Comprehensive testing suite",
-            "DevOps setup and deployment",
+        priceInfo: "Split into 5 milestone payments",
+        description: "Comprehensive solution for large-scale business requirements",
+        idealFor: [
+            "Enterprises needing custom solutions",
+            "Businesses with complex workflows",
+            "High-traffic applications"
         ],
-        deliveryTime: "12-16 weeks",
+        features: [
+            {
+                icon: "tabler:building-skyscraper",
+                text: "Fully custom enterprise-grade application"
+            },
+            {
+                icon: "tabler:users",
+                text: "Advanced user roles and permissions"
+            },
+            {
+                icon: "tabler:scale",
+                text: "Scalable architecture"
+            },
+            {
+                icon: "tabler:test-pipe",
+                text: "Comprehensive testing suite"
+            },
+            {
+                icon: "tabler:cloud",
+                text: "DevOps setup and deployment"
+            }
+        ],
+        milestones: [
+            {
+                phase: "Discovery & Planning",
+                duration: "2-3 weeks",
+                payment: "20%"
+            },
+            {
+                phase: "Architecture & Design",
+                duration: "2-3 weeks",
+                payment: "20%"
+            },
+            {
+                phase: "Core Development",
+                duration: "4-5 weeks",
+                payment: "25%"
+            },
+            {
+                phase: "Advanced Features",
+                duration: "3-4 weeks",
+                payment: "20%"
+            },
+            {
+                phase: "Testing & Deployment",
+                duration: "1-2 weeks",
+                payment: "15%"
+            }
+        ],
+        deliveryTime: "~12-18 weeks",
     }
 ];
 ---
@@ -71,53 +315,111 @@ const readySolutions = [
     <div class="absolute top-0 right-0 w-12 h-12 bg-yellow-400 border-4 border-black transform rotate-12 translate-x-2 -translate-y-2 z-0"></div>
 </div>
 
-<div class="max-w-2xl mx-auto mb-16">
-    <div class="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-1 relative">
-        <div class="product-toggle flex flex-wrap mb-4 border-4 border-black">
-            <button class="flex-1 py-2 px-4 font-bold product-btn active bg-blue-400 text-white"
-                    data-product="standard">Standard
-            </button>
-            <button class="flex-1 py-2 px-4 font-bold product-btn bg-gray-200 text-gray-600" data-product="pro">Pro
-            </button>
-        </div>
+<div class="mb-8 space-y-4">
+    <div class="pricing-toggle flex flex-col md:flex-row justify-center gap-2 md:gap-4 px-4 md:px-0">
+        <button class="toggle-btn active w-full md:w-auto px-4 md:px-6 py-2 font-bold border-4 border-black bg-blue-500 text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                data-type="subscription">
+            Monthly Subscription
+        </button>
+        <button class="toggle-btn w-full md:w-auto px-4 md:px-6 py-2 font-bold border-4 border-black bg-gray-200 text-gray-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                data-type="task">
+            Task Packages
+        </button>
+    </div>
+</div>
 
-        {subscriptionPlans.map((plan, index) => (
-                <div class={`product-content ${index === 0 ? 'standard' : 'pro'} ${index === 0 ? '' : 'hidden'}`}>
-                    <p class="text-3xl font-bold text-blue-500 mb-4">
-                        <span class="price monthly">${plan.price.monthly}</span>
-                        <span class="text-lg font-normal">/month</span>
-                        <span class="savings quarterly hidden ml-2 inline-block">
-                            <span class="text-sm font-bold bg-green-300 text-black px-2 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
-                                Save ${(plan.price.monthly - plan.price.quarterly).toFixed(2)}/month
-                            </span>
-                        </span>
-                        <span class="savings annually hidden ml-2 inline-block">
-                            <span class="text-sm font-bold bg-green-300 text-black px-2 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
-                                Save ${(plan.price.monthly - plan.price.annually).toFixed(2)}/month
-                            </span>
-                        </span>
-                    </p>
+<div id="subscription-content" class="pricing-content">
+    <div class="max-w-6xl mx-auto mb-16">
+        <div class="grid lg:grid-cols-2 gap-6">
+            {subscriptionPlans.map((plan) => (
+                    <div class={`bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform ${plan.promoted ? 'rotate-1' : '-rotate-1'} relative`}>
+                        {plan.promoted && (
+                                <div class="absolute -top-4 -right-4 bg-green-400 text-black font-bold py-1 px-3 border-4 border-black transform rotate-3">
+                                    Most Popular
+                                </div>
+                        )}
 
-                    <p class="text-lg font-bold text-black mb-4">{plan.concurrentTasks}
-                        task{plan.concurrentTasks > 1 ? 's' : ''} at a time</p>
-                    <div class="flex items-center justify-center gap-2 p-3 bg-blue-100 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                        <Icon name="tabler:clock" class="w-6 h-6"/>
-                        <p class="text-lg font-bold text-black">Avg. solution delivery: 24-48h</p>
+                        <h3 class="text-2xl font-bold mb-2">{plan.name}</h3>
+                        <p class="text-gray-600 mb-4">{plan.description}</p>
+
+                        <div class="text-3xl font-bold text-blue-500 mb-6">
+                            ${plan.price}
+                            <span class="text-lg font-normal text-gray-600">/month</span>
+                        </div>
+
+                        <div class="space-y-4 mb-6">
+                            {plan.features.map((feature) => (
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 flex-shrink-0 bg-gray-100 border-2 border-black flex items-center justify-center">
+                                            <Icon name={feature.icon} class="w-4 h-4"/>
+                                        </div>
+                                        <span class="font-bold">{feature.text}</span>
+                                    </div>
+                            ))}
+                        </div>
+
+                        <div class="flex items-center justify-center">
+                            <div class="flex flex-col items-center">
+                                <a href="/contact"
+                                   class="block w-full lg:w-fit text-center bg-green-500 font-bold py-3 px-6 border-black border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl hover:bg-green-600 text-white">
+                                    Get Started
+                                </a>
+                                <a href="https://calendar.app.google/uDz6rZrYgUxqAC2i9"
+                                   class="mt-2 inline-block w-full text-center underline underline-offset-4 decoration-dashed text-sm text-gray-600 hover:text-black transition-colors duration-300">
+                                    or book a quick call to learn more
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <ul class="list-disc list-inside my-4 font-bold">
-                        <li>Unlimited requests</li>
-                        <li>Unlimited users</li>
-                        <li>Unlimited features/requirements</li>
-                        <li>Unlimited refactors/bug fixes</li>
-                        <li>Cancel or pause anytime</li>
-                        <li>No hidden fees or penalties</li>
-                    </ul>
-                    <a href="/contact"
-                       class="inline-block w-full text-center bg-green-500 font-bold py-3 px-6 border-black border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl hover:bg-green-600 text-white">
-                        Subscribe Now
-                    </a>
-                </div>
-        ))}
+            ))}
+        </div>
+    </div>
+</div>
+
+<div id="task-content" class="pricing-content hidden">
+    <div class="max-w-6xl mx-auto mb-16">
+        <div class="grid lg:grid-cols-3 gap-6">
+            {taskPackages.map((techPackage) => (
+                    <div class={`bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform ${techPackage.promoted ? 'rotate-1' : '-rotate-1'} relative`}>
+                        {techPackage.promoted && (
+                                <div class="absolute -top-4 -right-4 bg-green-400 text-black font-bold py-1 px-3 border-4 border-black transform rotate-3">
+                                    Best Value
+                                </div>
+                        )}
+
+                        <h3 class="text-2xl font-bold mb-2">{techPackage.name}</h3>
+                        <p class="text-gray-600 mb-4">{techPackage.description}</p>
+
+                        <div class="text-3xl font-bold text-blue-500 mb-6">
+                            ${techPackage.price}
+                        </div>
+
+                        <div class="space-y-4 mb-6">
+                            {techPackage.features.map((feature) => (
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 flex-shrink-0 bg-gray-100 border-2 border-black flex items-center justify-center">
+                                            <Icon name={feature.icon} class="w-4 h-4"/>
+                                        </div>
+                                        <span class="font-bold">{feature.text}</span>
+                                    </div>
+                            ))}
+                        </div>
+
+                        <div class="flex items-center justify-center">
+                            <div class="flex flex-col items-center">
+                                <a href="/contact"
+                                   class="block w-full lg:w-fit text-center bg-green-500 font-bold py-3 px-6 border-black border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl hover:bg-green-600 text-white">
+                                    Get Started
+                                </a>
+                                <a href="https://calendar.app.google/uDz6rZrYgUxqAC2i9"
+                                   class="mt-2 inline-block w-full text-center underline underline-offset-4 decoration-dashed text-sm text-gray-600 hover:text-black transition-colors duration-300">
+                                    or book a quick call to learn more
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+            ))}
+        </div>
     </div>
 </div>
 
@@ -127,62 +429,147 @@ const readySolutions = [
     </h2>
 </div>
 
-<div class="max-w-2xl mx-auto mb-16">
-    <div class="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-1 relative">
-        <div class="solution-toggle flex flex-wrap mb-4 border-4 border-black">
-            <button class="flex-1 py-2 px-4 font-bold solution-btn active bg-blue-400 text-white"
-                    data-solution="mvp">MVP
-            </button>
-            <button class="flex-1 py-2 px-4 font-bold solution-btn bg-gray-200 text-gray-600"
-                    data-solution="scaleup">Scale-up
-            </button>
-            <button class="flex-1 py-2 px-4 font-bold solution-btn bg-gray-200 text-gray-600"
-                    data-solution="enterprise">Enterprise
-            </button>
-        </div>
-
-        {readySolutions.map((solution, index) => (
-                <div class={`solution-content ${index === 0 ? 'mvp' : index === 1 ? 'scaleup' : 'enterprise'} ${index === 0 ? '' : 'hidden'}`}>
-                    <p class="text-3xl font-bold text-blue-500 mb-4">${solution.price}</p>
-                    <p class="text-black mb-4">{solution.description}</p>
-                    <ul class="list-disc list-inside mb-4 font-bold">
-                        {solution.features.map((feature) => (
-                                <li class="text-black">{feature}</li>
-                        ))}
-                    </ul>
-                    <div class="flex items-center justify-center gap-2 p-3 bg-blue-100 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                        <Icon name="tabler:clock" class="w-6 h-6"/>
-                        <p class="text-lg font-bold text-black">Estimated delivery: {solution.deliveryTime}</p>
-                    </div>
-                    <a href="/contact"
-                       class="mt-6 inline-block w-full text-center bg-green-500 font-bold py-3 px-6 border-black border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl hover:bg-green-600 text-white">
-                        Get Started
-                    </a>
-                </div>
-        ))}
+<div class="mb-8 space-y-4">
+    <div class="solution-toggle flex flex-col md:flex-row justify-center gap-2 md:gap-4 px-4 md:px-0">
+        <button class="solution-btn active w-full md:w-auto px-4 md:px-6 py-2 font-bold border-4 border-black bg-blue-500 text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                data-solution="mvp">
+            MVP
+        </button>
+        <button class="solution-btn w-full md:w-auto px-4 md:px-6 py-2 font-bold border-4 border-black bg-gray-200 text-gray-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                data-solution="scaleup">
+            Scale-up
+        </button>
+        <button class="solution-btn w-full md:w-auto px-4 md:px-6 py-2 font-bold border-4 border-black bg-gray-200 text-gray-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                data-solution="enterprise">
+            Enterprise
+        </button>
     </div>
 </div>
+
+<div class="mb-16">
+    {readySolutions.map((solution, index) => (
+            <div class={`solution-content ${index === 0 ? 'mvp' : index === 1 ? 'scaleup' : 'enterprise'} ${index === 0 ? '' : 'hidden'}`}>
+                <div class="bg-white border-4 border-black p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-1 relative">
+                    <div class="max-w-7xl mx-auto">
+                        <div class="grid lg:grid-cols-2 gap-6 md:gap-12">
+                            <div>
+                                {index === 1 && (
+                                        <div class="absolute -top-4 -right-4 bg-green-400 text-black font-bold py-1 px-3 border-4 border-black transform rotate-3">
+                                            Most Popular
+                                        </div>
+                                )}
+
+                                <h3 class="text-2xl font-bold mb-2">{solution.name}</h3>
+                                <p class="text-gray-600 mb-4">{solution.description}</p>
+
+                                <div class="text-3xl font-bold text-blue-500 mb-2">
+                                    ${solution.price}
+                                </div>
+                                <p class="text-sm text-gray-600 mb-6">{solution.priceInfo}</p>
+
+                                <div class="bg-yellow-100 border-2 border-black p-4 mb-6 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                    <h4 class="inline-block bg-black text-white font-bold px-3 py-1 mb-4 text-sm md:text-base">
+                                        Perfect For
+                                    </h4>
+                                    <ul class="space-y-2">
+                                        {solution.idealFor.map((ideal) => (
+                                                <li class="flex items-start gap-2">
+                                                    <Icon name="tabler:point" class="w-4 h-4 flex-shrink-0 mt-1"/>
+                                                    <span>{ideal}</span>
+                                                </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div class="flex items-center gap-2 p-3 bg-blue-50 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                    <Icon name="tabler:clock" class="w-6 h-6"/>
+                                    <p class="font-bold text-black">Total time: {solution.deliveryTime}</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="inline-block bg-black text-white font-bold px-3 py-1 mb-4 text-sm md:text-base">
+                                    Features
+                                </h4>
+                                <div class="space-y-4 mb-6">
+                                    {solution.features.map((feature) => (
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-8 h-8 flex-shrink-0 bg-gray-100 border-2 border-black flex items-center justify-center">
+                                                    <Icon name={feature.icon} class="w-4 h-4"/>
+                                                </div>
+                                                <span class="font-bold">{feature.text}</span>
+                                            </div>
+                                    ))}
+                                </div>
+
+                                <div class="bg-blue-100 border-2 border-black p-4 mb-6 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                    <h4 class="inline-block bg-black text-white font-bold px-3 py-1 mb-4 text-sm md:text-base">
+                                        Development Milestones
+                                    </h4>
+                                    <div class="space-y-3">
+                                        {solution.milestones.map((milestone, mIndex) => (
+                                                <div class="flex items-start gap-2 text-sm">
+                                                    <Icon name="tabler:flag" class="w-4 h-4 flex-shrink-0 mt-1"/>
+                                                    <div>
+                                                        <span class="font-bold">{milestone.phase}</span>
+                                                        <div class="text-gray-600">
+                                                            <span>{milestone.duration}</span>
+                                                            <span class="mx-1">•</span>
+                                                            <span>${Math.round(solution.price * (parseInt(milestone.payment) / 100))}
+                                                                upfront</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        ))}
+                                    </div>
+                                    <div class="mt-4 text-xs text-gray-600 italic">
+                                        Each milestone payment is due before the phase begins
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <div class="flex flex-col items-center">
+                                <a href="/contact"
+                                   class="block w-full lg:w-fit text-center bg-green-500 font-bold py-3 px-6 border-black border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl hover:bg-green-600 text-white">
+                                    Get Started
+                                </a>
+                                <a href="https://calendar.app.google/uDz6rZrYgUxqAC2i9"
+                                   class="mt-2 inline-block w-full text-center underline underline-offset-4 decoration-dashed text-sm text-gray-600 hover:text-black transition-colors duration-300">
+                                    or book a quick call to learn more
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    ))}
+</div>
+
+
 <script>
     function initializeToggles() {
-        const productBtns = document.querySelectorAll('.product-btn');
+        const toggleBtns = document.querySelectorAll('.toggle-btn');
+        const pricingContents = document.querySelectorAll('.pricing-content');
         const solutionBtns = document.querySelectorAll('.solution-btn');
 
-
-        productBtns.forEach(btn => {
+        toggleBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                const product = btn.getAttribute('data-product');
+                const type = btn.getAttribute('data-type');
 
-                productBtns.forEach(b => {
-                    b.classList.remove('active', 'bg-blue-400', 'text-white');
+                // Update buttons
+                toggleBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-blue-500', 'text-white');
                     b.classList.add('bg-gray-200', 'text-gray-600');
                 });
-                btn.classList.add('active', 'bg-blue-400', 'text-white');
+                btn.classList.add('active', 'bg-blue-500', 'text-white');
                 btn.classList.remove('bg-gray-200', 'text-gray-600');
 
-                document.querySelectorAll('.product-content').forEach(content => {
+                // Update content sections
+                pricingContents.forEach(content => {
                     content.classList.add('hidden');
                 });
-                document.querySelector(`.product-content.${product}`)?.classList.remove('hidden');
+                document.getElementById(`${type}-content`)?.classList.remove('hidden');
             });
         });
 
@@ -190,10 +577,10 @@ const readySolutions = [
             btn.addEventListener('click', () => {
                 const solution = btn.getAttribute('data-solution');
                 solutionBtns.forEach(b => {
-                    b.classList.remove('active', 'bg-blue-400', 'text-white');
+                    b.classList.remove('active', 'bg-blue-500', 'text-white');
                     b.classList.add('bg-gray-200', 'text-gray-600');
                 });
-                btn.classList.add('active', 'bg-blue-400', 'text-white');
+                btn.classList.add('active', 'bg-blue-500', 'text-white');
                 btn.classList.remove('bg-gray-200', 'text-gray-600');
 
                 document.querySelectorAll('.solution-content').forEach(content => {

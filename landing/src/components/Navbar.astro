@@ -8,6 +8,7 @@ const currentPath = pathname.slice(1);
 const navItems = [
     {name: 'Home', href: '/'},
     {name: 'Services', href: '/services'},
+    {name: 'FAQ', href: '/faq'},
     {name: 'About', href: '/about'},
     {name: 'Contact', href: '/contact'},
 ];
@@ -20,7 +21,7 @@ const isCurrentPath = (href: string): boolean => {
 ---
 
 <nav class="border-b-4 border-black bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-6 md:px-4 lg:px-8">
         <div class="flex items-center justify-between h-36">
             <div class="flex-shrink-0 flex items-center transform -rotate-2">
                 <a href="/" class="inline-block">
@@ -32,7 +33,7 @@ const isCurrentPath = (href: string): boolean => {
                     />
                 </a>
             </div>
-            <div class="hidden md:block">
+            <div class="hidden lg:block">
                 <div class="ml-10 flex items-baseline space-x-4">
                     {navItems.map((item, index) => (
                             <a
@@ -46,7 +47,7 @@ const isCurrentPath = (href: string): boolean => {
                     ))}
                 </div>
             </div>
-            <div class="md:hidden">
+            <div class="lg:hidden">
                 <button id="mobile-menu-button"
                         class="text-black hover:text-blue-500 border-4 border-black p-2 transform rotate-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 bg-blue-200"
                         aria-label="Toggle mobile menu">
@@ -55,13 +56,13 @@ const isCurrentPath = (href: string): boolean => {
             </div>
         </div>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t-4 border-black">
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t-4 border-black">
         <div class="px-2 pt-2 pb-3 space-y-4 sm:px-3">
             {navItems.map((item, index) => (
                     <a
                             href={item.href}
-                            class={`text-black hover:bg-blue-500 hover:text-white block px-3 py-2 text-base font-bold border-4 border-black my-2 transform ${index % 2 === 0 ? 'rotate-1' : '-rotate-1'} shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 ${
-                                isCurrentPath(item.href) ? 'bg-blue-200 -rotate-2' : ''
+                            class={`text-black hover:bg-blue-500 hover:text-white block px-3 py-2 text-base font-bold border-4 border-black my-2 transform shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 ${
+                                isCurrentPath(item.href) ? 'bg-blue-200' : ''
                             }`}
                     >
                         {item.name}
