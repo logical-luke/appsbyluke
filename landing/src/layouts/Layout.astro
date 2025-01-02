@@ -27,6 +27,22 @@ const {title, description} = Astro.props;
     <ClientRouter/>
     <SEO
             description={description}
+            openGraph={{
+                basic: {
+                    title: description,
+                    type: "website",
+                    image: "https://appsbyluke.com/og-facebook.png",
+                },
+                image: {
+                    alt: title
+                }
+            }}
+            twitter={{
+                title: description,
+                creator: "@appsbyluke",
+                image: "https://appsbyluke.com/og-twitter.png",
+                imageAlt: title
+            }}
     ></SEO>
 </head>
 <body class="font-sans bg-gray-100">
