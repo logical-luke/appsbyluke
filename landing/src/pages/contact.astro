@@ -47,6 +47,10 @@ import Layout from '../layouts/Layout.astro';
                     </div>
                 </div>
 
+                <p class="text-lg font-bold mb-4 bg-yellow-200 border-2 border-black p-2 inline-block transform -rotate-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    Heads up! All fields are needed for the best response.
+                </p>
+
                 <form id="contactForm" class="space-y-6">
                     <div>
                         <label for="name" class="block text-lg font-bold text-black">Name</label>
@@ -66,14 +70,15 @@ import Layout from '../layouts/Layout.astro';
                                   class="mt-1 block w-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] py-2 px-3 focus:outline-none focus:bg-pink-200 bg-white transition-colors duration-300"></textarea>
                         <p class="validation-message text-red-500 font-bold mt-1 hidden"></p>
                     </div>
-                    <div>
+                    <div class="flex flex-col gap-4">
+                        <div id="result"
+                             class="mt-4 p-4 border-4 border-black font-bold text-xl hidden w-full md:w-fit"></div>
                         <button type="submit"
                                 class="bg-green-600 hover:bg-green-700 text-white text-xl font-bold w-full md:w-fit py-3 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 transform hover:rotate-1">
                             Send Message
                         </button>
                     </div>
                 </form>
-                <div id="result" class="mt-4 p-4 border-4 border-black font-bold text-xl hidden w-full md:w-fit"></div>
             </div>
         </div>
     </div>
@@ -82,75 +87,82 @@ import Layout from '../layouts/Layout.astro';
 <script>
     const form = document.getElementById('contactForm');
     const resultElement = document.getElementById('result');
-    const inputs = form.querySelectorAll('input, textarea');
+    const inputs = form?.querySelectorAll('input, textarea');
 
     const messages = {
         success: "Message sent successfully! I'll get back to you soon.",
         error: "Oops! Something went wrong. Please try again later.",
     };
 
-    function validateInput(input) {
+    function validateInput(input: Element) {
         const validationMessage = input.nextElementSibling;
-        if (input.validity.valid) {
-            validationMessage.textContent = '';
-            validationMessage.classList.add('hidden');
-            input.classList.remove('border-red-500');
-        } else {
-            if (input.validity.valueMissing) {
-                validationMessage.textContent = 'This field is required!';
-            } else if (input.validity.typeMismatch && input.type === 'email') {
-                validationMessage.textContent = 'Please enter a valid email address!';
+        if (validationMessage && input instanceof HTMLInputElement) {
+            if (input.validity.valid) {
+                validationMessage.textContent = '';
+                validationMessage.classList.add('hidden');
+                input.classList.remove('border-red-500');
+            } else {
+                if (input.validity.valueMissing) {
+                    validationMessage.textContent = 'This field is required!';
+                } else if (input.validity.typeMismatch && input.type === 'email') {
+                    validationMessage.textContent = 'Please enter a valid email address!';
+                }
+                validationMessage.classList.remove('hidden');
+                input.classList.add('border-red-500');
             }
-            validationMessage.classList.remove('hidden');
-            input.classList.add('border-red-500');
         }
     }
 
-    inputs.forEach(input => {
-        input.addEventListener('input', () => validateInput(input));
-        input.addEventListener('blur', () => validateInput(input));
-    });
+    if (inputs) {
+        inputs.forEach(input => {
+            input.addEventListener('input', () => validateInput(input));
+            input.addEventListener('blur', () => validateInput(input));
+        });
+    }
 
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+    if (form instanceof HTMLFormElement) {
+        form?.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-        if (!form.checkValidity()) {
-            inputs.forEach(input => validateInput(input));
-            return;
-        }
-
-        const formData = new FormData(form);
-        const sendEmailDto = {
-            senderEmail: formData.get('email'),
-            senderName: formData.get('name'),
-            message: formData.get('message'),
-        };
-
-        try {
-            const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
-            const response = await fetch(`${baseApiUrl}/email/send`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(sendEmailDto),
-            });
-
-            if (response.ok) {
-                resultElement.textContent = messages.success;
-                resultElement.classList.remove('hidden', 'bg-red-200', 'text-red-700');
-                resultElement.classList.add('bg-green-200', 'text-green-700');
-                form.reset();
-            } else {
-                throw new Error(`HTTP error! status: ${response.status}`);
+            if (!form.checkValidity() && inputs) {
+                inputs.forEach(input => validateInput(input));
+                return;
             }
-        } catch (error) {
-            console.error('Detailed error:', error);
-            resultElement.textContent = messages.error;
-            resultElement.classList.remove('hidden', 'bg-green-200', 'text-green-700');
-            resultElement.classList.add('bg-red-200', 'text-red-700');
-        }
 
-        resultElement.classList.remove('hidden');
-    });
+            const formData = new FormData(form);
+            const sendEmailDto = {
+                senderEmail: formData.get('email'),
+                senderName: formData.get('name'),
+                message: formData.get('message'),
+            };
+
+            try {
+                const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
+                const response = await fetch(`${baseApiUrl}/email/send`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(sendEmailDto),
+                });
+
+                if (response.ok && resultElement) {
+                    resultElement.textContent = messages.success;
+                    resultElement.classList.remove('hidden', 'bg-red-200');
+                    resultElement.classList.add('bg-green-200');
+                    form.reset();
+                } else {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+            } catch (error) {
+                console.error('Detailed error:', error);
+                if (resultElement) {
+                    resultElement.textContent = messages.error;
+                    resultElement.classList.remove('hidden', 'bg-green-200');
+                    resultElement.classList.add('bg-red-200');
+                }
+            }
+            resultElement?.classList.remove('hidden');
+        });
+    }
 </script>

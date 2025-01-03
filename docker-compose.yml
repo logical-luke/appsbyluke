@@ -17,7 +17,7 @@ services:
       - ./api:/api
   registration:
     build:
-      context: get
+      context: registration
       dockerfile: Dockerfile
     ports:
       - "4173:4173"
