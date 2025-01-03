@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import {Icon} from "astro-icon/components";
 ---
+
 <Layout
         title="Terms of Service | AppsByLuke"
         description="These Terms of Service constitute a legally binding agreement between AppsByLuke and you, governing the use of my Services and Website."
@@ -20,14 +21,16 @@ import {Icon} from "astro-icon/components";
                     <h2 class="text-2xl font-bold mb-4">1. Introduction</h2>
                     <p>These Terms of Service ("Terms") constitute a legally binding agreement between Łukasz Ziaja
                         ("Company," "I," "me," or "my"), operating under the business name AppsByLuke, and you
-                        ("Client," "you," or "your") governing the use of my Services and Website.</p>
+                        ("Client," "you," or "your") governing the use of my Services and Website. By accessing or using
+                        my Services, you acknowledge that you have read, understood, and agree to be bound by these
+                        Terms. If you do not agree to these Terms, you must immediately cease using the Services.</p>
                 </div>
 
                 <div class="mb-4">
                     <h2 class="text-2xl font-bold mb-4">2. Definitions</h2>
                     <div class="ml-4 space-y-4">
                         <h3 class="text-xl font-bold mb-2">2.1. Company</h3>
-                        <p>"Company" refers to Łukasz Ziaja, a sole proprietorship registered at al. Wiśniowa 36a/304
+                        <p>"Company" refers to Łukasz Ziaja, a sole proprietorship registered at al. Wiśniowa 36a/304,
                             53-137 Wrocław, Poland, operating under the business name AppsByLuke.</p>
 
                         <h3 class="text-xl font-bold mb-2">2.2. Services</h3>
@@ -82,14 +85,14 @@ import {Icon} from "astro-icon/components";
 
                             <h4 class="text-lg font-bold mb-2">b) Task States and Workflow</h4>
                             <p>Tasks progress through the following states:</p>
-                            <ul class="list-decimal list-inside ml-4 space-y-4">
+                            <ol class="list-decimal list-inside ml-4 space-y-4">
                                 <li>"Requested" - Initial task submission by Client</li>
                                 <li>"Approved" - Task approved for development</li>
                                 <li>"In Progress" - Active development phase</li>
                                 <li>"Delivered" - Development completed and ready for review</li>
                                 <li>"Accepted" or "Changes Requested" - Client review outcome</li>
                                 <li>"Canceled" - Optional state if Client chooses to terminate the task</li>
-                            </ul>
+                            </ol>
 
                             <h4 class="text-lg font-bold mb-2">c) Service Delivery</h4>
                             <ul class="list-disc list-inside ml-4 space-y-4">
@@ -211,34 +214,6 @@ import {Icon} from "astro-icon/components";
                             </ul>
 
                             <h4 class="text-lg font-bold mb-2">b) Milestone Payments</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>MVP Launchpad:
-                                    <ul class="list-disc list-inside ml-8">
-                                        <li>Design & Planning: 30%</li>
-                                        <li>Core Development: 40%</li>
-                                        <li>Testing & Launch: 30%</li>
-                                    </ul>
-                                </li>
-                                <li>Scale-up Accelerator:
-                                    <ul class="list-disc list-inside ml-8">
-                                        <li>Analysis & Design: 25%</li>
-                                        <li>Core Development: 30%</li>
-                                        <li>Advanced Features: 25%</li>
-                                        <li>Testing & Launch: 20%</li>
-                                    </ul>
-                                </li>
-                                <li>Enterprise Powerhouse:
-                                    <ul class="list-disc list-inside ml-8">
-                                        <li>Discovery & Planning: 20%</li>
-                                        <li>Architecture & Design: 20%</li>
-                                        <li>Core Development: 25%</li>
-                                        <li>Advanced Features: 20%</li>
-                                        <li>Testing & Deployment: 15%</li>
-                                    </ul>
-                                </li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">c) Payment Terms</h4>
                             <ul class="list-disc list-inside ml-4 space-y-4">
                                 <li>Each milestone payment due before phase begins</li>
                                 <li>All payments are non-refundable</li>
@@ -530,7 +505,6 @@ import {Icon} from "astro-icon/components";
                             </ul>
                         </div>
 
-
                         <h3 class="text-xl font-bold mb-2">8.2. Security Measures</h3>
                         <div class="ml-4 space-y-4">
                             <h4 class="text-lg font-bold mb-2">a) Technical Security</h4>
@@ -593,6 +567,7 @@ import {Icon} from "astro-icon/components";
                         </div>
                     </div>
                 </div>
+
                 <div class="mb-4">
                     <h2 class="text-2xl font-bold mb-4">9. Service Termination</h2>
                     <div class="ml-4 space-y-4">
@@ -711,44 +686,9 @@ import {Icon} from "astro-icon/components";
                                 <li>Support during transition periods</li>
                             </ul>
                         </div>
-
-                        <h3 class="text-xl font-bold mb-2">10.3. Pricing Updates</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Price Changes</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>30 days notice for price increases</li>
-                                <li>Price decreases effective immediately</li>
-                                <li>Grandfathered pricing for existing contracts</li>
-                                <li>Special pricing arrangements honored</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Client Options</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Option to upgrade/downgrade plans</li>
-                                <li>Right to cancel without penalty</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">10.4. Communication of Changes</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Notification Methods</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Email notifications</li>
-                                <li>Website announcements</li>
-                                <li>Dashboard notifications</li>
-                                <li>Direct communication for major changes</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Documentation</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Change logs maintained</li>
-                                <li>Updated terms published online</li>
-                                <li>Archive of previous versions</li>
-                                <li>Detailed explanations of significant changes</li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
+
                 <div class="mb-4">
                     <h2 class="text-2xl font-bold mb-4">11. Dispute Resolution</h2>
                     <div class="ml-4 space-y-4">
@@ -806,25 +746,6 @@ import {Icon} from "astro-icon/components";
                                 <li>Court fees as per local regulations</li>
                                 <li>Cost allocation by court decision</li>
                                 <li>Recovery of reasonable legal expenses</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">11.4. Limitation of Liability</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Liability Caps</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Limited to fees paid in last 12 months</li>
-                                <li>Exclusion of indirect damages</li>
-                                <li>No limitation for gross negligence</li>
-                                <li>Statutory rights preserved</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Indemnification</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Client indemnification for third-party claims</li>
-                                <li>Company indemnification for service violations</li>
-                                <li>Mutual cooperation in defense</li>
-                                <li>Notice requirements for claims</li>
                             </ul>
                         </div>
                     </div>
@@ -890,7 +811,7 @@ import {Icon} from "astro-icon/components";
 
                 <div class="mt-8 pt-8 border-t-2 border-black">
                     <div class="flex flex-col md:flex-row justify-between items-center">
-                        <p class="text-sm mb-2 md:mb-0">Last Updated: January 2, 2025</p>
+                        <p class="text-sm mb-2 md:mb-0">Last Updated: January 3, 2025</p>
                         <div class="flex items-center gap-2">
                             <Icon name="tabler:file-certificate" class="w-5 h-5"/>
                             <span class="text-sm font-bold">Official Terms of Service Document</span>
