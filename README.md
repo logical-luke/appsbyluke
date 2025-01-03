@@ -20,14 +20,14 @@ Project URL: [AppsByLuke](https://appsbyluke.com/)
       - Node.js
       - Fastify
       - PostgreSQL
+      - Stripe API 
     - Default exposed port: 3000
-- `/get` - subscription/app package order form and payment gateway
+- `/registration` - registration form 
     - Stack:
       - Vue.js
       - TypeScript
       - Tailwind CSS
-      - Stripe (?) / Padddle (?) / Lemon Squeezy (?)
-- `/panel` - user requests and subscription management panel
+- `/dashboard` - dashboard for requests and subscriptions
     - Stack:
       - Vue.js
       - TypeScript
