@@ -52,6 +52,7 @@ jobs:
           script: |
             TIMESTAMP=$(date +%Y%m%d%H%M%S)
             rm /root/.appsbyluke-api-version
+            docker login
             echo "${{ github.sha }}-${TIMESTAMP}" >> /root/.appsbyluke-api-version
             docker pull ghcr.io/logical-luke/appsbyluke/appsbyluke-api:latest
             VERSION=$(cat /root/.appsbyluke-api-version)
