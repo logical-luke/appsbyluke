@@ -1,0 +1,84 @@
+name: Deploy API to production
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push app Docker image
+        run: |
+          VERSION=$(date +%Y%m%d%H%M%S)
+          docker build --file Dockerfile.app --tag ghcr.io/logical-luke/appsbyluke/appsbyluke-api:${{ github.sha }}-${VERSION} .
+          docker tag ghcr.io/logical-luke/appsbyluke/appsbyluke:${{ github.sha }}-${VERSION} ghcr.io/logical-luke/appsbyluke/appsbyluke-api:latest
+          docker push --all-tags ghcr.io/logical-luke/appsbyluke/appsbyluke-api
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Run test app container
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_IP_ADDRESS }}
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            TIMESTAMP=$(date +%Y%m%d%H%M%S)
+            rm /root/.appsbyluke-api-version
+            echo "${{ github.sha }}-${TIMESTAMP}" >> /root/.appsbyluke-api-version
+            docker pull ghcr.io/logical-luke/appsbyluke/appsbyluke-api:latest
+            VERSION=$(cat /root/.appsbyluke-version)
+            docker run -d --restart unless-stopped --network appsbyluke --name appsbyluke-api-${VERSION} \
+              -e APP_ENV=prod \
+              -e RESEND_API_KEY=${{ secrets.RESEND_API_KEY }} \
+              -e TO_EMAIL=${{ secrets.TO_EMAIL }} \
+              -p $(shuf -i 21000-21999 -n 1):80 \
+              ghcr.io/logical-luke/appsbyluke/appsbyluke-api:latest npm run start:prod
+
+  post-deploy:
+    needs: deploy
+    runs-on: ubuntu-latest
+    environment: test
+
+    steps:
+      - name: Adjust nginx and stop old container
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_IP_ADDRESS }}
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            VERSION=$(cat /root/.appsbyluke-api-version)
+            port=$(docker inspect --format='{{(index (index .NetworkSettings.Ports "80/tcp") 0).HostPort}}' appsbyluke-api-${VERSION})
+            sed -i "s/proxy_pass http:\/\/localhost:[0-9]\{5\}/proxy_pass http:\/\/localhost:$port/g" /etc/nginx/conf.d/api-apps.conf
+            nginx -s reload
+            docker stop $(docker ps -q --filter "name=appsbyluke-api" | xargs docker inspect --format '{{ .Name }}' | cut -c2- | grep -v "^appsbyluke-api-${VERSION}")
+            docker rm $(docker ps -aq --filter "name=appsbyluke-api" | xargs docker inspect --format '{{ .Name }}' | cut -c2- | grep -v "^appsbyluke-api-${VERSION}")
+            docker image prune --all --force
