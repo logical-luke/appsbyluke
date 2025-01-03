@@ -1,7 +1,7 @@
 ---
 import appsByLukeLogo from '../assets/appsbyluke.svg';
 import {Icon} from 'astro-icon/components'
-
+import {Image} from 'astro:assets';
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
 
@@ -25,8 +25,8 @@ const isCurrentPath = (href: string): boolean => {
         <div class="flex items-center justify-between h-36">
             <div class="flex-shrink-0 flex items-center transform -rotate-2">
                 <a href="/" class="inline-block">
-                    <img
-                            src={appsByLukeLogo.src}
+                    <Image
+                            src={appsByLukeLogo}
                             width="256.2"
                             height="120"
                             alt="AppsByLuke Logo"
