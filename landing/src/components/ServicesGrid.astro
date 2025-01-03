@@ -348,7 +348,7 @@ const readySolutions = [
 
 <div class="mb-8 space-y-4">
     <div class="pricing-toggle flex flex-col md:flex-row justify-center gap-2 md:gap-4 px-4 md:px-0">
-        <button class="toggle-btn active w-full md:w-auto px-4 md:px-6 py-2 font-bold border-4 border-black bg-blue-500 text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+        <button class="toggle-btn active w-full md:w-auto px-4 md:px-6 py-2 font-bold border-4 border-black bg-blue-600 text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
                 data-type="subscription">
             Monthly Subscription
         </button>
@@ -487,9 +487,9 @@ const readySolutions = [
                 improvements or quick fixes to your application.</p>
 
             <div class="bg-blue-100 border-4 w-full md:w-fit border-black p-4 mb-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                <h4 class="inline-block bg-black text-white font-bold px-3 py-1 mb-4 text-sm md:text-base">
+                <h3 class="inline-block bg-black text-white font-bold px-3 py-1 mb-4 text-sm md:text-base">
                     Task Examples
-                </h4>
+                </h3>
                 <ul class="space-y-2">
                     <li class="flex items-start gap-2">
                         <Icon name="tabler:point" class="w-4 h-4 flex-shrink-0 mt-1"/>
@@ -576,7 +576,7 @@ const readySolutions = [
                 <div class="flex flex-col items-center space-y-4 md:flex-row md:space-y-0 md:space-x-4 justify-center">
                     <div class="relative inline-block">
                         <a href="https://calendar.app.google/uDz6rZrYgUxqAC2i9"
-                           class="inline-block text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl transform hover:rotate-2">
+                           class="inline-block text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl transform hover:rotate-2">
                             Book a Call
                         </a>
                         <div class="absolute -top-4 -right-4 bg-yellow-400 text-black font-bold text-xs py-1 px-2 border-2 border-black rounded-full transform rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
@@ -598,7 +598,7 @@ const readySolutions = [
 
 <div class="mb-8 space-y-4">
     <div class="solution-toggle flex flex-col md:flex-row justify-center gap-2 md:gap-4 px-4 md:px-0">
-        <button class="solution-btn active w-full md:w-auto px-4 md:px-6 py-2 font-bold border-4 border-black bg-blue-500 text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+        <button class="solution-btn active w-full md:w-auto px-4 md:px-6 py-2 font-bold border-4 border-black bg-blue-600 text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
                 data-solution="mvp">
             MVP
         </button>
@@ -726,10 +726,10 @@ const readySolutions = [
 
                 // Update buttons
                 toggleBtns.forEach(b => {
-                    b.classList.remove('active', 'bg-blue-500', 'text-white');
+                    b.classList.remove('active', 'bg-blue-600', 'text-white');
                     b.classList.add('bg-gray-200', 'text-gray-600');
                 });
-                btn.classList.add('active', 'bg-blue-500', 'text-white');
+                btn.classList.add('active', 'bg-blue-600', 'text-white');
                 btn.classList.remove('bg-gray-200', 'text-gray-600');
 
                 // Update content sections
@@ -744,10 +744,10 @@ const readySolutions = [
             btn.addEventListener('click', () => {
                 const solution = btn.getAttribute('data-solution');
                 solutionBtns.forEach(b => {
-                    b.classList.remove('active', 'bg-blue-500', 'text-white');
+                    b.classList.remove('active', 'bg-blue-600', 'text-white');
                     b.classList.add('bg-gray-200', 'text-gray-600');
                 });
-                btn.classList.add('active', 'bg-blue-500', 'text-white');
+                btn.classList.add('active', 'bg-blue-600', 'text-white');
                 btn.classList.remove('bg-gray-200', 'text-gray-600');
 
                 document.querySelectorAll('.solution-content').forEach(content => {
