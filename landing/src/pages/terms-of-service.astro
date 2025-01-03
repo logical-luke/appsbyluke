@@ -87,10 +87,23 @@ import {Icon} from "astro-icon/components";
                             <p>Tasks progress through the following states:</p>
                             <ol class="list-decimal list-inside ml-4 space-y-4">
                                 <li>"Requested" - Initial task submission by Client</li>
-                                <li>"Approved" - Task approved for development</li>
+                                <li>"Approved" or "Refinement Required"
+                                    <ul class="list-disc list-inside ml-4">
+                                        <li>"Approved" - Task approved for development</li>
+                                        <li>"Refinement Required" - Task not ready for development, additional details
+                                            needed in the comments
+                                        </li>
+                                    </ul>
+                                </li>
                                 <li>"In Progress" - Active development phase</li>
                                 <li>"Delivered" - Development completed and ready for review</li>
-                                <li>"Accepted" or "Changes Requested" - Client review outcome</li>
+                                <li>"Accepted" or "Changes Requested"
+                                    <ul class="list-disc list-inside ml-4">
+                                        <li>"Accepted" - Client approves the delivered work</li>
+                                        <li>"Changes Requested" - Client requests modifications to the delivered work
+                                        </li>
+                                    </ul>
+                                </li>
                                 <li>"Canceled" - Optional state if Client chooses to terminate the task</li>
                             </ol>
 
