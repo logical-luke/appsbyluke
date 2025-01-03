@@ -5,8 +5,12 @@ import { SendEmailDto } from './dto/send-email';
 import { CreateEmailResponse } from './dto/send-email';
 
 describe('EmailController', () => {
-  let emailController: EmailController;
+  let controller: EmailController;
   let emailService: EmailService;
+
+  const mockEmailService = {
+    sendEmail: jest.fn(),
+  };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -14,39 +18,51 @@ describe('EmailController', () => {
       providers: [
         {
           provide: EmailService,
-          useValue: {
-            sendEmail: jest.fn(),
-          },
+          useValue: mockEmailService,
         },
       ],
     }).compile();
 
-    emailController = module.get<EmailController>(EmailController);
+    controller = module.get<EmailController>(EmailController);
     emailService = module.get<EmailService>(EmailService);
   });
 
-  describe('sendEmail', () => {
-    it('should send email successfully', async () => {
-      const sendEmailDto: SendEmailDto = { senderEmail: 'test@example.com', senderName: 'Test User', message: 'Test body' };
-      const response: CreateEmailResponse = { status: 'success', message: 'Email sent successfully' };
-      jest.spyOn(emailService, 'sendEmail').mockResolvedValue(response);
+  it('should be defined', () => {
+    expect(controller).toBeDefined();
+  });
 
-      const result = await emailController.sendEmail(sendEmailDto);
-      expect(result).toEqual(response);
+  describe('sendEmail', () => {
+    it('should call emailService.sendEmail with the correct parameters', async () => {
+      const sendEmailDto: SendEmailDto = {
+        senderEmail: 'test@example.com',
+        senderName: 'Test Sender',
+        message: 'Test message',
+      };
+
+      const expectedResponse: CreateEmailResponse = {
+        status: 'success',
+        message: 'Email sent successfully',
+      };
+
+      mockEmailService.sendEmail.mockResolvedValue(expectedResponse);
+
+      const result = await controller.sendEmail(sendEmailDto);
+
       expect(emailService.sendEmail).toHaveBeenCalledWith(sendEmailDto);
+      expect(result).toEqual(expectedResponse);
     });
 
-    it('should fail to send email', async () => {
-      const sendEmailDto: SendEmailDto = { senderEmail: 'test@example.com', senderName: 'Test User', message: 'Test body' };
-      const error = new Error('Failed to send email');
-      jest.spyOn(emailService, 'sendEmail').mockRejectedValue(error);
+    it('should throw an error if emailService.sendEmail throws', async () => {
+      const sendEmailDto: SendEmailDto = {
+        senderEmail: 'test@example.com',
+        senderName: 'Test Sender',
+        message: 'Test message',
+      };
 
-      try {
-        await emailController.sendEmail(sendEmailDto);
-      } catch (err) {
-        expect(err).toBe(error);
-      }
-      expect(emailService.sendEmail).toHaveBeenCalledWith(sendEmailDto);
+      const errorMessage = 'Failed to send email';
+      mockEmailService.sendEmail.mockRejectedValue(new Error(errorMessage));
+
+      await expect(controller.sendEmail(sendEmailDto)).rejects.toThrow(errorMessage);
     });
   });
 });

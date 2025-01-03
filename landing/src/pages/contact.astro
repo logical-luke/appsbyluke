@@ -1,29 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-let message = '';
-let errorDetails = '';
-
-if (Astro.request.method === 'POST') {
-    try {
-        const data = await Astro.request.formData();
-        const response = await fetch(Astro.url + '/api/sendEmail.json', {
-            method: 'POST',
-            body: data,
-        });
-        const result = await response.json();
-
-        if (response.ok) {
-            message = result.message;
-        } else {
-            throw new Error(`HTTP error! status: ${response.status}, message: ${result.message}`);
-        }
-    } catch (error) {
-        console.error('Detailed error:', error);
-        message = 'An error occurred. Please try again.';
-        errorDetails = error.toString();
-    }
-}
 ---
 
 <Layout
@@ -41,6 +17,9 @@ if (Astro.request.method === 'POST') {
                         I'm here to help bring your web application ideas to life. You can reach me through:
                     </p>
                     <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li><strong>Contact Form:</strong> Fill out the form below for a quick and easy way to send your
+                            message
+                        </li>
                         <li><strong>Email:</strong> Direct communication for any questions</li>
                         <li><strong>15-Minute Intro Call:</strong> Schedule a free consultation to discuss your project
                             needs and explore how we can work together
@@ -63,32 +42,110 @@ if (Astro.request.method === 'POST') {
                     </a>
                 </div>
 
-                <!--{message && <p class="mb-4 text-lg font-bold">{message}</p>}-->
-
-                <!--<form method="POST" class="space-y-6">-->
-                <!--    <div>-->
-                <!--        <label for="name" class="block text-lg font-bold text-black">Name</label>-->
-                <!--        <input type="text" id="name" name="name" required-->
-                <!--               class="mt-1 block w-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] py-2 px-3 focus:outline-none focus:bg-pink-200 bg-white transition-colors duration-300">-->
-                <!--    </div>-->
-                <!--    <div>-->
-                <!--        <label for="email" class="block text-lg font-bold text-black">Email</label>-->
-                <!--        <input type="email" id="email" name="email" required-->
-                <!--               class="mt-1 block w-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] py-2 px-3 focus:outline-none focus:bg-pink-200 bg-white transition-colors duration-300">-->
-                <!--    </div>-->
-                <!--    <div>-->
-                <!--        <label for="message" class="block text-lg font-bold text-black">Message</label>-->
-                <!--        <textarea id="message" name="message" rows="4" required-->
-                <!--                  class="mt-1 block w-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] py-2 px-3 focus:outline-none focus:bg-pink-200 bg-white transition-colors duration-300"></textarea>-->
-                <!--    </div>-->
-                <!--    <div>-->
-                <!--        <button type="submit"-->
-                <!--                class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 transform hover:rotate-1">-->
-                <!--            Send Message-->
-                <!--        </button>-->
-                <!--    </div>-->
-                <!--</form>-->
+                <form id="contactForm" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-lg font-bold text-black">Name</label>
+                        <input type="text" id="name" name="name" required
+                               class="mt-1 block w-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] py-2 px-3 focus:outline-none focus:bg-pink-200 bg-white transition-colors duration-300">
+                        <p class="validation-message text-red-500 font-bold mt-1 hidden"></p>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-lg font-bold text-black">Email</label>
+                        <input type="email" id="email" name="email" required
+                               class="mt-1 block w-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] py-2 px-3 focus:outline-none focus:bg-pink-200 bg-white transition-colors duration-300">
+                        <p class="validation-message text-red-500 font-bold mt-1 hidden"></p>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-lg font-bold text-black">Message</label>
+                        <textarea id="message" name="message" rows="4" required
+                                  class="mt-1 block w-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] py-2 px-3 focus:outline-none focus:bg-pink-200 bg-white transition-colors duration-300"></textarea>
+                        <p class="validation-message text-red-500 font-bold mt-1 hidden"></p>
+                    </div>
+                    <div>
+                        <button type="submit"
+                                class="bg-blue-500 hover:bg-blue-600 text-white font-bold w-full md:w-fit py-3 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 transform hover:rotate-1">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+                <div id="result" class="mt-4 p-4 border-4 border-black font-bold text-xl hidden w-full md:w-fit"></div>
             </div>
         </div>
     </div>
 </Layout>
+
+<script>
+    const form = document.getElementById('contactForm');
+    const resultElement = document.getElementById('result');
+    const inputs = form.querySelectorAll('input, textarea');
+
+    const messages = {
+        success: "Message sent successfully! I'll get back to you soon.",
+        error: "Oops! Something went wrong. Please try again later.",
+    };
+
+    function validateInput(input) {
+        const validationMessage = input.nextElementSibling;
+        if (input.validity.valid) {
+            validationMessage.textContent = '';
+            validationMessage.classList.add('hidden');
+            input.classList.remove('border-red-500');
+        } else {
+            if (input.validity.valueMissing) {
+                validationMessage.textContent = 'This field is required!';
+            } else if (input.validity.typeMismatch && input.type === 'email') {
+                validationMessage.textContent = 'Please enter a valid email address!';
+            }
+            validationMessage.classList.remove('hidden');
+            input.classList.add('border-red-500');
+        }
+    }
+
+    inputs.forEach(input => {
+        input.addEventListener('input', () => validateInput(input));
+        input.addEventListener('blur', () => validateInput(input));
+    });
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        if (!form.checkValidity()) {
+            inputs.forEach(input => validateInput(input));
+            return;
+        }
+
+        const formData = new FormData(form);
+        const sendEmailDto = {
+            senderEmail: formData.get('email'),
+            senderName: formData.get('name'),
+            message: formData.get('message'),
+        };
+
+        try {
+            const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
+            const response = await fetch(`${baseApiUrl}/email/send`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(sendEmailDto),
+            });
+
+            if (response.ok) {
+                resultElement.textContent = messages.success;
+                resultElement.classList.remove('hidden', 'bg-red-200', 'text-red-700');
+                resultElement.classList.add('bg-green-200', 'text-green-700');
+                form.reset();
+            } else {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+        } catch (error) {
+            console.error('Detailed error:', error);
+            resultElement.textContent = messages.error;
+            resultElement.classList.remove('hidden', 'bg-green-200', 'text-green-700');
+            resultElement.classList.add('bg-red-200', 'text-red-700');
+        }
+
+        resultElement.classList.remove('hidden');
+    });
+</script>

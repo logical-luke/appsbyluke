@@ -1,4 +1,4 @@
-import {Injectable} from '@nestjs/common';
+import {Injectable, Logger} from '@nestjs/common';
 import {ConfigService} from '@nestjs/config';
 import {Resend} from 'resend';
 import {SendEmailDto} from './dto/send-email';
@@ -6,6 +6,7 @@ import {SendEmailDto} from './dto/send-email';
 @Injectable()
 export class EmailService {
     private resend: Resend;
+    private readonly logger = new Logger(EmailService.name);
     private readonly toEmail: string;
 
     constructor(private configService: ConfigService) {
@@ -27,18 +28,17 @@ export class EmailService {
     async sendEmail(emailDto: SendEmailDto) {
         const {senderEmail, senderName, message} = emailDto;
         try {
-            const data = await this.resend.emails.send({
-                from: 'onboarding@resend.dev',
+            return await this.resend.emails.send({
+                from: 'Luke <luke@appsbyluke.com>',
                 to: this.toEmail,
                 subject: `New message from ${senderName}`,
                 html: `
-          <h1>New message from your website</h1>
-          <p><strong>From:</strong> ${senderName} (${senderEmail})</p>
-          <p><strong>Message:</strong></p>
-          <p>${message}</p>
-        `,
+                  <h1>New message from your website</h1>
+                  <p><strong>From:</strong> ${senderName} (${senderEmail})</p>
+                  <p><strong>Message:</strong></p>
+                  <p>${message}</p>
+                `,
             });
-            return data;
         } catch (error) {
             console.error(error);
             throw error;
