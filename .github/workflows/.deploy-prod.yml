@@ -33,7 +33,7 @@ jobs:
           VERSION=$(date +%Y%m%d%H%M%S)
           cd api
           docker build --file Dockerfile --tag ghcr.io/logical-luke/appsbyluke/appsbyluke-api:${{ github.sha }}-${VERSION} .
-          docker tag ghcr.io/logical-luke/appsbyluke/appsbyluke:${{ github.sha }}-${VERSION} ghcr.io/logical-luke/appsbyluke/appsbyluke-api:latest
+          docker tag ghcr.io/logical-luke/appsbyluke/appsbyluke-api:${{ github.sha }}-${VERSION} ghcr.io/logical-luke/appsbyluke/appsbyluke-api:latest
           docker push --all-tags ghcr.io/logical-luke/appsbyluke/appsbyluke-api
 
   deploy:
