@@ -9,6 +9,8 @@ import icon from "astro-icon"
 
 import partytown from '@astrojs/partytown';
 
+import playformInline from '@playform/inline';
+
 // https://astro.build/config
 export default defineConfig({
     site: 'https://appsbyluke.com',
@@ -20,8 +22,8 @@ export default defineConfig({
             config: {
                 forward: ['dataLayer.push'],
             }
-        })
-    ],
+        }),
+        playformInline({})],
     server: {
         host: '0.0.0.0',
         port: 4321
