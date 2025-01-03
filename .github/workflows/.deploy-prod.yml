@@ -31,7 +31,8 @@ jobs:
       - name: Build and push app Docker image
         run: |
           VERSION=$(date +%Y%m%d%H%M%S)
-          docker build --file api/Dockerfile --tag ghcr.io/logical-luke/appsbyluke/appsbyluke-api:${{ github.sha }}-${VERSION} .
+          cd api
+          docker build --file Dockerfile --tag ghcr.io/logical-luke/appsbyluke/appsbyluke-api:${{ github.sha }}-${VERSION} .
           docker tag ghcr.io/logical-luke/appsbyluke/appsbyluke:${{ github.sha }}-${VERSION} ghcr.io/logical-luke/appsbyluke/appsbyluke-api:latest
           docker push --all-tags ghcr.io/logical-luke/appsbyluke/appsbyluke-api
 
