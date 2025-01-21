@@ -1,11 +1,13 @@
 ---
-import Layout from '../layouts/Layout.astro';
 import FAQ from "../components/Faq.astro";
+import SubpageLayout from "../layouts/SubpageLayout.astro";
 ---
 
-<Layout
+<SubpageLayout
         title="About Luke | Full-Stack Developer with 10 Years Experience"
         description="Meet Luke, a seasoned full-stack developer with a decade of experience. Specializing in robust web applications, from backend architecture to frontend design."
+        header="Frequently Asked Questions"
+        backgroundColor="bg-indigo-100"
 >
-    <FAQ />
-</Layout>
+    <FAQ/>
+</SubpageLayout>

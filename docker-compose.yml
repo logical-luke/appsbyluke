@@ -15,11 +15,22 @@ services:
       - "3000:3000"
     volumes:
       - ./api:/api
-  registration:
+  app:
     build:
-      context: registration
+      context: app
       dockerfile: Dockerfile
     ports:
       - "4173:4173"
     volumes:
-      - ./get:/app
+      - ./app:/app
+  db:
+    image: mysql:8.4
+    ports:
+      - "3306:3306"
+    environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: mydb
+        MYSQL_USER: user
+        MYSQL_PASSWORD: password
+    volumes:
+        - ./db/data:/var/lib/mysql
