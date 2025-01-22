@@ -1,7 +1,7 @@
-import { Controller, Get, Body, Version } from '@nestjs/common';
+import { Controller, Get, Version } from '@nestjs/common';
 
 @Controller('healthcheck')
-export class AuthController {
+export class HealthcheckController {
   @Get('debug-sentry')
   @Version('1')
   getError() {

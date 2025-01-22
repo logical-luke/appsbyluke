@@ -6,6 +6,7 @@ import {EmailModule} from './email/email.module';
 import {AuthModule} from './auth/auth.module';
 import { APP_FILTER } from '@nestjs/core';
 import { SentryGlobalFilter } from '@sentry/nestjs/setup';
+import {HealthcheckModule} from "./healthcheck/healthcheck.module";
 
 @Module({
     imports: [
@@ -28,6 +29,7 @@ import { SentryGlobalFilter } from '@sentry/nestjs/setup';
         }),
         EmailModule,
         AuthModule,
+        HealthcheckModule
     ],
     providers: [{
       provide: APP_FILTER,
