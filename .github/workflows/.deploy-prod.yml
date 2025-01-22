@@ -60,6 +60,13 @@ jobs:
               -e APP_ENV=prod \
               -e RESEND_API_KEY=${{ secrets.RESEND_API_KEY }} \
               -e TO_EMAIL=${{ secrets.TO_EMAIL }} \
+              -e DB_HOST=${{ secrets.DB_HOST }} \
+              -e DB_PORT=${{ secrets.DB_PORT }} \
+              -e DB_USERNAME=${{ secrets.DB_USERNAME }} \
+              -e DB_PASSWORD=${{ secrets.DB_PASSWORD }} \
+              -e DB_NAME=${{ secrets.DB_NAME }} \
+              -e ALLOWED_ORIGINS=${{ secrets.ALLOWED_ORIGINS }} \
+              -e JWT_SECRET=${{ secrets.JWT_SECRET }} \
               -p $(shuf -i 21000-21999 -n 1):3000 \
               ghcr.io/logical-luke/appsbyluke/appsbyluke-api:latest npm run start:prod
 
