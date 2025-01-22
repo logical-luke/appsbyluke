@@ -1,11 +1,13 @@
 import {Module} from '@nestjs/common';
 import {ConfigModule, ConfigService} from '@nestjs/config';
+import { SentryModule } from '@sentry/nestjs/setup';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import {EmailModule} from './email/email.module';
 import {AuthModule} from './auth/auth.module';
 
 @Module({
     imports: [
+        SentryModule.forRoot(),
         ConfigModule.forRoot({isGlobal: true, envFilePath: '.env',}),
         TypeOrmModule.forRootAsync({
             imports: [ConfigModule],

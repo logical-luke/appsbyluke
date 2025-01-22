@@ -9,7 +9,6 @@ import { ValidationPipe, VersioningType } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { AppModule } from './app.module';
 import fastifyCors from '@fastify/cors';
-import { AllExceptionsFilter } from './all-exceptions.filter';
 
 async function bootstrap() {
     const app = await NestFactory.create<NestFastifyApplication>(
@@ -45,7 +44,6 @@ async function bootstrap() {
         disableErrorMessages: !isDevelopment,
     }));
 
-    app.useGlobalFilters(new AllExceptionsFilter());
 
     app.enableVersioning({
         type: VersioningType.URI,
