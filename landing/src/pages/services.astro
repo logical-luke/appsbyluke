@@ -2,52 +2,41 @@
 import Layout from '../layouts/Layout.astro';
 import ServicesGrid from "../components/ServicesGrid.astro";
 import TechStackGrid from "../components/TechStackGrid.astro";
+import SubpageLayout from "../layouts/SubpageLayout.astro";
 ---
 
-<Layout
-        title="Web Apps Development Services | AppsByLuke"
-        description="Custom web app development with flexible subscription plans and tailored packages. From MVPs to enterprise solutions. Expert in JavaScript, PHP, and full-stack development."
+<SubpageLayout
+    title="Web Apps Development Services | AppsByLuke"
+    description="Custom web app development with flexible subscription plans and tailored packages. From MVPs to enterprise solutions. Expert in JavaScript, PHP, and full-stack development."
+    header="Web Apps Development"
+    backgroundColor="bg-green-100"
 >
-    <div class="bg-blue-200 py-8 md:py-16 overflow-y-auto border-y-4 border-black">
-        <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-            <div class="bg-white border-4 border-black p-4 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative">
-                <div class="absolute top-0 right-0 w-16 h-16 md:w-24 md:h-24 bg-yellow-400 border-4 border-black transform rotate-12 translate-x-4 -translate-y-4 md:translate-x-8 md:-translate-y-8 z-0"></div>
-                <div class="absolute bottom-0 left-0 w-12 h-12 md:w-20 md:h-20 bg-pink-400 border-4 border-black rounded-full -translate-x-6 translate-y-6 md:-translate-x-10 md:translate-y-10 z-0"></div>
+    <ServicesGrid/>
+    <TechStackGrid/>
 
-                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-8 transform -rotate-1 break-words relative z-10 pr-20 md:pr-0">
-                    Web Apps Development
-                </h1>
+    <div class="mt-12 text-center">
+        <p class="text-xl font-bold mb-6">Ready to start building? Let's turn your ideas into reality!</p>
+        <a href="/contact"
+           class="inline-block text-center bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl transform hover:rotate-2">
+            Get Started
+        </a>
+    </div>
 
-                <ServicesGrid/>
-
-                <TechStackGrid/>
-
-                <div class="mt-12 text-center">
-                    <p class="text-xl font-bold mb-6">Ready to start building? Let's turn your ideas into reality!</p>
-                    <a href="/contact"
-                       class="inline-block text-center bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl transform hover:rotate-2">
-                        Get Started
-                    </a>
-                </div>
-
-                <div class="mt-12 text-center space-y-6">
-                    <p class="text-3xl font-extrabold transform -rotate-2 inline-block bg-pink-300 px-6 py-3 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-                        Got questions?
-                    </p>
-                    <div class="flex flex-col items-center space-y-4 md:flex-row md:space-y-0 md:space-x-4 justify-center">
-                        <a href="/faq"
-                           class="inline-block text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl transform hover:rotate-2">
-                            Check out FAQ
-                        </a>
-                        <p class="text-2xl font-bold">
-                            OR</p>
-                        <a href="/contact"
-                           class="inline-block text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl transform hover:rotate-2">
-                            Contact Me
-                        </a>
-                    </div>
-                </div>
-            </div>
+    <div class="mt-12 text-center space-y-6">
+        <p class="text-3xl font-extrabold transform -rotate-2 inline-block bg-pink-300 px-6 py-3 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+            Got questions?
+        </p>
+        <div class="flex flex-col items-center space-y-4 md:flex-row md:space-y-0 md:space-x-4 justify-center">
+            <a href="/faq"
+               class="inline-block text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl transform hover:rotate-2">
+                Check out FAQ
+            </a>
+            <p class="text-2xl font-bold">
+                OR</p>
+            <a href="/contact"
+               class="inline-block text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl transform hover:rotate-2">
+                Contact Me
+            </a>
         </div>
     </div>
-</Layout>
+</SubpageLayout>

@@ -9,7 +9,7 @@ Project URL: [AppsByLuke](https://appsbyluke.com/)
 
 ## Project Structure:
 
-- `/landing` - landing page
+- `/landing` - landing page and registration form
     - Stack:
       - Astro
       - Tailwind CSS
@@ -22,17 +22,12 @@ Project URL: [AppsByLuke](https://appsbyluke.com/)
       - PostgreSQL
       - Stripe API 
     - Default exposed port: 3000
-- `/registration` - registration form 
-    - Stack:
-      - Vue.js
-      - TypeScript
-      - Tailwind CSS
 - `/dashboard` - dashboard for requests and subscriptions
     - Stack:
       - Vue.js
       - TypeScript
       - Tailwind CSS
-
+    - Default exposed port: 4173
 ## Prerequisites
 
 - Docker

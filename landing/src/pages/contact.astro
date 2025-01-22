@@ -1,88 +1,81 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import SubpageLayout from "../layouts/SubpageLayout.astro";
 ---
 
-<Layout
-        title="Contact AppsByLuke | Get Started on Your Web App"
-        description="Ready to bring your app idea to life? Get in touch with Luke for custom web app development. Book a call or send a message to start your project today."
+<SubpageLayout
+    title="Contact AppsByLuke | Get Started on Your Web App"
+    description="Ready to bring your app idea to life? Get in touch with Luke for custom web app development. Book a call or send a message to start your project today."
+    header="Get in Touch"
+    backgroundColor="bg-blue-100"
 >
-    <div class="bg-blue-200 py-8 sm:py-16 overflow-y-auto border-y-4 border-black min-h-[calc(100vh-288px)]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white border-4 border-black p-4 sm:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-4 sm:mb-8 transform -rotate-1 break-words">
-                    Get in Touch</h1>
+    <div class="mb-8 space-y-4">
+        <p class="text-lg">
+            I'm here to help bring your web application ideas to life. You can reach me through:
+        </p>
+        <ul class="list-disc list-inside space-y-2 ml-4">
+            <li><strong>Contact Form:</strong> Fill out the form below for a quick and easy way to send your
+                message
+            </li>
+            <li><strong>Email:</strong> Direct communication for any questions</li>
+            <li><strong>15-Minute Intro Call:</strong> Schedule a free consultation to discuss your project
+                needs and explore how we can work together
+            </li>
+        </ul>
+        <p class="text-lg">
+            I typically respond within 24 hours during business days. For urgent matters, email is the
+            fastest way to reach me.
+        </p>
+    </div>
 
-                <div class="mb-8 space-y-4">
-                    <p class="text-lg">
-                        I'm here to help bring your web application ideas to life. You can reach me through:
-                    </p>
-                    <ul class="list-disc list-inside space-y-2 ml-4">
-                        <li><strong>Contact Form:</strong> Fill out the form below for a quick and easy way to send your
-                            message
-                        </li>
-                        <li><strong>Email:</strong> Direct communication for any questions</li>
-                        <li><strong>15-Minute Intro Call:</strong> Schedule a free consultation to discuss your project
-                            needs and explore how we can work together
-                        </li>
-                    </ul>
-                    <p class="text-lg">
-                        I typically respond within 24 hours during business days. For urgent matters, email is the
-                        fastest way to reach me.
-                    </p>
-                </div>
-
-                <div class="flex flex-col sm:flex-row gap-4 mb-8">
-                    <a href="mailto:get@appsbyluke.com"
-                       class="inline-block text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl transform hover:rotate-2">
-                        Email Directly
-                    </a>
-                    <div class="relative inline-block">
-                        <a href="https://calendar.app.google/uDz6rZrYgUxqAC2i9"
-                           class="inline-block w-full md:w-fit text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl transform hover:rotate-2">
-                            Book a Call
-                        </a>
-                        <div class="absolute -top-4 -right-4 bg-yellow-400 text-black font-bold text-xs py-1 px-2 border-2 border-black rounded-full transform rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                            FREE
-                        </div>
-                    </div>
-                </div>
-
-                <p class="text-lg font-bold mb-4 bg-yellow-200 border-2 border-black p-2 inline-block transform -rotate-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                    Heads up! All fields are needed for the best response.
-                </p>
-
-                <form id="contactForm" class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-lg font-bold text-black">Name</label>
-                        <input type="text" id="name" name="name" required
-                               class="mt-1 block w-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] py-2 px-3 focus:outline-none focus:bg-pink-200 bg-white transition-colors duration-300">
-                        <p class="validation-message text-red-500 font-bold mt-1 hidden"></p>
-                    </div>
-                    <div>
-                        <label for="email" class="block text-lg font-bold text-black">Email</label>
-                        <input type="email" id="email" name="email" required
-                               class="mt-1 block w-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] py-2 px-3 focus:outline-none focus:bg-pink-200 bg-white transition-colors duration-300">
-                        <p class="validation-message text-red-500 font-bold mt-1 hidden"></p>
-                    </div>
-                    <div>
-                        <label for="message" class="block text-lg font-bold text-black">Message</label>
-                        <textarea id="message" name="message" rows="4" required
-                                  class="mt-1 block w-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] py-2 px-3 focus:outline-none focus:bg-pink-200 bg-white transition-colors duration-300"></textarea>
-                        <p class="validation-message text-red-500 font-bold mt-1 hidden"></p>
-                    </div>
-                    <div class="flex flex-col gap-4">
-                        <div id="result"
-                             class="mt-4 p-4 border-4 border-black font-bold text-xl hidden w-full md:w-fit"></div>
-                        <button type="submit"
-                                class="bg-green-600 hover:bg-green-700 text-white text-xl font-bold w-full md:w-fit py-3 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 transform hover:rotate-1">
-                            Send Message
-                        </button>
-                    </div>
-                </form>
+    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+        <a href="mailto:get@appsbyluke.com"
+           class="inline-block text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl transform hover:rotate-2">
+            Email Directly
+        </a>
+        <div class="relative inline-block">
+            <a href="https://calendar.app.google/uDz6rZrYgUxqAC2i9"
+               class="inline-block w-full md:w-fit text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl transform hover:rotate-2">
+                Book a Call
+            </a>
+            <div class="absolute -top-4 -right-4 bg-yellow-400 text-black font-bold text-xs py-1 px-2 border-2 border-black rounded-full transform rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                FREE
             </div>
         </div>
     </div>
-</Layout>
+
+    <p class="text-lg font-bold mb-4 bg-yellow-200 border-2 border-black p-2 inline-block transform -rotate-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+        Heads up! All fields are needed for the best response.
+    </p>
+
+    <form id="contactForm" class="space-y-6">
+        <div>
+            <label for="name" class="block text-lg font-bold text-black">Name</label>
+            <input type="text" id="name" name="name" required
+                   class="mt-1 block w-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] py-2 px-3 focus:outline-none focus:bg-pink-200 bg-white transition-colors duration-300">
+            <p class="validation-message text-red-500 font-bold mt-1 hidden"></p>
+        </div>
+        <div>
+            <label for="email" class="block text-lg font-bold text-black">Email</label>
+            <input type="email" id="email" name="email" required
+                   class="mt-1 block w-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] py-2 px-3 focus:outline-none focus:bg-pink-200 bg-white transition-colors duration-300">
+            <p class="validation-message text-red-500 font-bold mt-1 hidden"></p>
+        </div>
+        <div>
+            <label for="message" class="block text-lg font-bold text-black">Message</label>
+            <textarea id="message" name="message" rows="4" required
+                      class="mt-1 block w-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] py-2 px-3 focus:outline-none focus:bg-pink-200 bg-white transition-colors duration-300"></textarea>
+            <p class="validation-message text-red-500 font-bold mt-1 hidden"></p>
+        </div>
+        <div class="flex flex-col gap-4">
+            <div id="result"
+                 class="mt-4 p-4 border-4 border-black font-bold text-xl hidden w-full md:w-fit"></div>
+            <button type="submit"
+                    class="bg-green-600 hover:bg-green-700 text-white text-xl font-bold w-full md:w-fit py-3 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 transform hover:rotate-1">
+                Send Message
+            </button>
+        </div>
+    </form>
+</SubpageLayout>
 
 <script>
     const form = document.getElementById('contactForm');

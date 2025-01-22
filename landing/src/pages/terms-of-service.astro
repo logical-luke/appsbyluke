@@ -1,845 +1,834 @@
 ---
-import Layout from '../layouts/Layout.astro';
 import {Icon} from "astro-icon/components";
+import SubpageLayout from "../layouts/SubpageLayout.astro";
 ---
 
-<Layout
+<SubpageLayout
         title="Terms of Service | AppsByLuke"
         description="These Terms of Service constitute a legally binding agreement between AppsByLuke and you, governing the use of my Services and Website."
+        header="Terms of Service"
+        backgroundColor="bg-purple-100"
 >
-    <div class="bg-blue-200 py-8 md:py-16 overflow-y-auto border-y-4 border-black">
-        <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-            <div class="bg-white border-4 border-black p-4 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative">
-                <div class="absolute top-0 right-0 w-16 h-16 md:w-24 md:h-24 bg-yellow-400 border-4 border-black transform rotate-12 translate-x-4 -translate-y-4 md:translate-x-8 md:-translate-y-8 z-0"></div>
-                <div class="absolute bottom-0 left-0 w-12 h-12 md:w-20 md:h-20 bg-pink-400 border-4 border-black rounded-full -translate-x-6 translate-y-6 md:-translate-x-10 md:translate-y-10 z-0"></div>
-
-                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-8 transform -rotate-1 break-words relative z-10 pr-20 md:pr-0">
-                    Terms of Service
-                </h1>
-
-                <div class="mb-4">
-                    <h2 class="text-2xl font-bold mb-4">1. Introduction</h2>
-                    <p>These Terms of Service ("Terms") constitute a legally binding agreement between Łukasz Ziaja
-                        ("Company," "I," "me," or "my"), operating under the business name AppsByLuke, and you
-                        ("Client," "you," or "your") governing the use of my Services and Website. By accessing or using
-                        my Services, you acknowledge that you have read, understood, and agree to be bound by these
-                        Terms. If you do not agree to these Terms, you must immediately cease using the Services.</p>
-                </div>
-
-                <div class="mb-4">
-                    <h2 class="text-2xl font-bold mb-4">2. Definitions</h2>
-                    <div class="ml-4 space-y-4">
-                        <h3 class="text-xl font-bold mb-2">2.1. Company</h3>
-                        <p>"Company" refers to Łukasz Ziaja, a sole proprietorship registered at al. Wiśniowa 36a/304,
-                            53-137 Wrocław, Poland, operating under the business name AppsByLuke.</p>
-
-                        <h3 class="text-xl font-bold mb-2">2.2. Services</h3>
-                        <p>The Company provides three primary service categories:</p>
-                        <ul class="list-disc list-inside ml-4 space-y-4">
-                            <li>Developer as Subscription (Light, Standard, and Pro plans)</li>
-                            <li>Task Packages (Single Task, Basic Pack, and Growth Pack)</li>
-                            <li>App Packages (MVP Launchpad, Scale-up Accelerator, and Enterprise Powerhouse)</li>
-                        </ul>
-
-                        <h3 class="text-xl font-bold mb-2">2.3. Technical Stack</h3>
-                        <p>The Company utilizes the following technologies for service delivery:</p>
-                        <ul class="list-disc list-inside ml-4 space-y-4">
-                            <li>Languages: JavaScript, TypeScript, PHP</li>
-                            <li>Frameworks & Libraries: Symfony, Laravel, Vue.js, Astro, NestJS, Nuxt</li>
-                            <li>Runtime Environments: Node.js</li>
-                            <li>Databases & Messaging: MySQL, PostgreSQL, MongoDB, Redis, Elasticsearch, Apache Kafka,
-                                RabbitMQ
-                            </li>
-                            <li>Frontend & Design: Bootstrap, Tailwind CSS</li>
-                            <li>CMS & E-commerce: Pimcore, WordPress, WooCommerce</li>
-                            <li>DevOps & Infrastructure: Docker, Kubernetes, Terraform, AWS, GCP, On-Premise
-                                Infrastructure, Git, GitHub Actions, Cloudflare
-                            </li>
-                            <li>Monitoring & Analytics: Grafana, Uptime Kuma, Prometheus, Sentry, Google Analytics,
-                                Google Search Console, Kibana
-                            </li>
-                            <li>AI: OpenAI, Claude, MindsDB</li>
-                            <li>Testing & Code Quality: Cypress, Selenium, PHPUnit, Jest, PhpSpec, PhpStan, ESLint,
-                                Prettier, Rector
-                            </li>
-                        </ul>
-
-                        <h3 class="text-xl font-bold mb-2">2.4. Website</h3>
-                        <p>"Website" refers to the Company's website, accessible at https://appsbyluke.com</p>
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <h2 class="text-2xl font-bold mb-4">3. Service Terms</h2>
-                    <div class="ml-4 space-y-4">
-                        <h3 class="text-xl font-bold mb-2">3.1. Developer as Subscription</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Subscription Plans and Capacity</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Light Plan: One (1) concurrent development task</li>
-                                <li>Standard Plan: Two (2) concurrent development tasks</li>
-                                <li>Pro Plan: Three (3) concurrent development tasks</li>
-                                <li>Unlimited development requests can be submitted</li>
-                                <li>Tasks are processed according to the concurrent task limit</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Task States and Workflow</h4>
-                            <p>Tasks progress through the following states:</p>
-                            <ol class="list-decimal list-inside ml-4 space-y-4">
-                                <li>"Requested" - Initial task submission by Client</li>
-                                <li>"Approved" or "Refinement Required"
-                                    <ul class="list-disc list-inside ml-4">
-                                        <li>"Approved" - Task approved for development</li>
-                                        <li>"Refinement Required" - Task not ready for development, additional details
-                                            needed in the comments
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>"In Progress" - Active development phase</li>
-                                <li>"Delivered" - Development completed and ready for review</li>
-                                <li>"Accepted" or "Changes Requested"
-                                    <ul class="list-disc list-inside ml-4">
-                                        <li>"Accepted" - Client approves the delivered work</li>
-                                        <li>"Changes Requested" - Client requests modifications to the delivered work
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>"Canceled" - Optional state if Client chooses to terminate the task</li>
-                            </ol>
-
-                            <h4 class="text-lg font-bold mb-2">c) Service Delivery</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Development services provided during business hours (Monday-Friday, CET timezone)
-                                </li>
-                                <li>Code delivery through private GitHub repositories</li>
-                                <li>Documentation provided with each delivery</li>
-                                <li>Updates provided through requests management panel</li>
-                                <li>Slack updates available upon request (Standard and Pro plans)</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">d) Communication Policy</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Primary communication through requests management panel</li>
-                                <li>Email support for all plans</li>
-                                <li>Dedicated Slack channel for Standard and Pro plans</li>
-                                <li>Priority support for Pro plan subscribers</li>
-                                <li>Meetings available on fair-usage basis</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">3.2. Task Packages</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Package Types</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Single Task: One development request with one revision round</li>
-                                <li>Basic Pack: Five development requests with two revision rounds each</li>
-                                <li>Growth Pack: Ten development requests with two revision rounds each</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Delivery Terms</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>48-72h average delivery time for Single Task</li>
-                                <li>48h average delivery time for Basic and Growth Packs</li>
-                                <li>Code delivered via GitHub repositories</li>
-                                <li>Email support for Single Task</li>
-                                <li>Slack channel support for Basic and Growth Packs</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">3.3. App Packages</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Package Types and Timelines</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>MVP Launchpad: 4-6 weeks delivery timeframe</li>
-                                <li>Scale-up Accelerator: 8-14 weeks delivery timeframe</li>
-                                <li>Enterprise Powerhouse: 12-18 weeks delivery timeframe</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Development Process</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Custom designed responsive web application</li>
-                                <li>Core feature implementation based on package level</li>
-                                <li>Documentation and codebase delivery</li>
-                                <li>Development using the Primary Technology Stack</li>
-                                <li>Milestone-based development and delivery</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">c) Delivery Structure</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>MVP Launchpad: Three milestone payments</li>
-                                <li>Scale-up Accelerator: Four milestone payments</li>
-                                <li>Enterprise Powerhouse: Five milestone payments</li>
-                                <li>Each milestone requires approval and payment before proceeding</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <h2 class="text-2xl font-bold mb-4">4. Payment Terms</h2>
-                    <div class="ml-4 space-y-4">
-                        <h3 class="text-xl font-bold mb-2">4.1. Developer as Subscription</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Billing Terms</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Light Plan: $499 per month</li>
-                                <li>Standard Plan: $999 per month</li>
-                                <li>Pro Plan: $2,499 per month</li>
-                                <li>Subscription fees charged at the beginning of each billing period</li>
-                                <li>All fees are non-refundable for the current period</li>
-                                <li>Subscription can be canceled at any time</li>
-                                <li>Access continues until the end of the paid period</li>
-                                <li>Option to pause subscription available</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Failed Payments</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Service access may be suspended upon payment failure</li>
-                                <li>Notification will be sent regarding failed payments</li>
-                                <li>Resolution required within 5 business days to restore service access</li>
-                                <li>Continued non-payment may result in subscription termination</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">4.2. Task Packages</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Package Pricing</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Single Task: $49 (First-time offer, regular price $99)</li>
-                                <li>Basic Pack: $449 for 5 development requests</li>
-                                <li>Growth Pack: $849 for 10 development requests</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Payment Terms</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Full payment required upfront</li>
-                                <li>All payments are non-refundable once development starts</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">4.3. App Packages</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Package Pricing</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>MVP Launchpad: $7,999 (Three milestone payments)</li>
-                                <li>Scale-up Accelerator: $16,999 (Four milestone payments)</li>
-                                <li>Enterprise Powerhouse: $37,999 (Five milestone payments)</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Milestone Payments</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Each milestone payment due before phase begins</li>
-                                <li>All payments are non-refundable</li>
-                                <li>Development begins after first milestone payment</li>
-                                <li>Milestone approval required before proceeding to next phase</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <h2 class="text-2xl font-bold mb-4">5. Intellectual Property Rights</h2>
-                    <div class="ml-4 space-y-4">
-                        <h3 class="text-xl font-bold mb-2">5.1. Ownership</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Client Rights</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Full ownership of custom code created specifically for the Client</li>
-                                <li>Rights to all project deliverables upon full payment</li>
-                                <li>Access to delivered code repositories maintained after service termination</li>
-                                <li>Rights to modify and distribute the delivered code</li>
-                                <li>Ownership of any custom designs, graphics, and assets created for the Client</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Company Rights</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Right to use general programming concepts and techniques</li>
-                                <li>Right to develop similar solutions for other clients without using Client's
-                                    proprietary code
-                                </li>
-                                <li>Right to use open-source components and libraries</li>
-                                <li>Portfolio rights subject to confidentiality agreements</li>
-                                <li>Right to retain and use anonymous usage data for service improvement</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">c) Third-Party Components</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Third-party libraries and tools subject to their respective licenses</li>
-                                <li>Client responsible for compliance with third-party licenses</li>
-                                <li>Documentation of third-party components provided with deliverables</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">5.2. Confidentiality</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Non-Disclosure</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>All client information treated as confidential</li>
-                                <li>No disclosure of confidential information to third parties</li>
-                                <li>Secure storage and transmission of client data</li>
-                                <li>Option to sign additional NDAs available</li>
-                                <li>Proprietary information protected during and after service period</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Data Protection</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Implementation of industry-standard security measures</li>
-                                <li>Secure code repositories and development environments</li>
-                                <li>Limited access to client data on need-to-know basis</li>
-                                <li>Deletion of sensitive data upon project completion if requested</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">c) Portfolio Usage</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>General project descriptions may be used in Company portfolio</li>
-                                <li>No confidential information included in portfolio</li>
-                                <li>Client attribution unless otherwise agreed</li>
-                                <li>Right to remove portfolio items upon client request</li>
-                                <li>Screenshots and descriptions require client approval</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">5.3. Code Repository Rights</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Access and Maintenance</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Private repository access provided to Client</li>
-                                <li>Repository maintained for duration of service</li>
-                                <li>Transfer repository ownership to Client</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Code Documentation</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Comprehensive documentation provided with code</li>
-                                <li>Installation and deployment instructions included</li>
-                                <li>Code comments and inline documentation maintained</li>
-                                <li>Technical specifications and architecture documents provided</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <h2 class="text-2xl font-bold mb-4">6. Service Level Agreements</h2>
-                    <div class="ml-4 space-y-4">
-                        <h3 class="text-xl font-bold mb-2">6.1. Working Hours and Availability</h3>
-                        <ul class="list-disc list-inside ml-4 space-y-4">
-                            <li>Service provided Monday through Friday</li>
-                            <li>Operating within Central European Time (CET) zone</li>
-                            <li>Excluding Polish national holidays</li>
-                            <li>Standard business hours: 9:00 AM - 5:00 PM CET</li>
-                            <li>Response to new requests within one business day</li>
-                            <li>Emergency support available for Pro plan subscribers</li>
-                        </ul>
-
-                        <h3 class="text-xl font-bold mb-2">6.2. Response Times</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Developer as Subscription</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Light Plan: Response within 24 business hours</li>
-                                <li>Standard Plan: Response within 12 business hours</li>
-                                <li>Pro Plan: Priority response within 8 business hours</li>
-                                <li>Updates provided through requests management panel</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Task Packages</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Single Task: Response within 24 business hours</li>
-                                <li>Basic Pack: Response within 24 business hours</li>
-                                <li>Growth Pack: Response within 12 business hours</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">c) App Packages</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Regular progress updates during active development</li>
-                                <li>Milestone completion notifications</li>
-                                <li>Weekly status reports</li>
-                                <li>Response to queries within one business day</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">6.3. Delivery Times</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Task Completion</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Small tasks: 24-48 hours</li>
-                                <li>Medium tasks: 2-4 business days</li>
-                                <li>Large tasks: 5+ business days with progress updates</li>
-                                <li>Specific timelines provided after task review</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Quality Assurance</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Code review before delivery</li>
-                                <li>Testing documentation provided</li>
-                                <li>Bug fixes prioritized based on severity</li>
-                                <li>Performance testing for critical features</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">6.4. Communication Channels</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Primary Channels</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Requests management panel for all clients</li>
-                                <li>Email support for all service types</li>
-                                <li>Slack channels for Standard and Pro subscribers</li>
-                                <li>Video calls scheduled as needed</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Meeting Policy</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Initial consultation calls available to all clients</li>
-                                <li>Regular check-ins for App Package clients</li>
-                                <li>Progress review meetings upon request</li>
-                                <li>Technical discussion sessions as needed</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">6.5. Service Maintenance</h3>
-                        <ul class="list-disc list-inside ml-4 space-y-4">
-                            <li>Scheduled maintenance announced 48 hours in advance</li>
-                            <li>Emergency maintenance with immediate notification</li>
-                            <li>Service updates during off-peak hours</li>
-                            <li>Minimal disruption to active development</li>
-                            <li>Regular system health checks and optimization</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <h2 class="text-2xl font-bold mb-4">7. Service Limitations and Guarantees</h2>
-                    <div class="ml-4 space-y-4">
-                        <h3 class="text-xl font-bold mb-2">7.1. Service Limitations</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) General Limitations</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Concurrent task limits based on subscription tier:
-                                    <ul class="list-disc list-inside ml-8">
-                                        <li>Light Plan: 1 concurrent task</li>
-                                        <li>Standard Plan: 2 concurrent tasks</li>
-                                        <li>Pro Plan: 3 concurrent tasks</li>
-                                    </ul>
-                                </li>
-                                <li>Development using specified Technology Stack only</li>
-                                <li>Support provided during business hours (CET timezone)</li>
-                                <li>Fair usage policy applies to meetings and support requests</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Technical Limitations</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Third-party service integration subject to their availability</li>
-                                <li>Performance dependent on hosting environment</li>
-                                <li>Mobile app development limited to web technologies</li>
-                                <li>Legacy system support evaluated case-by-case</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">c) Package-Specific Limitations</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>App Package timelines subject to client feedback delays</li>
-                                <li>Revision rounds as specified per package type</li>
-                                <li>Feature scope defined by package level</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">7.2. Service Guarantees</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Quality Assurance</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Code quality maintained through industry standards</li>
-                                <li>Security best practices implementation</li>
-                                <li>Documentation provided with deliverables</li>
-                                <li>Bug fixes included in delivery</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Support Commitment</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Response times as specified per service level</li>
-                                <li>Regular progress updates</li>
-                                <li>Technical guidance and consultation</li>
-                                <li>Post-delivery support period</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">7.3. No Guarantees</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Disclaimers</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>No guarantee of uninterrupted service</li>
-                                <li>No warranty for third-party services or integrations</li>
-                                <li>Results dependent on provided requirements</li>
-                                <li>Development timelines subject to task complexity</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) External Factors</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Performance affected by hosting environment</li>
-                                <li>Availability of third-party services</li>
-                                <li>Client-side technical limitations</li>
-                                <li>Market success of developed solutions</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">7.4. Force Majeure</h3>
-                        <ul class="list-disc list-inside ml-4 space-y-4">
-                            <li>Service interruptions due to circumstances beyond control</li>
-                            <li>Natural disasters or acts of nature</li>
-                            <li>Internet or power infrastructure failures</li>
-                            <li>Government actions or regulations</li>
-                            <li>Other extraordinary circumstances</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <h2 class="text-2xl font-bold mb-4">8. Data Protection and Security</h2>
-                    <div class="ml-4 space-y-4">
-                        <h3 class="text-xl font-bold mb-2">8.1. Data Handling</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Data Processing</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Client data processed in accordance with GDPR requirements</li>
-                                <li>Data processed only as necessary for service provision</li>
-                                <li>Personal data handled with strict confidentiality</li>
-                                <li>Data processing records maintained as required</li>
-                                <li>Regular data protection impact assessments</li>
-                                <li>Analytics data collected through Google Analytics</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Data Storage</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Secure storage within and outside European Union</li>
-                                <li>Use of international service providers (including Cloudflare, Google Analytics)</li>
-                                <li>Appropriate safeguards for international transfers</li>
-                                <li>Encrypted data storage and transmission</li>
-                                <li>Regular backup procedures</li>
-                                <li>Data retention policies enforced</li>
-                                <li>Secure disposal of unnecessary data</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">8.2. Security Measures</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Technical Security</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Secure code repositories with access controls</li>
-                                <li>Industry-standard encryption protocols</li>
-                                <li>Regular security updates and patches</li>
-                                <li>Multi-factor authentication where applicable</li>
-                                <li>Secure development environments</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Development Security</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Secure coding practices</li>
-                                <li>Regular code security reviews</li>
-                                <li>Vulnerability scanning</li>
-                                <li>Dependency security monitoring</li>
-                                <li>Security testing before deployment</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">8.3. Data Rights</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Client Rights</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Right to access stored data</li>
-                                <li>Right to request data deletion</li>
-                                <li>Right to data portability</li>
-                                <li>Right to restrict processing</li>
-                                <li>Right to object to processing</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Data Requests</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Data access requests processed within 30 days</li>
-                                <li>Data deletion requests honored promptly</li>
-                                <li>Data export provided in standard formats</li>
-                                <li>Written confirmation of data actions</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">8.4. Security Incidents</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Incident Response</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Immediate investigation of security incidents</li>
-                                <li>Client notification within 72 hours</li>
-                                <li>Detailed incident reports provided</li>
-                                <li>Corrective measures implemented</li>
-                                <li>Post-incident security review</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Prevention Measures</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Regular security assessments</li>
-                                <li>Security policy reviews</li>
-                                <li>Infrastructure security monitoring</li>
-                                <li>Third-party security audits</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <h2 class="text-2xl font-bold mb-4">9. Service Termination</h2>
-                    <div class="ml-4 space-y-4">
-                        <h3 class="text-xl font-bold mb-2">9.1. Subscription Termination</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Client-Initiated Termination</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Cancel subscription at any time through dashboard</li>
-                                <li>No refunds for current billing period</li>
-                                <li>Access maintained until end of paid period</li>
-                                <li>Option to complete in-progress tasks</li>
-                                <li>All code and deliverables remain accessible</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Subscription Pausing</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Pause subscription at any time through dashboard</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">9.2. Task Package Termination</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Package Expiration</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>No refunds for unused requests</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Early Termination</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>No refunds once development has commenced</li>
-                                <li>All completed work delivered upon termination</li>
-                                <li>Access to delivered code maintained</li>
-                                <li>Termination does not affect code ownership rights</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">9.3. App Package Termination</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Client-Initiated Termination</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Written notice required for termination</li>
-                                <li>Completed milestones non-refundable</li>
-                                <li>Delivery of all completed work</li>
-                                <li>Transfer of relevant documentation</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Milestone-Based Termination</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Review and approval required per milestone</li>
-                                <li>Option to terminate at milestone completion</li>
-                                <li>Partial delivery based on completed milestones</li>
-                                <li>Final settlement of any outstanding payments</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">9.4. Post-Termination</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Data Handling</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Return of client data upon request</li>
-                                <li>Secure disposal of unnecessary data</li>
-                                <li>Retention of legally required records</li>
-                                <li>Archive of project documentation</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Access Rights</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Continued access to delivered code</li>
-                                <li>Repository access maintained</li>
-                                <li>Documentation availability preserved</li>
-                                <li>Support for transition period if needed</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <h2 class="text-2xl font-bold mb-4">10. Modifications to Terms</h2>
-                    <div class="ml-4 space-y-4">
-                        <h3 class="text-xl font-bold mb-2">10.1. Terms Updates</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Modification Process</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Company reserves right to modify terms</li>
-                                <li>30 days notice for material changes</li>
-                                <li>Notice provided via email and website</li>
-                                <li>Clear communication of changes</li>
-                                <li>Version history maintained and accessible</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Client Rights</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Right to review modified terms</li>
-                                <li>Right to terminate if changes unacceptable</li>
-                                <li>Continued use constitutes acceptance</li>
-                                <li>Option to maintain previous terms until current period ends</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">10.2. Service Modifications</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Service Changes</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Right to modify service features with notice</li>
-                                <li>Right to adjust pricing with 30 days notice</li>
-                                <li>Right to update technology stack</li>
-                                <li>Right to modify service delivery methods</li>
-                                <li>Commitment to maintain service quality</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Implementation of Changes</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Existing packages honored at original terms</li>
-                                <li>Subscription changes effective next billing cycle</li>
-                                <li>Gradual implementation of technical changes</li>
-                                <li>Support during transition periods</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <h2 class="text-2xl font-bold mb-4">11. Dispute Resolution</h2>
-                    <div class="ml-4 space-y-4">
-                        <h3 class="text-xl font-bold mb-2">11.1. Governing Law</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Jurisdiction</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Terms governed by Polish law</li>
-                                <li>EU consumer protection laws apply where relevant</li>
-                                <li>Jurisdiction in courts of Wrocław, Poland</li>
-                                <li>Electronic agreements considered legally binding</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Legal Compliance</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Compliance with GDPR requirements</li>
-                                <li>Adherence to e-commerce regulations</li>
-                                <li>Consumer rights protection</li>
-                                <li>International trade law compliance where applicable</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">11.2. Dispute Process</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Initial Resolution</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Parties shall attempt amicable resolution</li>
-                                <li>Written notice required for formal disputes</li>
-                                <li>30-day informal resolution period</li>
-                                <li>Good faith negotiations required</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Mediation</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Optional mediation before legal proceedings</li>
-                                <li>Mutually agreed mediator selection</li>
-                                <li>Equal cost sharing for mediation</li>
-                                <li>Confidential mediation process</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-bold mb-2">11.3. Legal Proceedings</h3>
-                        <div class="ml-4 space-y-4">
-                            <h4 class="text-lg font-bold mb-2">a) Court Proceedings</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Last resort after attempted resolution</li>
-                                <li>Venue in Wrocław, Poland</li>
-                                <li>Language of proceedings in English</li>
-                                <li>Right to seek injunctive relief</li>
-                            </ul>
-
-                            <h4 class="text-lg font-bold mb-2">b) Legal Costs</h4>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Each party bears own legal costs</li>
-                                <li>Court fees as per local regulations</li>
-                                <li>Cost allocation by court decision</li>
-                                <li>Recovery of reasonable legal expenses</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <h2 class="text-2xl font-bold mb-4">12. Contact Information</h2>
-                    <div class="ml-4 space-y-4">
-                        <p>For matters relating to these Terms or my Services:</p>
-                        <ul class="list-none ml-4 space-y-4 mt-2">
-                            <li>Legal Business Name: Łukasz Ziaja</li>
-                            <li>Operating as: AppsByLuke</li>
-                            <li>Address: al. Wiśniowa 36a/304</li>
-                            <li>53-137 Wrocław</li>
-                            <li>Poland</li>
-                            <li>Email: <a href="mailto:luke@appsbyluke.com"
-                                          class="text-blue-600 hover:text-blue-800 underline">luke@appsbyluke.com</a>
-                            </li>
-                            <li>Website: <a href="https://appsbyluke.com"
-                                            class="text-blue-600 hover:text-blue-800 underline">https://appsbyluke.com</a>
+    <div class="mb-4">
+        <h2 class="text-2xl font-bold mb-4">1. Introduction</h2>
+        <p>These Terms of Service ("Terms") constitute a legally binding agreement between Łukasz Ziaja
+            ("Company," "I," "me," or "my"), operating under the business name AppsByLuke, and you
+            ("Client," "you," or "your") governing the use of my Services and Website. By accessing or using
+            my Services, you acknowledge that you have read, understood, and agree to be bound by these
+            Terms. If you do not agree to these Terms, you must immediately cease using the Services.</p>
+    </div>
+
+    <div class="mb-4">
+        <h2 class="text-2xl font-bold mb-4">2. Definitions</h2>
+        <div class="ml-4 space-y-4">
+            <h3 class="text-xl font-bold mb-2">2.1. Company</h3>
+            <p>"Company" refers to Łukasz Ziaja, a sole proprietorship registered at al. Wiśniowa 36a/304,
+                53-137 Wrocław, Poland, operating under the business name AppsByLuke.</p>
+
+            <h3 class="text-xl font-bold mb-2">2.2. Services</h3>
+            <p>The Company provides three primary service categories:</p>
+            <ul class="list-disc list-inside ml-4 space-y-4">
+                <li>Developer as Subscription (Light, Standard, and Pro plans)</li>
+                <li>Task Packages (Single Task, Basic Pack, and Growth Pack)</li>
+                <li>App Packages (MVP Launchpad, Scale-up Accelerator, and Enterprise Powerhouse)</li>
+            </ul>
+
+            <h3 class="text-xl font-bold mb-2">2.3. Technical Stack</h3>
+            <p>The Company utilizes the following technologies for service delivery:</p>
+            <ul class="list-disc list-inside ml-4 space-y-4">
+                <li>Languages: JavaScript, TypeScript, PHP</li>
+                <li>Frameworks & Libraries: Symfony, Laravel, Vue.js, Astro, NestJS, Nuxt</li>
+                <li>Runtime Environments: Node.js</li>
+                <li>Databases & Messaging: MySQL, PostgreSQL, MongoDB, Redis, Elasticsearch, Apache Kafka,
+                    RabbitMQ
+                </li>
+                <li>Frontend & Design: Bootstrap, Tailwind CSS</li>
+                <li>CMS & E-commerce: Pimcore, WordPress, WooCommerce</li>
+                <li>DevOps & Infrastructure: Docker, Kubernetes, Terraform, AWS, GCP, On-Premise
+                    Infrastructure, Git, GitHub Actions, Cloudflare
+                </li>
+                <li>Monitoring & Analytics: Grafana, Uptime Kuma, Prometheus, Sentry, Google Analytics,
+                    Google Search Console, Kibana
+                </li>
+                <li>AI: OpenAI, Claude, MindsDB</li>
+                <li>Testing & Code Quality: Cypress, Selenium, PHPUnit, Jest, PhpSpec, PhpStan, ESLint,
+                    Prettier, Rector
+                </li>
+            </ul>
+
+            <h3 class="text-xl font-bold mb-2">2.4. Website</h3>
+            <p>"Website" refers to the Company's website, accessible at https://appsbyluke.com</p>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <h2 class="text-2xl font-bold mb-4">3. Service Terms</h2>
+        <div class="ml-4 space-y-4">
+            <h3 class="text-xl font-bold mb-2">3.1. Developer as Subscription</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Subscription Plans and Capacity</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Light Plan: One (1) concurrent development task</li>
+                    <li>Standard Plan: Two (2) concurrent development tasks</li>
+                    <li>Pro Plan: Three (3) concurrent development tasks</li>
+                    <li>Unlimited development requests can be submitted</li>
+                    <li>Tasks are processed according to the concurrent task limit</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Task States and Workflow</h4>
+                <p>Tasks progress through the following states:</p>
+                <ol class="list-decimal list-inside ml-4 space-y-4">
+                    <li>"Requested" - Initial task submission by Client</li>
+                    <li>"Approved" or "Refinement Required"
+                        <ul class="list-disc list-inside ml-4">
+                            <li>"Approved" - Task approved for development</li>
+                            <li>"Refinement Required" - Task not ready for development, additional details
+                                needed in the comments
                             </li>
                         </ul>
+                    </li>
+                    <li>"In Progress" - Active development phase</li>
+                    <li>"Delivered" - Development completed and ready for review</li>
+                    <li>"Accepted" or "Changes Requested"
+                        <ul class="list-disc list-inside ml-4">
+                            <li>"Accepted" - Client approves the delivered work</li>
+                            <li>"Changes Requested" - Client requests modifications to the delivered work
+                            </li>
+                        </ul>
+                    </li>
+                    <li>"Canceled" - Optional state if Client chooses to terminate the task</li>
+                </ol>
 
-                        <div class="mt-6">
-                            <h3 class="text-xl font-bold mb-2">Response Times</h3>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>General inquiries: Within 1 business day</li>
-                                <li>Support requests: As per service level agreements</li>
-                                <li>Legal notices: Within 5 business days</li>
-                                <li>Emergency contact: Available for Pro plan subscribers</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <h4 class="text-lg font-bold mb-2">c) Service Delivery</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Development services provided during business hours (Monday-Friday, CET timezone)
+                    </li>
+                    <li>Code delivery through private GitHub repositories</li>
+                    <li>Documentation provided with each delivery</li>
+                    <li>Updates provided through requests management panel</li>
+                    <li>Slack updates available upon request (Standard and Pro plans)</li>
+                </ul>
 
-                <div class="mb-4">
-                    <h2 class="text-2xl font-bold mb-4">13. Acknowledgment</h2>
-                    <div class="ml-4 space-y-4">
-                        <div class="bg-yellow-100 border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                            <p class="font-bold mb-4">By using the Company's Services or Website, you acknowledge
-                                that:</p>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>You have read and understood these Terms of Service</li>
-                                <li>You agree to be bound by these Terms</li>
-                                <li>You have the authority to enter into this agreement</li>
-                                <li>You accept all terms and conditions herein</li>
-                            </ul>
-                            <p class="mt-4">If you do not agree to these terms, you must cease using the Services
-                                immediately.</p>
-                        </div>
+                <h4 class="text-lg font-bold mb-2">d) Communication Policy</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Primary communication through requests management panel</li>
+                    <li>Email support for all plans</li>
+                    <li>Dedicated Slack channel for Standard and Pro plans</li>
+                    <li>Priority support for Pro plan subscribers</li>
+                    <li>Meetings available on fair-usage basis</li>
+                </ul>
+            </div>
 
-                        <div class="bg-blue-100 border-4 border-black p-6 mt-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                            <p class="font-bold mb-4">Additional Acknowledgments:</p>
-                            <ul class="list-disc list-inside ml-4 space-y-4">
-                                <li>Terms are subject to change with notice</li>
-                                <li>Service delivery depends on client cooperation</li>
-                                <li>Time estimates are based on normal operating conditions</li>
-                                <li>Success of deliverables depends on accurate requirements</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <h3 class="text-xl font-bold mb-2">3.2. Task Packages</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Package Types</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Single Task: One development request with one revision round</li>
+                    <li>Basic Pack: Five development requests with two revision rounds each</li>
+                    <li>Growth Pack: Ten development requests with two revision rounds each</li>
+                </ul>
 
-                <div class="mt-8 pt-8 border-t-2 border-black">
-                    <div class="flex flex-col md:flex-row justify-between items-center">
-                        <p class="text-sm mb-2 md:mb-0">
-                            Last Updated: January 3, 2025
-                            <a href="https://github.com/logical-luke/appsbyluke/commits/main/landing/src/pages/terms-of-service.astro"
-                               class="text-blue-600 hover:text-blue-800 underline ml-2"
-                               target="_blank"
-                               rel="noopener noreferrer">
-                                (Version History)
-                            </a>
-                        </p>
-                        <div class="flex items-center gap-2">
-                            <Icon name="tabler:file-certificate" class="w-5 h-5"/>
-                            <span class="text-sm font-bold">Official Terms of Service Document</span>
-                        </div>
-                    </div>
-                </div>
+                <h4 class="text-lg font-bold mb-2">b) Delivery Terms</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>48-72h average delivery time for Single Task</li>
+                    <li>48h average delivery time for Basic and Growth Packs</li>
+                    <li>Code delivered via GitHub repositories</li>
+                    <li>Email support for Single Task</li>
+                    <li>Slack channel support for Basic and Growth Packs</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">3.3. App Packages</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Package Types and Timelines</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>MVP Launchpad: 4-6 weeks delivery timeframe</li>
+                    <li>Scale-up Accelerator: 8-14 weeks delivery timeframe</li>
+                    <li>Enterprise Powerhouse: 12-18 weeks delivery timeframe</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Development Process</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Custom designed responsive web application</li>
+                    <li>Core feature implementation based on package level</li>
+                    <li>Documentation and codebase delivery</li>
+                    <li>Development using the Primary Technology Stack</li>
+                    <li>Milestone-based development and delivery</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">c) Delivery Structure</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>MVP Launchpad: Three milestone payments</li>
+                    <li>Scale-up Accelerator: Four milestone payments</li>
+                    <li>Enterprise Powerhouse: Five milestone payments</li>
+                    <li>Each milestone requires approval and payment before proceeding</li>
+                </ul>
             </div>
         </div>
     </div>
-</Layout>
+
+    <div class="mb-4">
+        <h2 class="text-2xl font-bold mb-4">4. Payment Terms</h2>
+        <div class="ml-4 space-y-4">
+            <h3 class="text-xl font-bold mb-2">4.1. Developer as Subscription</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Billing Terms</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Light Plan: $499 per month</li>
+                    <li>Standard Plan: $999 per month</li>
+                    <li>Pro Plan: $2,499 per month</li>
+                    <li>Subscription fees charged at the beginning of each billing period</li>
+                    <li>All fees are non-refundable for the current period</li>
+                    <li>Subscription can be canceled at any time</li>
+                    <li>Access continues until the end of the paid period</li>
+                    <li>Option to pause subscription available</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Failed Payments</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Service access may be suspended upon payment failure</li>
+                    <li>Notification will be sent regarding failed payments</li>
+                    <li>Resolution required within 5 business days to restore service access</li>
+                    <li>Continued non-payment may result in subscription termination</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">4.2. Task Packages</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Package Pricing</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Single Task: $49 (First-time offer, regular price $99)</li>
+                    <li>Basic Pack: $449 for 5 development requests</li>
+                    <li>Growth Pack: $849 for 10 development requests</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Payment Terms</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Full payment required upfront</li>
+                    <li>All payments are non-refundable once development starts</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">4.3. App Packages</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Package Pricing</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>MVP Launchpad: $7,999 (Three milestone payments)</li>
+                    <li>Scale-up Accelerator: $16,999 (Four milestone payments)</li>
+                    <li>Enterprise Powerhouse: $37,999 (Five milestone payments)</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Milestone Payments</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Each milestone payment due before phase begins</li>
+                    <li>All payments are non-refundable</li>
+                    <li>Development begins after first milestone payment</li>
+                    <li>Milestone approval required before proceeding to next phase</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <h2 class="text-2xl font-bold mb-4">5. Intellectual Property Rights</h2>
+        <div class="ml-4 space-y-4">
+            <h3 class="text-xl font-bold mb-2">5.1. Ownership</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Client Rights</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Full ownership of custom code created specifically for the Client</li>
+                    <li>Rights to all project deliverables upon full payment</li>
+                    <li>Access to delivered code repositories maintained after service termination</li>
+                    <li>Rights to modify and distribute the delivered code</li>
+                    <li>Ownership of any custom designs, graphics, and assets created for the Client</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Company Rights</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Right to use general programming concepts and techniques</li>
+                    <li>Right to develop similar solutions for other clients without using Client's
+                        proprietary code
+                    </li>
+                    <li>Right to use open-source components and libraries</li>
+                    <li>Portfolio rights subject to confidentiality agreements</li>
+                    <li>Right to retain and use anonymous usage data for service improvement</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">c) Third-Party Components</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Third-party libraries and tools subject to their respective licenses</li>
+                    <li>Client responsible for compliance with third-party licenses</li>
+                    <li>Documentation of third-party components provided with deliverables</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">5.2. Confidentiality</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Non-Disclosure</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>All client information treated as confidential</li>
+                    <li>No disclosure of confidential information to third parties</li>
+                    <li>Secure storage and transmission of client data</li>
+                    <li>Option to sign additional NDAs available</li>
+                    <li>Proprietary information protected during and after service period</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Data Protection</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Implementation of industry-standard security measures</li>
+                    <li>Secure code repositories and development environments</li>
+                    <li>Limited access to client data on need-to-know basis</li>
+                    <li>Deletion of sensitive data upon project completion if requested</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">c) Portfolio Usage</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>General project descriptions may be used in Company portfolio</li>
+                    <li>No confidential information included in portfolio</li>
+                    <li>Client attribution unless otherwise agreed</li>
+                    <li>Right to remove portfolio items upon client request</li>
+                    <li>Screenshots and descriptions require client approval</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">5.3. Code Repository Rights</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Access and Maintenance</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Private repository access provided to Client</li>
+                    <li>Repository maintained for duration of service</li>
+                    <li>Transfer repository ownership to Client</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Code Documentation</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Comprehensive documentation provided with code</li>
+                    <li>Installation and deployment instructions included</li>
+                    <li>Code comments and inline documentation maintained</li>
+                    <li>Technical specifications and architecture documents provided</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <h2 class="text-2xl font-bold mb-4">6. Service Level Agreements</h2>
+        <div class="ml-4 space-y-4">
+            <h3 class="text-xl font-bold mb-2">6.1. Working Hours and Availability</h3>
+            <ul class="list-disc list-inside ml-4 space-y-4">
+                <li>Service provided Monday through Friday</li>
+                <li>Operating within Central European Time (CET) zone</li>
+                <li>Excluding Polish national holidays</li>
+                <li>Standard business hours: 9:00 AM - 5:00 PM CET</li>
+                <li>Response to new requests within one business day</li>
+                <li>Emergency support available for Pro plan subscribers</li>
+            </ul>
+
+            <h3 class="text-xl font-bold mb-2">6.2. Response Times</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Developer as Subscription</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Light Plan: Response within 24 business hours</li>
+                    <li>Standard Plan: Response within 12 business hours</li>
+                    <li>Pro Plan: Priority response within 8 business hours</li>
+                    <li>Updates provided through requests management panel</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Task Packages</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Single Task: Response within 24 business hours</li>
+                    <li>Basic Pack: Response within 24 business hours</li>
+                    <li>Growth Pack: Response within 12 business hours</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">c) App Packages</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Regular progress updates during active development</li>
+                    <li>Milestone completion notifications</li>
+                    <li>Weekly status reports</li>
+                    <li>Response to queries within one business day</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">6.3. Delivery Times</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Task Completion</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Small tasks: 24-48 hours</li>
+                    <li>Medium tasks: 2-4 business days</li>
+                    <li>Large tasks: 5+ business days with progress updates</li>
+                    <li>Specific timelines provided after task review</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Quality Assurance</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Code review before delivery</li>
+                    <li>Testing documentation provided</li>
+                    <li>Bug fixes prioritized based on severity</li>
+                    <li>Performance testing for critical features</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">6.4. Communication Channels</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Primary Channels</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Requests management panel for all clients</li>
+                    <li>Email support for all service types</li>
+                    <li>Slack channels for Standard and Pro subscribers</li>
+                    <li>Video calls scheduled as needed</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Meeting Policy</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Initial consultation calls available to all clients</li>
+                    <li>Regular check-ins for App Package clients</li>
+                    <li>Progress review meetings upon request</li>
+                    <li>Technical discussion sessions as needed</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">6.5. Service Maintenance</h3>
+            <ul class="list-disc list-inside ml-4 space-y-4">
+                <li>Scheduled maintenance announced 48 hours in advance</li>
+                <li>Emergency maintenance with immediate notification</li>
+                <li>Service updates during off-peak hours</li>
+                <li>Minimal disruption to active development</li>
+                <li>Regular system health checks and optimization</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <h2 class="text-2xl font-bold mb-4">7. Service Limitations and Guarantees</h2>
+        <div class="ml-4 space-y-4">
+            <h3 class="text-xl font-bold mb-2">7.1. Service Limitations</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) General Limitations</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Concurrent task limits based on subscription tier:
+                        <ul class="list-disc list-inside ml-8">
+                            <li>Light Plan: 1 concurrent task</li>
+                            <li>Standard Plan: 2 concurrent tasks</li>
+                            <li>Pro Plan: 3 concurrent tasks</li>
+                        </ul>
+                    </li>
+                    <li>Development using specified Technology Stack only</li>
+                    <li>Support provided during business hours (CET timezone)</li>
+                    <li>Fair usage policy applies to meetings and support requests</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Technical Limitations</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Third-party service integration subject to their availability</li>
+                    <li>Performance dependent on hosting environment</li>
+                    <li>Mobile app development limited to web technologies</li>
+                    <li>Legacy system support evaluated case-by-case</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">c) Package-Specific Limitations</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>App Package timelines subject to client feedback delays</li>
+                    <li>Revision rounds as specified per package type</li>
+                    <li>Feature scope defined by package level</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">7.2. Service Guarantees</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Quality Assurance</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Code quality maintained through industry standards</li>
+                    <li>Security best practices implementation</li>
+                    <li>Documentation provided with deliverables</li>
+                    <li>Bug fixes included in delivery</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Support Commitment</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Response times as specified per service level</li>
+                    <li>Regular progress updates</li>
+                    <li>Technical guidance and consultation</li>
+                    <li>Post-delivery support period</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">7.3. No Guarantees</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Disclaimers</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>No guarantee of uninterrupted service</li>
+                    <li>No warranty for third-party services or integrations</li>
+                    <li>Results dependent on provided requirements</li>
+                    <li>Development timelines subject to task complexity</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) External Factors</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Performance affected by hosting environment</li>
+                    <li>Availability of third-party services</li>
+                    <li>Client-side technical limitations</li>
+                    <li>Market success of developed solutions</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">7.4. Force Majeure</h3>
+            <ul class="list-disc list-inside ml-4 space-y-4">
+                <li>Service interruptions due to circumstances beyond control</li>
+                <li>Natural disasters or acts of nature</li>
+                <li>Internet or power infrastructure failures</li>
+                <li>Government actions or regulations</li>
+                <li>Other extraordinary circumstances</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <h2 class="text-2xl font-bold mb-4">8. Data Protection and Security</h2>
+        <div class="ml-4 space-y-4">
+            <h3 class="text-xl font-bold mb-2">8.1. Data Handling</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Data Processing</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Client data processed in accordance with GDPR requirements</li>
+                    <li>Data processed only as necessary for service provision</li>
+                    <li>Personal data handled with strict confidentiality</li>
+                    <li>Data processing records maintained as required</li>
+                    <li>Regular data protection impact assessments</li>
+                    <li>Analytics data collected through Google Analytics</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Data Storage</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Secure storage within and outside European Union</li>
+                    <li>Use of international service providers (including Cloudflare, Google Analytics)</li>
+                    <li>Appropriate safeguards for international transfers</li>
+                    <li>Encrypted data storage and transmission</li>
+                    <li>Regular backup procedures</li>
+                    <li>Data retention policies enforced</li>
+                    <li>Secure disposal of unnecessary data</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">8.2. Security Measures</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Technical Security</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Secure code repositories with access controls</li>
+                    <li>Industry-standard encryption protocols</li>
+                    <li>Regular security updates and patches</li>
+                    <li>Multi-factor authentication where applicable</li>
+                    <li>Secure development environments</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Development Security</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Secure coding practices</li>
+                    <li>Regular code security reviews</li>
+                    <li>Vulnerability scanning</li>
+                    <li>Dependency security monitoring</li>
+                    <li>Security testing before deployment</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">8.3. Data Rights</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Client Rights</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Right to access stored data</li>
+                    <li>Right to request data deletion</li>
+                    <li>Right to data portability</li>
+                    <li>Right to restrict processing</li>
+                    <li>Right to object to processing</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Data Requests</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Data access requests processed within 30 days</li>
+                    <li>Data deletion requests honored promptly</li>
+                    <li>Data export provided in standard formats</li>
+                    <li>Written confirmation of data actions</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">8.4. Security Incidents</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Incident Response</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Immediate investigation of security incidents</li>
+                    <li>Client notification within 72 hours</li>
+                    <li>Detailed incident reports provided</li>
+                    <li>Corrective measures implemented</li>
+                    <li>Post-incident security review</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Prevention Measures</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Regular security assessments</li>
+                    <li>Security policy reviews</li>
+                    <li>Infrastructure security monitoring</li>
+                    <li>Third-party security audits</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <h2 class="text-2xl font-bold mb-4">9. Service Termination</h2>
+        <div class="ml-4 space-y-4">
+            <h3 class="text-xl font-bold mb-2">9.1. Subscription Termination</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Client-Initiated Termination</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Cancel subscription at any time through dashboard</li>
+                    <li>No refunds for current billing period</li>
+                    <li>Access maintained until end of paid period</li>
+                    <li>Option to complete in-progress tasks</li>
+                    <li>All code and deliverables remain accessible</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Subscription Pausing</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Pause subscription at any time through dashboard</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">9.2. Task Package Termination</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Package Expiration</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>No refunds for unused requests</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Early Termination</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>No refunds once development has commenced</li>
+                    <li>All completed work delivered upon termination</li>
+                    <li>Access to delivered code maintained</li>
+                    <li>Termination does not affect code ownership rights</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">9.3. App Package Termination</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Client-Initiated Termination</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Written notice required for termination</li>
+                    <li>Completed milestones non-refundable</li>
+                    <li>Delivery of all completed work</li>
+                    <li>Transfer of relevant documentation</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Milestone-Based Termination</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Review and approval required per milestone</li>
+                    <li>Option to terminate at milestone completion</li>
+                    <li>Partial delivery based on completed milestones</li>
+                    <li>Final settlement of any outstanding payments</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">9.4. Post-Termination</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Data Handling</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Return of client data upon request</li>
+                    <li>Secure disposal of unnecessary data</li>
+                    <li>Retention of legally required records</li>
+                    <li>Archive of project documentation</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Access Rights</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Continued access to delivered code</li>
+                    <li>Repository access maintained</li>
+                    <li>Documentation availability preserved</li>
+                    <li>Support for transition period if needed</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <h2 class="text-2xl font-bold mb-4">10. Modifications to Terms</h2>
+        <div class="ml-4 space-y-4">
+            <h3 class="text-xl font-bold mb-2">10.1. Terms Updates</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Modification Process</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Company reserves right to modify terms</li>
+                    <li>30 days notice for material changes</li>
+                    <li>Notice provided via email and website</li>
+                    <li>Clear communication of changes</li>
+                    <li>Version history maintained and accessible</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Client Rights</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Right to review modified terms</li>
+                    <li>Right to terminate if changes unacceptable</li>
+                    <li>Continued use constitutes acceptance</li>
+                    <li>Option to maintain previous terms until current period ends</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">10.2. Service Modifications</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Service Changes</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Right to modify service features with notice</li>
+                    <li>Right to adjust pricing with 30 days notice</li>
+                    <li>Right to update technology stack</li>
+                    <li>Right to modify service delivery methods</li>
+                    <li>Commitment to maintain service quality</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Implementation of Changes</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Existing packages honored at original terms</li>
+                    <li>Subscription changes effective next billing cycle</li>
+                    <li>Gradual implementation of technical changes</li>
+                    <li>Support during transition periods</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <h2 class="text-2xl font-bold mb-4">11. Dispute Resolution</h2>
+        <div class="ml-4 space-y-4">
+            <h3 class="text-xl font-bold mb-2">11.1. Governing Law</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Jurisdiction</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Terms governed by Polish law</li>
+                    <li>EU consumer protection laws apply where relevant</li>
+                    <li>Jurisdiction in courts of Wrocław, Poland</li>
+                    <li>Electronic agreements considered legally binding</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Legal Compliance</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Compliance with GDPR requirements</li>
+                    <li>Adherence to e-commerce regulations</li>
+                    <li>Consumer rights protection</li>
+                    <li>International trade law compliance where applicable</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">11.2. Dispute Process</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Initial Resolution</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Parties shall attempt amicable resolution</li>
+                    <li>Written notice required for formal disputes</li>
+                    <li>30-day informal resolution period</li>
+                    <li>Good faith negotiations required</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Mediation</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Optional mediation before legal proceedings</li>
+                    <li>Mutually agreed mediator selection</li>
+                    <li>Equal cost sharing for mediation</li>
+                    <li>Confidential mediation process</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-bold mb-2">11.3. Legal Proceedings</h3>
+            <div class="ml-4 space-y-4">
+                <h4 class="text-lg font-bold mb-2">a) Court Proceedings</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Last resort after attempted resolution</li>
+                    <li>Venue in Wrocław, Poland</li>
+                    <li>Language of proceedings in English</li>
+                    <li>Right to seek injunctive relief</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mb-2">b) Legal Costs</h4>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Each party bears own legal costs</li>
+                    <li>Court fees as per local regulations</li>
+                    <li>Cost allocation by court decision</li>
+                    <li>Recovery of reasonable legal expenses</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <h2 class="text-2xl font-bold mb-4">12. Contact Information</h2>
+        <div class="ml-4 space-y-4">
+            <p>For matters relating to these Terms or my Services:</p>
+            <ul class="list-none ml-4 space-y-4 mt-2">
+                <li>Legal Business Name: Łukasz Ziaja</li>
+                <li>Operating as: AppsByLuke</li>
+                <li>Address: al. Wiśniowa 36a/304</li>
+                <li>53-137 Wrocław</li>
+                <li>Poland</li>
+                <li>Email: <a href="mailto:luke@appsbyluke.com"
+                              class="text-blue-600 hover:text-blue-800 underline">luke@appsbyluke.com</a>
+                </li>
+                <li>Website: <a href="https://appsbyluke.com"
+                                class="text-blue-600 hover:text-blue-800 underline">https://appsbyluke.com</a>
+                </li>
+            </ul>
+
+            <div class="mt-6">
+                <h3 class="text-xl font-bold mb-2">Response Times</h3>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>General inquiries: Within 1 business day</li>
+                    <li>Support requests: As per service level agreements</li>
+                    <li>Legal notices: Within 5 business days</li>
+                    <li>Emergency contact: Available for Pro plan subscribers</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <h2 class="text-2xl font-bold mb-4">13. Acknowledgment</h2>
+        <div class="ml-4 space-y-4">
+            <div class="bg-yellow-100 border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <p class="font-bold mb-4">By using the Company's Services or Website, you acknowledge
+                    that:</p>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>You have read and understood these Terms of Service</li>
+                    <li>You agree to be bound by these Terms</li>
+                    <li>You have the authority to enter into this agreement</li>
+                    <li>You accept all terms and conditions herein</li>
+                </ul>
+                <p class="mt-4">If you do not agree to these terms, you must cease using the Services
+                    immediately.</p>
+            </div>
+
+            <div class="bg-blue-100 border-4 border-black p-6 mt-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <p class="font-bold mb-4">Additional Acknowledgments:</p>
+                <ul class="list-disc list-inside ml-4 space-y-4">
+                    <li>Terms are subject to change with notice</li>
+                    <li>Service delivery depends on client cooperation</li>
+                    <li>Time estimates are based on normal operating conditions</li>
+                    <li>Success of deliverables depends on accurate requirements</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-8 pt-8 border-t-2 border-black">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-sm mb-2 md:mb-0">
+                Last Updated: January 3, 2025
+                <a href="https://github.com/logical-luke/appsbyluke/commits/main/landing/src/pages/terms-of-service.astro"
+                   class="text-blue-600 hover:text-blue-800 underline ml-2"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    (Version History)
+                </a>
+            </p>
+            <div class="flex items-center gap-2">
+                <Icon name="tabler:file-certificate" class="w-5 h-5"/>
+                <span class="text-sm font-bold">Official Terms of Service Document</span>
+            </div>
+        </div>
+    </div>
+</SubpageLayout>
