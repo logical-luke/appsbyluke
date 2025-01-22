@@ -1,3 +1,5 @@
+import './instrument'; // This should be the first import
+
 import { NestFactory } from '@nestjs/core';
 import {
     FastifyAdapter,
@@ -7,43 +9,19 @@ import { ValidationPipe, VersioningType } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { AppModule } from './app.module';
 import fastifyCors from '@fastify/cors';
-import * as morgan from 'morgan';
+import { AllExceptionsFilter } from './all-exceptions.filter';
 
 async function bootstrap() {
     const app = await NestFactory.create<NestFastifyApplication>(
         AppModule,
         new FastifyAdapter(),
+        { logger: ['error', 'warn', 'log', 'debug', 'verbose'] }
     );
 
     const configService = app.get(ConfigService);
     const allowedOrigins = configService.get<string>('ALLOWED_ORIGINS')?.split(',') || [];
 
     const isDevelopment = process.env.NODE_ENV !== 'production';
-
-    morgan.token('error', (req: any, res: any) => {
-        return res.errorMessage || '';
-    });
-
-    const logFormat = ':method :url :status :response-time ms - :res[content-length] :error';
-
-    app.use(morgan(logFormat, {
-        stream: {
-            write: (message: string) => {
-                console.log(message.trim());
-            },
-        },
-        skip: (req, res) => {
-            if (res.statusCode < 400) {
-                return true;
-            }
-            return false;
-        },
-    }));
-
-    app.use((err, req, res, next) => {
-        res.errorMessage = err.stack;
-        next(err);
-    });
 
     await app.register(fastifyCors, {
         origin: isDevelopment
@@ -60,7 +38,15 @@ async function bootstrap() {
         credentials: true,
     });
 
-    app.useGlobalPipes(new ValidationPipe());
+    app.useGlobalPipes(new ValidationPipe({
+        transform: true,
+        whitelist: true,
+        forbidNonWhitelisted: true,
+        disableErrorMessages: !isDevelopment,
+    }));
+
+    app.useGlobalFilters(new AllExceptionsFilter());
+
     app.enableVersioning({
         type: VersioningType.URI,
         prefix: 'v',

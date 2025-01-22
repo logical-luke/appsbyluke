@@ -65,6 +65,7 @@ jobs:
               -e DB_USERNAME=${{ secrets.DB_USERNAME }} \
               -e DB_PASSWORD=${{ secrets.DB_PASSWORD }} \
               -e DB_NAME=${{ secrets.DB_NAME }} \
+              -e SENTRY_DNS=${{ secrets.SENTRY_DNS }} \
               -e ALLOWED_ORIGINS=${{ secrets.ALLOWED_ORIGINS }} \
               -e JWT_SECRET=${{ secrets.JWT_SECRET }} \
               -p $(shuf -i 21000-21999 -n 1):3000 \
