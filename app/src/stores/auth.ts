@@ -1,32 +1,55 @@
-import {defineStore} from 'pinia';
-import {ref} from 'vue';
-import {authService} from '@/services/authService';
+import { defineStore } from 'pinia';
+import { ref, computed } from 'vue';
+import { authService } from '@/services/authService';
 
 export const useAuthStore = defineStore('auth', () => {
-    const user = ref(null);
-    const token = ref(localStorage.getItem('token') || null);
+  const user = ref(null);
+  const accessToken = ref('');
 
-    const login = async (email: string, password: string) => {
-        const response = await authService.login(email, password);
-        user.value = response.user;
-        token.value = response.token;
-        localStorage.setItem('token', response.token);
-    };
+  const isAuthenticated = computed(() => !!accessToken.value);
 
-    const register = async (fullName: string, email: string, password: string) => {
-        const response = await authService.register(fullName, email, password);
-        user.value = response.user;
-        token.value = response.token;
-        localStorage.setItem('token', response.token);
-    };
+  const initializeAuth = async () => {
+    const token = authService.getToken();
+    if (token) {
+      try {
+        const isValid = await authService.validateToken(token);
+        if (isValid) {
+          accessToken.value = token;
+          authService.setToken(token);
+          // Optionally fetch user data here
+        } else {
+          authService.logout();
+        }
+      } catch (error) {
+        console.error('Error validating token:', error);
+        authService.logout();
+      }
+    }
+  };
 
-    const logout = () => {
-        user.value = null;
-        token.value = null;
-        localStorage.removeItem('token');
-    };
+  const login = async (email: string, password: string) => {
+    const response = await authService.login(email, password);
+    user.value = response.user;
+    accessToken.value = response.access_token;
+  };
 
-    const isAuthenticated = () => !!token.value;
+  const register = async (fullName: string, email: string, password: string) => {
+    return await authService.register(fullName, email, password);
+  };
 
-    return {user, token, login, logout, isAuthenticated, register};
+  const logout = () => {
+    user.value = null;
+    accessToken.value = '';
+    authService.logout();
+  };
+
+  return {
+    user,
+    accessToken,
+    isAuthenticated,
+    initializeAuth,
+    login,
+    logout,
+    register
+  };
 });

@@ -1,53 +1,40 @@
 <script setup lang="ts">
-import { onMounted, computed } from "vue";
-import { useRoute } from "vue-router";
+import {ref, computed} from "vue";
+import {useRoute} from "vue-router";
+import {useRouter} from "vue-router";
+import LoadingPage from "@/views/LoadingPage.vue";
 import AppHeader from "@/components/AppHeader.vue";
 import AppSidebar from "@/components/AppSidebar.vue";
 
 const route = useRoute();
+const router = useRouter();
+const isReady = ref(false);
+
+router.isReady().then(() => {
+  isReady.value = true;
+});
 
 const isAuthRoute = computed(() => {
   return ['/login', '/register', '/forgot-password'].includes(route.path);
 });
-
-onMounted(() => {
-  const link = document.createElement("link");
-  link.rel = "canonical";
-  link.href = `https://dashboard.appsbyluke.com${route.path}`;
-  document.head.appendChild(link);
-
-  const script = document.createElement("script");
-  script.setAttribute("type", "application/ld+json");
-  script.textContent = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "AppsByLuke Dashboard",
-    applicationCategory: "BusinessApplication",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD"
-    }
-  });
-  document.head.appendChild(script);
-});
 </script>
 
 <template>
-  <div class="h-screen" :class="{ 'flex bg-gray-100': !isAuthRoute }">
+  <LoadingPage v-if="!isReady"/>
+  <div v-else class="h-screen" :class="{ 'flex bg-gray-100': !isAuthRoute }">
     <template v-if="!isAuthRoute">
-      <AppSidebar />
+      <AppSidebar/>
       <div class="flex-1 flex flex-col overflow-hidden">
-        <AppHeader />
+        <AppHeader/>
         <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100">
           <div class="container mx-auto px-6 py-8">
-            <RouterView />
+            <RouterView/>
           </div>
         </main>
       </div>
     </template>
     <template v-else>
-      <RouterView />
+      <RouterView/>
     </template>
   </div>
 </template>
