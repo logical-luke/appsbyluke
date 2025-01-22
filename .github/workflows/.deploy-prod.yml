@@ -87,7 +87,7 @@ jobs:
           port: 22
           script: |
             VERSION=$(cat /root/.appsbyluke-api-version)
-            port=$(docker inspect --format='{{(index (index .NetworkSettings.Ports "80/tcp") 0).HostPort}}' appsbyluke-api-${VERSION})
+            port=$(docker port appsbyluke-api-${VERSION} 3000 | cut -d: -f2)
             sed -i -E "s/(proxy_pass http:\/\/localhost:)([2][1][0-9]{3})?/\1$port/g" /etc/nginx/conf.d/api-apps.conf
             nginx -s reload
             docker stop $(docker ps -q --filter "name=appsbyluke-api" | xargs docker inspect --format '{{ .Name }}' | cut -c2- | grep -v "^appsbyluke-api-${VERSION}")

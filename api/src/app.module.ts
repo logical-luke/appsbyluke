@@ -6,7 +6,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { EmailModule } from './email/email.module';
 import { AuthModule } from './auth/auth.module';
-import { HealthcheckModule } from "./healthcheck/healthcheck.module";
 
 @Module({
   imports: [
@@ -29,7 +28,6 @@ import { HealthcheckModule } from "./healthcheck/healthcheck.module";
     }),
     EmailModule,
     AuthModule,
-    HealthcheckModule
   ],
   providers: [
     {
