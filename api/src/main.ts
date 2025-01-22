@@ -1,13 +1,13 @@
-import {NestFactory} from '@nestjs/core';
+import { NestFactory } from '@nestjs/core';
 import {
     FastifyAdapter,
     type NestFastifyApplication,
 } from '@nestjs/platform-fastify';
-import {ValidationPipe, VersioningType} from '@nestjs/common';
-import {ConfigService} from '@nestjs/config';
-import {AppModule} from './app.module';
+import { ValidationPipe, VersioningType } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { AppModule } from './app.module';
 import fastifyCors from '@fastify/cors';
-import morgan from 'morgan';
+import * as morgan from 'morgan';
 
 async function bootstrap() {
     const app = await NestFactory.create<NestFastifyApplication>(
@@ -20,20 +20,30 @@ async function bootstrap() {
 
     const isDevelopment = process.env.NODE_ENV !== 'production';
 
-    app.use(
-        morgan(
-            isDevelopment
-                ? 'dev'
-                : 'combined',
-            {
-                stream: {
-                    write: (message) => {
-                        console.log(message.trim());
-                    },
-                },
+    morgan.token('error', (req: any, res: any) => {
+        return res.errorMessage || '';
+    });
+
+    const logFormat = ':method :url :status :response-time ms - :res[content-length] :error';
+
+    app.use(morgan(logFormat, {
+        stream: {
+            write: (message: string) => {
+                console.log(message.trim());
             },
-        ),
-    );
+        },
+        skip: (req, res) => {
+            if (res.statusCode < 400) {
+                return true;
+            }
+            return false;
+        },
+    }));
+
+    app.use((err, req, res, next) => {
+        res.errorMessage = err.stack;
+        next(err);
+    });
 
     await app.register(fastifyCors, {
         origin: isDevelopment
