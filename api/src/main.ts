@@ -7,6 +7,7 @@ import {ValidationPipe, VersioningType} from '@nestjs/common';
 import {ConfigService} from '@nestjs/config';
 import {AppModule} from './app.module';
 import fastifyCors from '@fastify/cors';
+import morgan from 'morgan';
 
 async function bootstrap() {
     const app = await NestFactory.create<NestFastifyApplication>(
@@ -18,6 +19,21 @@ async function bootstrap() {
     const allowedOrigins = configService.get<string>('ALLOWED_ORIGINS')?.split(',') || [];
 
     const isDevelopment = process.env.NODE_ENV !== 'production';
+
+    app.use(
+        morgan(
+            isDevelopment
+                ? 'dev'
+                : 'combined',
+            {
+                stream: {
+                    write: (message) => {
+                        console.log(message.trim());
+                    },
+                },
+            },
+        ),
+    );
 
     await app.register(fastifyCors, {
         origin: isDevelopment
