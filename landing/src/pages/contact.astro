@@ -131,7 +131,7 @@ import SubpageLayout from "../layouts/SubpageLayout.astro";
 
             try {
                 const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
-                const response = await fetch(`${baseApiUrl}/email/send`, {
+                const response = await fetch(`${baseApiUrl}/v1/email/send`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

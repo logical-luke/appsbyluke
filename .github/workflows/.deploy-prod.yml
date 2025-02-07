@@ -42,7 +42,7 @@ jobs:
     environment: production
 
     steps:
-      - name: Run test API container
+      - name: Run API container
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.VPS_IP_ADDRESS }}
@@ -57,9 +57,18 @@ jobs:
             docker pull ghcr.io/logical-luke/appsbyluke/appsbyluke-api:latest
             VERSION=$(cat /root/.appsbyluke-api-version)
             docker run -d --restart unless-stopped --network appsbyluke --name appsbyluke-api-${VERSION} \
-              -e APP_ENV=prod \
+              -e APP_ENV=production \
+              -e NODE_ENV=production \
               -e RESEND_API_KEY=${{ secrets.RESEND_API_KEY }} \
               -e TO_EMAIL=${{ secrets.TO_EMAIL }} \
+              -e DB_HOST=${{ secrets.DB_HOST }} \
+              -e DB_PORT=${{ secrets.DB_PORT }} \
+              -e DB_USERNAME=${{ secrets.DB_USERNAME }} \
+              -e DB_PASSWORD=${{ secrets.DB_PASSWORD }} \
+              -e DB_NAME=${{ secrets.DB_NAME }} \
+              -e SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
+              -e ALLOWED_ORIGINS=${{ secrets.ALLOWED_ORIGINS }} \
+              -e JWT_SECRET=${{ secrets.JWT_SECRET }} \
               -p $(shuf -i 21000-21999 -n 1):3000 \
               ghcr.io/logical-luke/appsbyluke/appsbyluke-api:latest npm run start:prod
 
@@ -78,7 +87,7 @@ jobs:
           port: 22
           script: |
             VERSION=$(cat /root/.appsbyluke-api-version)
-            port=$(docker inspect --format='{{(index (index .NetworkSettings.Ports "80/tcp") 0).HostPort}}' appsbyluke-api-${VERSION})
+            port=$(docker port appsbyluke-api-${VERSION} 3000 | cut -d: -f2)
             sed -i -E "s/(proxy_pass http:\/\/localhost:)([2][1][0-9]{3})?/\1$port/g" /etc/nginx/conf.d/api-apps.conf
             nginx -s reload
             docker stop $(docker ps -q --filter "name=appsbyluke-api" | xargs docker inspect --format '{{ .Name }}' | cut -c2- | grep -v "^appsbyluke-api-${VERSION}")

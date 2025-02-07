@@ -11,6 +11,8 @@ services:
     build:
       context: api
       dockerfile: Dockerfile
+    environment:
+      NODE_ENV: dev
     ports:
       - "3000:3000"
     volumes:
@@ -21,6 +23,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "4173:4173"
+    environment:
+      SENTRY_DNS:
     volumes:
       - ./app:/app
   db:

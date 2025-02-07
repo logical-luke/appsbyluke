@@ -1,4 +1,7 @@
-import { Module } from '@nestjs/common';
+import { Module } from "@nestjs/common";
+import { SentryModule } from "@sentry/nestjs/setup";
+import { APP_FILTER } from "@nestjs/core";
+import { SentryGlobalFilter } from "@sentry/nestjs/setup";
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { EmailModule } from './email/email.module';
@@ -6,7 +9,8 @@ import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true, envFilePath: '.env', }),
+    SentryModule.forRoot(),
+    ConfigModule.forRoot({ isGlobal: true, envFilePath: '.env' }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
@@ -25,5 +29,11 @@ import { AuthModule } from './auth/auth.module';
     EmailModule,
     AuthModule,
   ],
+  providers: [
+    {
+      provide: APP_FILTER,
+      useClass: SentryGlobalFilter,
+    },
+  ]
 })
 export class AppModule {}
