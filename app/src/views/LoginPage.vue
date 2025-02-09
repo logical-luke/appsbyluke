@@ -31,7 +31,7 @@ const errorMessage = ref('');
 const onSubmit = handleSubmit(async (values) => {
   try {
     await authStore.login(values.email, values.password);
-    router.push('/dashboard');
+    router.push('/');
   } catch (error) {
     errorMessage.value = 'Invalid email or password';
   }

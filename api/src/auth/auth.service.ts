@@ -6,6 +6,7 @@ import * as bcrypt from 'bcrypt';
 import { User } from './entities/user.entity';
 import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
+import { EmailExistsException } from './exceptions/email-exists-exception';
 
 @Injectable()
 export class AuthService {
@@ -17,6 +18,12 @@ export class AuthService {
 
   async register(registerDto: RegisterDto): Promise<User> {
     const { fullName, email, password } = registerDto;
+
+    const existingUser = await this.userRepository.findOne({ where: { email } });
+    if (existingUser) {
+      throw new EmailExistsException();
+    }
+
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = this.userRepository.create({
       fullName,
