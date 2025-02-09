@@ -1,3 +1,4 @@
+// tailwind.config.mjs
 import defaultTheme from 'tailwindcss/defaultTheme'
 
 /** @type {import('tailwindcss').Config} */
@@ -11,4 +12,8 @@ export default {
         },
     },
     plugins: [],
+    future: {
+        removeDeprecatedGapUtilities: true,
+        purgeLayersByDefault: true,
+    },
 }
