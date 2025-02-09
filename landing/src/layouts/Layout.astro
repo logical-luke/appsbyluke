@@ -12,6 +12,7 @@ export interface Props {
 }
 
 const {title, description} = Astro.props;
+const isDevelopment = import.meta.env.DEV;
 ---
 
 <!DOCTYPE html>
@@ -44,9 +45,12 @@ const {title, description} = Astro.props;
                 imageAlt: title
             }}
     ></SEO>
-    <script type="text/partytown" defer data-domain="appsbyluke.com" src="https://plausible.makeitlogical.io/js/script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js"></script>
-    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
-
+    {!isDevelopment && (
+    <>
+        <script type="text/partytown" defer data-domain="appsbyluke.com" src="https://plausible.makeitlogical.io/js/script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js"></script>
+        <script>window.plausible = window.plausible || function() {(window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+    </>
+    )}
 </head>
 <body class="font-sans bg-gray-100">
 <div class="flex flex-col min-h-screen">
