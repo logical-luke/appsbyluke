@@ -11,18 +11,18 @@ export interface Props {
 const {title, description, backgroundColor, header} = Astro.props;
 
 const decorativeElements = [
-    ["absolute top-0 right-0 w-16 h-16 md:w-24 md:h-24 bg-yellow-400 border-4 border-black transform rotate-12 translate-x-4 -translate-y-4 md:translate-x-8 md:-translate-y-8 z-0",
-     "absolute bottom-0 left-0 w-12 h-12 md:w-20 md:h-20 bg-pink-400 border-4 border-black rounded-full -translate-x-6 translate-y-6 md:-translate-x-10 md:translate-y-10 z-0"],
-    ["absolute top-0 right-0 w-16 h-16 md:w-24 md:h-24 bg-blue-400 border-4 border-black transform -rotate-12 translate-x-4 -translate-y-4 md:translate-x-8 md:-translate-y-8 z-0",
-     "absolute bottom-0 left-0 w-12 h-12 md:w-20 md:h-20 bg-green-400 border-4 border-black rounded-full -translate-x-6 translate-y-6 md:-translate-x-10 md:translate-y-10 z-0"],
-    ["absolute top-0 right-0 w-16 h-16 md:w-24 md:h-24 bg-purple-400 border-4 border-black rounded-full translate-x-4 -translate-y-4 md:translate-x-8 md:-translate-y-8 z-0",
-     "absolute bottom-0 left-0 w-12 h-12 md:w-20 md:h-20 bg-red-400 border-4 border-black transform rotate-45 -translate-x-6 translate-y-6 md:-translate-x-10 md:translate-y-10 z-0"],
-    ["absolute top-0 right-0 w-16 h-16 md:w-24 md:h-24 bg-orange-400 border-4 border-black transform rotate-45 translate-x-4 -translate-y-4 md:translate-x-8 md:-translate-y-8 z-0",
-     "absolute bottom-0 left-0 w-12 h-12 md:w-20 md:h-20 bg-teal-400 border-4 border-black rounded-full -translate-x-6 translate-y-6 md:-translate-x-10 md:translate-y-10 z-0"],
-    ["absolute top-0 right-0 w-16 h-16 md:w-24 md:h-24 bg-indigo-400 border-4 border-black rounded-full translate-x-4 -translate-y-4 md:translate-x-8 md:-translate-y-8 z-0",
-     "absolute bottom-0 left-0 w-12 h-12 md:w-20 md:h-20 bg-cyan-400 border-4 border-black transform -rotate-12 -translate-x-6 translate-y-6 md:-translate-x-10 md:translate-y-10 z-0"],
-    ["absolute top-0 right-0 w-16 h-16 md:w-24 md:h-24 bg-lime-400 border-4 border-black transform rotate-180 translate-x-4 -translate-y-4 md:translate-x-8 md:-translate-y-8 z-0",
-     "absolute bottom-0 left-0 w-12 h-12 md:w-20 md:h-20 bg-fuchsia-400 border-4 border-black rounded-full -translate-x-6 translate-y-6 md:-translate-x-10 md:translate-y-10 z-0"]
+    ["absolute top-0 right-0 w-12 h-12 md:w-24 md:h-24 bg-yellow-400 border-4 border-black transform rotate-12 translate-x-2 -translate-y-2 md:translate-x-8 md:-translate-y-8 z-0",
+     "absolute bottom-0 left-0 w-10 h-10 md:w-20 md:h-20 bg-pink-400 border-4 border-black rounded-full -translate-x-4 translate-y-4 md:-translate-x-10 md:translate-y-10 z-0"],
+    ["absolute top-0 right-0 w-12 h-12 md:w-24 md:h-24 bg-blue-400 border-4 border-black transform -rotate-12 translate-x-2 -translate-y-2 md:translate-x-8 md:-translate-y-8 z-0",
+     "absolute bottom-0 left-0 w-10 h-10 md:w-20 md:h-20 bg-green-400 border-4 border-black rounded-full -translate-x-4 translate-y-4 md:-translate-x-10 md:translate-y-10 z-0"],
+    ["absolute top-0 right-0 w-12 h-12 md:w-24 md:h-24 bg-purple-400 border-4 border-black rounded-full translate-x-2 -translate-y-2 md:translate-x-8 md:-translate-y-8 z-0",
+     "absolute bottom-0 left-0 w-10 h-10 md:w-20 md:h-20 bg-red-400 border-4 border-black transform rotate-45 -translate-x-4 translate-y-4 md:-translate-x-10 md:translate-y-10 z-0"],
+    ["absolute top-0 right-0 w-12 h-12 md:w-24 md:h-24 bg-orange-400 border-4 border-black transform rotate-45 translate-x-2 -translate-y-2 md:translate-x-8 md:-translate-y-8 z-0",
+     "absolute bottom-0 left-0 w-10 h-10 md:w-20 md:h-20 bg-teal-400 border-4 border-black rounded-full -translate-x-4 translate-y-4 md:-translate-x-10 md:translate-y-10 z-0"],
+    ["absolute top-0 right-0 w-12 h-12 md:w-24 md:h-24 bg-indigo-400 border-4 border-black rounded-full translate-x-2 -translate-y-2 md:translate-x-8 md:-translate-y-8 z-0",
+     "absolute bottom-0 left-0 w-10 h-10 md:w-20 md:h-20 bg-cyan-400 border-4 border-black transform -rotate-12 -translate-x-4 translate-y-4 md:-translate-x-10 md:translate-y-10 z-0"],
+    ["absolute top-0 right-0 w-12 h-12 md:w-24 md:h-24 bg-lime-400 border-4 border-black transform rotate-180 translate-x-2 -translate-y-2 md:translate-x-8 md:-translate-y-8 z-0",
+     "absolute bottom-0 left-0 w-10 h-10 md:w-20 md:h-20 bg-fuchsia-400 border-4 border-black rounded-full -translate-x-4 translate-y-4 md:-translate-x-10 md:translate-y-10 z-0"]
 ];
 
 const index = title.length % decorativeElements.length;
@@ -39,7 +39,9 @@ const [topRight, bottomLeft] = decorativeElements[index];
                 <div class={topRight}></div>
                 <div class={bottomLeft}></div>
 
-                <h1 class="text-4xl md:text-5xl font-bold text-black transform -rotate-1 break-words mb-8 relative z-10">{header}</h1>
+                <div class="pr-20 md:pr-28"> <!-- Added padding container -->
+                    <h1 class="text-4xl md:text-5xl font-bold text-black transform -rotate-1 break-words mb-8 relative z-10">{header}</h1>
+                </div>
 
                 <div class="relative z-10">
                     <slot/>
