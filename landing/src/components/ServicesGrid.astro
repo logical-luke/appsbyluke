@@ -1,645 +1,181 @@
 ---
 import {Icon} from 'astro-icon/components'
 
-const subscriptionPlans = [
+const developmentPackages = [
     {
-        name: "Light",
-        price: 499,
-        concurrentTasks: 1,
-        description: "Perfect for occasional development needs",
-        features: [
+        name: "Startup Core",
+        price: 4999,
+        paymentStructure: [
+            {amount: 2500, phase: "To start"},
+            {amount: 1250, phase: "Midpoint"},
+            {amount: 1249, phase: "Completion"}
+        ],
+        paymentButton: 'https://buy.appsbyluke.com/overlay/8949f95f-e9b4-4d34-b216-6e007fc07ff3',
+        timeline: "2-3 weeks",
+        description: "Launch your MVP with one core feature to validate your idea",
+        idealFor: [
+            "Pre-seed startups",
+            "First-time founders",
+            "Idea validation phase"
+        ],
+        techStack: {
+            frontend: ["Vue.js/Nuxt", "Tailwind CSS"],
+            backend: ["NestJS", "TypeScript"],
+            database: ["Relational Database"]
+        },
+        coreFeatures: [
             {
-                icon: "tabler:code",
-                text: "1 active request at a time"
+                icon: "tabler:users",
+                text: "Authentication System",
+                detail: "Login, registration, password reset"
             },
             {
-                icon: "tabler:folder",
-                text: "1 project"
+                icon: "tabler:components",
+                text: "One Core Feature",
+                detail: "Your main product functionality"
             },
             {
-                icon: "tabler:clock",
-                text: "48-72h average delivery*"
+                icon: "tabler:dashboard",
+                text: "Basic Admin Panel",
+                detail: "Manage users and core feature"
             },
             {
-                icon: "tabler:refresh",
-                text: "Cancel or pause anytime"
-            },
-            {
-                icon: "tabler:messages",
-                text: "Email support"
+                icon: "tabler:api",
+                text: "Basic API",
+                detail: "Essential endpoints for core feature"
             }
         ],
         promoted: false
     },
     {
-        name: "Standard",
-        price: 999,
-        concurrentTasks: 2,
-        description: "Ideal for growing companies with regular needs",
-        features: [
+        name: "Startup Plus",
+        price: 9999,
+        paymentStructure: [
+            {amount: 5000, phase: "To start"},
+            {amount: 2500, phase: "Midpoint"},
+            {amount: 2499, phase: "Completion"}
+        ],
+        paymentButton: 'https://buy.appsbyluke.com/overlay/b374e799-d709-4916-9cb0-99400692db1b',
+        timeline: "4-6 weeks",
+        description: "Enhanced MVP with additional features and better user experience",
+        idealFor: [
+            "Funded startups",
+            "Products with initial traction",
+            "B2B SaaS applications"
+        ],
+        techStack: {
+            frontend: ["Vue.js/Nuxt", "Tailwind CSS"],
+            backend: ["NestJS", "TypeScript"],
+            database: ["Relational Database", "Cache Layer"]
+        },
+        coreFeatures: [
             {
-                icon: "tabler:code",
-                text: "2 active requests at a time"
+                icon: "tabler:users",
+                text: "Team Management",
+                detail: "Multi-user organizations"
             },
             {
-                icon: "tabler:folder",
-                text: "3 projects"
+                icon: "tabler:components",
+                text: "Three Core Features",
+                detail: "Extended product functionality"
             },
             {
-                icon: "tabler:clock",
-                text: "24-48h average delivery*"
+                icon: "tabler:brand-stripe",
+                text: "Payment Integration",
+                detail: "Stripe subscription setup"
             },
             {
-                icon: "tabler:refresh",
-                text: "Cancel or pause anytime"
-            },
-            {
-                icon: "tabler:brand-slack",
-                text: "Dedicated Slack channel"
+                icon: "tabler:api",
+                text: "Extended API",
+                detail: "Full REST API with documentation"
             }
         ],
         promoted: true
     },
     {
-        name: "Pro",
-        price: 2499,
-        concurrentTasks: 3,
-        description: "For teams requiring maximum development velocity",
-        features: [
-            {
-                icon: "tabler:code",
-                text: "3 active requests at a time"
-            },
-            {
-                icon: "tabler:folder",
-                text: "Unlimited projects"
-            },
-            {
-                icon: "tabler:clock",
-                text: "24-48h average delivery*"
-            },
-            {
-                icon: "tabler:refresh",
-                text: "Cancel or pause anytime"
-            },
-            {
-                icon: "tabler:brand-slack",
-                text: "Priority Slack support"
-            }
+        name: "Startup Pro",
+        price: 19999,
+        paymentStructure: [
+            {amount: 10000, phase: "To start"},
+            {amount: 5000, phase: "Midpoint"},
+            {amount: 4999, phase: "Completion"}
         ],
-        promoted: false
-    }
-];
-
-const taskPackages = [
-    {
-        name: "Single Task",
-        requests: 1,
-        price: 99,
-        discountedPrice: 49,
-        description: "Ideal for quick fixes and small updates",
-        additionalInfo: "First-time 50% off!",
-        features: [
-            {
-                icon: "tabler:code",
-                text: "One development request"
-            },
-            {
-                icon: "tabler:clock",
-                text: "48-72h average delivery*"
-            },
-            {
-                icon: "tabler:refresh",
-                text: "1 round of revisions"
-            },
-            {
-                icon: "tabler:messages",
-                text: "Email support"
-            }
-        ],
-        promoted: false
-    },
-    {
-        name: "Basic Pack",
-        requests: 5,
-        price: 449,
-        description: "Best for multiple small features",
-        features: [
-            {
-                icon: "tabler:code",
-                text: "5 development requests"
-            },
-            {
-                icon: "tabler:clock",
-                text: "48h average delivery per request*"
-            },
-            {
-                icon: "tabler:refresh",
-                text: "2 rounds of revisions per request"
-            },
-            {
-                icon: "tabler:messages",
-                text: "Email support"
-            }
-        ],
-        promoted: false
-    },
-    {
-        name: "Growth Pack",
-        requests: 10,
-        price: 849,
-        description: "Perfect for significant improvements",
-        features: [
-            {
-                icon: "tabler:code",
-                text: "10 development requests"
-            },
-            {
-                icon: "tabler:clock",
-                text: "48h average delivery per request*"
-            },
-            {
-                icon: "tabler:refresh",
-                text: "2 rounds of revisions per request"
-            },
-            {
-                icon: "tabler:brand-slack",
-                text: "Slack channel support"
-            }
-        ],
-        promoted: false
-    }
-];
-
-const readySolutions = [
-    {
-        name: "MVP Launchpad",
-        price: 7999,
-        priceInfo: "Split into 3 milestone payments",
-        description: "Perfect for validating your business idea quickly with minimal investment",
+        paymentButton: 'https://buy.appsbyluke.com/overlay/f6ff4cb8-3537-4144-b7b5-fb22867c8c22',
+        timeline: "8-10 weeks",
+        description: "Full-featured application ready for scaling",
         idealFor: [
-            "Non-technical founders with new ideas",
-            "Startups seeking investor interest",
-            "Small businesses going digital"
+            "Funded startups",
+            "High-growth products",
+            "Complex B2B solutions"
         ],
-        features: [
-            {
-                icon: "tabler:layout-dashboard",
-                text: "Custom designed responsive web app"
-            },
-            {
-                icon: "tabler:puzzle",
-                text: "Core feature implementation"
-            },
-            {
-                icon: "tabler:lock",
-                text: "Basic user authentication"
-            },
-            {
-                icon: "tabler:database",
-                text: "Data storage and retrieval"
-            }
-        ],
-        milestones: [
-            {
-                phase: "Design & Planning",
-                duration: "1-2 weeks",
-                payment: "30%"
-            },
-            {
-                phase: "Core Development",
-                duration: "2-3 weeks",
-                payment: "40%"
-            },
-            {
-                phase: "Testing & Launch",
-                duration: "1 week",
-                payment: "30%"
-            }
-        ],
-        deliveryTime: "~4-6 weeks",
-    },
-    {
-        name: "Scale-up Accelerator",
-        price: 16999,
-        priceInfo: "Split into 4 milestone payments",
-        description: "Ideal for businesses ready to expand their digital capabilities",
-        idealFor: [
-            "Growing startups with proven concept",
-            "Businesses needing automation",
-            "Companies with increasing user base"
-        ],
-        features: [
-            {
-                icon: "tabler:apps",
-                text: "Advanced web application"
-            },
-            {
-                icon: "tabler:settings",
-                text: "Complex business logic implementation"
-            },
-            {
-                icon: "tabler:link",
-                text: "Third-party API integrations"
-            },
-            {
-                icon: "tabler:rocket",
-                text: "Performance optimization"
-            },
-            {
-                icon: "tabler:chart-line",
-                text: "Basic analytics setup"
-            }
-        ],
-        milestones: [
-            {
-                phase: "Analysis & Design",
-                duration: "2 weeks",
-                payment: "25%"
-            },
-            {
-                phase: "Core Development",
-                duration: "3-4 weeks",
-                payment: "30%"
-            },
-            {
-                phase: "Advanced Features",
-                duration: "2-3 weeks",
-                payment: "25%"
-            },
-            {
-                phase: "Testing & Launch",
-                duration: "1-2 weeks",
-                payment: "20%"
-            }
-        ],
-        deliveryTime: "~8-14 weeks",
-    },
-    {
-        name: "Enterprise Powerhouse",
-        price: 37999,
-        priceInfo: "Split into 5 milestone payments",
-        description: "Comprehensive solution for large-scale business requirements",
-        idealFor: [
-            "Enterprises needing custom solutions",
-            "Businesses with complex workflows",
-            "High-traffic applications"
-        ],
-        features: [
-            {
-                icon: "tabler:building-skyscraper",
-                text: "Fully custom enterprise-grade application"
-            },
+        techStack: {
+            frontend: ["Vue.js/Nuxt", "Tailwind CSS"],
+            backend: ["NestJS", "TypeScript"],
+            database: ["Relational Database", "Cache Layer", "Search Engine"]
+        },
+        coreFeatures: [
             {
                 icon: "tabler:users",
-                text: "Advanced user roles and permissions"
+                text: "Advanced User System",
+                detail: "SSO, roles, permissions"
             },
             {
-                icon: "tabler:scale",
-                text: "Scalable architecture"
+                icon: "tabler:components",
+                text: "Full Feature Set",
+                detail: "Complete product functionality"
             },
             {
-                icon: "tabler:test-pipe",
-                text: "Comprehensive testing suite"
+                icon: "tabler:report-analytics",
+                text: "Analytics & Reporting",
+                detail: "Custom dashboards and exports"
             },
             {
-                icon: "tabler:cloud",
-                text: "DevOps setup and deployment"
+                icon: "tabler:webhook",
+                text: "Integration System",
+                detail: "Webhooks and external APIs"
             }
         ],
-        milestones: [
-            {
-                phase: "Discovery & Planning",
-                duration: "2-3 weeks",
-                payment: "20%"
-            },
-            {
-                phase: "Architecture & Design",
-                duration: "2-3 weeks",
-                payment: "20%"
-            },
-            {
-                phase: "Core Development",
-                duration: "4-5 weeks",
-                payment: "25%"
-            },
-            {
-                phase: "Advanced Features",
-                duration: "3-4 weeks",
-                payment: "20%"
-            },
-            {
-                phase: "Testing & Deployment",
-                duration: "1-2 weeks",
-                payment: "15%"
-            }
-        ],
-        deliveryTime: "~12-18 weeks",
+        promoted: false
     }
 ];
 ---
 
-<div class="mb-4 relative">
-    <h2 class="text-2xl md:text-3xl font-bold text-black mb-6 transform -rotate-2 relative z-10 inline-block bg-yellow-300 px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-        Developer as Subscription
-    </h2>
-    <div class="absolute top-0 right-0 w-12 h-12 bg-yellow-400 border-4 border-black transform rotate-12 translate-x-2 -translate-y-2 z-0"></div>
-</div>
-
-<div class="mb-8 space-y-4">
-    <div class="pricing-toggle flex flex-col md:flex-row justify-center gap-2 md:gap-4 px-4 md:px-0">
-        <button class="toggle-btn active w-full md:w-auto px-4 md:px-6 py-2 font-bold border-4 border-black bg-blue-600 text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
-                data-type="subscription">
-            Monthly Subscription
-        </button>
-        <button class="toggle-btn w-full md:w-auto px-4 md:px-6 py-2 font-bold border-4 border-black bg-gray-200 text-gray-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
-                data-type="task">
-            Task Packages
-        </button>
-    </div>
-</div>
-
-<div id="subscription-content" class="pricing-content">
-    <div class="max-w-6xl mx-auto mb-6">
-        <div class="grid lg:grid-cols-3 gap-6">
-            {subscriptionPlans.map((plan) => (
-                    <div class={`bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform ${plan.promoted ? 'rotate-1' : '-rotate-1'} relative`}>
-                        {plan.promoted && (
-                                <div class="absolute -top-4 -right-4 bg-green-400 text-black font-bold py-1 px-3 border-4 border-black transform rotate-3">
-                                    Most Popular
-                                </div>
-                        )}
-
-                        <h3 class="text-2xl font-bold mb-2">{plan.name}</h3>
-                        <p class="text-gray-600 mb-4">{plan.description}</p>
-
-                        <div class="text-3xl font-bold text-blue-500 mb-6">
-                            ${plan.price}
-                            <span class="text-lg font-normal text-gray-600">/month</span>
-                        </div>
-
-                        <div class="space-y-4 mb-6">
-                            {plan.features.map((feature) => (
-                                    <div class="flex items-center gap-3">
-                                        <div class="w-8 h-8 flex-shrink-0 bg-gray-100 border-2 border-black flex items-center justify-center">
-                                            <Icon name={feature.icon} class="w-4 h-4"/>
-                                        </div>
-                                        <span class="font-bold">{feature.text}</span>
-                                    </div>
-                            ))}
-                        </div>
-
-                        <div class="flex items-center justify-center">
-                            <div class="flex flex-col items-center">
-                                <a href="/contact"
-                                   class="block w-full lg:w-fit text-center bg-green-600 hover:bg-green-700 font-bold py-3 px-6 border-black border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl  text-white">
-                                    Get Started
-                                </a>
-                                <a href="https://calendar.app.google/uDz6rZrYgUxqAC2i9"
-                                   class="mt-2 inline-block w-full text-center underline underline-offset-4 decoration-dashed text-sm text-gray-600 hover:text-black transition-colors duration-300">
-                                    or book a quick call to learn more
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-            ))}
-        </div>
-    </div>
-</div>
-
-<div id="task-content" class="pricing-content hidden">
-    <div class="max-w-6xl mx-auto mb-6">
-        <div class="grid lg:grid-cols-3 gap-6">
-            {taskPackages.map((techPackage) => (
-                    <div class={`bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform ${techPackage.promoted ? 'rotate-1' : '-rotate-1'} relative`}>
-                        {techPackage.promoted && (
-                                <div class="absolute -top-4 -right-4 bg-green-400 text-black font-bold py-1 px-3 border-4 border-black transform rotate-3">
-                                    Best Value
-                                </div>
-                        )}
-
-                        <h3 class="text-2xl font-bold mb-2">{techPackage.name}</h3>
-                        <p class="text-gray-600 mb-4">{techPackage.description}</p>
-
-                        <div class="text-3xl font-bold text-blue-500 mb-2 flex items-center gap-2">
-                            {techPackage.discountedPrice ? (
-                                    <>
-                                        <span class="text-gray-400 line-through text-2xl">${techPackage.price}</span>
-                                        <span>${techPackage.discountedPrice}</span>
-                                    </>
-                            ) : (
-                                    <span>${techPackage.price}</span>
-                            )}
-                            {techPackage.additionalInfo && (
-                                    <div>
-                                    <span class="inline-block text-black bg-yellow-200 border-2 border-black px-2 py-1 text-sm font-bold transform -rotate-2">
-                                        {techPackage.additionalInfo}
-                                    </span>
-                                    </div>
-                            )}
-                        </div>
-                        <div class="space-y-4 mt-6 mb-6">
-                            {techPackage.features.map((feature) => (
-                                    <div class="flex items-center gap-3">
-                                        <div class="w-8 h-8 flex-shrink-0 bg-gray-100 border-2 border-black flex items-center justify-center">
-                                            <Icon name={feature.icon} class="w-4 h-4"/>
-                                        </div>
-                                        <span class="font-bold">{feature.text}</span>
-                                    </div>
-                            ))}
-                        </div>
-
-                        <div class="flex items-center justify-center">
-                            <div class="flex flex-col items-center">
-                                <a href="/contact"
-                                   class="block w-full lg:w-fit text-center bg-green-600 hover:bg-green-700 font-bold py-3 px-6 border-black border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl  text-white">
-                                    Get Started
-                                </a>
-                                <a href="https://calendar.app.google/uDz6rZrYgUxqAC2i9"
-                                   class="mt-2 inline-block w-full text-center underline underline-offset-4 decoration-dashed text-sm text-gray-600 hover:text-black transition-colors duration-300">
-                                    or book a quick call to learn more
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-            ))}
-        </div>
-    </div>
-</div>
-
-<div class="text-sm text-gray-600 -rotate-1 text-center mb-16">
-    * Delivery time varies based on task complexity. Simple tasks might be completed within hours, while larger
-    ones can be split into smaller, manageable chunks for faster delivery.
-</div>
-
-<div class="mb-10 mt-16">
-    <div class="mb-4 relative">
-        <h2 class="text-2xl md:text-3xl font-bold text-black mb-6 transform -rotate-1 relative z-10 inline-block bg-yellow-300 px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            What is a Task?
-        </h2>
-        <div class="absolute top-0 right-0 w-12 h-12 bg-yellow-400 border-4 border-black transform rotate-12 translate-x-2 -translate-y-2 z-0"></div>
-    </div>
-
-    <div class="bg-white pb-6 md:pb-8">
-        <div class="max-w-7xl">
-            <p class="mb-4">A task is a specific, well-defined piece of work that can be completed in a relatively short
-                time frame. Tasks are the building blocks of larger projects and are perfect for incremental
-                improvements or quick fixes to your application.</p>
-
-            <h3 class="inline-block bg-black text-white font-bold px-3 py-1 mb-4 text-sm md:text-base">
-                Task Examples
-            </h3>
-            <div class="bg-blue-100 border-4 w-full md:w-fit border-black p-4 mb-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                <ul class="space-y-2">
-                    <li class="flex items-start gap-2">
-                        <Icon name="tabler:point" class="w-4 h-4 flex-shrink-0 mt-1"/>
-                        <span>Add a contact form to send emails on the frontend</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <Icon name="tabler:point" class="w-4 h-4 flex-shrink-0 mt-1"/>
-                        <span>Create a backend endpoint to process the contact form submissions</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <Icon name="tabler:point" class="w-4 h-4 flex-shrink-0 mt-1"/>
-                        <span>Implement login UI on the frontend</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <Icon name="tabler:point" class="w-4 h-4 flex-shrink-0 mt-1"/>
-                        <span>Set up user authentication endpoints on the backend</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <Icon name="tabler:point" class="w-4 h-4 flex-shrink-0 mt-1"/>
-                        <span>Configure and deploy the application to a server</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <Icon name="tabler:point" class="w-4 h-4 flex-shrink-0 mt-1"/>
-                        <span>Redesign a specific page or component</span>
-                    </li>
-                </ul>
-            </div>
-
-            <h3 class="inline-block bg-black text-white font-bold px-3 py-1 mb-4 text-sm md:text-base">Tasks vs. Projects</h3>
-            <div class="grid md:grid-cols-2 gap-4 mb-6">
-                <div class="bg-green-100 border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                    <h4 class="font-bold mb-2">Tasks</h4>
-                    <ul class="space-y-1">
-                        <li>• Smaller in scope</li>
-                        <li>• Typically completed in hours or days</li>
-                        <li>• Focus on specific features or improvements</li>
-                        <li>• Ideal for incremental updates</li>
-                    </ul>
-                </div>
-                <div class="bg-yellow-100 border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                    <h4 class="font-bold mb-2">Projects</h4>
-                    <ul class="space-y-1">
-                        <li>• Larger in scope</li>
-                        <li>• Can take weeks or months</li>
-                        <li>• Involve multiple features or systems</li>
-                        <li>• Suitable for comprehensive solutions</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h3 class="inline-block bg-black text-white font-bold px-3 py-1 mb-4 text-sm md:text-base">Task Requirements</h3>
-            <p class="mb-4">To ensure faster delivery and accurate results, please provide:</p>
-            <ul class="space-y-2 mb-6">
-                <li class="flex items-start gap-2">
-                    <Icon name="tabler:clipboard-check" class="w-5 h-5 flex-shrink-0 mt-1"/>
-                    <span>Clear acceptance criteria</span>
-                </li>
-                <li class="flex items-start gap-2">
-                    <Icon name="tabler:palette" class="w-5 h-5 flex-shrink-0 mt-1"/>
-                    <span>Design mockups or wireframes (if applicable)</span>
-                </li>
-                <li class="flex items-start gap-2">
-                    <Icon name="tabler:code" class="w-5 h-5 flex-shrink-0 mt-1"/>
-                    <span>Information about existing codebase and architecture</span>
-                </li>
-                <li class="flex items-start gap-2">
-                    <Icon name="tabler:file-description" class="w-5 h-5 flex-shrink-0 mt-1"/>
-                    <span>Any relevant documentation or context</span>
-                </li>
-            </ul>
-
-            <div class="bg-red-100 border-4 w-full md:w-fit border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                <p class="font-bold">Remember: The more detailed and clear your requirements, the faster I can deliver
-                    high-quality results!</p>
-            </div>
-
-            <div class="mt-16 text-center space-y-6">
-                <p class="text-3xl font-extrabold transform -rotate-2 inline-block bg-pink-300 px-6 py-3 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-                    Task or Project?
-                </p>
-                <p class="text-xl font-bold max-w-4xl mx-auto">
-                    Not sure if your requirements fit into a task or if you need a larger project?
-                </p>
-                <div class="flex flex-col items-center space-y-4 md:flex-row md:space-y-0 md:space-x-4 justify-center">
-                    <div class="relative inline-block">
-                        <a href="https://calendar.app.google/uDz6rZrYgUxqAC2i9"
-                           class="inline-block text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl transform hover:rotate-2">
-                            Book a Call
-                        </a>
-                        <div class="absolute -top-4 -right-4 bg-yellow-400 text-black font-bold text-xs py-1 px-2 border-2 border-black rounded-full transform rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                            FREE
-                        </div>
-                    </div>
-                </div>
-                <p class="text-lg">Let's analyze your needs and find the best approach together!</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="mb-4 relative">
-    <h2 class="text-2xl md:text-3xl font-bold text-black mb-6 transform rotate-1 relative z-10 inline-block bg-yellow-300 px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-        App Packages
-    </h2>
-</div>
-
-<div class="mb-8 space-y-4">
-    <div class="solution-toggle flex flex-col md:flex-row justify-center gap-2 md:gap-4 px-4 md:px-0">
-        <button class="solution-btn active w-full md:w-auto px-4 md:px-6 py-2 font-bold border-4 border-black bg-blue-600 text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
-                data-solution="mvp">
-            MVP
-        </button>
-        <button class="solution-btn w-full md:w-auto px-4 md:px-6 py-2 font-bold border-4 border-black bg-gray-200 text-gray-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
-                data-solution="scaleup">
-            Scale-up
-        </button>
-        <button class="solution-btn w-full md:w-auto px-4 md:px-6 py-2 font-bold border-4 border-black bg-gray-200 text-gray-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
-                data-solution="enterprise">
-            Enterprise
-        </button>
-    </div>
-</div>
-
 <div class="mb-16">
-    {readySolutions.map((solution, index) => (
-            <div class={`solution-content ${index === 0 ? 'mvp' : index === 1 ? 'scaleup' : 'enterprise'} ${index === 0 ? '' : 'hidden'}`}>
-                <div class="bg-white border-4 border-black p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-1 relative">
-                    <div class="max-w-7xl mx-auto">
-                        <div class="grid lg:grid-cols-2 gap-6 md:gap-12">
-                            <div>
-                                {index === 1 && (
+    <div class="max-w-screen-xl mx-auto px-4">
+        <div class="flex flex-col space-y-12 md:space-y-16">
+            {developmentPackages.map((devPackage, index) => (
+                    <div class="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
+                        <div class="w-full lg:w-1/2">
+                            <div class={`
+                            bg-white border-4 border-black p-6 
+                            shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] 
+                            transform ${devPackage.promoted ? 'rotate-1' : '-rotate-1'} 
+                            relative
+                        `}>
+                                {devPackage.promoted && (
                                         <div class="absolute -top-4 -right-4 bg-green-400 text-black font-bold py-1 px-3 border-4 border-black transform rotate-3">
                                             Most Popular
                                         </div>
                                 )}
 
-                                <h3 class="text-2xl font-bold mb-2">{solution.name}</h3>
-                                <p class="text-gray-600 mb-4">{solution.description}</p>
+                                <h3 class="text-2xl font-bold mb-2">{devPackage.name}</h3>
+                                <p class="text-gray-600 mb-4">{devPackage.description}</p>
 
                                 <div class="text-3xl font-bold text-blue-500 mb-2">
-                                    ${solution.price}
+                                    ${devPackage.price}
                                 </div>
-                                <p class="text-sm text-gray-600 mb-6">{solution.priceInfo}</p>
+
+                                <div class="space-y-1 mb-6">
+                                    <p class="text-sm text-gray-600">Delivery: {devPackage.timeline}</p>
+
+                                </div>
 
                                 <div class="bg-yellow-100 border-2 border-black p-4 mb-6 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                    <h4 class="inline-block bg-black text-white font-bold px-3 py-1 mb-4 text-sm md:text-base">
+                                    <h4 class="font-bold text-sm mb-2 bg-black text-white inline-block px-2 py-1 transform -rotate-1">
                                         Perfect For
                                     </h4>
-                                    <ul class="space-y-2">
-                                        {solution.idealFor.map((ideal) => (
+                                    <ul class="space-y-2 mt-2">
+                                        {devPackage.idealFor.map((ideal) => (
                                                 <li class="flex items-start gap-2">
                                                     <Icon name="tabler:point" class="w-4 h-4 flex-shrink-0 mt-1"/>
                                                     <span>{ideal}</span>
@@ -648,115 +184,83 @@ const readySolutions = [
                                     </ul>
                                 </div>
 
-                                <div class="flex items-center gap-2 p-3 bg-blue-50 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                    <Icon name="tabler:clock" class="w-6 h-6"/>
-                                    <p class="font-bold text-black">Total time: {solution.deliveryTime}</p>
-                                </div>
-                            </div>
-
-                            <div>
-                                <h4 class="inline-block bg-black text-white font-bold px-3 py-1 mb-4 text-sm md:text-base">
-                                    Features
-                                </h4>
-                                <div class="space-y-4 mb-6">
-                                    {solution.features.map((feature) => (
-                                            <div class="flex items-center gap-3">
-                                                <div class="w-8 h-8 flex-shrink-0 bg-gray-100 border-2 border-black flex items-center justify-center">
-                                                    <Icon name={feature.icon} class="w-4 h-4"/>
-                                                </div>
-                                                <span class="font-bold">{feature.text}</span>
-                                            </div>
-                                    ))}
-                                </div>
-
-                                <div class="bg-blue-100 border-2 border-black p-4 mb-6 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                    <h4 class="inline-block bg-black text-white font-bold px-3 py-1 mb-4 text-sm md:text-base">
-                                        Development Milestones
+                                <div class="bg-blue-50 border-2 border-black p-3 mt-2 mb-6">
+                                    <h4 class="font-bold text-sm mb-2 bg-black text-white inline-block px-2 py-1 transform -rotate-1">
+                                        Payment Schedule
                                     </h4>
-                                    <div class="space-y-3">
-                                        {solution.milestones.map((milestone, mIndex) => (
-                                                <div class="flex items-start gap-2 text-sm">
-                                                    <Icon name="tabler:flag" class="w-4 h-4 flex-shrink-0 mt-1"/>
-                                                    <div>
-                                                        <span class="font-bold">{milestone.phase}</span>
-                                                        <div class="text-gray-600">
-                                                            <span>{milestone.duration}</span>
-                                                            <span class="mx-1">•</span>
-                                                            <span>${Math.round(solution.price * (parseInt(milestone.payment) / 100))}
-                                                                upfront</span>
-                                                        </div>
-                                                    </div>
+                                    <div class="space-y-1 mt-2">
+                                        {devPackage.paymentStructure.map((payment) => (
+                                                <div class="flex justify-between items-center text-sm">
+                                                    <span class="text-gray-600">{payment.phase}:</span>
+                                                    <span class="font-bold">${payment.amount}</span>
                                                 </div>
                                         ))}
                                     </div>
-                                    <div class="mt-4 text-xs text-gray-600 italic">
-                                        Each milestone payment is due before the phase begins
+                                </div>
+
+                                <div class="flex items-center justify-center">
+                                    <div class="flex flex-col items-center w-full">
+                                        <button
+                                                data-fungies-button=''
+                                                class="block w-full text-center bg-green-600 hover:bg-green-700 font-bold py-3 px-6 border-black border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl text-white">
+                                            Get Started
+                                        </button>
+                                        <a href="https://calendar.app.google/uDz6rZrYgUxqAC2i9"
+                                           class="mt-2 inline-block w-full text-center underline underline-offset-4 decoration-dashed text-sm text-gray-600 hover:text-black transition-colors duration-300">
+                                            or book a quick call to learn more
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex items-center justify-center">
-                            <div class="flex flex-col items-center">
-                                <a href="/contact"
-                                   class="block w-full lg:w-fit text-center bg-green-600 hover:bg-green-700 font-bold py-3 px-6 border-black border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl text-white">
-                                    Get Started
-                                </a>
-                                <a href="https://calendar.app.google/uDz6rZrYgUxqAC2i9"
-                                   class="mt-2 inline-block w-full text-center underline underline-offset-4 decoration-dashed text-sm text-gray-600 hover:text-black transition-colors duration-300">
-                                    or book a quick call to learn more
-                                </a>
+
+                        <div class="w-full lg:w-1/2 space-y-6">
+                            <div class="space-y-4">
+                                <h4 class="text-xl font-bold text-sm mb-2 bg-black text-white inline-block px-2 py-1 transform -rotate-1">
+                                    Core Features
+                                </h4>
+                                <div class="space-y-4 mt-2">
+                                    {devPackage.coreFeatures.map((feature) => (
+                                            <div class="flex items-start gap-4">
+                                                <div class="w-10 h-10 flex-shrink-0 bg-gray-100 border-2 border-black flex items-center justify-center">
+                                                    <Icon name={feature.icon} class="w-5 h-5"/>
+                                                </div>
+                                                <div>
+                                                    <span class="font-bold block text-lg">{feature.text}</span>
+                                                    <span class="text-gray-600">{feature.detail}</span>
+                                                </div>
+                                            </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div class="bg-blue-50 border-2 border-black p-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                <h4 class="font-bold text-sm mb-2 bg-black text-white inline-block px-2 py-1 transform -rotate-1">
+                                    Tech Stack
+                                </h4>
+                                <div class="space-y-3 mt-2">
+                                    {Object.entries(devPackage.techStack).map(([category, technologies]) => (
+                                            <div>
+                                                <span class="text-sm text-gray-600 font-semibold">{category.charAt(0).toUpperCase() + category.slice(1)}:</span>
+                                                <div class="flex flex-wrap gap-2 mt-1">
+                                                    {technologies.map((tech) => (
+                                                            <span class="inline-block bg-white px-2 py-1 text-xs border border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
+                                                    {tech}
+                                                </span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-    ))}
+            ))}
+        </div>
+    </div>
 </div>
 
-
-<script is:inline data-astro-rerun>
-    function initializeToggles() {
-        const toggleBtns = document.querySelectorAll('.toggle-btn');
-        const pricingContents = document.querySelectorAll('.pricing-content');
-        const solutionBtns = document.querySelectorAll('.solution-btn');
-
-        toggleBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const type = btn.getAttribute('data-type');
-
-                // Update buttons
-                toggleBtns.forEach(b => {
-                    b.classList.remove('active', 'bg-blue-600', 'text-white');
-                    b.classList.add('bg-gray-200', 'text-gray-600');
-                });
-                btn.classList.add('active', 'bg-blue-600', 'text-white');
-                btn.classList.remove('bg-gray-200', 'text-gray-600');
-
-                // Update content sections
-                pricingContents.forEach(content => {
-                    content.classList.add('hidden');
-                });
-                document.getElementById(`${type}-content`)?.classList.remove('hidden');
-            });
-        });
-
-        solutionBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const solution = btn.getAttribute('data-solution');
-                solutionBtns.forEach(b => {
-                    b.classList.remove('active', 'bg-blue-600', 'text-white');
-                    b.classList.add('bg-gray-200', 'text-gray-600');
-                });
-                btn.classList.add('active', 'bg-blue-600', 'text-white');
-                btn.classList.remove('bg-gray-200', 'text-gray-600');
-
-                document.querySelectorAll('.solution-content').forEach(content => {
-                    content.classList.add('hidden');
-                });
-                document.querySelector(`.solution-content.${solution}`)?.classList.remove('hidden');
-            });
-        });
-    }
-
-    document.addEventListener('astro:page-load', initializeToggles);
-</script>
+<div class="text-sm text-gray-600 -rotate-1 text-center my-16 px-4">
+    * All packages include source code, documentation, and deployment guide. Prices are in USD. Payment processed
+    securely with 250+ payment methods available including credit cards, PayPal, and more.
+</div>

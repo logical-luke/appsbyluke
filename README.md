@@ -22,12 +22,7 @@ Project URL: [AppsByLuke](https://appsbyluke.com/)
       - PostgreSQL
       - Stripe API 
     - Default exposed port: 3000
-- `/app` - app for requesting services and managing account
-    - Stack:
-      - Vue.js
-      - TypeScript
-      - Tailwind CSS
-    - Default exposed port: 4173
+
 ## Prerequisites
 
 - Docker
