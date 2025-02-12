@@ -46,7 +46,7 @@ const isProduction = import.meta.env.PROD;
                 imageAlt: title
             }}
     ></SEO>
-    <script src='https://app.fungies.io/scripts/fungies-overlay.js'></script>
+    <script src='https://app.fungies.io/scripts/fungies-overlay.js' defer></script>
     {isProduction && (
         <>
             <script type="text/partytown" defer data-domain="appsbyluke.com" src="https://plausible.makeitlogical.io/js/script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js"></script>
