@@ -265,3 +265,59 @@ const developmentPackages = [
     * All packages include source code, documentation, and deployment guide. Prices are in USD. Payment processed
     securely with 250+ payment methods available including credit cards, PayPal, and more.
 </div>
+
+<script is:inline>
+    function initializeFungies() {
+        let iframe;
+
+        function displayIframe(e) {
+            e.preventDefault();
+            if(iframe) return;
+
+            const button = e.currentTarget;
+            iframe = document.createElement("iframe");
+
+            iframe.style = `
+                z-index: 2147483647;
+                display: block;
+                background-color: transparent;
+                border: 0;
+                overflow-x: hidden;
+                overflow-y: auto;
+                visibility: visible;
+                margin: 0;
+                padding: 0;
+                -webkit-tap-highlight-color: transparent;
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            `;
+
+            const src = button.dataset.fungiesButton;
+            iframe.src = src;
+            iframe.allow = "payment";
+            document.body.appendChild(iframe);
+        }
+
+        function messageHandler(event) {
+            if (event.data === "closeWindow") {
+                iframe?.remove();
+                iframe = null;
+            }
+        }
+
+        window.removeEventListener("message", messageHandler);
+        window.addEventListener("message", messageHandler);
+
+        document.querySelectorAll("[data-fungies-button]").forEach(button => {
+            button.removeEventListener("click", displayIframe);
+            button.addEventListener("click", displayIframe);
+        });
+    }
+
+    initializeFungies();
+
+    document.addEventListener('astro:page-load', initializeFungies);
+</script>
