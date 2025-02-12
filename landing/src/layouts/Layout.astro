@@ -46,7 +46,11 @@ const isProduction = import.meta.env.PROD;
                 imageAlt: title
             }}
     ></SEO>
-    <script src='https://app.fungies.io/scripts/fungies-overlay.js' defer></script>
+    <script
+        id="fungies-script"
+        src='https://app.fungies.io/scripts/fungies-overlay.js'
+        onload="window.fungiesLoaded = true">
+    </script>
     {isProduction && (
         <>
             <script type="text/partytown" defer data-domain="appsbyluke.com" src="https://plausible.makeitlogical.io/js/script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js"></script>
@@ -62,6 +66,23 @@ const isProduction = import.meta.env.PROD;
     </main>
     <Footer/>
 </div>
+<script>
+    function initializeFungies() {
+        if (!window.fungiesLoaded) {
+            setTimeout(initializeFungies, 100);
+            return;
+        }
+
+        document.querySelectorAll("[data-fungies-button]").forEach(function(t) {
+            t.removeEventListener("click", window.displayIframe);
+            t.addEventListener("click", window.displayIframe);
+        });
+    }
+
+    initializeFungies();
+
+    document.addEventListener('astro:page-load', initializeFungies);
+</script>
 </body>
 </html>
 
