@@ -1,5 +1,4 @@
 ---
-import appsByLukeLogo from '../assets/appsbyluke.svg';
 import {Icon} from 'astro-icon/components'
 import {Image} from 'astro:assets';
 const pathname = new URL(Astro.request.url).pathname;
@@ -26,7 +25,7 @@ const isCurrentPath = (href: string): boolean => {
             <div class="flex-shrink-0 flex items-center transform -rotate-2">
                 <a href="/" class="inline-block">
                     <Image
-                            src={appsByLukeLogo}
+                            src='/appsbyluke.svg'
                             width="256.2"
                             loading="eager"
                             height="120"
@@ -47,16 +46,6 @@ const isCurrentPath = (href: string): boolean => {
                             </a>
                     ))}
                 </div>
-                <!--<div class="flex items-center space-x-4 ml-4">-->
-                <!--    <a href="https://dashboard.appsbyluke.com/register"-->
-                <!--       class="text-white hover:bg-green-700 bg-green-600 px-4 py-3 text-lg font-bold transition duration-150 ease-in-out border-4 border-black transform rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">-->
-                <!--        Get Started-->
-                <!--    </a>-->
-                <!--    <a href="https://dashboard.appsbyluke.com/login"-->
-                <!--       class="text-black hover:bg-yellow-500 hover:text-white px-4 py-3 text-lg font-bold transition duration-150 ease-in-out border-4 border-black transform -rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] bg-yellow-200">-->
-                <!--        Sign In-->
-                <!--    </a>-->
-                <!--</div>-->
             </div>
             <div class="lg:hidden">
                 <button id="mobile-menu-button"
@@ -79,14 +68,6 @@ const isCurrentPath = (href: string): boolean => {
                         {item.name}
                     </a>
             ))}
-            <!--<a href="https://dashboard.appsbyluke.com/register"-->
-            <!--   class="text-white hover:bg-green-700 bg-green-600 block px-3 py-2 text-base font-bold border-4 border-black my-2 transform shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">-->
-            <!--    Get Started-->
-            <!--</a>-->
-            <!--<a href="https://dashboard.appsbyluke.com/login"-->
-            <!--   class="text-black hover:bg-yellow-500 hover:text-white block px-3 py-2 text-base font-bold border-4 border-black my-2 transform shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 bg-yellow-200">-->
-            <!--    Sign In-->
-            <!--</a>-->
         </div>
     </div>
 </nav>
