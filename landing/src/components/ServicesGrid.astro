@@ -502,11 +502,106 @@ const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
     function initializeFungies() {
         let iframe;
         let spinner;
-        let modal;
 
         window.closeModal = function () {
             document.querySelector('#modal-root')?.remove();
         };
+
+        async function checkAvailabilityAndUpdateUI() {
+            const availabilityElements = document.querySelectorAll('[id^="availability-"]');
+
+            try {
+                const response = await fetch(`${baseApiUrl}/v1/order/available-slots`);
+                const data = await response.json();
+
+                for (const element of availabilityElements) {
+                    const packageContainer = element.closest('[data-package-name]');
+                    const packageName = packageContainer?.dataset.packageName;
+                    let availableSlots;
+
+                    switch (packageName) {
+                        case 'Startup Core':
+                            availableSlots = data.availableSlots.startupCore;
+                            break;
+                        case 'Startup Plus':
+                            availableSlots = data.availableSlots.startupPlus;
+                            break;
+                        case 'Startup Pro':
+                            availableSlots = data.availableSlots.startupPro;
+                            break;
+                        case 'CI/CD Integration':
+                            availableSlots = data.availableSlots.ciCdIntegration;
+                            break;
+                        case 'Infrastructure Setup':
+                            availableSlots = data.availableSlots.infrastructureSetup;
+                            break;
+                        default:
+                            console.warn('Unknown package name:', packageName);
+                            availableSlots = 0;
+                    }
+
+                    const button = packageContainer?.querySelector('[data-fungies-button]');
+
+                    let buttonText = 'Get Started';
+                    if (packageName === 'CI/CD Integration') {
+                        buttonText = 'Add CI/CD Integration';
+                    } else if (packageName === 'Infrastructure Setup') {
+                        buttonText = 'Add Infrastructure Setup';
+                    }
+
+                    if (typeof availableSlots === 'number' && availableSlots > 0) {
+                        element.innerHTML = `
+                            <div class="text-center text-green-600 font-bold">
+                                ${availableSlots} ${availableSlots === 1 ? 'slot' : 'slots'} available
+                            </div>
+                        `;
+                        if (button) {
+                            button.classList.remove('bg-gray-200', 'animate-pulse');
+                            button.classList.add('bg-green-600', 'hover:bg-green-700', 'text-white');
+                            button.innerHTML = buttonText;
+                            button.dataset.hasSlots = 'true';
+                        }
+                    } else {
+                        element.innerHTML = `
+                            <div class="text-center text-yellow-600 font-bold">
+                                Currently at capacity
+                            </div>
+                        `;
+                        if (button) {
+                            button.classList.remove('bg-gray-200', 'animate-pulse');
+                            button.classList.add('bg-green-600', 'hover:bg-green-700', 'text-white');
+                            button.innerHTML = 'Join Waitlist';
+                            button.dataset.hasSlots = 'false';
+                        }
+                    }
+                }
+
+                return true;
+            } catch (error) {
+                console.error('Failed to check availability:', error);
+                availabilityElements.forEach(element => {
+                    element.innerHTML = `
+                        <div class="text-center text-red-600">
+                            Unable to check availability
+                        </div>
+                    `;
+                    const button = element.parentElement?.querySelector('[data-fungies-button]');
+                    if (button) {
+                        button.classList.remove('bg-gray-200', 'animate-pulse');
+                        button.classList.add('bg-green-600', 'hover:bg-green-700', 'text-white');
+                        const packageName = button.dataset.packageName;
+                        let buttonText = 'Get Started';
+                        if (packageName === 'CI/CD Integration') {
+                            buttonText = 'Add CI/CD Integration';
+                        } else if (packageName === 'Infrastructure Setup') {
+                            buttonText = 'Add Infrastructure Setup';
+                        }
+                        button.innerHTML = buttonText;
+                    }
+                });
+                return false;
+            }
+        }
 
         function showPaymentFollowupModal() {
             const modalHtml = `
@@ -519,7 +614,7 @@ const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
                         <h4 class="font-bold mb-2">Next Steps:</h4>
                         <ul class="list-disc list-inside text-sm space-y-2">
                             <li>Check your email for payment confirmation</li>
-                            <li>You'll receive project setup instructions shortly</li>
+                            <li>You'll receive project setup instructions within 1-2 hours</li>
                             <li>Please check spam/promotions folders if not found</li>
                         </ul>
                     </div>
