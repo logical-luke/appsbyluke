@@ -20,10 +20,10 @@ export class Order {
   id: string;
 
   @Column({
-    type: 'varchar',
-    length: 255
+    type: 'enum',
+    enum: ProductName
   })
-  productName: string;
+  productName: ProductName;
 
   @Column()
   customerEmail: string;

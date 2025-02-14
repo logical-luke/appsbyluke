@@ -32,6 +32,8 @@ export class OrdersService {
 
         try {
             const productName = webhookPayloadDto.data.items[0]?.name;
+            console.log('Original product name:', productName);
+
             if (!productName) {
                 throw new BadRequestException('Product name is required');
             }
@@ -39,7 +41,9 @@ export class OrdersService {
             const order = new Order();
             order.id = uuidv4();
             order.customerEmail = webhookPayloadDto.data.customer.email;
-            order.productName = this.mapProductName(productName); // This will now return a string
+            order.productName = this.mapProductName(productName);
+            console.log('Final product name to save:', order.productName);
+
             order.status = OrderStatus.NEW;
             order.orderDate = new Date(webhookPayloadDto.data.order.createdAt);
 
@@ -64,18 +68,20 @@ export class OrdersService {
         }
     }
 
-    private mapProductName(name: string): string {
+    private mapProductName(name: string): ProductName {
         const cleanName = name.replace(/\s*\([^)]*\)/, '').trim();
+        console.log('Clean name:', cleanName);
 
         const mapping = {
-            'Startup Core': 'startupCore',
-            'Startup Plus': 'startupPlus',
-            'Startup Pro': 'startupPro',
-            'CI/CD Integration': 'ciCdIntegration',
-            'Infrastructure Setup': 'infrastructureSetup'
+            'Startup Core': ProductName.STARTUP_CORE,
+            'Startup Plus': ProductName.STARTUP_PLUS,
+            'Startup Pro': ProductName.STARTUP_PRO,
+            'CI/CD Integration': ProductName.CICD_INTEGRATION,
+            'Infrastructure Setup': ProductName.INFRASTRUCTURE_SETUP
         };
 
         const mappedName = mapping[cleanName];
+        console.log('Mapped name:', mappedName);
 
         if (!mappedName) {
             throw new BadRequestException(`Unknown product name: ${name}`);
