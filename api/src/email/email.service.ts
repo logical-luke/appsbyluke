@@ -1,9 +1,9 @@
-import { Injectable, Logger } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { Resend } from 'resend';
-import { SendEmailDto } from './dto/send-email';
-import { AddToWaitlistDto } from "../waitlist/dto/add-to-waitlist.dto";
-import { ProductName } from '../orders/entities/order.entity';
+import {Injectable, Logger} from '@nestjs/common';
+import {ConfigService} from '@nestjs/config';
+import {Resend} from 'resend';
+import {SendEmailDto} from './dto/send-email';
+import {AddToWaitlistDto} from "../waitlist/dto/add-to-waitlist.dto";
+import {ProductName} from '../orders/entities/order.entity';
 import * as path from 'path';
 import * as fs from 'fs';
 
@@ -52,37 +52,50 @@ export class EmailService {
         const pdfAttachment = fs.readFileSync(pdfPath);
 
         const html = `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-                <h1 style="color: #2563eb; margin-bottom: 24px;">Thank You for Your Purchase!</h1>
-                
-                <p style="color: #374151; font-size: 16px; line-height: 1.6;">
-                    Hi,
-                </p>
-                
-                <p style="color: #374151; font-size: 16px; line-height: 1.6;">
-                    Thank you for choosing ${productDisplayNames[productName]}! I'm excited to work with you and help bring your project to life.
-                </p>
-                
-                <div style="background-color: #f3f4f6; padding: 20px; border-radius: 8px; margin: 24px 0;">
-                    <h2 style="color: #1f2937; margin-top: 0;">Next Steps:</h2>
-                    <ul style="color: #374151; padding-left: 20px;">
-                        <li style="margin-bottom: 12px;">Review the attached PDF guide for detailed information about your package</li>
-                        <li style="margin-bottom: 12px;">Prepare any questions you might have about the process</li>
-                    </ul>
-                </div>
-                
-                <p style="color: #374151; font-size: 16px; line-height: 1.6;">
-                    If you have any immediate questions or concerns, don't hesitate to reach out to me directly at luke@appsbyluke.com.
-                </p>
-                
-                <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid #e5e7eb;">
-                    <p style="color: #4b5563; font-size: 14px;">
-                        Best regards,<br>
-                        Luke<br>
-                    </p>
-                </div>
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h1 style="color: #2563eb; margin-bottom: 24px;">Thank You for Your Purchase!</h1>
+            
+            <p style="color: #374151; font-size: 16px; line-height: 1.6;">
+                Hi,
+            </p>
+            
+            <p style="color: #374151; font-size: 16px; line-height: 1.6;">
+                Thank you for choosing ${productDisplayNames[productName]}! I'm excited to work with you and help bring your project to life.
+            </p>
+            
+            <div style="background-color: #f3f4f6; padding: 20px; border-radius: 8px; margin: 24px 0;">
+                <h2 style="color: #1f2937; margin-top: 0;">Next Steps:</h2>
+                <ol style="color: #374151; padding-left: 20px;">
+                    <li style="margin-bottom: 12px;">
+                        Please review the attached PDF document carefully - it contains detailed instructions and requirements for your project
+                    </li>
+                    <li style="margin-bottom: 12px;">
+                        Send your project requirements (as outlined in the PDF) to <a href="mailto:luke@appsbyluke.com" style="color: #2563eb; text-decoration: underline;">luke@appsbyluke.com</a>
+                    </li>
+                    <li style="margin-bottom: 12px;">
+                        Schedule our kick-off meeting using <a href="https://calendar.app.google/uDz6rZrYgUxqAC2i9" style="color: #2563eb; text-decoration: underline;">my calendar</a>
+                    </li>
+                </ol>
             </div>
-        `;
+            
+            <div style="background-color: #fef3c7; padding: 20px; border-radius: 8px; margin: 24px 0; border-left: 4px solid #d97706;">
+                <p style="color: #92400e; font-size: 14px; line-height: 1.6; margin: 0;">
+                    <strong>Important Note:</strong> The development timeline (${productDisplayNames[productName]} - as specified in the PDF) will commence after our kick-off meeting and once all requirements are confirmed.
+                </p>
+            </div>
+            
+            <p style="color: #374151; font-size: 16px; line-height: 1.6;">
+                If you have any questions before our meeting, feel free to reach out to me directly at luke@appsbyluke.com.
+            </p>
+            
+            <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid #e5e7eb;">
+                <p style="color: #4b5563; font-size: 14px;">
+                    Best regards,<br>
+                    Luke<br>
+                </p>
+            </div>
+        </div>
+    `;
 
         try {
             return await this.resend.emails.send({
