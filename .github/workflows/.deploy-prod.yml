@@ -56,20 +56,21 @@ jobs:
             echo "${{ github.sha }}-${TIMESTAMP}" >> /root/.appsbyluke-api-version
             docker pull ghcr.io/logical-luke/appsbyluke/appsbyluke-api:latest
             VERSION=$(cat /root/.appsbyluke-api-version)
+            WEBHOOK_SECRET=$'${{ secrets.WEBHOOK_SECRET }}'
             docker run -d --restart unless-stopped --network appsbyluke --name appsbyluke-api-${VERSION} \
               -e APP_ENV=production \
               -e NODE_ENV=production \
-              -e RESEND_API_KEY=${{ secrets.RESEND_API_KEY }} \
-              -e TO_EMAIL=${{ secrets.TO_EMAIL }} \
-              -e DB_HOST=${{ secrets.DB_HOST }} \
-              -e DB_PORT=${{ secrets.DB_PORT }} \
-              -e DB_USERNAME=${{ secrets.DB_USERNAME }} \
-              -e DB_PASSWORD=${{ secrets.DB_PASSWORD }} \
-              -e DB_NAME=${{ secrets.DB_NAME }} \
-              -e SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
-              -e ALLOWED_ORIGINS=${{ secrets.ALLOWED_ORIGINS }} \
-              -e JWT_SECRET=${{ secrets.JWT_SECRET }} \
-              -e "WEBHOOK_SECRET='${{ secrets.WEBHOOK_SECRET }}'" \
+              -e RESEND_API_KEY="${{ secrets.RESEND_API_KEY }}" \
+              -e TO_EMAIL="${{ secrets.TO_EMAIL }}" \
+              -e DB_HOST="${{ secrets.DB_HOST }}" \
+              -e DB_PORT="${{ secrets.DB_PORT }}" \
+              -e DB_USERNAME="${{ secrets.DB_USERNAME }}" \
+              -e DB_PASSWORD="${{ secrets.DB_PASSWORD }}" \
+              -e DB_NAME="${{ secrets.DB_NAME }}" \
+              -e SENTRY_DSN="${{ secrets.SENTRY_DSN }}" \
+              -e ALLOWED_ORIGINS="${{ secrets.ALLOWED_ORIGINS }}" \
+              -e JWT_SECRET="${{ secrets.JWT_SECRET }}" \
+              -e WEBHOOK_SECRET="${WEBHOOK_SECRET}" \
               -p $(shuf -i 21000-21999 -n 1):3000 \
               ghcr.io/logical-luke/appsbyluke/appsbyluke-api:latest npm run start:prod
 
