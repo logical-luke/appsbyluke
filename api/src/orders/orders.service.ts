@@ -71,7 +71,8 @@ export class OrdersService {
             'Startup Core': ProductName.STARTUP_CORE,
             'Startup Plus': ProductName.STARTUP_PLUS,
             'Startup Pro': ProductName.STARTUP_PRO,
-            'CI/CD Integration': ProductName.CICD_INTEGRATION
+            'CI/CD Integration': ProductName.CICD_INTEGRATION,
+            'Infrastructure Setup': ProductName.INFRASTRUCTURE_SETUP,
         };
 
         const mappedName = mapping[cleanName];
