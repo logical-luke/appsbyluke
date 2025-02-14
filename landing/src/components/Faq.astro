@@ -1,90 +1,154 @@
 ---
-const packagesFAQ = [
-    // Package-specific questions
-    {
-        question: "What's included in the app packages?",
-        answer: "Each app package includes a custom-designed responsive web app with core features. The Startup Core focuses on MVP with one core feature, Startup Plus offers enhanced functionality with three features, and Startup Pro provides a comprehensive solution ready for scaling."
-    },
-    {
-        question: "How long does it take to deliver an app package?",
-        answer: "Delivery times vary by package: Startup Core takes 2-3 weeks, Startup Plus requires 4-6 weeks, and Startup Pro takes 8-10 weeks. These timelines ensure thorough development and quality assurance."
-    },
-    {
-        question: "What technologies are used in the app packages?",
-        answer: "I primarily use a modern tech stack including Vue.js/Nuxt for frontend, NestJS with TypeScript for backend, and relational databases. The specific technologies are chosen to best suit your project's requirements."
-    },
-    // Process and Communication
-    {
-        question: "How does the development process work?",
-        answer: "After choosing a package, we'll have an initial consultation to define your requirements in detail. Development is done in phases with regular updates and feedback sessions. You'll have access to the codebase throughout the development process."
-    },
-    {
-        question: "How do meetings and communication work?",
-        answer: "I offer meetings as needed throughout the development process. Regular updates are provided via email or your preferred communication channel. We'll have scheduled check-ins at key development milestones."
-    },
-    {
-        question: "What are your working hours?",
-        answer: "I operate Monday through Friday, excluding national holidays, within Central European working hours (I'm based in Poland). This allows for efficient communication with clients across European and American time zones."
-    },
-    // Deliverables and Code
-    {
-        question: "How do I receive the completed code?",
-        answer: "Code is delivered through a private GitHub repository. You'll have full access to the source code, documentation, and deployment guides. I can also assist with setting up your own repository if needed."
-    },
-    {
-        question: "What if I need changes after delivery?",
-        answer: "Each package includes a revision period where you can request adjustments to ensure everything meets your requirements. After the initial delivery, we can discuss ongoing maintenance or additional development needs."
-    },
-    {
-        question: "How do you ensure code quality?",
-        answer: "I maintain high code quality through comprehensive testing, code reviews, adherence to coding standards, and using modern development tools. All code is properly documented and follows industry best practices."
-    },
-    // Business and Legal
-    {
-        question: "Can we sign a Non-Disclosure Agreement (NDA)?",
-        answer: "Absolutely. I understand that projects often involve sensitive information or proprietary technology. I'm happy to sign an NDA before discussing your project details to ensure full confidentiality."
-    },
-    {
-        question: "What are the payment terms?",
-        answer: "I use a straightforward 50-25-25 payment structure: 50% upfront to begin development, 25% at the midpoint milestone, and 25% upon completion. This structure ensures clear expectations and helps maintain a steady development pace while sharing the risk fairly."
-    },
-    {
-        question: "What payment methods do you accept?",
-        answer: "I accept over 250 payment methods worldwide, including credit/debit cards, PayPal, Google Pay, Apple Pay, and Klarna. This ensures you can choose the most convenient payment option for your location and preference. All payments are processed securely through an established payment processor."
-    },
-    {
-        question: "Is the payment process secure?",
-        answer: "Absolutely. All payments are processed through a secure, PCI-compliant payment system. Your payment information is never stored on my servers, and all transactions are protected by industry-standard encryption."
-    },
-    {
-        question: "What if I need more features than what's included in a package?",
-        answer: "If you need additional features, we can either upgrade to a more comprehensive package or discuss custom additions. Each package is designed to be flexible enough to accommodate specific requirements."
-    },
-    {
-        question: "Do you provide ongoing support after launch?",
-        answer: "While the packages focus on initial development, I offer various options for ongoing support and maintenance. We can discuss these needs based on your specific requirements."
-    },
-    {
-        question: "Where are you based and how does it affect the project?",
-        answer: "I operate from Poland, which allows me to offer competitive pricing while maintaining high-quality service. Working in European time zones enables efficient collaboration with clients worldwide, particularly in Europe and the Americas."
-    }
-];
+const faqCategories = {
+    "Packages & Pricing": [
+        {
+            question: "What's included in each app package?",
+            answer: "Each package is designed for different startup stages: Startup Core ($4,999) delivers an MVP in 1 week with one core feature, Startup Plus ($9,999) provides three core features in 2 weeks, and Startup Pro ($19,999) offers an advanced solution in 4 weeks. All packages include authentication, admin panel, and essential APIs. Prices are subject to VAT where applicable."
+        },
+        {
+            question: "What are the detailed features of each package?",
+            answer: "Startup Core includes authentication, basic admin panel, and essential APIs. Startup Plus adds team management, payment integration, and extended API documentation. Startup Pro includes advanced user system (SSO, roles, permissions), analytics, reporting, and integration system with webhooks."
+        },
+        {
+            question: "What additional services are available?",
+            answer: "Two additional services are available: 1) CI/CD Integration ($999) for automated deployment pipelines, and 2) Infrastructure Setup ($1,499) for professional cloud/on-premise infrastructure configuration. Both services can be added to any package and include comprehensive setup and documentation."
+        },
+        {
+            question: "What about VAT and other taxes?",
+            answer: "Prices shown are exclusive of VAT. VAT will be calculated during checkout based on your location and business status. EU businesses with a valid VAT number may qualify for VAT reverse-charge. All tax documentation and proper invoices are provided."
+        },
+        {
+            question: "How does the availability system work?",
+            answer: "I maintain a limited number of slots per package to ensure quality and timely delivery. Available slots are shown in real-time on the website. If no slots are available, you can join the waitlist and be notified when a slot opens up."
+        }
+    ],
+    "Development Process": [
+        {
+            question: "How does the development process work?",
+            answer: "The process has three main phases: 1) Planning - requirements gathering and initial payment, 2) Development - core implementation with regular updates, and 3) Delivery - testing and handover. Each phase includes clear milestones and deliverables, with regular communication throughout."
+        },
+        {
+            question: "What technologies do you use and why?",
+            answer: "The tech stack includes Vue.js/Nuxt with Tailwind CSS for the frontend, NestJS with TypeScript for the backend, and scalable database solutions. This modern stack ensures high performance, maintainability, and scalability. The database setup varies by package: Core uses a relational database, Plus adds a cache layer, and Pro includes a search engine."
+        },
+        {
+            question: "Can I track the development progress?",
+            answer: "Yes, you'll have access to: 1) Private GitHub repository with daily commits, 2) Regular progress reports, 3) Milestone completion notifications, and 4) A project management dashboard for tracking tasks and timelines."
+        },
+        {
+            question: "What documentation is provided?",
+            answer: "You receive comprehensive documentation including: 1) Technical documentation, 2) API documentation, 3) Setup and deployment guides, 4) Code walkthrough session recordings, and 5) Knowledge transfer materials. All documentation is provided digitally and remains accessible after project completion."
+        }
+    ],
+    "Infrastructure & Deployment": [
+        {
+            question: "What does the Infrastructure Setup service include?",
+            answer: "The Infrastructure Setup service ($1,499) provides professional setup of your production environment on AWS, GCP, Vercel, or on-premise infrastructure. It includes environment configuration, security setup, database setup, SSL certificates, network configuration, monitoring setup, and comprehensive documentation."
+        },
+        {
+            question: "Which deployment platforms are supported?",
+            answer: "The Infrastructure Setup service supports multiple platforms: Amazon Web Services (AWS), Google Cloud Platform (GCP), Vercel, and on-premise infrastructure. The choice depends on your specific needs, budget, and scaling requirements."
+        },
+        {
+            question: "How do CI/CD and Infrastructure services work together?",
+            answer: "While Infrastructure Setup creates your production environment, CI/CD Integration automates the deployment process. Together, they provide a complete solution: Infrastructure Setup handles the initial platform configuration, while CI/CD Integration ensures smooth, automated deployments going forward."
+        },
+        {
+            question: "What security measures are implemented?",
+            answer: "Security is implemented at multiple levels: 1) Secure code repositories, 2) Encrypted data transmission, 3) Industry-standard security practices, 4) Regular security updates, 5) GDPR-compliant data processing, and 6) Privacy-focused analytics implementation when required."
+        },
+        {
+            question: "Do I need both additional services?",
+            answer: "Not necessarily. Infrastructure Setup is ideal if you need help setting up your production environment. CI/CD Integration is perfect if you want automated deployments. While they complement each other, you can choose based on your needs and existing setup."
+        }
+    ],
+    "Communication & Support": [
+        {
+            question: "What are your working hours?",
+            answer: "I operate Monday through Friday, excluding Polish national holidays, within Central European Time (CET) zone. Standard business hours are 9:00 AM - 5:00 PM CET. This allows for efficient communication with clients across European and American time zones."
+        },
+        {
+            question: "How do meetings and updates work?",
+            answer: "Communication includes regular email updates, weekly status reports, and milestone reviews. All meetings are scheduled within my working hours (9:00 AM - 5:00 PM CET). You'll receive progress updates via email and have access to a project management dashboard."
+        },
+        {
+            question: "What post-delivery support is included?",
+            answer: "Each package includes 30 days of post-delivery support, code walkthrough sessions, deployment assistance, and knowledge transfer sessions. Additional support or maintenance can be arranged separately after the initial support period."
+        },
+        {
+            question: "What happens if there are delays or issues?",
+            answer: "Project timelines may be adjusted based on scope changes, complexities, or payment delays. I maintain clear communication with response times of 1 business day for general inquiries and 2 business days for technical queries. Emergency issues receive priority handling."
+        }
+    ],
+    "Payments": [
+        {
+            question: "What are the payment terms and methods?",
+            answer: "Payment is structured as 50% upfront, 25% at midpoint, and 25% upon completion. Over 250 payment methods are supported, including credit cards, PayPal, Google Pay, Apple Pay, and Klarna. All payments are processed securely through a PCI-compliant payment processor."
+        },
+        {
+            question: "Is the payment process secure?",
+            answer: "Absolutely. All payments are processed through a secure, PCI-compliant payment system. Your payment information is never stored on my servers, and all transactions are protected by industry-standard encryption."
+        }
+    ],
+    "Legal & Confidentiality": [
+        {
+            question: "How is my project's confidentiality protected?",
+            answer: "All client information is treated as strictly confidential. This includes: 1) Secure storage and transmission of data, 2) No disclosure to third parties, 3) GDPR-compliant data processing, and 4) Optional NDA signing before project discussion."
+        },
+        {
+            question: "What happens if I need to terminate the project?",
+            answer: "Project termination requires written notice. Completed milestones are non-refundable, but you receive all completed work and documentation. Access to delivered code is maintained, and optional transition support is available if needed."
+        },
+        {
+            question: "Which laws govern the service agreement?",
+            answer: "The service agreement is governed by Polish law, with EU consumer protection laws applying where relevant. The jurisdiction is in the courts of Wrocław, Poland. All disputes are subject to an amicable resolution attempt before legal proceedings."
+        },
+        {
+            question: "What are my rights regarding data protection?",
+            answer: "Under GDPR, you have rights regarding your personal data including access, rectification, and erasure. All data processing is documented and transparent. You can request information about how your data is processed at any time."
+        },
+        {
+            question: "Can we sign a Non-Disclosure Agreement (NDA)?",
+            answer: "Absolutely. I understand that projects often involve sensitive information or proprietary technology. I'm happy to sign an NDA before discussing your project details to ensure full confidentiality."
+        },
+        {
+            question: "Who owns the code and deliverables?",
+            answer: "Upon final payment, you receive full ownership of all custom code created for your project, including rights to modify and distribute it. This includes custom designs and assets. You'll have perpetual access to the delivered code repositories. Note that I retain rights to use general programming concepts and techniques, and may use similar solutions for other clients while respecting confidentiality."
+        }
+    ]
+};
 ---
 
 <div class="mb-16">
+    <div class="flex flex-wrap gap-4 mb-8">
+        {Object.keys(faqCategories).map((category) => (
+                <button
+                        class="category-btn px-4 py-2 border-4 border-black font-bold transition-all duration-300 bg-white hover:bg-yellow-300"
+                        data-category={category}
+                >
+                    {category}
+                </button>
+        ))}
+    </div>
+
     <div class="space-y-4">
-        {packagesFAQ.map((faq, index) => (
-                <div class="bg-pink-100 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-300 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                    <button
-                            class="w-full text-left p-4 font-bold text-black focus:outline-none flex justify-between items-center"
-                            onclick={`document.getElementById('faq-answer-${index}').classList.toggle('hidden')`}
-                    >
-                        <span>{faq.question}</span>
-                        <span class="text-2xl">+</span>
-                    </button>
-                    <div id={`faq-answer-${index}`} class="bg-white hidden p-4 border-t-4 border-black">
-                        <p class="text-black">{faq.answer}</p>
-                    </div>
+        {Object.entries(faqCategories).map(([category, questions]) => (
+                <div class="faq-category" data-category={category}>
+                    {questions.map((faq, index) => (
+                            <div class="bg-pink-100 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-300 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-4">
+                                <button
+                                        class="w-full text-left p-4 font-bold text-black focus:outline-none flex justify-between items-center"
+                                        onclick={`document.getElementById('faq-answer-${category}-${index}').classList.toggle('hidden')`}
+                                >
+                                    <span>{faq.question}</span>
+                                    <span class="text-2xl">+</span>
+                                </button>
+                                <div id={`faq-answer-${category}-${index}`}
+                                     class="bg-white hidden p-4 border-t-4 border-black">
+                                    <p class="text-black">{faq.answer}</p>
+                                </div>
+                            </div>
+                    ))}
                 </div>
         ))}
     </div>
@@ -112,9 +176,40 @@ const packagesFAQ = [
 
 <script is:inline>
     function initializeFAQ() {
+        const categories = document.querySelectorAll('.faq-category');
+        const categoryButtons = document.querySelectorAll('.category-btn');
+
+        function showCategory(categoryName) {
+            categories.forEach(category => {
+                if (category.dataset.category === categoryName) {
+                    category.style.display = 'block';
+                } else {
+                    category.style.display = 'none';
+                }
+            });
+
+            categoryButtons.forEach(button => {
+                if (button.dataset.category === categoryName) {
+                    button.classList.add('bg-yellow-300');
+                } else {
+                    button.classList.remove('bg-yellow-300');
+                }
+            });
+        }
+
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                showCategory(button.dataset.category);
+            });
+        });
+
         document.querySelectorAll('[id^="faq-answer-"]').forEach((el) => {
             el.classList.add('hidden');
         });
+
+        if (categoryButtons.length > 0) {
+            showCategory(categoryButtons[0].dataset.category);
+        }
     }
 
     document.addEventListener('astro:page-load', initializeFAQ);

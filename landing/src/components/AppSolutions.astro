@@ -4,84 +4,52 @@ import {Icon} from "astro-icon/components";
 <div id="app-solutions" class="bg-pink-100 py-16 border-y-4 border-black">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 transform -rotate-1 inline-block bg-yellow-300 px-6 py-3 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            Web Apps I Can Build for You
+            Apps You Can Launch
         </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {[
-                {
-                    title: "SaaS Applications",
-                    description: "Turn your idea into a scalable SaaS product",
-                    items: [
-                        "User Authentication & Teams",
-                        "Subscription Management",
-                        "Feature Access Control",
-                        "API Integration Options"
-                    ],
-                    icon: "tabler:apps",
-                    bgColor: "bg-blue-200"
-                },
-                {
-                    title: "Internal Tools",
-                    description: "Streamline your business operations",
-                    items: [
-                        "Custom Dashboards",
-                        "Process Automation",
-                        "Data Management",
-                        "Team Collaboration"
-                    ],
-                    icon: "tabler:tool",
-                    bgColor: "bg-green-200"
-                },
-                {
-                    title: "Customer Portals",
-                    description: "Enhance customer experience with self-service",
-                    items: [
-                        "User Management",
-                        "Document Sharing",
-                        "Support Ticketing",
-                        "Activity Tracking"
-                    ],
-                    icon: "tabler:users",
-                    bgColor: "bg-purple-200"
-                },
-                {
-                    title: "Admin Panels",
-                    description: "Manage your application with ease",
-                    items: [
-                        "User Administration",
-                        "Content Management",
-                        "Analytics Dashboard",
-                        "Settings Control"
-                    ],
-                    icon: "tabler:dashboard",
-                    bgColor: "bg-pink-200"
-                },
-                {
-                    title: "Booking Systems",
-                    description: "Handle appointments and reservations",
-                    items: [
-                        "Calendar Management",
-                        "Automated Scheduling",
-                        "Payment Processing",
-                        "Email Notifications"
-                    ],
-                    icon: "tabler:calendar",
-                    bgColor: "bg-yellow-200"
-                },
-                {
-                    title: "Data Platforms",
-                    description: "Collect, analyze, and visualize your data",
-                    items: [
-                        "Data Collection Forms",
-                        "Custom Reports",
-                        "Export Options",
-                        "Access Controls"
-                    ],
-                    icon: "tabler:database",
-                    bgColor: "bg-orange-200"
-                }
-            ].map((group) => (
+        <div class="mb-16">
+            <h3 class="text-2xl font-bold mb-8 bg-blue-200 border-4 border-black inline-block px-4 py-2 transform -rotate-1">
+                Quick MVP Ideas (1 week, one core feature)
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {[
+                    {
+                        title: "AI Resume Reviewer",
+                        description: "Instant resume feedback and scoring",
+                        items: [
+                            "Resume analysis with GPT-4",
+                            "Improvement suggestions",
+                            "Industry-specific scoring",
+                            "Basic PDF processing"
+                        ],
+                        icon: "tabler:file-check",
+                        bgColor: "bg-blue-200"
+                    },
+                    {
+                        title: "Property Deal Finder",
+                        description: "Real estate investment analyzer",
+                        items: [
+                            "ROI calculator",
+                            "Basic market data",
+                            "Simple deal scoring",
+                            "PDF report export"
+                        ],
+                        icon: "tabler:home-dollar",
+                        bgColor: "bg-blue-200"
+                    },
+                    {
+                        title: "Lead Magnet Builder",
+                        description: "Create & deliver lead magnets",
+                        items: [
+                            "PDF generation system",
+                            "Email capture form",
+                            "Automated delivery",
+                            "Basic analytics"
+                        ],
+                        icon: "tabler:magnet",
+                        bgColor: "bg-blue-200"
+                    }
+                ].map((group) => (
                     <div class="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                         <div class="flex flex-col items-center gap-4 mb-4">
                             <div class={`min-w-[48px] w-12 h-12 ${group.bgColor} border-4 border-black flex items-center justify-center shrink-0`}>
@@ -92,20 +60,192 @@ import {Icon} from "astro-icon/components";
                             </div>
                         </div>
                         <p class="text-sm my-4">{group.description}</p>
-                        <ul class="list-disc list-inside text-sm">
+                        <ul class="list-disc list-inside text-sm space-y-2">
                             {group.items.map((item) => (
                                     <li>{item}</li>
                             ))}
                         </ul>
                     </div>
-            ))}
+                ))}
+            </div>
+        </div>
+
+        <div class="mb-16">
+            <h3 class="text-2xl font-bold mb-8 bg-green-200 border-4 border-black inline-block px-4 py-2 transform -rotate-1">
+                Enhanced Apps (2 weeks, three core features)
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {[
+                    {
+                        title: "Sales Outreach",
+                        description: "AI-powered sales automation",
+                        items: [
+                            "LinkedIn profile analyzer",
+                            "Email sequence builder",
+                            "Response tracking",
+                            "Basic CRM integration"
+                        ],
+                        icon: "tabler:mail",
+                        bgColor: "bg-green-200"
+                    },
+                    {
+                        title: "Expert Network",
+                        description: "Connect experts with clients",
+                        items: [
+                            "Expert profiles",
+                            "Booking system",
+                            "Payment handling",
+                            "Video call integration"
+                        ],
+                        icon: "tabler:users",
+                        bgColor: "bg-green-200"
+                    },
+                    {
+                        title: "Podcast Assistant",
+                        description: "Podcast production helper",
+                        items: [
+                            "Transcript generation",
+                            "Show notes creator",
+                            "Clip generator",
+                            "Basic content scheduler"
+                        ],
+                        icon: "tabler:microphone",
+                        bgColor: "bg-green-200"
+                    }
+                ].map((group) => (
+                    <div class="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                        <div class="flex flex-col items-center gap-4 mb-4">
+                            <div class={`min-w-[48px] w-12 h-12 ${group.bgColor} border-4 border-black flex items-center justify-center shrink-0`}>
+                                <Icon name={group.icon} class="w-6 h-6"/>
+                            </div>
+                            <div class="text-center">
+                                <h3 class="text-xl font-bold mb-2">{group.title}</h3>
+                            </div>
+                        </div>
+                        <p class="text-sm my-4">{group.description}</p>
+                        <ul class="list-disc list-inside text-sm space-y-2">
+                            {group.items.map((item) => (
+                                    <li>{item}</li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <div class="mb-16">
+            <h3 class="text-2xl font-bold mb-8 bg-purple-200 border-4 border-black inline-block px-4 py-2 transform -rotate-1">
+                Full Solutions (4 weeks, five core features)
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {[
+                    {
+                        title: "Research Assistant",
+                        description: "AI research automation platform",
+                        items: [
+                            "Paper summarization",
+                            "Research organization",
+                            "Citation management",
+                            "Collaboration tools",
+                            "Export & sharing"
+                        ],
+                        icon: "tabler:books",
+                        bgColor: "bg-purple-200"
+                    },
+                    {
+                        title: "Agency OS",
+                        description: "Agency management platform",
+                        items: [
+                            "Project management",
+                            "Client portals",
+                            "Team collaboration",
+                            "Resource planning",
+                            "Billing & invoicing"
+                        ],
+                        icon: "tabler:building",
+                        bgColor: "bg-purple-200"
+                    },
+                    {
+                        title: "Course Creator",
+                        description: "Complete course platform",
+                        items: [
+                            "Course builder",
+                            "Student management",
+                            "Payment processing",
+                            "Progress tracking",
+                            "Certificate system"
+                        ],
+                        icon: "tabler:school",
+                        bgColor: "bg-purple-200"
+                    }
+                ].map((group) => (
+                    <div class="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                        <div class="flex flex-col items-center gap-4 mb-4">
+                            <div class={`min-w-[48px] w-12 h-12 ${group.bgColor} border-4 border-black flex items-center justify-center shrink-0`}>
+                                <Icon name={group.icon} class="w-6 h-6"/>
+                            </div>
+                            <div class="text-center">
+                                <h3 class="text-xl font-bold mb-2">{group.title}</h3>
+                            </div>
+                        </div>
+                        <p class="text-sm my-4">{group.description}</p>
+                        <ul class="list-disc list-inside text-sm space-y-2">
+                            {group.items.map((item) => (
+                                    <li>{item}</li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <div class="max-w-4xl mx-auto bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+            <h3 class="text-2xl font-bold mb-6 text-center bg-green-200 border-4 border-black inline-block px-4 py-2 transform -rotate-2">
+                Got a Different Idea?
+            </h3>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <div class="flex items-start gap-3">
+                        <Icon name="tabler:bulb" class="w-6 h-6 flex-shrink-0"/>
+                        <div>
+                            <span class="font-bold block">Start Small</span>
+                            <span class="text-sm text-gray-600">Launch MVP in a week</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <Icon name="tabler:rocket" class="w-6 h-6 flex-shrink-0"/>
+                        <div>
+                            <span class="font-bold block">Think Big</span>
+                            <span class="text-sm text-gray-600">Scale with more features</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex items-start gap-3">
+                        <Icon name="tabler:tool" class="w-6 h-6 flex-shrink-0"/>
+                        <div>
+                            <span class="font-bold block">Built Right</span>
+                            <span class="text-sm text-gray-600">Quality code from day one</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <Icon name="tabler:arrows-right" class="w-6 h-6 flex-shrink-0"/>
+                        <div>
+                            <span class="font-bold block">Launch Fast</span>
+                            <span class="text-sm text-gray-600">Get to market quickly</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="mt-12 text-center">
-            <p class="text-xl font-bold mb-6">Ready to start building your web app? Choose the package that fits your needs!</p>
-            <a href="/services"
-               class="inline-block text-center bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl transform hover:rotate-2">
-                See Packages
+            <p class="text-xl font-bold mb-6">Ready to build your app?</p>
+            <a href="/pricing"
+               class="inline-block text-center bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl transform hover:rotate-2">
+                Choose Package
             </a>
         </div>
     </div>

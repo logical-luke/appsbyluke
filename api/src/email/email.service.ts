@@ -2,6 +2,7 @@ import {Injectable, Logger} from '@nestjs/common';
 import {ConfigService} from '@nestjs/config';
 import {Resend} from 'resend';
 import {SendEmailDto} from './dto/send-email';
+import {AddToWaitlistDto} from "../waitlist/dto/add-to-waitlist.dto";
 
 @Injectable()
 export class EmailService {
@@ -38,6 +39,25 @@ export class EmailService {
                   <p><strong>Message:</strong></p>
                   <p>${message}</p>
                 `,
+            });
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    }
+
+    async sendWaitlistNotification(waitlistDto: AddToWaitlistDto) {
+        try {
+            return await this.resend.emails.send({
+                from: 'Luke <luke@appsbyluke.com>',
+                to: this.toEmail,
+                subject: `New Waitlist Entry - ${waitlistDto.packageName}`,
+                html: `
+          <h1>New Waitlist Entry</h1>
+          <p><strong>Package:</strong> ${waitlistDto.packageName}</p>
+          <p><strong>Name:</strong> ${waitlistDto.name}</p>
+          <p><strong>Email:</strong> ${waitlistDto.email}</p>
+        `,
             });
         } catch (error) {
             console.error(error);

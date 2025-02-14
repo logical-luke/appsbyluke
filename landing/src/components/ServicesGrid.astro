@@ -11,7 +11,7 @@ const developmentPackages = [
             {amount: 1249, phase: "Completion"}
         ],
         paymentButton: 'https://buy.appsbyluke.com/overlay/8949f95f-e9b4-4d34-b216-6e007fc07ff3',
-        timeline: "2-3 weeks",
+        timeline: "1 week",
         description: "Launch your MVP with one core feature to validate your idea",
         idealFor: [
             "Pre-seed startups",
@@ -45,7 +45,6 @@ const developmentPackages = [
                 detail: "Essential endpoints for core feature"
             }
         ],
-        promoted: false
     },
     {
         name: "Startup Plus",
@@ -56,7 +55,7 @@ const developmentPackages = [
             {amount: 2499, phase: "Completion"}
         ],
         paymentButton: 'https://buy.appsbyluke.com/overlay/b374e799-d709-4916-9cb0-99400692db1b',
-        timeline: "4-6 weeks",
+        timeline: "2 weeks",
         description: "Enhanced MVP with additional features and better user experience",
         idealFor: [
             "Funded startups",
@@ -90,7 +89,6 @@ const developmentPackages = [
                 detail: "Full REST API with documentation"
             }
         ],
-        promoted: true
     },
     {
         name: "Startup Pro",
@@ -101,8 +99,8 @@ const developmentPackages = [
             {amount: 4999, phase: "Completion"}
         ],
         paymentButton: 'https://buy.appsbyluke.com/overlay/f6ff4cb8-3537-4144-b7b5-fb22867c8c22',
-        timeline: "8-10 weeks",
-        description: "Full-featured application ready for scaling",
+        timeline: "4 weeks",
+        description: "Advanced application ready for scaling",
         idealFor: [
             "Funded startups",
             "High-growth products",
@@ -121,8 +119,8 @@ const developmentPackages = [
             },
             {
                 icon: "tabler:components",
-                text: "Full Feature Set",
-                detail: "Complete product functionality"
+                text: "Five Core Features",
+                detail: "Advanced product functionality"
             },
             {
                 icon: "tabler:report-analytics",
@@ -135,39 +133,140 @@ const developmentPackages = [
                 detail: "Webhooks and external APIs"
             }
         ],
-        promoted: false
     }
 ];
+
+const additionalServices = [
+    {
+        name: "CI/CD Integration",
+        price: 999,
+        paymentStructure: [
+            {amount: 499, phase: "To start"},
+            {amount: 500, phase: "Completion"}
+        ],
+        paymentButton: 'https://buy.appsbyluke.com/overlay/59b2db03-c22c-4c44-a5f8-2187558e5d13',
+        timeline: "2-3 days",
+        description: "Automated deployment pipeline setup using GitHub Actions",
+        features: [
+            {
+                icon: "tabler:brand-github",
+                text: "GitHub Actions Setup",
+                detail: "Custom workflow configuration"
+            },
+            {
+                icon: "tabler:test-pipe-2",
+                text: "Automated Testing",
+                detail: "Integration of test suites"
+            },
+            {
+                icon: "tabler:cloud-upload",
+                text: "Deployment Automation",
+                detail: "Automated releases to production"
+            },
+            {
+                icon: "tabler:shield-check",
+                text: "Security Checks",
+                detail: "Basic security scanning integration"
+            }
+        ],
+        includes: [
+            "GitHub Actions workflow setup",
+            "Automated testing integration",
+            "Deployment pipeline configuration",
+            "Basic security scanning",
+            "Documentation and training"
+        ]
+    },
+    {
+        name: "Infrastructure Setup",
+        price: 1499,
+        paymentStructure: [
+            {amount: 750, phase: "To start"},
+            {amount: 749, phase: "Completion"}
+        ],
+        paymentButton: 'https://buy.appsbyluke.com/overlay/94c7563e-b8cd-4b0b-9f80-ccfe88f1b727',
+        timeline: "3-4 days",
+        description: "Professional infrastructure setup for your preferred platform (AWS/GCP/Vercel/On-premise)",
+        features: [
+            {
+                icon: "tabler:server",
+                text: "Environment Setup",
+                detail: "Cloud or on-premise configuration"
+            },
+            {
+                icon: "tabler:shield-lock",
+                text: "Security Configuration",
+                detail: "Secure access and monitoring"
+            },
+            {
+                icon: "tabler:database",
+                text: "Database Setup",
+                detail: "Production database configuration"
+            },
+            {
+                icon: "tabler:network",
+                text: "Network Configuration",
+                detail: "Load balancing and scaling setup"
+            }
+        ],
+        includes: [
+            "Infrastructure environment setup",
+            "Production environment configuration",
+            "Database setup and optimization",
+            "SSL certificate installation",
+            "Network and firewall configuration",
+            "Basic monitoring setup",
+            "Documentation and handover"
+        ],
+        deploymentOptions: [
+            {
+                icon: "tabler:brand-aws",
+                name: "Amazon Web Services",
+                detail: "AWS cloud platform"
+            },
+            {
+                icon: "tabler:brand-google",
+                name: "Google Cloud Platform",
+                detail: "GCP infrastructure"
+            },
+            {
+                icon: "tabler:brand-vercel",
+                name: "Vercel",
+                detail: "Vercel platform"
+            },
+            {
+                icon: "tabler:server",
+                name: "On-premise",
+                detail: "Your own infrastructure"
+            }
+        ]
+    }
+];
+
+const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
 ---
 
 <div class="mb-16">
     <div class="max-w-screen-xl mx-auto px-4">
-        <div class="flex flex-col space-y-12 md:space-y-16">
+        <div class="flex flex-col space-y-12">
             {developmentPackages.map((devPackage, index) => (
-                    <div class="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
+                    <div class="flex flex-col lg:flex-row gap-6 lg:gap-12" data-package-name={devPackage.name}>
                         <div class="w-full lg:w-1/2">
-                            <div class={`
-                            bg-white border-4 border-black p-6 
-                            shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] 
-                            transform ${devPackage.promoted ? 'rotate-1' : '-rotate-1'} 
-                            relative
-                        `}>
-                                {devPackage.promoted && (
-                                        <div class="absolute -top-4 -right-4 bg-green-400 text-black font-bold py-1 px-3 border-4 border-black transform rotate-3">
-                                            Most Popular
-                                        </div>
-                                )}
-
+                            <div class="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 relative">
                                 <h3 class="text-2xl font-bold mb-2">{devPackage.name}</h3>
                                 <p class="text-gray-600 mb-4">{devPackage.description}</p>
 
-                                <div class="text-3xl font-bold text-blue-500 mb-2">
-                                    ${devPackage.price}
+                                <div class="flex items-baseline gap-2 mb-4">
+                                    <div class="text-3xl font-bold text-blue-500">
+                                        ${devPackage.price}
+                                    </div>
+                                    <div class="text-xs text-gray-600 font-medium">
+                                        + VAT where applicable
+                                    </div>
                                 </div>
 
-                                <div class="space-y-1 mb-6">
-                                    <p class="text-sm text-gray-600">Delivery: {devPackage.timeline}</p>
-
+                                <div class="text-sm text-gray-600 mb-6">
+                                    Delivery: {devPackage.timeline}
                                 </div>
 
                                 <div class="bg-yellow-100 border-2 border-black p-4 mb-6 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
@@ -184,9 +283,9 @@ const developmentPackages = [
                                     </ul>
                                 </div>
 
-                                <div class="bg-blue-50 border-2 border-black p-3 mt-2 mb-6">
+                                <div class="bg-blue-50 border-2 border-black p-3 mb-6">
                                     <h4 class="font-bold text-sm mb-2 bg-black text-white inline-block px-2 py-1 transform -rotate-1">
-                                        Payment Schedule
+                                        Payment Schedule (excl. VAT)
                                     </h4>
                                     <div class="space-y-1 mt-2">
                                         {devPackage.paymentStructure.map((payment) => (
@@ -198,25 +297,32 @@ const developmentPackages = [
                                     </div>
                                 </div>
 
+                                <div class="text-xs text-gray-500 text-center mb-4">
+                                    VAT will be calculated during checkout based on your location and business status
+                                </div>
+
+                                <div id={`availability-${index}`} class="mb-4">
+                                    <div class="text-center text-gray-600">
+                                        <div class="h-6 bg-gray-200 animate-pulse rounded"></div>
+                                    </div>
+                                </div>
+
                                 <div class="flex items-center justify-center">
                                     <div class="flex flex-col items-center w-full">
                                         <button
                                                 type="button"
                                                 data-fungies-button={devPackage.paymentButton}
-                                                class="block w-full text-center bg-green-600 hover:bg-green-700 font-bold py-3 px-6 border-black border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl text-white">
-                                            Get Started
+                                                data-package-name={devPackage.name}
+                                                class="block w-full text-center bg-gray-200 animate-pulse font-bold py-3 px-6 border-black border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
+                                            <span class="invisible">Get Started</span>
                                         </button>
-                                        <a href="https://calendar.app.google/uDz6rZrYgUxqAC2i9"
-                                           class="mt-2 inline-block w-full text-center underline underline-offset-4 decoration-dashed text-sm text-gray-600 hover:text-black transition-colors duration-300">
-                                            or book a quick call to learn more
-                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="w-full lg:w-1/2 space-y-6">
-                            <div class="space-y-4">
+                            <div class="bg-white border-2 border-black p-4">
                                 <h4 class="text-xl font-bold text-sm mb-2 bg-black text-white inline-block px-2 py-1 transform -rotate-1">
                                     Core Features
                                 </h4>
@@ -242,7 +348,9 @@ const developmentPackages = [
                                 <div class="space-y-3 mt-2">
                                     {Object.entries(devPackage.techStack).map(([category, technologies]) => (
                                             <div>
-                                                <span class="text-sm text-gray-600 font-semibold">{category.charAt(0).toUpperCase() + category.slice(1)}:</span>
+                                        <span class="text-sm text-gray-600 font-semibold">
+                                            {category.charAt(0).toUpperCase() + category.slice(1)}:
+                                        </span>
                                                 <div class="flex flex-wrap gap-2 mt-1">
                                                     {technologies.map((tech) => (
                                                             <span class="inline-block bg-white px-2 py-1 text-xs border border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
@@ -258,18 +366,225 @@ const developmentPackages = [
                     </div>
             ))}
         </div>
+
+        <div class="mt-12">
+            <h2 class="text-xl font-bold mb-12 transform -rotate-1 inline-block bg-yellow-300 px-6 py-3 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                Additional Services
+            </h2>
+            <div class="space-y-12">
+                {additionalServices.map((service) => (
+                        <div class="flex flex-col lg:flex-row gap-6 lg:gap-12" data-package-name={service.name}>
+                            <div class="w-full lg:w-1/2">
+                                <div class="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 relative">
+                                    <h3 class="text-2xl font-bold mb-2">{service.name}</h3>
+                                    <p class="text-gray-600 mb-4">{service.description}</p>
+
+                                    <div class="flex items-baseline gap-2 mb-4">
+                                        <div class="text-3xl font-bold text-blue-500">
+                                            ${service.price}
+                                        </div>
+                                        <div class="text-xs text-gray-600 font-medium">
+                                            + VAT where applicable
+                                        </div>
+                                    </div>
+
+                                    <div class="text-sm text-gray-600 mb-6">
+                                        Delivery: {service.timeline}
+                                    </div>
+
+                                    <div class="bg-blue-50 border-2 border-black p-3 mb-6">
+                                        <h4 class="font-bold text-sm mb-2 bg-black text-white inline-block px-2 py-1 transform -rotate-1">
+                                            Payment Schedule (excl. VAT)
+                                        </h4>
+                                        <div class="space-y-1 mt-2">
+                                            {service.paymentStructure.map((payment) => (
+                                                    <div class="flex justify-between items-center text-sm">
+                                                        <span class="text-gray-600">{payment.phase}:</span>
+                                                        <span class="font-bold">${payment.amount}</span>
+                                                    </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div id={`availability-${service.name.toLowerCase().replace(/\s+/g, '-')}`}
+                                         class="mb-4">
+                                        <div class="text-center text-gray-600">
+                                            <div class="h-6 bg-gray-200 animate-pulse rounded"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-xs text-gray-500 text-center mb-4">
+                                        VAT will be calculated during checkout based on your location and business
+                                        status
+                                    </div>
+
+                                    <div class="flex items-center justify-center">
+                                        <div class="flex flex-col items-center w-full">
+                                            <button
+                                                    type="button"
+                                                    data-fungies-button={service.paymentButton}
+                                                    data-package-name={service.name}
+                                                    class="block w-full text-center bg-gray-200 animate-pulse font-bold py-3 px-6 border-black border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
+                                                <span class="invisible">Get Started</span>
+                                            </button>
+                                            <a href="https://calendar.app.google/uDz6rZrYgUxqAC2i9"
+                                               class="mt-2 inline-block w-full text-center underline underline-offset-4 decoration-dashed text-sm text-gray-600 hover:text-black transition-colors duration-300">
+                                                or book a quick call to learn more
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="w-full lg:w-1/2 space-y-6">
+                                <div class="bg-white border-2 border-black p-4">
+                                    <h4 class="text-xl font-bold text-sm mb-2 bg-black text-white inline-block px-2 py-1 transform -rotate-1">
+                                        Features
+                                    </h4>
+                                    <div class="space-y-4 mt-2">
+                                        {service.features.map((feature) => (
+                                                <div class="flex items-start gap-4">
+                                                    <div class="w-10 h-10 flex-shrink-0 bg-gray-100 border-2 border-black flex items-center justify-center">
+                                                        <Icon name={feature.icon} class="w-5 h-5"/>
+                                                    </div>
+                                                    <div>
+                                                        <span class="font-bold block text-lg">{feature.text}</span>
+                                                        <span class="text-gray-600">{feature.detail}</span>
+                                                    </div>
+                                                </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <div class="bg-yellow-100 border-2 border-black p-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                    <h4 class="font-bold text-sm mb-2 bg-black text-white inline-block px-2 py-1 transform -rotate-1">
+                                        What's Included
+                                    </h4>
+                                    <ul class="space-y-2 mt-2">
+                                        {service.includes.map((item) => (
+                                                <li class="flex items-start gap-2">
+                                                    <Icon name="tabler:point" class="w-4 h-4 flex-shrink-0 mt-1"/>
+                                                    <span>{item}</span>
+                                                </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                {service.deploymentOptions && (
+                                        <div class="bg-blue-50 border-2 border-black p-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                            <h4 class="font-bold text-sm mb-2 bg-black text-white inline-block px-2 py-1 transform -rotate-1">
+                                                Deployment Options
+                                            </h4>
+                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                                                {service.deploymentOptions.map((option) => (
+                                                        <div class="flex items-start gap-2">
+                                                            <div class="w-8 h-8 flex-shrink-0 bg-white border-2 border-black flex items-center justify-center">
+                                                                <Icon name={option.icon} class="w-4 h-4"/>
+                                                            </div>
+                                                            <div>
+                                                                <span class="font-bold block text-sm">{option.name}</span>
+                                                                <span class="text-gray-600 text-xs">{option.detail}</span>
+                                                            </div>
+                                                        </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                )}
+                            </div>
+                        </div>
+                ))}
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="text-sm text-gray-600 -rotate-1 text-center my-16 px-4">
-    * All packages include source code, documentation, and deployment guide. Prices are in USD. Payment processed
-    securely with 250+ payment methods available including credit cards, PayPal, and more.
-</div>
-
-<script is:inline>
+<script is:inline define:vars={{baseApiUrl}}>
     function initializeFungies() {
         let iframe;
         let spinner;
+        let modal;
+
+        window.closeModal = function () {
+            document.querySelector('#modal-root')?.remove();
+        };
+
+        function showWaitlistModal(packageName) {
+            const modalHtml = `
+            <div id="modal-root" class="fixed inset-0 bg-black/50 flex items-center justify-center z-[2147483647]">
+                <div class="bg-white border-4 border-black p-6 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 max-w-md w-full mx-4">
+                    <h3 class="text-xl font-bold mb-4">No Slots Available</h3>
+                    <p class="text-gray-600 mb-6">Someone has just booked the last available slot. Would you like to join the waitlist instead?</p>
+                    
+                    <form id="waitlistForm" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-bold mb-2">Name</label>
+                            <input type="text" name="name" required class="w-full border-2 border-black p-2" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2">Email</label>
+                            <input type="email" name="email" required class="w-full border-2 border-black p-2" />
+                        </div>
+                        <input type="hidden" name="packageName" value="${packageName}" />
+                        <div class="flex flex-col gap-2">
+                            <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
+                                Join Waitlist
+                            </button>
+                            <button type="button" onclick="closeModal()" class="w-full text-gray-600 hover:text-black text-sm underline underline-offset-4 decoration-dashed">
+                                Close
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        `;
+
+            // Remove any existing modal
+            window.closeModal();
+
+            // Create new modal
+            const modalElement = document.createElement('div');
+            modalElement.innerHTML = modalHtml;
+            document.body.appendChild(modalElement.firstElementChild);
+
+            // Add form handler
+            document.querySelector('#waitlistForm').addEventListener('submit', handleWaitlistSubmission);
+        }
+
+        function showSuccessModal() {
+            window.closeModal();
+            const modalHtml = `
+            <div id="modal-root" class="fixed inset-0 bg-black/50 flex items-center justify-center z-[2147483647]">
+                <div class="bg-white border-4 border-black p-6 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 max-w-md w-full mx-4">
+                    <h3 class="text-xl font-bold mb-4">Successfully Joined Waitlist!</h3>
+                    <p class="text-gray-600 mb-4">We'll notify you as soon as a slot becomes available. Thank you for your interest!</p>
+                    <button type="button" onclick="closeModal()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
+                        Close
+                    </button>
+                </div>
+            </div>
+        `;
+            const modalElement = document.createElement('div');
+            modalElement.innerHTML = modalHtml;
+            document.body.appendChild(modalElement.firstElementChild);
+        }
+
+        function showErrorModal() {
+            window.closeModal();
+            const modalHtml = `
+            <div id="modal-root" class="fixed inset-0 bg-black/50 flex items-center justify-center z-[2147483647]">
+                <div class="bg-white border-4 border-black p-6 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 max-w-md w-full mx-4">
+                    <h3 class="text-xl font-bold mb-4">Oops! Something went wrong</h3>
+                    <p class="text-gray-600 mb-4">We couldn't add you to the waitlist. Please try again or contact support if the problem persists.</p>
+                    <button type="button" onclick="closeModal()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
+                        Close
+                    </button>
+                </div>
+            </div>
+        `;
+            const modalElement = document.createElement('div');
+            modalElement.innerHTML = modalHtml;
+            document.body.appendChild(modalElement.firstElementChild);
+        }
 
         function createSpinner() {
             const spinnerHtml = `
@@ -285,7 +600,6 @@ const developmentPackages = [
                     </div>
                 </div>
             `;
-
             spinner = document.createElement('div');
             spinner.innerHTML = spinnerHtml;
             document.body.appendChild(spinner);
@@ -298,41 +612,214 @@ const developmentPackages = [
             }
         }
 
-        function displayIframe(e) {
+        async function checkAvailabilityAndUpdateUI() {
+            const availabilityElements = document.querySelectorAll('[id^="availability-"]');
+
+            try {
+                const response = await fetch(`${baseApiUrl}/v1/order/available-slots`);
+                const data = await response.json();
+
+                for (const element of availabilityElements) {
+                    const packageContainer = element.closest('[data-package-name]');
+                    const packageName = packageContainer?.dataset.packageName;
+                    let availableSlots;
+
+                    switch (packageName) {
+                        case 'Startup Core':
+                            availableSlots = data.availableSlots.startupCore;
+                            break;
+                        case 'Startup Plus':
+                            availableSlots = data.availableSlots.startupPlus;
+                            break;
+                        case 'Startup Pro':
+                            availableSlots = data.availableSlots.startupPro;
+                            break;
+                        case 'CI/CD Integration':
+                            availableSlots = data.availableSlots.ciCdIntegration;
+                            break;
+                        case 'Infrastructure Setup':
+                            availableSlots = data.availableSlots.infrastructureSetup;
+                            break;
+                        default:
+                            console.warn('Unknown package name:', packageName);
+                            availableSlots = 0;
+                    }
+
+                    const button = packageContainer?.querySelector('[data-fungies-button]');
+
+                    let buttonText = 'Get Started';
+                    if (packageName === 'CI/CD Integration') {
+                        buttonText = 'Add CI/CD Integration';
+                    } else if (packageName === 'Infrastructure Setup') {
+                        buttonText = 'Add Infrastructure Setup';
+                    }
+
+                    if (typeof availableSlots === 'number' && availableSlots > 0) {
+                        element.innerHTML = `
+                    <div class="text-center text-green-600 font-bold">
+                        ${availableSlots} ${availableSlots === 1 ? 'slot' : 'slots'} available
+                    </div>
+                `;
+                        if (button) {
+                            button.classList.remove('bg-gray-200', 'animate-pulse');
+                            button.classList.add('bg-green-600', 'hover:bg-green-700', 'text-white');
+                            button.innerHTML = buttonText;
+                            button.dataset.hasSlots = 'true';
+                        }
+                    } else {
+                        element.innerHTML = `
+                    <div class="text-center text-yellow-600 font-bold">
+                        Currently at capacity
+                    </div>
+                `;
+                        if (button) {
+                            button.classList.remove('bg-gray-200', 'animate-pulse');
+                            button.classList.add('bg-green-600', 'hover:bg-green-700', 'text-white');
+                            button.innerHTML = 'Join Waitlist';
+                            button.dataset.hasSlots = 'false';
+                        }
+                    }
+                }
+
+                return true;
+            } catch (error) {
+                console.error('Failed to check availability:', error);
+                availabilityElements.forEach(element => {
+                    element.innerHTML = `
+                <div class="text-center text-red-600">
+                    Unable to check availability
+                </div>
+            `;
+                    const button = element.parentElement?.querySelector('[data-fungies-button]');
+                    if (button) {
+                        button.classList.remove('bg-gray-200', 'animate-pulse');
+                        button.classList.add('bg-green-600', 'hover:bg-green-700', 'text-white');
+                        const packageName = button.dataset.packageName;
+                        let buttonText = 'Get Started';
+                        if (packageName === 'CI/CD Integration') {
+                            buttonText = 'Add CI/CD Integration';
+                        } else if (packageName === 'Infrastructure Setup') {
+                            buttonText = 'Add Infrastructure Setup';
+                        }
+                        button.innerHTML = buttonText;
+                    }
+                });
+                return false;
+            }
+        }
+
+        async function handleWaitlistSubmission(e) {
             e.preventDefault();
-            if(iframe) return;
+            const form = e.target;
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.innerHTML;
+
+            try {
+                submitButton.innerHTML = `
+                    <div class="flex items-center justify-center gap-2">
+                        <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Submitting...
+                    </div>
+                `;
+                submitButton.disabled = true;
+
+                const formData = new FormData(form);
+                const response = await fetch(`${baseApiUrl}/v1/waitlist/add`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(Object.fromEntries(formData)),
+                });
+
+                if (response.ok) {
+                    showSuccessModal();
+                } else {
+                    throw new Error('Failed to join waitlist');
+                }
+            } catch (error) {
+                showErrorModal();
+            } finally {
+                submitButton.innerHTML = originalButtonText;
+                submitButton.disabled = false;
+            }
+        }
+
+        async function displayIframe(e) {
+            e.preventDefault();
+            if (iframe) return;
 
             createSpinner();
 
             const button = e.currentTarget;
-            iframe = document.createElement("iframe");
+            const packageName = button.dataset.packageName;
 
-            iframe.style = `
-                z-index: 2147483647;
-                display: block;
-                background-color: transparent;
-                border: 0;
-                overflow-x: hidden;
-                overflow-y: auto;
-                visibility: visible;
-                margin: 0;
-                padding: 0;
-                -webkit-tap-highlight-color: transparent;
-                position: fixed;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-            `;
+            try {
+                const response = await fetch(`${baseApiUrl}/v1/order/available-slots`);
+                const data = await response.json();
 
-            iframe.addEventListener('load', () => {
+                let availableSlots;
+                switch (packageName) {
+                    case 'Startup Core':
+                        availableSlots = data.availableSlots.startupCore;
+                        break;
+                    case 'Startup Plus':
+                        availableSlots = data.availableSlots.startupPlus;
+                        break;
+                    case 'Startup Pro':
+                        availableSlots = data.availableSlots.startupPro;
+                        break;
+                    case 'CI/CD Integration':
+                        availableSlots = data.availableSlots.ciCdIntegration;
+                        break;
+                    case 'Infrastructure Setup':
+                        availableSlots = data.availableSlots.infrastructureSetup;
+                        break;
+                    default:
+                        availableSlots = 0;
+                }
+
+                if (availableSlots <= 0) {
+                    removeSpinner();
+                    showWaitlistModal(packageName);
+                    return;
+                }
+
+                iframe = document.createElement("iframe");
+                iframe.style = `
+            z-index: 2147483647;
+            display: block;
+            background-color: transparent;
+            border: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            visibility: visible;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        `;
+
+                iframe.addEventListener('load', () => {
+                    removeSpinner();
+                });
+
+                const src = button.dataset.fungiesButton;
+                iframe.src = src;
+                iframe.allow = "payment";
+                document.body.appendChild(iframe);
+            } catch (error) {
+                console.error('Failed to check availability:', error);
                 removeSpinner();
-            });
-
-            const src = button.dataset.fungiesButton;
-            iframe.src = src;
-            iframe.allow = "payment";
-            document.body.appendChild(iframe);
+                showErrorModal();
+            }
         }
 
         function messageHandler(event) {
@@ -350,10 +837,10 @@ const developmentPackages = [
             button.removeEventListener("click", displayIframe);
             button.addEventListener("click", displayIframe);
         });
+
+        checkAvailabilityAndUpdateUI();
     }
 
     initializeFungies();
-
     document.addEventListener('astro:page-load', initializeFungies);
 </script>
-
