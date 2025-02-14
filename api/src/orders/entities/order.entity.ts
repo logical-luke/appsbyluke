@@ -11,7 +11,7 @@ export enum ProductName {
   STARTUP_PLUS = 'startupPlus',
   STARTUP_PRO = 'startupPro',
   CICD_INTEGRATION = 'ciCdIntegration',
-  INFRASTRUCTURE_SETUP = 'infrastructureSetup',
+  INFRASTRUCTURE_SETUP = 'infrastructureSetup'
 }
 
 @Entity('orders')
@@ -20,10 +20,10 @@ export class Order {
   id: string;
 
   @Column({
-    type: 'enum',
-    enum: ProductName
+    type: 'varchar',
+    length: 255
   })
-  productName: ProductName;
+  productName: string;
 
   @Column()
   customerEmail: string;

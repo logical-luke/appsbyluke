@@ -31,7 +31,7 @@ export class EmailService {
         }
     }
 
-    async sendOrderConfirmation(customerEmail: string, productName: ProductName) {
+    async sendOrderConfirmation(customerEmail: string, productName: string) {
         const pdfMapping = {
             [ProductName.STARTUP_CORE]: 'startup-core.pdf',
             [ProductName.STARTUP_PLUS]: 'startup-plus.pdf',
@@ -101,7 +101,7 @@ export class EmailService {
             return await this.resend.emails.send({
                 from: this.fromEmail,
                 to: customerEmail,
-                subject: `Welcome to ${productDisplayNames[productName]} - Next Steps`,
+                subject: `Instruction Details for ${productDisplayNames[productName]}`,
                 html: html,
                 attachments: [
                     {
@@ -120,7 +120,7 @@ export class EmailService {
         const {senderEmail, senderName, message} = emailDto;
         try {
             return await this.resend.emails.send({
-                from: 'Luke <luke@appsbyluke.com>',
+                from: this.fromEmail,
                 to: this.toEmail,
                 subject: `New message from ${senderName}`,
                 html: `

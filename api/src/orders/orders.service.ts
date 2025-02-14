@@ -39,7 +39,7 @@ export class OrdersService {
             const order = new Order();
             order.id = uuidv4();
             order.customerEmail = webhookPayloadDto.data.customer.email;
-            order.productName = this.mapProductName(productName);
+            order.productName = this.mapProductName(productName); // This will now return a string
             order.status = OrderStatus.NEW;
             order.orderDate = new Date(webhookPayloadDto.data.order.createdAt);
 
@@ -64,15 +64,15 @@ export class OrdersService {
         }
     }
 
-    private mapProductName(name: string): ProductName {
+    private mapProductName(name: string): string {
         const cleanName = name.replace(/\s*\([^)]*\)/, '').trim();
 
         const mapping = {
-            'Startup Core': ProductName.STARTUP_CORE,
-            'Startup Plus': ProductName.STARTUP_PLUS,
-            'Startup Pro': ProductName.STARTUP_PRO,
-            'CI/CD Integration': ProductName.CICD_INTEGRATION,
-            'Infrastructure Setup': ProductName.INFRASTRUCTURE_SETUP,
+            'Startup Core': 'startupCore',
+            'Startup Plus': 'startupPlus',
+            'Startup Pro': 'startupPro',
+            'CI/CD Integration': 'ciCdIntegration',
+            'Infrastructure Setup': 'infrastructureSetup'
         };
 
         const mappedName = mapping[cleanName];
