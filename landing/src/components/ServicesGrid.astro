@@ -504,7 +504,8 @@ const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
         let spinner;
 
         window.closeModal = function () {
-            document.querySelector('#modal-root')?.remove();
+            const modals = document.querySelectorAll('#modal-root');
+            modals.forEach(modal => modal.remove());
         };
 
         async function checkAvailabilityAndUpdateUI() {
@@ -604,6 +605,7 @@ const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
         }
 
         function showPaymentFollowupModal() {
+            window.closeModal();
             const modalHtml = `
             <div id="modal-root" class="fixed inset-0 bg-black/50 flex items-center justify-center z-[2147483647]">
                 <div class="bg-white border-4 border-black p-6 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 max-w-md w-full mx-4">
@@ -663,6 +665,7 @@ const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
         }
 
         function showWaitlistModal(packageName) {
+            window.closeModal();
             const modalHtml = `
             <div id="modal-root" class="fixed inset-0 bg-black/50 flex items-center justify-center z-[2147483647]">
                 <div class="bg-white border-4 border-black p-6 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 max-w-md w-full mx-4">
@@ -691,7 +694,6 @@ const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
                 </div>
             </div>
         `;
-            window.closeModal();
             const modalElement = document.createElement('div');
             modalElement.innerHTML = modalHtml;
             document.body.appendChild(modalElement.firstElementChild);
@@ -871,4 +873,5 @@ const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
     initializeFungies();
     document.addEventListener('astro:page-load', initializeFungies);
 </script>
+
 
