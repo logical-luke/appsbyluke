@@ -508,74 +508,33 @@ const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
             document.querySelector('#modal-root')?.remove();
         };
 
-        function showWaitlistModal(packageName) {
+        function showPaymentFollowupModal() {
             const modalHtml = `
             <div id="modal-root" class="fixed inset-0 bg-black/50 flex items-center justify-center z-[2147483647]">
                 <div class="bg-white border-4 border-black p-6 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 max-w-md w-full mx-4">
-                    <h3 class="text-xl font-bold mb-4">No Slots Available</h3>
-                    <p class="text-gray-600 mb-6">Someone has just booked the last available slot. Would you like to join the waitlist instead?</p>
+                    <h3 class="text-xl font-bold mb-4">Payment Processing</h3>
+                    <p class="text-gray-600 mb-4">If you completed your payment, here's what happens next:</p>
                     
-                    <form id="waitlistForm" class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-bold mb-2">Name</label>
-                            <input type="text" name="name" required class="w-full border-2 border-black p-2" />
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold mb-2">Email</label>
-                            <input type="email" name="email" required class="w-full border-2 border-black p-2" />
-                        </div>
-                        <input type="hidden" name="packageName" value="${packageName}" />
-                        <div class="flex flex-col gap-2">
-                            <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
-                                Join Waitlist
-                            </button>
-                            <button type="button" onclick="closeModal()" class="w-full text-gray-600 hover:text-black text-sm underline underline-offset-4 decoration-dashed">
-                                Close
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        `;
+                    <div class="bg-yellow-100 border-2 border-black p-3 mb-4">
+                        <h4 class="font-bold mb-2">Next Steps:</h4>
+                        <ul class="list-disc list-inside text-sm space-y-2">
+                            <li>Check your email for payment confirmation</li>
+                            <li>You'll receive project setup instructions shortly</li>
+                            <li>Please check spam/promotions folders if not found</li>
+                        </ul>
+                    </div>
 
-            // Remove any existing modal
-            window.closeModal();
+                    <div class="mb-4">
+                        <a href="mailto:luke@appsbyluke.com" class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
+                            Contact Me
+                        </a>
+                    </div>
 
-            // Create new modal
-            const modalElement = document.createElement('div');
-            modalElement.innerHTML = modalHtml;
-            document.body.appendChild(modalElement.firstElementChild);
+                    <div class="text-center text-xs text-gray-600">
+                        Email: luke@appsbyluke.com
+                    </div>
 
-            // Add form handler
-            document.querySelector('#waitlistForm').addEventListener('submit', handleWaitlistSubmission);
-        }
-
-        function showSuccessModal() {
-            window.closeModal();
-            const modalHtml = `
-            <div id="modal-root" class="fixed inset-0 bg-black/50 flex items-center justify-center z-[2147483647]">
-                <div class="bg-white border-4 border-black p-6 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 max-w-md w-full mx-4">
-                    <h3 class="text-xl font-bold mb-4">Successfully Joined Waitlist!</h3>
-                    <p class="text-gray-600 mb-4">I'll notify you as soon as a slot becomes available. Thank you for your interest!</p>
-                    <button type="button" onclick="closeModal()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
-                        Close
-                    </button>
-                </div>
-            </div>
-        `;
-            const modalElement = document.createElement('div');
-            modalElement.innerHTML = modalHtml;
-            document.body.appendChild(modalElement.firstElementChild);
-        }
-
-        function showErrorModal() {
-            window.closeModal();
-            const modalHtml = `
-            <div id="modal-root" class="fixed inset-0 bg-black/50 flex items-center justify-center z-[2147483647]">
-                <div class="bg-white border-4 border-black p-6 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 max-w-md w-full mx-4">
-                    <h3 class="text-xl font-bold mb-4">Oops! Something went wrong</h3>
-                    <p class="text-gray-600 mb-4">We couldn't add you to the waitlist. Please try again or contact support if the problem persists.</p>
-                    <button type="button" onclick="closeModal()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
+                    <button type="button" onclick="closeModal()" class="mt-4 w-full text-sm underline underline-offset-4 decoration-dashed text-gray-600 hover:text-black">
                         Close
                     </button>
                 </div>
@@ -612,100 +571,76 @@ const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
             }
         }
 
-        async function checkAvailabilityAndUpdateUI() {
-            const availabilityElements = document.querySelectorAll('[id^="availability-"]');
-
-            try {
-                const response = await fetch(`${baseApiUrl}/v1/order/available-slots`);
-                const data = await response.json();
-
-                for (const element of availabilityElements) {
-                    const packageContainer = element.closest('[data-package-name]');
-                    const packageName = packageContainer?.dataset.packageName;
-                    let availableSlots;
-
-                    switch (packageName) {
-                        case 'Startup Core':
-                            availableSlots = data.availableSlots.startupCore;
-                            break;
-                        case 'Startup Plus':
-                            availableSlots = data.availableSlots.startupPlus;
-                            break;
-                        case 'Startup Pro':
-                            availableSlots = data.availableSlots.startupPro;
-                            break;
-                        case 'CI/CD Integration':
-                            availableSlots = data.availableSlots.ciCdIntegration;
-                            break;
-                        case 'Infrastructure Setup':
-                            availableSlots = data.availableSlots.infrastructureSetup;
-                            break;
-                        default:
-                            console.warn('Unknown package name:', packageName);
-                            availableSlots = 0;
-                    }
-
-                    const button = packageContainer?.querySelector('[data-fungies-button]');
-
-                    let buttonText = 'Get Started';
-                    if (packageName === 'CI/CD Integration') {
-                        buttonText = 'Add CI/CD Integration';
-                    } else if (packageName === 'Infrastructure Setup') {
-                        buttonText = 'Add Infrastructure Setup';
-                    }
-
-                    if (typeof availableSlots === 'number' && availableSlots > 0) {
-                        element.innerHTML = `
-                    <div class="text-center text-green-600 font-bold">
-                        ${availableSlots} ${availableSlots === 1 ? 'slot' : 'slots'} available
-                    </div>
-                `;
-                        if (button) {
-                            button.classList.remove('bg-gray-200', 'animate-pulse');
-                            button.classList.add('bg-green-600', 'hover:bg-green-700', 'text-white');
-                            button.innerHTML = buttonText;
-                            button.dataset.hasSlots = 'true';
-                        }
-                    } else {
-                        element.innerHTML = `
-                    <div class="text-center text-yellow-600 font-bold">
-                        Currently at capacity
-                    </div>
-                `;
-                        if (button) {
-                            button.classList.remove('bg-gray-200', 'animate-pulse');
-                            button.classList.add('bg-green-600', 'hover:bg-green-700', 'text-white');
-                            button.innerHTML = 'Join Waitlist';
-                            button.dataset.hasSlots = 'false';
-                        }
-                    }
-                }
-
-                return true;
-            } catch (error) {
-                console.error('Failed to check availability:', error);
-                availabilityElements.forEach(element => {
-                    element.innerHTML = `
-                <div class="text-center text-red-600">
-                    Unable to check availability
+        function showWaitlistModal(packageName) {
+            const modalHtml = `
+            <div id="modal-root" class="fixed inset-0 bg-black/50 flex items-center justify-center z-[2147483647]">
+                <div class="bg-white border-4 border-black p-6 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 max-w-md w-full mx-4">
+                    <h3 class="text-xl font-bold mb-4">No Slots Available</h3>
+                    <p class="text-gray-600 mb-6">Someone has just booked the last available slot. Would you like to join the waitlist instead?</p>
+                    
+                    <form id="waitlistForm" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-bold mb-2">Name</label>
+                            <input type="text" name="name" required class="w-full border-2 border-black p-2" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2">Email</label>
+                            <input type="email" name="email" required class="w-full border-2 border-black p-2" />
+                        </div>
+                        <input type="hidden" name="packageName" value="${packageName}" />
+                        <div class="flex flex-col gap-2">
+                            <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
+                                Join Waitlist
+                            </button>
+                            <button type="button" onclick="closeModal()" class="w-full text-gray-600 hover:text-black text-sm underline underline-offset-4 decoration-dashed">
+                                Close
+                            </button>
+                        </div>
+                    </form>
                 </div>
-            `;
-                    const button = element.parentElement?.querySelector('[data-fungies-button]');
-                    if (button) {
-                        button.classList.remove('bg-gray-200', 'animate-pulse');
-                        button.classList.add('bg-green-600', 'hover:bg-green-700', 'text-white');
-                        const packageName = button.dataset.packageName;
-                        let buttonText = 'Get Started';
-                        if (packageName === 'CI/CD Integration') {
-                            buttonText = 'Add CI/CD Integration';
-                        } else if (packageName === 'Infrastructure Setup') {
-                            buttonText = 'Add Infrastructure Setup';
-                        }
-                        button.innerHTML = buttonText;
-                    }
-                });
-                return false;
-            }
+            </div>
+        `;
+            window.closeModal();
+            const modalElement = document.createElement('div');
+            modalElement.innerHTML = modalHtml;
+            document.body.appendChild(modalElement.firstElementChild);
+            document.querySelector('#waitlistForm').addEventListener('submit', handleWaitlistSubmission);
+        }
+
+        function showSuccessModal() {
+            window.closeModal();
+            const modalHtml = `
+            <div id="modal-root" class="fixed inset-0 bg-black/50 flex items-center justify-center z-[2147483647]">
+                <div class="bg-white border-4 border-black p-6 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 max-w-md w-full mx-4">
+                    <h3 class="text-xl font-bold mb-4">Successfully Joined Waitlist!</h3>
+                    <p class="text-gray-600 mb-4">I'll notify you as soon as a slot becomes available. Thank you for your interest!</p>
+                    <button type="button" onclick="closeModal()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
+                        Close
+                    </button>
+                </div>
+            </div>
+        `;
+            const modalElement = document.createElement('div');
+            modalElement.innerHTML = modalHtml;
+            document.body.appendChild(modalElement.firstElementChild);
+        }
+
+        function showErrorModal() {
+            window.closeModal();
+            const modalHtml = `
+            <div id="modal-root" class="fixed inset-0 bg-black/50 flex items-center justify-center z-[2147483647]">
+                <div class="bg-white border-4 border-black p-6 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 max-w-md w-full mx-4">
+                    <h3 class="text-xl font-bold mb-4">Oops! Something went wrong</h3>
+                    <p class="text-gray-600 mb-4">We couldn't add you to the waitlist. Please try again or contact me if the problem persists.</p>
+                    <button type="button" onclick="closeModal()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
+                        Close
+                    </button>
+                </div>
+            </div>
+        `;
+            const modalElement = document.createElement('div');
+            modalElement.innerHTML = modalHtml;
+            document.body.appendChild(modalElement.firstElementChild);
         }
 
         async function handleWaitlistSubmission(e) {
@@ -745,6 +680,15 @@ const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
             } finally {
                 submitButton.innerHTML = originalButtonText;
                 submitButton.disabled = false;
+            }
+        }
+
+        function messageHandler(event) {
+            if (event.data === "closeWindow") {
+                iframe?.remove();
+                iframe = null;
+                removeSpinner();
+                showPaymentFollowupModal();
             }
         }
 
@@ -790,22 +734,22 @@ const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
 
                 iframe = document.createElement("iframe");
                 iframe.style = `
-            z-index: 2147483647;
-            display: block;
-            background-color: transparent;
-            border: 0;
-            overflow-x: hidden;
-            overflow-y: auto;
-            visibility: visible;
-            margin: 0;
-            padding: 0;
-            -webkit-tap-highlight-color: transparent;
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-        `;
+                    z-index: 2147483647;
+                    display: block;
+                    background-color: transparent;
+                    border: 0;
+                    overflow-x: hidden;
+                    overflow-y: auto;
+                    visibility: visible;
+                    margin: 0;
+                    padding: 0;
+                    -webkit-tap-highlight-color: transparent;
+                    position: fixed;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                `;
 
                 iframe.addEventListener('load', () => {
                     removeSpinner();
@@ -819,14 +763,6 @@ const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
                 console.error('Failed to check availability:', error);
                 removeSpinner();
                 showErrorModal();
-            }
-        }
-
-        function messageHandler(event) {
-            if (event.data === "closeWindow") {
-                iframe?.remove();
-                iframe = null;
-                removeSpinner();
             }
         }
 
@@ -844,3 +780,4 @@ const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
     initializeFungies();
     document.addEventListener('astro:page-load', initializeFungies);
 </script>
+
