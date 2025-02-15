@@ -28,15 +28,16 @@ import SubpageLayout from "../layouts/SubpageLayout.astro";
             <h3 class="text-xl font-bold mb-2">2.2. Services</h3>
             <p>The Company provides web application development services through three package tiers:</p>
             <ul class="list-disc list-inside ml-4 space-y-4">
-                <li>Startup Core: MVP development package</li>
-                <li>Startup Plus: Enhanced functionality package</li>
-                <li>Startup Pro: Advanced application package</li>
+                <li>Startup Core: MVP development with one core feature and landing page</li>
+                <li>Startup Plus: Enhanced package with three core features and extended website</li>
+                <li>Startup Pro: Advanced package with five core features and full website</li>
             </ul>
 
             <h3 class="text-xl font-bold mb-2">2.3. Technical Stack</h3>
             <p>The Company utilizes the following technologies for service delivery:</p>
             <ul class="list-disc list-inside ml-4 space-y-4">
-                <li>Frontend: Vue.js/Nuxt, Tailwind CSS</li>
+                <li>Application Frontend: Vue.js/Nuxt, Tailwind CSS</li>
+                <li>Landing Pages: Astro, Tailwind CSS</li>
                 <li>Backend: NestJS, TypeScript</li>
                 <li>Database: Relational Database, Cache Layer, Search Engine (based on package tier)</li>
             </ul>
@@ -55,27 +56,33 @@ import SubpageLayout from "../layouts/SubpageLayout.astro";
                 <ul class="list-disc list-inside ml-4 space-y-4">
                     <li>1 week delivery timeframe</li>
                     <li>One core feature implementation</li>
+                    <li>Single page landing</li>
                     <li>Authentication system</li>
+                    <li>Payment integration</li>
                     <li>Basic admin panel</li>
-                    <li>Essential API endpoints</li>
+                    <li>Analytics setup</li>
+                    <li>Infrastructure setup</li>
                 </ul>
 
                 <h4 class="text-lg font-bold mb-2">b) Startup Plus</h4>
                 <ul class="list-disc list-inside ml-4 space-y-4">
                     <li>2 weeks delivery timeframe</li>
-                    <li>Three core features implementation</li>
-                    <li>Team management functionality</li>
-                    <li>Payment integration</li>
-                    <li>Extended API with documentation</li>
+                    <li>Three core features</li>
+                    <li>Landing page + 2 subpages</li>
+                    <li>Team management</li>
+                    <li>Advanced analytics</li>
+                    <li>Everything in Startup Core</li>
                 </ul>
 
                 <h4 class="text-lg font-bold mb-2">c) Startup Pro</h4>
                 <ul class="list-disc list-inside ml-4 space-y-4">
                     <li>4 weeks delivery timeframe</li>
-                    <li>Five core features implementation</li>
-                    <li>Advanced user system (SSO, roles, permissions)</li>
-                    <li>Analytics and reporting</li>
-                    <li>Integration system with webhooks</li>
+                    <li>Five core features</li>
+                    <li>Landing page + 4 subpages</li>
+                    <li>Advanced analytics suite</li>
+                    <li>API access</li>
+                    <li>Webhook integration</li>
+                    <li>Everything in Startup Plus</li>
                 </ul>
             </div>
 
@@ -147,8 +154,7 @@ import SubpageLayout from "../layouts/SubpageLayout.astro";
                     <li>Startup Core: $4,999</li>
                     <li>Startup Plus: $9,999</li>
                     <li>Startup Pro: $19,999</li>
-                    <li>CI/CD Integration (Optional): $999</li>
-                    <li>Infrastructure Setup (Optional): $1499</li>
+                    <li>All prices exclude hosting and domain costs</li>
                 </ul>
 
                 <h4 class="text-lg font-bold mb-2">b) Payment Structure</h4>
@@ -264,9 +270,9 @@ import SubpageLayout from "../layouts/SubpageLayout.astro";
             <div class="ml-4 space-y-4">
                 <h4 class="text-lg font-bold mb-2">a) Package Timelines</h4>
                 <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>Startup Core: 2-3 weeks</li>
-                    <li>Startup Plus: 4-6 weeks</li>
-                    <li>Startup Pro: 8-10 weeks</li>
+                    <li>Startup Core: 1 week</li>
+                    <li>Startup Plus: 2 weeks</li>
+                    <li>Startup Pro: 4 weeks</li>
                 </ul>
 
                 <h4 class="text-lg font-bold mb-2">b) Timeline Conditions</h4>
@@ -422,7 +428,7 @@ import SubpageLayout from "../layouts/SubpageLayout.astro";
     <div class="mt-8 pt-8 border-t-2 border-black">
         <div class="flex flex-col md:flex-row justify-between items-center">
             <p class="text-sm mb-2 md:mb-0">
-                Last Updated: February 14, 2025
+                Last Updated: February 15, 2025
                 <a href="https://github.com/logical-luke/appsbyluke/commits/main/landing/src/pages/terms-of-service.astro"
                    class="text-blue-600 hover:text-blue-800 underline ml-2"
                    target="_blank"

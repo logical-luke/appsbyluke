@@ -36,16 +36,12 @@ export class EmailService {
             [ProductName.STARTUP_CORE]: 'startup-core.pdf',
             [ProductName.STARTUP_PLUS]: 'startup-plus.pdf',
             [ProductName.STARTUP_PRO]: 'startup-pro.pdf',
-            [ProductName.CICD_INTEGRATION]: 'ci-cd-integration.pdf',
-            [ProductName.INFRASTRUCTURE_SETUP]: 'infrastructure_setup.pdf',
         };
 
         const productDisplayNames = {
             [ProductName.STARTUP_CORE]: 'Startup Core',
             [ProductName.STARTUP_PLUS]: 'Startup Plus',
             [ProductName.STARTUP_PRO]: 'Startup Pro',
-            [ProductName.CICD_INTEGRATION]: 'CI/CD Integration',
-            [ProductName.INFRASTRUCTURE_SETUP]: 'Infrastructure Setup',
         };
 
         const pdfPath = path.join(process.cwd(), 'assets', 'pdfs', pdfMapping[productName]);

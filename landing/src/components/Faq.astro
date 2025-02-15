@@ -3,15 +3,15 @@ const faqCategories = {
     "Packages & Pricing": [
         {
             question: "What's included in each app package?",
-            answer: "Each package is designed for different startup stages: Startup Core ($4,999) delivers an MVP in 1 week with one core feature, Startup Plus ($9,999) provides three core features in 2 weeks, and Startup Pro ($19,999) offers an advanced solution in 4 weeks. All packages include authentication, admin panel, and essential APIs. Prices are subject to VAT where applicable."
+            answer: "Each package is designed for different startup stages: Startup Core ($4,999) delivers an MVP in 1 week with one core feature and landing page, Startup Plus ($9,999) provides three core features and extended website in 2 weeks, and Startup Pro ($19,999) offers five core features and full website in 4 weeks. All packages include authentication, payment integration, analytics, and infrastructure setup."
         },
         {
             question: "What are the detailed features of each package?",
-            answer: "Startup Core includes authentication, basic admin panel, and essential APIs. Startup Plus adds team management, payment integration, and extended API documentation. Startup Pro includes advanced user system (SSO, roles, permissions), analytics, reporting, and integration system with webhooks."
+            answer: "Startup Core includes one core feature, single page landing, authentication, payment integration, basic admin panel, and analytics setup. Startup Plus includes everything in Core plus two more core features, additional website pages, team management, and advanced analytics. Startup Pro includes everything in Plus plus two more core features, additional website pages, API access, webhook integrations, and custom reporting."
         },
         {
-            question: "What additional services are available?",
-            answer: "Two additional services are available: 1) CI/CD Integration ($999) for automated deployment pipelines, and 2) Infrastructure Setup ($1,499) for professional cloud/on-premise infrastructure configuration. Both services can be added to any package and include comprehensive setup and documentation."
+            question: "Do packages include hosting and domain costs?",
+            answer: "No, hosting and domain costs are not included in the package prices. However, I'll guide you through selecting the right providers and handle all technical setup including SSL certificates and security configurations. This ensures you have the most cost-effective and suitable hosting solution for your needs."
         },
         {
             question: "What about VAT and other taxes?",
@@ -20,16 +20,25 @@ const faqCategories = {
         {
             question: "How does the availability system work?",
             answer: "I maintain a limited number of slots per package to ensure quality and timely delivery. Available slots are shown in real-time on the website. If no slots are available, you can join the waitlist and be notified when a slot opens up."
+        },
+        {
+            question: "Can I upgrade my package later?",
+            answer: "Yes! If you start with a smaller package and want to expand later, you can upgrade to a larger package. You won't need to pay the full price of the new package - we'll take into account your previous investment. Upgrades are handled directly through personal contact rather than through the website's ordering system, so please reach out to discuss your specific needs."
         }
+
     ],
     "Development Process": [
         {
             question: "How does the development process work?",
-            answer: "The process has three main phases: 1) Planning - requirements gathering and initial payment, 2) Development - core implementation with regular updates, and 3) Delivery - testing and handover. Each phase includes clear milestones and deliverables, with regular communication throughout."
+            answer: "The process has three main phases: 1) Planning - requirements gathering and initial payment, 2) Development - core implementation with regular updates, and 3) Launch - infrastructure setup, testing, and handover. Each phase includes clear milestones and deliverables, with regular communication throughout."
         },
         {
             question: "What technologies do you use and why?",
-            answer: "The tech stack includes Vue.js/Nuxt with Tailwind CSS for the frontend, NestJS with TypeScript for the backend, and scalable database solutions. This modern stack ensures high performance, maintainability, and scalability. The database setup varies by package: Core uses a relational database, Plus adds a cache layer, and Pro includes a search engine."
+            answer: "For applications, I use Vue.js/Nuxt with Tailwind CSS for the frontend, ensuring a modern and responsive user experience. Landing pages are built with Astro and Tailwind CSS for optimal performance and SEO. The backend uses NestJS with TypeScript for type-safe, scalable server-side code. Database setup varies by package needs, from basic relational databases to advanced setups with caching and search capabilities. This modern stack ensures high performance, maintainability, and scalability."
+        },
+        {
+            question: "Can AI features be integrated into my app?",
+            answer: "Yes, any package can be enhanced with AI capabilities using services like ChatGPT, Claude, or other AI models. Whether it's content generation, data analysis, or smart automation, we can discuss how AI can best serve your specific needs during the planning phase."
         },
         {
             question: "Can I track the development progress?",
@@ -37,29 +46,21 @@ const faqCategories = {
         },
         {
             question: "What documentation is provided?",
-            answer: "You receive comprehensive documentation including: 1) Technical documentation, 2) API documentation, 3) Setup and deployment guides, 4) Code walkthrough session recordings, and 5) Knowledge transfer materials. All documentation is provided digitally and remains accessible after project completion."
+            answer: "You receive comprehensive documentation including: 1) Technical documentation, 2) API documentation (where applicable), 3) Setup and deployment guides, 4) Infrastructure configuration details, and 5) Knowledge transfer materials. All documentation is provided digitally and remains accessible after project completion."
         }
     ],
-    "Infrastructure & Deployment": [
+    "Infrastructure & Security": [
         {
-            question: "What does the Infrastructure Setup service include?",
-            answer: "The Infrastructure Setup service ($1,499) provides professional setup of your production environment on AWS, GCP, Vercel, or on-premise infrastructure. It includes environment configuration, security setup, database setup, SSL certificates, network configuration, monitoring setup, and comprehensive documentation."
+            question: "How is the infrastructure set up?",
+            answer: "Infrastructure setup is included in all packages and covers: 1) Production environment configuration, 2) Security setup, 3) Database setup, 4) SSL certificates, 5) Network configuration, and 6) Basic monitoring setup. I'll help you choose the most suitable platform (AWS, GCP, Vercel, etc.) based on your needs."
         },
         {
             question: "Which deployment platforms are supported?",
-            answer: "The Infrastructure Setup service supports multiple platforms: Amazon Web Services (AWS), Google Cloud Platform (GCP), Vercel, and on-premise infrastructure. The choice depends on your specific needs, budget, and scaling requirements."
-        },
-        {
-            question: "How do CI/CD and Infrastructure services work together?",
-            answer: "While Infrastructure Setup creates your production environment, CI/CD Integration automates the deployment process. Together, they provide a complete solution: Infrastructure Setup handles the initial platform configuration, while CI/CD Integration ensures smooth, automated deployments going forward."
+            answer: "Your application can be deployed to any major cloud platform including Amazon Web Services (AWS), Google Cloud Platform (GCP), Vercel, or on-premise infrastructure. The choice depends on your specific needs, budget, and scaling requirements."
         },
         {
             question: "What security measures are implemented?",
             answer: "Security is implemented at multiple levels: 1) Secure code repositories, 2) Encrypted data transmission, 3) Industry-standard security practices, 4) Regular security updates, 5) GDPR-compliant data processing, and 6) Privacy-focused analytics implementation when required."
-        },
-        {
-            question: "Do I need both additional services?",
-            answer: "Not necessarily. Infrastructure Setup is ideal if you need help setting up your production environment. CI/CD Integration is perfect if you want automated deployments. While they complement each other, you can choose based on your needs and existing setup."
         }
     ],
     "Communication & Support": [
@@ -83,7 +84,7 @@ const faqCategories = {
     "Payments": [
         {
             question: "What are the payment terms and methods?",
-            answer: "Payment is structured as 50% upfront, 25% at midpoint, and 25% upon completion. Over 250 payment methods are supported, including credit cards, PayPal, Google Pay, Apple Pay, and Klarna. All payments are processed securely through a PCI-compliant payment processor."
+            answer: "Payment is structured in three parts: 50% upfront, 25% at midpoint, and 25% upon completion. Over 250 payment methods are supported, including credit cards, PayPal, Google Pay, Apple Pay, and Klarna. All payments are processed securely through a PCI-compliant payment processor."
         },
         {
             question: "Is the payment process secure?",

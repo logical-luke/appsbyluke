@@ -18,31 +18,41 @@ const developmentPackages = [
             "First-time founders",
             "Idea validation phase"
         ],
-        techStack: {
-            frontend: ["Vue.js/Nuxt", "Tailwind CSS"],
-            backend: ["NestJS", "TypeScript"],
-            database: ["Relational Database"]
-        },
         coreFeatures: [
-            {
-                icon: "tabler:users",
-                text: "Authentication System",
-                detail: "Login, registration, password reset"
-            },
             {
                 icon: "tabler:components",
                 text: "One Core Feature",
                 detail: "Your main product functionality"
             },
             {
-                icon: "tabler:dashboard",
-                text: "Basic Admin Panel",
-                detail: "Manage users and core feature"
+                icon: "tabler:browser",
+                text: "Single Page Landing",
+                detail: "Professional landing page design"
             },
             {
-                icon: "tabler:api",
-                text: "Basic API",
-                detail: "Essential endpoints for core feature"
+                icon: "tabler:users",
+                text: "Authentication System",
+                detail: "Login, registration, password reset"
+            },
+            {
+                icon: "tabler:brand-stripe",
+                text: "Payment Integration",
+                detail: "Stripe or similar payment processor"
+            },
+            {
+                icon: "tabler:dashboard",
+                text: "Basic Admin Panel",
+                detail: "Manage users and content"
+            },
+            {
+                icon: "tabler:chart-line",
+                text: "Basic Analytics",
+                detail: "Google Analytics/Plausible setup"
+            },
+            {
+                icon: "tabler:server",
+                text: "Infrastructure Setup",
+                detail: "Secure hosting configuration"
             }
         ],
     },
@@ -62,33 +72,34 @@ const developmentPackages = [
             "Products with initial traction",
             "B2B SaaS applications"
         ],
-        techStack: {
-            frontend: ["Vue.js/Nuxt", "Tailwind CSS"],
-            backend: ["NestJS", "TypeScript"],
-            database: ["Relational Database", "Cache Layer"]
-        },
         coreFeatures: [
-            {
-                icon: "tabler:users",
-                text: "Team Management",
-                detail: "Multi-user organizations"
-            },
             {
                 icon: "tabler:components",
                 text: "Three Core Features",
                 detail: "Extended product functionality"
             },
             {
-                icon: "tabler:brand-stripe",
-                text: "Payment Integration",
-                detail: "Stripe subscription setup"
+                icon: "tabler:browser",
+                text: "Landing + 2 Subpages",
+                detail: "Extended website presence"
             },
             {
-                icon: "tabler:api",
-                text: "Extended API",
-                detail: "Full REST API with documentation"
+                icon: "tabler:users-group",
+                text: "Team Management",
+                detail: "Multi-user organizations"
+            },
+            {
+                icon: "tabler:shield-lock",
+                text: "Advanced User Roles",
+                detail: "Custom permissions system"
+            },
+            {
+                icon: "tabler:chart-dots",
+                text: "Advanced Analytics",
+                detail: "Custom events tracking"
             }
         ],
+        includesCore: true
     },
     {
         name: "Startup Pro",
@@ -106,140 +117,34 @@ const developmentPackages = [
             "High-growth products",
             "Complex B2B solutions"
         ],
-        techStack: {
-            frontend: ["Vue.js/Nuxt", "Tailwind CSS"],
-            backend: ["NestJS", "TypeScript"],
-            database: ["Relational Database", "Cache Layer", "Search Engine"]
-        },
         coreFeatures: [
-            {
-                icon: "tabler:users",
-                text: "Advanced User System",
-                detail: "SSO, roles, permissions"
-            },
             {
                 icon: "tabler:components",
                 text: "Five Core Features",
                 detail: "Advanced product functionality"
             },
             {
+                icon: "tabler:browser",
+                text: "Landing + 4 Subpages",
+                detail: "Full website architecture"
+            },
+            {
                 icon: "tabler:report-analytics",
-                text: "Analytics & Reporting",
-                detail: "Custom dashboards and exports"
+                text: "Advanced Analytics Suite",
+                detail: "Custom dashboards and reporting"
+            },
+            {
+                icon: "tabler:api",
+                text: "API Access",
+                detail: "Full REST API with documentation"
             },
             {
                 icon: "tabler:webhook",
-                text: "Integration System",
-                detail: "Webhooks and external APIs"
+                text: "Webhook Integration",
+                detail: "Custom integrations support"
             }
         ],
-    }
-];
-
-const additionalServices = [
-    {
-        name: "CI/CD Integration",
-        price: 999,
-        paymentStructure: [
-            {amount: 499, phase: "To start"},
-            {amount: 500, phase: "Completion"}
-        ],
-        paymentButton: 'https://buy.appsbyluke.com/overlay/59b2db03-c22c-4c44-a5f8-2187558e5d13',
-        timeline: "2-3 days",
-        description: "Automated deployment pipeline setup using GitHub Actions",
-        features: [
-            {
-                icon: "tabler:brand-github",
-                text: "GitHub Actions Setup",
-                detail: "Custom workflow configuration"
-            },
-            {
-                icon: "tabler:test-pipe-2",
-                text: "Automated Testing",
-                detail: "Integration of test suites"
-            },
-            {
-                icon: "tabler:cloud-upload",
-                text: "Deployment Automation",
-                detail: "Automated releases to production"
-            },
-            {
-                icon: "tabler:shield-check",
-                text: "Security Checks",
-                detail: "Basic security scanning integration"
-            }
-        ],
-        includes: [
-            "GitHub Actions workflow setup",
-            "Automated testing integration",
-            "Deployment pipeline configuration",
-            "Basic security scanning",
-            "Documentation and training"
-        ]
-    },
-    {
-        name: "Infrastructure Setup",
-        price: 1499,
-        paymentStructure: [
-            {amount: 750, phase: "To start"},
-            {amount: 749, phase: "Completion"}
-        ],
-        paymentButton: 'https://buy.appsbyluke.com/overlay/94c7563e-b8cd-4b0b-9f80-ccfe88f1b727',
-        timeline: "3-4 days",
-        description: "Professional infrastructure setup for your preferred platform (AWS/GCP/Vercel/On-premise)",
-        features: [
-            {
-                icon: "tabler:server",
-                text: "Environment Setup",
-                detail: "Cloud or on-premise configuration"
-            },
-            {
-                icon: "tabler:shield-lock",
-                text: "Security Configuration",
-                detail: "Secure access and monitoring"
-            },
-            {
-                icon: "tabler:database",
-                text: "Database Setup",
-                detail: "Production database configuration"
-            },
-            {
-                icon: "tabler:network",
-                text: "Network Configuration",
-                detail: "Load balancing and scaling setup"
-            }
-        ],
-        includes: [
-            "Infrastructure environment setup",
-            "Production environment configuration",
-            "Database setup and optimization",
-            "SSL certificate installation",
-            "Network and firewall configuration",
-            "Basic monitoring setup",
-            "Documentation and handover"
-        ],
-        deploymentOptions: [
-            {
-                icon: "tabler:brand-aws",
-                name: "Amazon Web Services",
-                detail: "AWS cloud platform"
-            },
-            {
-                icon: "tabler:brand-google",
-                name: "Google Cloud Platform",
-                detail: "GCP infrastructure"
-            },
-            {
-                icon: "tabler:brand-vercel",
-                name: "Vercel",
-                detail: "Vercel platform"
-            },
-            {
-                icon: "tabler:server",
-                name: "On-premise",
-                detail: "Your own infrastructure"
-            }
-        ]
+        includesPlus: true
     }
 ];
 
@@ -297,6 +202,14 @@ const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
                                     </div>
                                 </div>
 
+                                <div class="bg-yellow-50 border-2 border-black p-3 mb-6">
+                                    <p class="text-sm text-gray-600">
+                                        Hosting and domain costs are not included, but I'll guide you through selecting
+                                        the right providers and handle all technical setup including SSL certificates
+                                        and security configurations.
+                                    </p>
+                                </div>
+
                                 <div class="text-xs text-gray-500 text-center mb-4">
                                     VAT will be calculated during checkout based on your location and business status
                                 </div>
@@ -321,11 +234,29 @@ const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
                             </div>
                         </div>
 
-                        <div class="w-full lg:w-1/2 space-y-6">
+                        <div class="w-full lg:w-1/2">
                             <div class="bg-white border-2 border-black p-4">
                                 <h4 class="text-xl font-bold text-sm mb-2 bg-black text-white inline-block px-2 py-1 transform -rotate-1">
-                                    Core Features
+                                    Features
                                 </h4>
+                                {devPackage.includesPlus && (
+                                        <div class="mb-6 mt-4">
+                                            <div class="bg-blue-100 border-2 border-black p-3 transform -rotate-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                                <div class="font-bold text-black">
+                                                    Includes everything in Startup Plus, plus:
+                                                </div>
+                                            </div>
+                                        </div>
+                                )}
+                                {devPackage.includesCore && (
+                                        <div class="mb-6 mt-4">
+                                            <div class="bg-blue-100 border-2 border-black p-3 transform -rotate-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                                <div class="font-bold text-black">
+                                                    Includes everything in Startup Core, plus:
+                                                </div>
+                                            </div>
+                                        </div>
+                                )}
                                 <div class="space-y-4 mt-2">
                                     {devPackage.coreFeatures.map((feature) => (
                                             <div class="flex items-start gap-4">
@@ -340,160 +271,9 @@ const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
                                     ))}
                                 </div>
                             </div>
-
-                            <div class="bg-blue-50 border-2 border-black p-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <h4 class="font-bold text-sm mb-2 bg-black text-white inline-block px-2 py-1 transform -rotate-1">
-                                    Tech Stack
-                                </h4>
-                                <div class="space-y-3 mt-2">
-                                    {Object.entries(devPackage.techStack).map(([category, technologies]) => (
-                                            <div>
-                                        <span class="text-sm text-gray-600 font-semibold">
-                                            {category.charAt(0).toUpperCase() + category.slice(1)}:
-                                        </span>
-                                                <div class="flex flex-wrap gap-2 mt-1">
-                                                    {technologies.map((tech) => (
-                                                            <span class="inline-block bg-white px-2 py-1 text-xs border border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                                                    {tech}
-                                                </span>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                    ))}
-                                </div>
-                            </div>
                         </div>
                     </div>
             ))}
-        </div>
-
-        <div class="mt-12">
-            <h2 class="text-xl font-bold mb-12 transform -rotate-1 inline-block bg-yellow-300 px-6 py-3 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                Additional Services
-            </h2>
-            <div class="space-y-12">
-                {additionalServices.map((service) => (
-                        <div class="flex flex-col lg:flex-row gap-6 lg:gap-12" data-package-name={service.name}>
-                            <div class="w-full lg:w-1/2">
-                                <div class="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 relative">
-                                    <h3 class="text-2xl font-bold mb-2">{service.name}</h3>
-                                    <p class="text-gray-600 mb-4">{service.description}</p>
-
-                                    <div class="flex items-baseline gap-2 mb-4">
-                                        <div class="text-3xl font-bold text-blue-500">
-                                            ${service.price}
-                                        </div>
-                                        <div class="text-xs text-gray-600 font-medium">
-                                            + VAT where applicable
-                                        </div>
-                                    </div>
-
-                                    <div class="text-sm text-gray-600 mb-6">
-                                        Delivery: {service.timeline}
-                                    </div>
-
-                                    <div class="bg-blue-50 border-2 border-black p-3 mb-6">
-                                        <h4 class="font-bold text-sm mb-2 bg-black text-white inline-block px-2 py-1 transform -rotate-1">
-                                            Payment Schedule (excl. VAT)
-                                        </h4>
-                                        <div class="space-y-1 mt-2">
-                                            {service.paymentStructure.map((payment) => (
-                                                    <div class="flex justify-between items-center text-sm">
-                                                        <span class="text-gray-600">{payment.phase}:</span>
-                                                        <span class="font-bold">${payment.amount}</span>
-                                                    </div>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    <div id={`availability-${service.name.toLowerCase().replace(/\s+/g, '-')}`}
-                                         class="mb-4">
-                                        <div class="text-center text-gray-600">
-                                            <div class="h-6 bg-gray-200 animate-pulse rounded"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="text-xs text-gray-500 text-center mb-4">
-                                        VAT will be calculated during checkout based on your location and business
-                                        status
-                                    </div>
-
-                                    <div class="flex items-center justify-center">
-                                        <div class="flex flex-col items-center w-full">
-                                            <button
-                                                    type="button"
-                                                    data-fungies-button={service.paymentButton}
-                                                    data-package-name={service.name}
-                                                    class="block w-full text-center bg-gray-200 animate-pulse font-bold py-3 px-6 border-black border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
-                                                <span class="invisible">Get Started</span>
-                                            </button>
-                                            <a href="https://calendar.app.google/uDz6rZrYgUxqAC2i9"
-                                               class="mt-2 inline-block w-full text-center underline underline-offset-4 decoration-dashed text-sm text-gray-600 hover:text-black transition-colors duration-300">
-                                                or book a quick call to learn more
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="w-full lg:w-1/2 space-y-6">
-                                <div class="bg-white border-2 border-black p-4">
-                                    <h4 class="text-xl font-bold text-sm mb-2 bg-black text-white inline-block px-2 py-1 transform -rotate-1">
-                                        Features
-                                    </h4>
-                                    <div class="space-y-4 mt-2">
-                                        {service.features.map((feature) => (
-                                                <div class="flex items-start gap-4">
-                                                    <div class="w-10 h-10 flex-shrink-0 bg-gray-100 border-2 border-black flex items-center justify-center">
-                                                        <Icon name={feature.icon} class="w-5 h-5"/>
-                                                    </div>
-                                                    <div>
-                                                        <span class="font-bold block text-lg">{feature.text}</span>
-                                                        <span class="text-gray-600">{feature.detail}</span>
-                                                    </div>
-                                                </div>
-                                        ))}
-                                    </div>
-                                </div>
-
-                                <div class="bg-yellow-100 border-2 border-black p-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                    <h4 class="font-bold text-sm mb-2 bg-black text-white inline-block px-2 py-1 transform -rotate-1">
-                                        What's Included
-                                    </h4>
-                                    <ul class="space-y-2 mt-2">
-                                        {service.includes.map((item) => (
-                                                <li class="flex items-start gap-2">
-                                                    <Icon name="tabler:point" class="w-4 h-4 flex-shrink-0 mt-1"/>
-                                                    <span>{item}</span>
-                                                </li>
-                                        ))}
-                                    </ul>
-                                </div>
-
-                                {service.deploymentOptions && (
-                                        <div class="bg-blue-50 border-2 border-black p-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                            <h4 class="font-bold text-sm mb-2 bg-black text-white inline-block px-2 py-1 transform -rotate-1">
-                                                Deployment Options
-                                            </h4>
-                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
-                                                {service.deploymentOptions.map((option) => (
-                                                        <div class="flex items-start gap-2">
-                                                            <div class="w-8 h-8 flex-shrink-0 bg-white border-2 border-black flex items-center justify-center">
-                                                                <Icon name={option.icon} class="w-4 h-4"/>
-                                                            </div>
-                                                            <div>
-                                                                <span class="font-bold block text-sm">{option.name}</span>
-                                                                <span class="text-gray-600 text-xs">{option.detail}</span>
-                                                            </div>
-                                                        </div>
-                                                ))}
-                                            </div>
-                                        </div>
-                                )}
-                            </div>
-                        </div>
-                ))}
-            </div>
         </div>
     </div>
 </div>
@@ -530,25 +310,12 @@ const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
                         case 'Startup Pro':
                             availableSlots = data.availableSlots.startupPro;
                             break;
-                        case 'CI/CD Integration':
-                            availableSlots = data.availableSlots.ciCdIntegration;
-                            break;
-                        case 'Infrastructure Setup':
-                            availableSlots = data.availableSlots.infrastructureSetup;
-                            break;
                         default:
                             console.warn('Unknown package name:', packageName);
                             availableSlots = 0;
                     }
 
                     const button = packageContainer?.querySelector('[data-fungies-button]');
-
-                    let buttonText = 'Get Started';
-                    if (packageName === 'CI/CD Integration') {
-                        buttonText = 'Add CI/CD Integration';
-                    } else if (packageName === 'Infrastructure Setup') {
-                        buttonText = 'Add Infrastructure Setup';
-                    }
 
                     if (typeof availableSlots === 'number' && availableSlots > 0) {
                         element.innerHTML = `
@@ -559,7 +326,7 @@ const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
                         if (button) {
                             button.classList.remove('bg-gray-200', 'animate-pulse');
                             button.classList.add('bg-green-600', 'hover:bg-green-700', 'text-white');
-                            button.innerHTML = buttonText;
+                            button.innerHTML = 'Get Started';
                             button.dataset.hasSlots = 'true';
                         }
                     } else {
@@ -590,14 +357,7 @@ const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
                     if (button) {
                         button.classList.remove('bg-gray-200', 'animate-pulse');
                         button.classList.add('bg-green-600', 'hover:bg-green-700', 'text-white');
-                        const packageName = button.dataset.packageName;
-                        let buttonText = 'Get Started';
-                        if (packageName === 'CI/CD Integration') {
-                            buttonText = 'Add CI/CD Integration';
-                        } else if (packageName === 'Infrastructure Setup') {
-                            buttonText = 'Add Infrastructure Setup';
-                        }
-                        button.innerHTML = buttonText;
+                        button.innerHTML = 'Get Started';
                     }
                 });
                 return false;
@@ -809,12 +569,6 @@ const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
                     case 'Startup Pro':
                         availableSlots = data.availableSlots.startupPro;
                         break;
-                    case 'CI/CD Integration':
-                        availableSlots = data.availableSlots.ciCdIntegration;
-                        break;
-                    case 'Infrastructure Setup':
-                        availableSlots = data.availableSlots.infrastructureSetup;
-                        break;
                     default:
                         availableSlots = 0;
                 }
@@ -873,5 +627,6 @@ const baseApiUrl = import.meta.env.PUBLIC_BASE_API_URL;
     initializeFungies();
     document.addEventListener('astro:page-load', initializeFungies);
 </script>
+
 
 
