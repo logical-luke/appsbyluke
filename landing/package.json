@@ -23,5 +23,11 @@
     "astro-icon": "^1.1.5",
     "astro-seo": "^0.8.4",
     "tailwindcss": "^3.4.17"
+  },
+  "resolutions": {
+    "prettier": "^3.0.0"
+  },
+  "overrides": {
+    "prettier": "^3.0.0"
   }
 }
