@@ -2,7 +2,6 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import icon from "astro-icon";
-import partytown from '@astrojs/partytown';
 
 export default defineConfig({
     site: 'https://appsbyluke.com',
@@ -13,11 +12,6 @@ export default defineConfig({
         }),
         sitemap(),
         icon(),
-        partytown({
-            config: {
-                forward: ['dataLayer.push'],
-            }
-        }),
     ],
     vite: {
         build: {
