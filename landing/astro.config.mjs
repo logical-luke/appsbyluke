@@ -7,9 +7,7 @@ export default defineConfig({
     site: 'https://appsbyluke.com',
     output: 'static',
     integrations: [
-        tailwind({
-            applyBaseStyles: false,
-        }),
+        tailwind(),
         sitemap(),
         icon(),
     ],
