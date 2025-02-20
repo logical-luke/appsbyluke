@@ -1,37 +1,51 @@
 ---
-import SubpageLayout from "../layouts/SubpageLayout.astro";
+import Layout from "../layouts/Layout.astro";
+import BlockSection from "../components/BlockSection.astro";
+import {Image} from 'astro:assets';
 ---
 
-<SubpageLayout
+<Layout
     title="Page Not Found | AppsByLuke"
-    description="Oops! The page you're looking for doesn't exist. Explore our web app development packages or contact us to launch your startup app."
-    header="404: Lost in the Tech Odyssey"
-    backgroundColor="bg-yellow-100"
+    description="Oops! The page you're looking for doesn't exist."
 >
-    <div class="absolute top-0 left-0 w-16 h-16 md:w-24 md:h-24 bg-blue-400 border-4 border-black transform -rotate-12 -translate-x-8 -translate-y-8 md:-translate-x-12 md:-translate-y-12"></div>
-    <div class="absolute bottom-0 right-0 w-20 h-20 md:w-28 md:h-28 bg-pink-400 border-4 border-black rounded-full translate-x-10 translate-y-10 md:translate-x-14 md:translate-y-14"></div>
+    <div class="relative min-h-[calc(100vh-140px)]">
+        <div class="absolute top-4 left-6 transform -rotate-2 z-20">
+            <a href="/" class="inline-block">
+                <Image
+                    src='/appsbyluke.svg'
+                    width="256.2"
+                    loading="eager"
+                    height="120"
+                    alt="AppsByLuke Logo"
+                />
+            </a>
+        </div>
 
-    <div class="bg-yellow-300 border-4 border-black p-4 md:p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 mb-8">
-        <p class="text-lg md:text-xl font-bold mb-4">Fear not, explorer! Your journey isn't over.</p>
-        <a href="/"
-           class="inline-block text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl transform hover:rotate-2">
-            Return to Safe Harbor
-        </a>
-    </div>
+        <BlockSection id="404" backgroundColor="bg-blue-50">
+            <div class="mt-32 relative flex flex-col justify-center min-h-[calc(100vh-398px)]">
+                <div class="absolute top-0 left-0 w-16 h-16 md:w-24 md:h-24 bg-blue-400 border-4 border-black transform -rotate-12 -translate-x-8 -translate-y-8 md:-translate-x-12 md:-translate-y-12"></div>
+                <div class="absolute bottom-0 right-0 w-20 h-20 md:w-28 md:h-28 bg-pink-400 border-4 border-black rounded-full translate-x-10 translate-y-10 md:translate-x-14 md:translate-y-14"></div>
 
-    <div class="space-y-4 mb-8">
-        <p class="text-lg md:text-xl">You've stumbled into the internet's Bermuda Triangle. What
-            happened?</p>
+                <div class="max-w-2xl mx-auto text-center">
+                    <div class="bg-yellow-300 border-4 border-black p-4 md:p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 mb-8">
+                        <p class="text-lg md:text-xl font-bold mb-4">Fear not, explorer! Your journey isn't over.</p>
+                        <a href="/"
+                           class="inline-block text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl transform hover:rotate-2">
+                            Return to Safe Harbor
+                        </a>
+                    </div>
 
-        <ul class="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
-            <li>The page took an extended coffee break.</li>
-            <li>A mischievous AI had your URL for breakfast.</li>
-            <li>You've found a glitch in the Matrix.</li>
-            <li>Our hamster servers are napping.</li>
-        </ul>
-    </div>
+                    <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] space-y-4 mb-8">
+                        <p class="text-lg md:text-xl">You've stumbled into the internet's Bermuda Triangle. What happened?</p>
+                        <ul class="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                            <li>The page took an extended coffee break.</li>
+                            <li>A mischievous AI had your URL for breakfast.</li>
+                            <li>You've found a glitch in the Matrix.</li>
+                            <li>Our hamster servers are napping.</li>
+                        </ul>
+                    </div>
 
-    <div class="text-center">
+                    <div class="bg-green-50 border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-center">
                         <pre class="text-xs md:text-sm font-mono inline-block text-left">
          _______
         |.-----.|
@@ -42,6 +56,10 @@ import SubpageLayout from "../layouts/SubpageLayout.astro";
       |:::::::::::|\
       `-=========-`()
                         </pre>
-        <p class="text-xs md:text-sm mt-2">Our confused server, pondering your page's whereabouts.</p>
+                        <p class="text-xs md:text-sm mt-2">Our confused server, pondering your page's whereabouts.</p>
+                    </div>
+                </div>
+            </div>
+        </BlockSection>
     </div>
-</SubpageLayout>
+</Layout>

@@ -1,14 +1,12 @@
-// astro.config.mjs
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import icon from "astro-icon";
 import partytown from '@astrojs/partytown';
-import prefetch from '@astrojs/prefetch';
 
 export default defineConfig({
     site: 'https://appsbyluke.com',
-    output: 'static', // Explicitly set static output
+    output: 'static',
     integrations: [
         tailwind({
             applyBaseStyles: false,
@@ -20,11 +18,7 @@ export default defineConfig({
                 forward: ['dataLayer.push'],
             }
         }),
-        prefetch()
     ],
-    build: {
-        inlineStylesheets: 'always',
-    },
     vite: {
         build: {
             cssCodeSplit: true,

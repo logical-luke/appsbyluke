@@ -1,8 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
-import HowItWorks from "../components/HowItWorks.astro";
-import AppSolutions from "../components/AppSolutions.astro";
+import FAQ from "../components/Faq.astro";
+import PlaneSection from "../components/PlaneSection.astro";
+import BookingModal from "../components/BookingModal.astro";
+import PricingBlock from "../components/PricingBlock.astro";
+import AboutSection from "../components/AboutSection.astro";
 ---
 
 <Layout
@@ -10,6 +13,9 @@ import AppSolutions from "../components/AppSolutions.astro";
         description="Transform your startup idea into a web app with fixed-price development packages. From MVP to advanced solutions, using modern tech stack. Clear timeline, predictable delivery."
 >
     <Hero/>
-    <HowItWorks/>
-    <AppSolutions/>
+    <PricingBlock />
+    <FAQ/>
+    <PlaneSection />
+    <AboutSection />
+    <BookingModal />
 </Layout>

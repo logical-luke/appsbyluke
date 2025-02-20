@@ -1,11 +1,10 @@
 ---
+import '../styles/base.css';
 import '@fontsource/bebas-neue';
 import '@fontsource-variable/rubik';
 import {SEO} from "astro-seo";
 import {ClientRouter} from 'astro:transitions';
-import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
-import '../styles/base.css';
 
 export interface Props {
     title: string;
@@ -55,14 +54,13 @@ const isProduction = import.meta.env.PROD;
         </>
     )}
 </head>
-<body class="font-sans bg-gray-100">
-<div class="flex flex-col min-h-screen">
-    <Navbar/>
-    <main transition:animate="initial" class="flex-grow overflow-hidden">
-        <slot/>
-    </main>
-    <Footer/>
-</div>
+<body class="font-sans">
+    <div class="flex flex-col min-h-screen">
+        <main transition:animate="initial" class="grow overflow-hidden">
+            <slot/>
+        </main>
+        <Footer/>
+    </div>
 </body>
 </html>
 

@@ -1,11 +1,18 @@
-# AppsByLuke - Web Apps Development Services Website
+# AppsByLuke - MVP Development Service
 
 ## Project Overview
 
-AppsByLuke is a developer services website offering custom app development solutions and subscription plans. 
-The website showcases various app packages and subscription plans tailored to different business needs.
+AppsByLuke is my personal brand offering rapid MVP development services. I help founders and businesses launch their apps in 2 weeks with a clear, fixed-price approach and no upfront costs.
 
 Project URL: [AppsByLuke](https://appsbyluke.com/)
+
+## Key Features
+
+- Pay after delivery model
+- 2-week MVP development
+- Full hosting & infrastructure setup included
+- Optional AI integration capabilities
+- Transparent pricing with no hidden costs
 
 ## Project Structure:
 
@@ -14,14 +21,6 @@ Project URL: [AppsByLuke](https://appsbyluke.com/)
       - Astro
       - Tailwind CSS
     - Default exposed port: 4321
-- `/api` - API for the website
-    - Stack:
-      - Nest
-      - Node.js
-      - Fastify
-      - PostgreSQL
-      - Stripe API 
-    - Default exposed port: 3000
 
 ## Prerequisites
 

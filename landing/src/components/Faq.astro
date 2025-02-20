@@ -1,216 +1,100 @@
 ---
-const faqCategories = {
-    "Packages & Pricing": [
-        {
-            question: "What's included in each app package?",
-            answer: "Each package is designed for different startup stages: Startup Core ($4,999) delivers an MVP in 1 week with one core feature and landing page, Startup Plus ($9,999) provides three core features and extended website in 2 weeks, and Startup Pro ($19,999) offers five core features and full website in 4 weeks. All packages include authentication, payment integration, analytics, and infrastructure setup."
-        },
-        {
-            question: "What are the detailed features of each package?",
-            answer: "Startup Core includes one core feature, single page landing, authentication, payment integration, basic admin panel, and analytics setup. Startup Plus includes everything in Core plus two more core features, additional website pages, team management, and advanced analytics. Startup Pro includes everything in Plus plus two more core features, additional website pages, API access, webhook integrations, and custom reporting."
-        },
-        {
-            question: "Do packages include hosting and domain costs?",
-            answer: "No, hosting and domain costs are not included in the package prices. However, I'll guide you through selecting the right providers and handle all technical setup including SSL certificates and security configurations. This ensures you have the most cost-effective and suitable hosting solution for your needs."
-        },
-        {
-            question: "What about VAT and other taxes?",
-            answer: "Prices shown are exclusive of VAT. VAT will be calculated during checkout based on your location and business status. EU businesses with a valid VAT number may qualify for VAT reverse-charge. All tax documentation and proper invoices are provided."
-        },
-        {
-            question: "How does the availability system work?",
-            answer: "I maintain a limited number of slots per package to ensure quality and timely delivery. Available slots are shown in real-time on the website. If no slots are available, you can join the waitlist and be notified when a slot opens up."
-        },
-        {
-            question: "Can I upgrade my package later?",
-            answer: "Yes! If you start with a smaller package and want to expand later, you can upgrade to a larger package. You won't need to pay the full price of the new package - we'll take into account your previous investment. Upgrades are handled directly through personal contact rather than through the website's ordering system, so please reach out to discuss your specific needs."
-        }
-
-    ],
-    "Development Process": [
-        {
-            question: "How does the development process work?",
-            answer: "The process has three main phases: 1) Planning - requirements gathering and initial payment, 2) Development - core implementation with regular updates, and 3) Launch - infrastructure setup, testing, and handover. Each phase includes clear milestones and deliverables, with regular communication throughout."
-        },
-        {
-            question: "What technologies do you use and why?",
-            answer: "For applications, I use Vue.js/Nuxt with Tailwind CSS for the frontend, ensuring a modern and responsive user experience. Landing pages are built with Astro and Tailwind CSS for optimal performance and SEO. The backend uses NestJS with TypeScript for type-safe, scalable server-side code. Database setup varies by package needs, from basic relational databases to advanced setups with caching and search capabilities. This modern stack ensures high performance, maintainability, and scalability."
-        },
-        {
-            question: "Can AI features be integrated into my app?",
-            answer: "Yes, any package can be enhanced with AI capabilities using services like ChatGPT, Claude, or other AI models. Whether it's content generation, data analysis, or smart automation, we can discuss how AI can best serve your specific needs during the planning phase."
-        },
-        {
-            question: "Can I track the development progress?",
-            answer: "Yes, you'll have access to: 1) Private GitHub repository with daily commits, 2) Regular progress reports, 3) Milestone completion notifications, and 4) A project management dashboard for tracking tasks and timelines."
-        },
-        {
-            question: "What documentation is provided?",
-            answer: "You receive comprehensive documentation including: 1) Technical documentation, 2) API documentation (where applicable), 3) Setup and deployment guides, 4) Infrastructure configuration details, and 5) Knowledge transfer materials. All documentation is provided digitally and remains accessible after project completion."
-        }
-    ],
-    "Infrastructure & Security": [
-        {
-            question: "How is the infrastructure set up?",
-            answer: "Infrastructure setup is included in all packages and covers: 1) Production environment configuration, 2) Security setup, 3) Database setup, 4) SSL certificates, 5) Network configuration, and 6) Basic monitoring setup. I'll help you choose the most suitable platform (AWS, GCP, Vercel, etc.) based on your needs."
-        },
-        {
-            question: "Which deployment platforms are supported?",
-            answer: "Your application can be deployed to any major cloud platform including Amazon Web Services (AWS), Google Cloud Platform (GCP), Vercel, or on-premise infrastructure. The choice depends on your specific needs, budget, and scaling requirements."
-        },
-        {
-            question: "What security measures are implemented?",
-            answer: "Security is implemented at multiple levels: 1) Secure code repositories, 2) Encrypted data transmission, 3) Industry-standard security practices, 4) Regular security updates, 5) GDPR-compliant data processing, and 6) Privacy-focused analytics implementation when required."
-        }
-    ],
-    "Communication & Support": [
-        {
-            question: "What are your working hours?",
-            answer: "I operate Monday through Friday, excluding Polish national holidays, within Central European Time (CET) zone. Standard business hours are 9:00 AM - 5:00 PM CET. This allows for efficient communication with clients across European and American time zones."
-        },
-        {
-            question: "How do meetings and updates work?",
-            answer: "Communication includes regular email updates, weekly status reports, and milestone reviews. All meetings are scheduled within my working hours (9:00 AM - 5:00 PM CET). You'll receive progress updates via email and have access to a project management dashboard."
-        },
-        {
-            question: "What post-delivery support is included?",
-            answer: "Each package includes 30 days of post-delivery support, code walkthrough sessions, deployment assistance, and knowledge transfer sessions. Additional support or maintenance can be arranged separately after the initial support period."
-        },
-        {
-            question: "What happens if there are delays or issues?",
-            answer: "Project timelines may be adjusted based on scope changes, complexities, or payment delays. I maintain clear communication with response times of 1 business day for general inquiries and 2 business days for technical queries. Emergency issues receive priority handling."
-        }
-    ],
-    "Payments": [
-        {
-            question: "What are the payment terms and methods?",
-            answer: "Payment is structured in three parts: 50% upfront, 25% at midpoint, and 25% upon completion. Over 250 payment methods are supported, including credit cards, PayPal, Google Pay, Apple Pay, and Klarna. All payments are processed securely through a PCI-compliant payment processor."
-        },
-        {
-            question: "Is the payment process secure?",
-            answer: "Absolutely. All payments are processed through a secure, PCI-compliant payment system. Your payment information is never stored on my servers, and all transactions are protected by industry-standard encryption."
-        }
-    ],
-    "Legal & Confidentiality": [
-        {
-            question: "How is my project's confidentiality protected?",
-            answer: "All client information is treated as strictly confidential. This includes: 1) Secure storage and transmission of data, 2) No disclosure to third parties, 3) GDPR-compliant data processing, and 4) Optional NDA signing before project discussion."
-        },
-        {
-            question: "What happens if I need to terminate the project?",
-            answer: "Project termination requires written notice. Completed milestones are non-refundable, but you receive all completed work and documentation. Access to delivered code is maintained, and optional transition support is available if needed."
-        },
-        {
-            question: "Which laws govern the service agreement?",
-            answer: "The service agreement is governed by Polish law, with EU consumer protection laws applying where relevant. The jurisdiction is in the courts of Wrocław, Poland. All disputes are subject to an amicable resolution attempt before legal proceedings."
-        },
-        {
-            question: "What are my rights regarding data protection?",
-            answer: "Under GDPR, you have rights regarding your personal data including access, rectification, and erasure. All data processing is documented and transparent. You can request information about how your data is processed at any time."
-        },
-        {
-            question: "Can we sign a Non-Disclosure Agreement (NDA)?",
-            answer: "Absolutely. I understand that projects often involve sensitive information or proprietary technology. I'm happy to sign an NDA before discussing your project details to ensure full confidentiality."
-        },
-        {
-            question: "Who owns the code and deliverables?",
-            answer: "Upon final payment, you receive full ownership of all custom code created for your project, including rights to modify and distribute it. This includes custom designs and assets. You'll have perpetual access to the delivered code repositories. Note that I retain rights to use general programming concepts and techniques, and may use similar solutions for other clients while respecting confidentiality."
-        }
-    ]
-};
+import BlockSection from "./BlockSection.astro";
+const faqs = [
+    {
+        question: "What's included in the MVP Launch package?",
+        answer: "For $2,499, I deliver a complete MVP in 2 weeks that includes your core feature implementation, professional design, user management, payment processing, mobile-friendly interface, and full hosting setup. Everything needed to launch is included - no hidden costs. Optional AI integration is available if your product needs it."
+    },
+    {
+        question: "How does the Ongoing Support work?",
+        answer: "After launching your MVP, you can opt for ongoing support at $2,999/month. This includes 50 hours of development time, weekly strategy calls, continuous improvements, maintenance, and same-day emergency support. This option is exclusively available for my MVP Launch clients."
+    },
+    {
+        question: "How does the pay-after-delivery work?",
+        answer: "Simple - I build your MVP first, and you pay when it's delivered. No upfront costs, no risks. Once your MVP is complete and deployed, you make the one-time payment of $2,499."
+    },
+    {
+        question: "What about hosting and infrastructure costs?",
+        answer: "All hosting, domain setup, SSL certificates, and infrastructure costs are included in the MVP Launch package. I handle the complete technical setup so you don't have to worry about additional costs or technical configurations."
+    },
+    {
+        question: "What about VAT and other taxes?",
+        answer: "Prices shown are exclusive of VAT. VAT will be calculated based on your location and business status. Businesses applicable may qualify for VAT reverse-charge."
+    },
+    {
+        question: "How does the development process work?",
+        answer: "We start with a discovery call to understand your vision. Once aligned, I begin development on agreed time and deliver your MVP within 2 weeks. You'll receive regular updates throughout the process, and everything is set up ready for launch upon delivery."
+    },
+    {
+        question: "What technologies do you use?",
+        answer: "I use Vue.js/Nuxt with Tailwind CSS for the frontend, ensuring a modern and responsive user experience. The backend uses NestJS with TypeScript for reliable, scalable server-side code. This modern stack ensures your product is fast, maintainable, and ready to grow."
+    },
+    {
+        question: "How can AI enhance my MVP?",
+        answer: "If your product could benefit from AI capabilities, I can integrate services like ChatGPT or other AI models. This could include features like content generation, data analysis, or smart automation - we'll discuss the possibilities during our initial call."
+    },
+    {
+        question: "Can I track the development progress?",
+        answer: "Yes, you'll have access to my project management platform where you can track all tasks and progress in real-time. I also provide regular email updates throughout the development process."
+    },
+    {
+        question: "How is the infrastructure handled?",
+        answer: "I take care of everything - hosting setup, security configuration, SSL certificates, and deployment. Your application will be hosted on reliable cloud infrastructure, fully secured and ready for your users."
+    },
+    {
+        question: "What security measures are implemented?",
+        answer: "Security is implemented at multiple levels: secure code practices, encrypted data transmission, industry-standard authentication, and GDPR-compliant data processing. All security best practices are followed to protect your application and users."
+    },
+    {
+        question: "What are your working hours?",
+        answer: "I work Monday through Friday, 9:00 AM - 5:00 PM CET (Central European Time), excluding Polish holidays. This allows for efficient communication with clients across European and American time zones."
+    },
+    {
+        question: "How do updates and communication work?",
+        answer: "You'll receive regular progress updates via email and have direct access to me through appropriate communication channels. For ongoing support clients, we'll have weekly strategy calls to discuss progress and plans."
+    },
+    {
+        question: "How is my project's confidentiality protected?",
+        answer: "All client information and project details are treated as strictly confidential. I'm happy to sign an NDA before discussing your project details if needed."
+    },
+    {
+        question: "Who owns the code?",
+        answer: "Upon successful payment after delivery, you receive full ownership of all custom code and assets created for your project. Until payment is completed, I retain all rights to the code and intellectual property. In case of non-payment, I reserve the right to use, modify, or commercialize the developed solution as I see fit."
+    },
+    {
+        question: "What happens if I don't pay after delivery?",
+        answer: "If payment is not made after delivery, you won't receive any rights to the code or intellectual property. I retain full ownership and rights to use, modify, or launch the application independently. To protect both parties, it's crucial to ensure you're committed to the project before development begins."
+    }
+];
 ---
 
-<div class="mb-16">
-    <div class="flex flex-wrap gap-4 mb-8">
-        {Object.keys(faqCategories).map((category) => (
-                <button
-                        class="category-btn px-4 py-2 border-4 border-black font-bold transition-all duration-300 bg-white hover:bg-yellow-300"
-                        data-category={category}
-                >
-                    {category}
-                </button>
-        ))}
-    </div>
 
-    <div class="space-y-4">
-        {Object.entries(faqCategories).map(([category, questions]) => (
-                <div class="faq-category" data-category={category}>
-                    {questions.map((faq, index) => (
-                            <div class="bg-pink-100 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-300 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-4">
-                                <button
-                                        class="w-full text-left p-4 font-bold text-black focus:outline-none flex justify-between items-center"
-                                        onclick={`document.getElementById('faq-answer-${category}-${index}').classList.toggle('hidden')`}
-                                >
-                                    <span>{faq.question}</span>
-                                    <span class="text-2xl">+</span>
-                                </button>
-                                <div id={`faq-answer-${category}-${index}`}
-                                     class="bg-white hidden p-4 border-t-4 border-black">
-                                    <p class="text-black">{faq.answer}</p>
-                                </div>
-                            </div>
-                    ))}
+<BlockSection id="faq" header="Frequently Asked Questions" backgroundColor="bg-blue-100">
+    <div class="mb-16">
+        <div class="space-y-4">
+            {faqs.map((faq, index) => (
+                <div class="bg-pink-100 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-300 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    <button
+                        class="w-full text-left p-4 font-bold text-black focus:outline-hidden flex justify-between items-center"
+                        onclick={`document.getElementById('faq-answer-${index}').classList.toggle('hidden')`}
+                    >
+                        <span>{faq.question}</span>
+                        <span class="text-2xl">+</span>
+                    </button>
+                    <div id={`faq-answer-${index}`} class="bg-white hidden p-4 border-t-4 border-black">
+                        <p class="text-black">{faq.answer}</p>
+                    </div>
                 </div>
-        ))}
-    </div>
-
-    <div class="mt-12 text-center">
-        <p class="text-xl font-bold mb-6">Still have questions?</p>
-        <div class="flex flex-col items-center space-y-4 md:flex-row md:space-y-0 md:space-x-4 justify-center">
-            <a href="/contact"
-               class="inline-block text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl transform hover:rotate-2">
-                Contact me
-            </a>
-            <p class="text-2xl font-bold">OR</p>
-            <div class="relative inline-block">
-                <a href="https://calendar.app.google/uDz6rZrYgUxqAC2i9"
-                   class="inline-block text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 text-xl transform hover:rotate-2">
-                    Book a Call
-                </a>
-                <div class="absolute -top-4 -right-4 bg-yellow-400 text-black font-bold text-xs py-1 px-2 border-2 border-black rounded-full transform rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                    FREE
-                </div>
-            </div>
+            ))}
         </div>
     </div>
-</div>
+</BlockSection>
 
 <script is:inline>
     function initializeFAQ() {
-        const categories = document.querySelectorAll('.faq-category');
-        const categoryButtons = document.querySelectorAll('.category-btn');
-
-        function showCategory(categoryName) {
-            categories.forEach(category => {
-                if (category.dataset.category === categoryName) {
-                    category.style.display = 'block';
-                } else {
-                    category.style.display = 'none';
-                }
-            });
-
-            categoryButtons.forEach(button => {
-                if (button.dataset.category === categoryName) {
-                    button.classList.add('bg-yellow-300');
-                } else {
-                    button.classList.remove('bg-yellow-300');
-                }
-            });
-        }
-
-        categoryButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                showCategory(button.dataset.category);
-            });
-        });
-
         document.querySelectorAll('[id^="faq-answer-"]').forEach((el) => {
             el.classList.add('hidden');
         });
-
-        if (categoryButtons.length > 0) {
-            showCategory(categoryButtons[0].dataset.category);
-        }
     }
 
     document.addEventListener('astro:page-load', initializeFAQ);

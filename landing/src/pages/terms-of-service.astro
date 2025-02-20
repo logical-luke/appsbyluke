@@ -1,445 +1,305 @@
 ---
 import {Icon} from "astro-icon/components";
-import SubpageLayout from "../layouts/SubpageLayout.astro";
+import Layout from "../layouts/Layout.astro";
+import BlockSection from "../components/BlockSection.astro";
+import {Image} from 'astro:assets';
 ---
 
-<SubpageLayout
+<Layout
         title="Terms of Service | AppsByLuke"
         description="These Terms of Service constitute a legally binding agreement between AppsByLuke and you, governing the use of my Services and Website."
-        header="Terms of Service"
-        backgroundColor="bg-purple-100"
 >
-    <div class="mb-4">
-        <h2 class="text-2xl font-bold mb-4">1. Introduction</h2>
-        <p>These Terms of Service ("Terms") constitute a legally binding agreement between Łukasz Ziaja
-            ("Company," "I," "me," or "my"), operating under the business name AppsByLuke, and you
-            ("Client," "you," or "your") governing the use of my Services and Website. By accessing or using
-            my Services, you acknowledge that you have read, understood, and agree to be bound by these
-            Terms. If you do not agree to these Terms, you must immediately cease using the Services.</p>
-    </div>
-
-    <div class="mb-4">
-        <h2 class="text-2xl font-bold mb-4">2. Definitions</h2>
-        <div class="ml-4 space-y-4">
-            <h3 class="text-xl font-bold mb-2">2.1. Company</h3>
-            <p>"Company" refers to Łukasz Ziaja, a sole proprietorship registered at al. Wiśniowa 36a/304,
-                53-137 Wrocław, Poland, operating under the business name AppsByLuke.</p>
-
-            <h3 class="text-xl font-bold mb-2">2.2. Services</h3>
-            <p>The Company provides web application development services through three package tiers:</p>
-            <ul class="list-disc list-inside ml-4 space-y-4">
-                <li>Startup Core: MVP development with one core feature and landing page</li>
-                <li>Startup Plus: Enhanced package with three core features and extended website</li>
-                <li>Startup Pro: Advanced package with five core features and full website</li>
-            </ul>
-
-            <h3 class="text-xl font-bold mb-2">2.3. Technical Stack</h3>
-            <p>The Company utilizes the following technologies for service delivery:</p>
-            <ul class="list-disc list-inside ml-4 space-y-4">
-                <li>Application Frontend: Vue.js/Nuxt, Tailwind CSS</li>
-                <li>Landing Pages: Astro, Tailwind CSS</li>
-                <li>Backend: NestJS, TypeScript</li>
-                <li>Database: Relational Database, Cache Layer, Search Engine (based on package tier)</li>
-            </ul>
-
-            <h3 class="text-xl font-bold mb-2">2.4. Website</h3>
-            <p>"Website" refers to the Company's website, accessible at https://appsbyluke.com</p>
+    <div class="relative">
+        <div class="absolute top-4 left-6 transform -rotate-2 z-20">
+            <a href="/" class="inline-block">
+                <Image
+                        src='/appsbyluke.svg'
+                        width="256.2"
+                        loading="eager"
+                        height="120"
+                        alt="AppsByLuke Logo"
+                />
+            </a>
         </div>
-    </div>
 
-    <div class="mb-4">
-        <h2 class="text-2xl font-bold mb-4">3. Service Terms</h2>
-        <div class="ml-4 space-y-4">
-            <h3 class="text-xl font-bold mb-2">3.1. Package Types and Scope</h3>
-            <div class="ml-4 space-y-4">
-                <h4 class="text-lg font-bold mb-2">a) Startup Core</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>1 week delivery timeframe</li>
-                    <li>One core feature implementation</li>
-                    <li>Single page landing</li>
-                    <li>Authentication system</li>
-                    <li>Payment integration</li>
-                    <li>Basic admin panel</li>
-                    <li>Analytics setup</li>
-                    <li>Infrastructure setup</li>
-                </ul>
+        <BlockSection id="terms" backgroundColor="bg-blue-50">
+            <div class="mt-32 space-y-8">
+                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                    <h2 class="text-2xl font-bold mb-4">1. Introduction</h2>
+                    <p>These Terms of Service ("Terms") constitute a legally binding agreement between Łukasz Ziaja
+                        ("Company," "I," "me," or "my"), operating under the business name AppsByLuke, and you
+                        ("Client," "you," or "your") governing the use of my Services and Website.</p>
+                </div>
 
-                <h4 class="text-lg font-bold mb-2">b) Startup Plus</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>2 weeks delivery timeframe</li>
-                    <li>Three core features</li>
-                    <li>Landing page + 2 subpages</li>
-                    <li>Team management</li>
-                    <li>Advanced analytics</li>
-                    <li>Everything in Startup Core</li>
-                </ul>
+                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                    <h2 class="text-2xl font-bold mb-4">2. Services</h2>
+                    <div class="space-y-4">
+                        <p>The Company provides web application development services through two main offerings:</p>
+                        <div class="bg-yellow-50 border-2 border-black p-4">
+                            <h3 class="text-xl font-bold mb-2">MVP Launch Package - $2,499</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Complete MVP in 2 weeks</li>
+                                <li>Core feature implementation</li>
+                                <li>Professional design</li>
+                                <li>User management</li>
+                                <li>Payment processing</li>
+                                <li>Mobile-friendly interface</li>
+                                <li>Launch-ready setup</li>
+                                <li>Optional AI integration</li>
+                            </ul>
+                        </div>
 
-                <h4 class="text-lg font-bold mb-2">c) Startup Pro</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>4 weeks delivery timeframe</li>
-                    <li>Five core features</li>
-                    <li>Landing page + 4 subpages</li>
-                    <li>Advanced analytics suite</li>
-                    <li>API access</li>
-                    <li>Webhook integration</li>
-                    <li>Everything in Startup Plus</li>
-                </ul>
-            </div>
+                        <div class="bg-blue-50 border-2 border-black p-4">
+                            <h3 class="text-xl font-bold mb-2">Ongoing Support - $2,999/month</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>50 hours monthly development</li>
+                                <li>Priority features</li>
+                                <li>Weekly strategy calls</li>
+                                <li>Maintenance & fixes</li>
+                                <li>Performance tracking</li>
+                                <li>Emergency support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                    <h2 class="text-2xl font-bold mb-4">3. Development Process</h2>
+                    <div class="space-y-4">
+                        <div class="bg-pink-50 border-2 border-black p-4">
+                            <h3 class="text-xl font-bold mb-2">Project Phases</h3>
+                            <ol class="list-decimal list-inside space-y-2">
+                                <li>Discovery Phase
+                                    <ul class="list-disc list-inside ml-8">
+                                        <li>Initial consultation call</li>
+                                        <li>Requirements documentation</li>
+                                        <li>Technical specification</li>
+                                    </ul>
+                                </li>
+                                <li>Development Phase
+                                    <ul class="list-disc list-inside ml-8">
+                                        <li>2-week development sprint</li>
+                                        <li>Regular progress updates</li>
+                                        <li>Feature implementation</li>
+                                    </ul>
+                                </li>
+                                <li>Delivery Phase
+                                    <ul class="list-disc list-inside ml-8">
+                                        <li>Testing and QA</li>
+                                        <li>Final review</li>
+                                        <li>Payment processing</li>
+                                        <li>Project handover</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </div>
 
-            <h3 class="text-xl font-bold mb-2">3.2. Development Process</h3>
-            <div class="ml-4 space-y-4">
-                <h4 class="text-lg font-bold mb-2">a) Project Phases</h4>
-                <ol class="list-decimal list-inside ml-4 space-y-4">
-                    <li>Planning Phase
-                        <ul class="list-disc list-inside ml-8">
-                            <li>Requirements gathering and documentation</li>
-                            <li>Technical specification approval</li>
-                            <li>Initial payment (50%)</li>
+                        <div class="bg-green-50 border-2 border-black p-4">
+                            <h3 class="text-xl font-bold mb-2">Technical Stack</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Frontend: Vue.js/Nuxt with Tailwind CSS</li>
+                                <li>Backend: NestJS with TypeScript</li>
+                                <li>Database: SQL with caching layer</li>
+                                <li>Infrastructure: Cloud-hosted with SSL</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                    <h2 class="text-2xl font-bold mb-4">4. Payment Terms</h2>
+                    <div class="space-y-4">
+                        <div class="bg-yellow-50 border-2 border-black p-4">
+                            <h3 class="text-xl font-bold mb-2">MVP Launch Package</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Fixed price: $2,499</li>
+                                <li>Pay after delivery</li>
+                                <li>All-inclusive price</li>
+                                <li>No hidden costs</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-blue-50 border-2 border-black p-4">
+                            <h3 class="text-xl font-bold mb-2">Ongoing Support</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Monthly fee: $2,999</li>
+                                <li>Billed monthly in advance</li>
+                                <li>Exclusive to MVP Launch clients</li>
+                                <li>Cancel anytime with 30-day notice</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-purple-50 border-2 border-black p-4">
+                            <h3 class="text-xl font-bold mb-2">Payment Methods</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Credit/Debit Cards</li>
+                                <li>Bank Transfer</li>
+                                <li>PayPal</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                    <h2 class="text-2xl font-bold mb-4">5. Intellectual Property Rights</h2>
+                    <div class="space-y-4">
+                        <div class="bg-orange-50 border-2 border-black p-4">
+                            <h3 class="text-xl font-bold mb-2">Code Ownership</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Full ownership transfers upon payment</li>
+                                <li>Includes all custom code and assets</li>
+                                <li>Rights to modify and distribute</li>
+                                <li>Source code via private GitHub repository</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-red-50 border-2 border-black p-4">
+                            <h3 class="text-xl font-bold mb-2">Pre-Payment Rights</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Code ownership retained by Company</li>
+                                <li>No rights transfer until payment</li>
+                                <li>Company reserves commercialization rights</li>
+                                <li>Non-payment voids all client rights</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                    <h2 class="text-2xl font-bold mb-4">6. Service Level Agreement</h2>
+                    <div class="space-y-4">
+                        <div class="bg-green-50 border-2 border-black p-4">
+                            <h3 class="text-xl font-bold mb-2">MVP Launch Timeline</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>2-week delivery timeframe</li>
+                                <li>Regular progress updates</li>
+                                <li>Clear milestone tracking</li>
+                                <li>Transparent development process</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-blue-50 border-2 border-black p-4">
+                            <h3 class="text-xl font-bold mb-2">Support Response Times</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Same-day emergency response</li>
+                                <li>24-hour general response time</li>
+                                <li>Weekly strategy calls</li>
+                                <li>Regular status updates</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                    <h2 class="text-2xl font-bold mb-4">7. Data Protection and Security</h2>
+                    <div class="space-y-4">
+                        <div class="bg-yellow-50 border-2 border-black p-4">
+                            <h3 class="text-xl font-bold mb-2">Security Measures</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>GDPR compliance</li>
+                                <li>Encrypted data transmission</li>
+                                <li>Secure code repositories</li>
+                                <li>Regular security updates</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-purple-50 border-2 border-black p-4">
+                            <h3 class="text-xl font-bold mb-2">Data Handling</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Confidential information protection</li>
+                                <li>Secure backup systems</li>
+                                <li>Data processing agreements</li>
+                                <li>Privacy-first approach</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                    <h2 class="text-2xl font-bold mb-4">8. Service Termination</h2>
+                    <div class="space-y-4">
+                        <div class="bg-red-50 border-2 border-black p-4">
+                            <h3 class="text-xl font-bold mb-2">MVP Launch Termination</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Client may terminate before final delivery</li>
+                                <li>No payment required if terminated before delivery</li>
+                                <li>Code ownership retained by Company</li>
+                                <li>Written notice required</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-orange-50 border-2 border-black p-4">
+                            <h3 class="text-xl font-bold mb-2">Ongoing Support Termination</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>30-day notice period required</li>
+                                <li>Monthly payment non-refundable</li>
+                                <li>Service continues until end of paid period</li>
+                                <li>Final documentation provided upon termination</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                    <h2 class="text-2xl font-bold mb-4">9. Governing Law</h2>
+                    <div class="bg-blue-50 border-2 border-black p-4">
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Polish law governs these Terms</li>
+                            <li>EU consumer protection laws apply</li>
+                            <li>Jurisdiction in Wrocław, Poland</li>
+                            <li>Amicable dispute resolution preferred</li>
                         </ul>
-                    </li>
-                    <li>Development Phase
-                        <ul class="list-disc list-inside ml-8">
-                            <li>Core functionality implementation</li>
-                            <li>Regular progress updates</li>
-                            <li>Midpoint review and payment (25%)</li>
+                    </div>
+                </div>
+
+                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                    <h2 class="text-2xl font-bold mb-4">10. Contact Information</h2>
+                    <div class="bg-green-50 border-2 border-black p-4">
+                        <ul class="list-none space-y-2">
+                            <li>Legal Business Name: Łukasz Ziaja</li>
+                            <li>Operating as: AppsByLuke</li>
+                            <li>Address: al. Wiśniowa 36a/304</li>
+                            <li>53-137 Wrocław</li>
+                            <li>Poland</li>
+                            <li>Email: <a href="mailto:luke@appsbyluke.com"
+                                          class="text-blue-600 hover:text-blue-800 underline">luke@appsbyluke.com</a>
+                            </li>
+                            <li>Website: <a href="https://appsbyluke.com"
+                                            class="text-blue-600 hover:text-blue-800 underline">https://appsbyluke.com</a>
+                            </li>
                         </ul>
-                    </li>
-                    <li>Delivery Phase
-                        <ul class="list-disc list-inside ml-8">
-                            <li>Testing and quality assurance</li>
-                            <li>Final review and adjustments</li>
-                            <li>Final payment (25%)</li>
-                            <li>Handover of deliverables</li>
+                    </div>
+                </div>
+
+                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                    <h2 class="text-2xl font-bold mb-4">11. Acknowledgment</h2>
+                    <div class="bg-yellow-100 border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                        <p class="font-bold mb-4">By using the Company's Services or Website, you acknowledge that:</p>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>You have read and understood these Terms of Service</li>
+                            <li>You agree to be bound by these Terms</li>
+                            <li>You have the authority to enter into this agreement</li>
+                            <li>You accept all terms and conditions herein</li>
                         </ul>
-                    </li>
-                </ol>
+                    </div>
+                </div>
 
-                <h4 class="text-lg font-bold mb-2">b) Communication and Updates</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>Regular progress updates via email</li>
-                    <li>Weekly status reports</li>
-                    <li>Milestone completion notifications</li>
-                    <li>Technical consultation as needed</li>
-                </ul>
+                <div class="mt-8 pt-8 border-t-2 border-black">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <p class="text-sm mb-2 md:mb-0">
+                            Last Updated: February 20, 2025
+                            <a href="https://github.com/logical-luke/appsbyluke/commits/main/landing/src/pages/terms-of-service.astro"
+                               class="text-blue-600 hover:text-blue-800 underline ml-2"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                (Version History)
+                            </a>
+                        </p>
+                        <div class="flex items-center gap-2">
+                            <Icon name="tabler:file-certificate" class="w-5 h-5"/>
+                            <span class="text-sm font-bold">Official Terms of Service Document</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <h3 class="text-xl font-bold mb-2">3.3. Deliverables</h3>
-            <div class="ml-4 space-y-4">
-                <h4 class="text-lg font-bold mb-2">a) Code and Documentation</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>Source code via private GitHub repository</li>
-                    <li>Technical documentation</li>
-                    <li>API documentation (where applicable)</li>
-                    <li>Setup and deployment guides</li>
-                </ul>
-
-                <h4 class="text-lg font-bold mb-2">b) Support and Handover</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>Code walkthrough session</li>
-                    <li>Deployment assistance</li>
-                    <li>30 days post-delivery support</li>
-                    <li>Knowledge transfer sessions</li>
-                </ul>
-            </div>
-        </div>
+        </BlockSection>
     </div>
+</Layout>
 
-    <div class="mb-4">
-        <h2 class="text-2xl font-bold mb-4">4. Payment Terms</h2>
-        <div class="ml-4 space-y-4">
-            <h3 class="text-xl font-bold mb-2">4.1. Package Pricing</h3>
-            <div class="ml-4 space-y-4">
-                <h4 class="text-lg font-bold mb-2">a) Standard Rates</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>Startup Core: $4,999</li>
-                    <li>Startup Plus: $9,999</li>
-                    <li>Startup Pro: $19,999</li>
-                    <li>All prices exclude hosting and domain costs</li>
-                </ul>
-
-                <h4 class="text-lg font-bold mb-2">b) Payment Structure</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>50% upfront payment to initiate development</li>
-                    <li>25% at project midpoint milestone</li>
-                    <li>25% upon project completion</li>
-                    <li>All prices in USD</li>
-                </ul>
-            </div>
-
-            <h3 class="text-xl font-bold mb-2">4.2. Payment Methods</h3>
-            <div class="ml-4 space-y-4">
-                <h4 class="text-lg font-bold mb-2">a) Available Payment Options</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>Credit and debit cards</li>
-                    <li>PayPal</li>
-                    <li>Google Pay</li>
-                    <li>Apple Pay</li>
-                    <li>Klarna</li>
-                    <li>Other local payment methods based on region</li>
-                </ul>
-
-                <h4 class="text-lg font-bold mb-2">b) Payment Processing</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>All payments processed securely through PCI-compliant payment processor</li>
-                    <li>Over 250 payment methods supported worldwide</li>
-                    <li>Automatic payment receipts provided</li>
-                    <li>Secure payment data handling</li>
-                </ul>
-            </div>
-
-            <h3 class="text-xl font-bold mb-2">4.3. Payment Terms and Conditions</h3>
-            <div class="ml-4 space-y-4">
-                <h4 class="text-lg font-bold mb-2">a) Payment Timeline</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>Initial payment required before development begins</li>
-                    <li>Midpoint payment due upon milestone completion</li>
-                    <li>Final payment required before final code delivery</li>
-                    <li>All payments non-refundable once development begins</li>
-                </ul>
-
-                <h4 class="text-lg font-bold mb-2">b) Late Payments</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>Development may be paused if payments are delayed</li>
-                    <li>Notification provided for payment issues</li>
-                    <li>5 business days to resolve payment matters</li>
-                    <li>Project timeline may be adjusted due to payment delays</li>
-                </ul>
-            </div>
-
-            <h3 class="text-xl font-bold mb-2">4.4. Invoicing</h3>
-            <div class="ml-4 space-y-4">
-                <h4 class="text-lg font-bold mb-2">a) Invoice Details</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>Detailed invoices provided for all payments</li>
-                    <li>Invoices include itemized services</li>
-                    <li>Payment terms clearly stated</li>
-                    <li>Digital delivery of all invoices</li>
-                </ul>
-
-                <h4 class="text-lg font-bold mb-2">b) Tax Considerations</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>All prices exclusive of applicable taxes</li>
-                    <li>VAT applied where required by law</li>
-                    <li>Client responsible for any local taxes or duties</li>
-                    <li>Tax documentation provided as required</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="mb-4">
-        <h2 class="text-2xl font-bold mb-4">5. Intellectual Property Rights</h2>
-        <div class="ml-4 space-y-4">
-            <h3 class="text-xl font-bold mb-2">5.1. Ownership</h3>
-            <div class="ml-4 space-y-4">
-                <h4 class="text-lg font-bold mb-2">a) Client Rights</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>Full ownership of custom code created for your project</li>
-                    <li>Rights to all project deliverables upon final payment</li>
-                    <li>Perpetual access to delivered code repositories</li>
-                    <li>Rights to modify and distribute the delivered code</li>
-                    <li>Ownership of any custom designs and assets created</li>
-                </ul>
-
-                <h4 class="text-lg font-bold mb-2">b) Company Rights</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>Right to use general programming concepts and techniques</li>
-                    <li>Right to use and develop similar solutions for other clients</li>
-                    <li>Right to use open-source components and libraries</li>
-                    <li>Portfolio rights (subject to confidentiality agreements)</li>
-                </ul>
-            </div>
-
-            <h3 class="text-xl font-bold mb-2">5.2. Confidentiality</h3>
-            <div class="ml-4 space-y-4">
-                <h4 class="text-lg font-bold mb-2">a) Non-Disclosure</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>All client information treated as confidential</li>
-                    <li>No disclosure to third parties</li>
-                    <li>Secure storage and transmission of data</li>
-                    <li>NDA available upon request</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="mb-4">
-        <h2 class="text-2xl font-bold mb-4">6. Service Level Agreements</h2>
-        <div class="ml-4 space-y-4">
-            <h3 class="text-xl font-bold mb-2">6.1. Development Timeline</h3>
-            <div class="ml-4 space-y-4">
-                <h4 class="text-lg font-bold mb-2">a) Package Timelines</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>Startup Core: 1 week</li>
-                    <li>Startup Plus: 2 weeks</li>
-                    <li>Startup Pro: 4 weeks</li>
-                </ul>
-
-                <h4 class="text-lg font-bold mb-2">b) Timeline Conditions</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>Timelines begin after initial payment and requirements approval</li>
-                    <li>Dependent on timely client feedback and approvals</li>
-                    <li>May be adjusted based on scope changes or complexities</li>
-                </ul>
-            </div>
-
-            <h3 class="text-xl font-bold mb-2">6.2. Communication Standards</h3>
-            <div class="ml-4 space-y-4">
-                <h4 class="text-lg font-bold mb-2">a) Response Times</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>General inquiries: Within 1 business day</li>
-                    <li>Technical queries: Within 2 business days</li>
-                    <li>Emergency issues: Priority handling</li>
-                </ul>
-
-                <h4 class="text-lg font-bold mb-2">b) Progress Updates</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>Weekly development updates</li>
-                    <li>Milestone completion notifications</li>
-                    <li>Regular code commits and documentation updates</li>
-                </ul>
-            </div>
-
-            <h3 class="text-xl font-bold mb-2">6.3. Quality Assurance</h3>
-            <div class="ml-4 space-y-4">
-                <h4 class="text-lg font-bold mb-2">a) Development Standards</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>Code quality maintained through industry standards</li>
-                    <li>Regular testing throughout development</li>
-                    <li>Security best practices implementation</li>
-                    <li>Performance optimization</li>
-                </ul>
-
-                <h4 class="text-lg font-bold mb-2">b) Delivery Criteria</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>Functional testing completed</li>
-                    <li>Code documentation provided</li>
-                    <li>Security review conducted</li>
-                    <li>Performance benchmarks met</li>
-                </ul>
-            </div>
-
-            <h3 class="text-xl font-bold mb-2">6.4. Working Hours</h3>
-            <div class="ml-4 space-y-4">
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>Monday through Friday</li>
-                    <li>Central European Time (CET) zone</li>
-                    <li>Excluding Polish national holidays</li>
-                    <li>Standard business hours: 9:00 AM - 5:00 PM CET</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="mb-4">
-        <h2 class="text-2xl font-bold mb-4">7. Data Protection and Security</h2>
-        <div class="ml-4 space-y-4">
-            <h3 class="text-xl font-bold mb-2">7.1. Data Handling</h3>
-            <div class="ml-4 space-y-4">
-                <h4 class="text-lg font-bold mb-2">a) Data Processing</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>GDPR-compliant data processing</li>
-                    <li>Data processed only as necessary for service provision</li>
-                    <li>Personal data handled with strict confidentiality</li>
-                    <li>Privacy-focused analytics implementation</li>
-                </ul>
-
-                <h4 class="text-lg font-bold mb-2">b) Security Measures</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>Secure code repositories</li>
-                    <li>Encrypted data transmission</li>
-                    <li>Industry-standard security practices</li>
-                    <li>Regular security updates</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="mb-4">
-        <h2 class="text-2xl font-bold mb-4">8. Service Termination</h2>
-        <div class="ml-4 space-y-4">
-            <h3 class="text-xl font-bold mb-2">8.1. Project Termination</h3>
-            <div class="ml-4 space-y-4">
-                <h4 class="text-lg font-bold mb-2">a) Client-Initiated Termination</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>Written notice required</li>
-                    <li>Completed milestones non-refundable</li>
-                    <li>Delivery of completed work</li>
-                    <li>Transfer of relevant documentation</li>
-                </ul>
-
-                <h4 class="text-lg font-bold mb-2">b) Post-Termination</h4>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>Access to delivered code maintained</li>
-                    <li>Documentation availability preserved</li>
-                    <li>Optional transition support available</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="mb-4">
-        <h2 class="text-2xl font-bold mb-4">9. Governing Law</h2>
-        <div class="ml-4 space-y-4">
-            <ul class="list-disc list-inside ml-4 space-y-4">
-                <li>Terms governed by Polish law</li>
-                <li>EU consumer protection laws apply where relevant</li>
-                <li>Jurisdiction in courts of Wrocław, Poland</li>
-                <li>Disputes subject to amicable resolution attempt</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="mb-4">
-        <h2 class="text-2xl font-bold mb-4">10. Contact Information</h2>
-        <div class="ml-4 space-y-4">
-            <p>For matters relating to these Terms or my Services:</p>
-            <ul class="list-none ml-4 space-y-4 mt-2">
-                <li>Legal Business Name: Łukasz Ziaja</li>
-                <li>Operating as: AppsByLuke</li>
-                <li>Address: al. Wiśniowa 36a/304</li>
-                <li>53-137 Wrocław</li>
-                <li>Poland</li>
-                <li>Email: <a href="mailto:luke@appsbyluke.com"
-                              class="text-blue-600 hover:text-blue-800 underline">luke@appsbyluke.com</a>
-                </li>
-                <li>Website: <a href="https://appsbyluke.com"
-                                class="text-blue-600 hover:text-blue-800 underline">https://appsbyluke.com</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="mb-4">
-        <h2 class="text-2xl font-bold mb-4">11. Acknowledgment</h2>
-        <div class="ml-4 space-y-4">
-            <div class="bg-yellow-100 border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                <p class="font-bold mb-4">By using the Company's Services or Website, you acknowledge that:</p>
-                <ul class="list-disc list-inside ml-4 space-y-4">
-                    <li>You have read and understood these Terms of Service</li>
-                    <li>You agree to be bound by these Terms</li>
-                    <li>You have the authority to enter into this agreement</li>
-                    <li>You accept all terms and conditions herein</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="mt-8 pt-8 border-t-2 border-black">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-            <p class="text-sm mb-2 md:mb-0">
-                Last Updated: February 15, 2025
-                <a href="https://github.com/logical-luke/appsbyluke/commits/main/landing/src/pages/terms-of-service.astro"
-                   class="text-blue-600 hover:text-blue-800 underline ml-2"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    (Version History)
-                </a>
-            </p>
-            <div class="flex items-center gap-2">
-                <Icon name="tabler:file-certificate" class="w-5 h-5"/>
-                <span class="text-sm font-bold">Official Terms of Service Document</span>
-            </div>
-        </div>
-    </div>
-</SubpageLayout>
