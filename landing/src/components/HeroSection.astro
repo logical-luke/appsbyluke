@@ -1,54 +1,62 @@
 ---
 import {Icon} from 'astro-icon/components';
-import {Image} from 'astro:assets';
 ---
+<div class="bg-blue-50 flex items-center justify-center border-y-2 border-black overflow-hidden min-h-screen">
+    <div class="w-full max-w-7xl px-3 md:px-4 z-10">
+        <section id="hero" class="flex items-center justify-center min-h-screen py-4 md:py-8 relative">
+            <div class="flex flex-col lg:flex-row gap-4 md:gap-8 items-center w-full">
+                <div class="w-full text-center">
+                    <div class="bg-white p-4 md:p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                        <h1 class="text-3xl md:text-4xl lg:text-7xl font-bold text-black mb-3 md:mb-4">
+                            Launch App In Weeks
+                        </h1>
+                        <h2 class="text-lg md:text-2xl lg:text-3xl font-bold text-black mb-6 md:mb-8">Efficient,
+                            Affordable, Rapid</h2>
 
-<div class="relative">
-    <div class="bg-blue-50 flex items-center justify-center border-y-2 border-black overflow-hidden py-4 lg:py-20">
-        <div class="max-w-7xl mx-auto px-4 relative z-10">
-            <section id="hero" class="mt-32">
-                <div class="flex flex-col lg:flex-row gap-8 items-center">
-                    <div class="w-full text-center transform rotate-1">
-                        <div class="bg-white p-6 md:p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                            <h1 class="text-4xl md:text-7xl font-bold text-black mb-4">
-                                Launch App In Weeks
-                            </h1>
-                            <h2 class="text-xl md:text-3xl font-bold text-black mb-8">Efficient, Affordable, Rapid</h2>
-
-                            <div class="flex justify-center mb-8">
-                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl">
-                                    <div class="flex items-center gap-3">
-                                        <Icon name="tabler:coin" class="w-6 h-6"/>
-                                        <span class="text-lg">Fixed-Price MVP</span>
-                                    </div>
-                                    <div class="flex items-center gap-3">
-                                        <Icon name="tabler:route" class="w-6 h-6"/>
-                                        <span class="text-lg">Clear Process</span>
-                                    </div>
-                                    <div class="flex items-center gap-3">
-                                        <Icon name="tabler:shield-check" class="w-6 h-6"/>
-                                        <span class="text-lg">Pay After Delivery</span>
-                                    </div>
+                        <div class="flex justify-center mb-6 md:mb-8">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 max-w-3xl">
+                                <div class="flex items-center justify-center md:justify-start gap-2 md:gap-3">
+                                    <Icon name="tabler:coin" class="w-5 h-5 md:w-6 md:h-6"/>
+                                    <span class="text-base md:text-lg">Fixed-Price MVP</span>
+                                </div>
+                                <div class="flex items-center justify-center md:justify-start gap-2 md:gap-3">
+                                    <Icon name="tabler:route" class="w-5 h-5 md:w-6 md:h-6"/>
+                                    <span class="text-base md:text-lg">Clear Process</span>
+                                </div>
+                                <div class="flex items-center justify-center md:justify-start gap-2 md:gap-3">
+                                    <Icon name="tabler:shield-check" class="w-5 h-5 md:w-6 md:h-6"/>
+                                    <span class="text-base md:text-lg">Pay After Delivery</span>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="flex flex-col items-center justify-center space-y-4">
-                                <a href="https://calendar.app.google/nhkv4uwW67KvXLAMA" target="_blank"
-                                    class="relative text-center bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 inline-block text-xl transform hover:rotate-2 flex items-center gap-2"
-                                >
-                                    <Icon name="tabler:calendar-event" class="w-6 h-6"/>
-                                    Book a Call
-                                    <div class="absolute -top-2 -left-4 w-8 h-8 bg-purple-400 border-4 border-black rounded-full animate-bounce"></div>
-                                </a>
-                                <p class="text-sm text-gray-600 max-w-md">
-                                    Zero pressure consultation. Just a friendly chat to understand your vision and explore possibilities.
+                        <div class="flex flex-col items-center justify-center space-y-3 md:space-y-4">
+                            <a href="https://calendar.app.google/nhkv4uwW67KvXLAMA" target="_blank"
+                               class="relative text-center bg-green-700 hover:bg-green-800 text-white font-bold py-2.5 md:py-3 px-4 md:px-6 rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 inline-block text-lg md:text-xl transform hover:rotate-2 flex items-center gap-2"
+                            >
+                                <Icon name="tabler:calendar-event" class="w-5 h-5 md:w-6 md:h-6"/>
+                                Book a Call
+                                <div class="absolute -top-2 -left-4 w-6 h-6 md:w-8 md:h-8 bg-purple-400 border-4 border-black rounded-full animate-bounce"></div>
+                            </a>
+                            <div class="px-2 flex flex-col gap-1">
+                                <p class="text-xs md:text-sm text-gray-600 max-w-md">
+                                    Zero pressure consultation.
+                                </p>
+                                <p class="text-xs md:text-sm text-gray-600 max-w-md">
+                                    Just a friendly chat to understand your vision and explore possibilities.
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+
+            <a href="#pricing"
+               class="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer animate-bounce-slow flex flex-col items-center text-black hover:text-gray-700 transition-colors duration-500">
+                <span class="text-xs md:text-sm mb-1 md:mb-2">Read More</span>
+                <Icon name="tabler:chevron-down" class="w-6 h-6 md:w-8 md:h-8"/>
+            </a>
+        </section>
     </div>
 </div>
 
@@ -67,4 +75,42 @@ import {Image} from 'astro:assets';
     .animate-bounce {
         animation: bounce 1s infinite;
     }
+
+    @keyframes bounce-slow {
+        0%, 100% {
+            transform: translateY(0) translateX(-50%);
+        }
+        50% {
+            transform: translateY(10px) translateX(-50%);
+        }
+    }
+
+    .animate-bounce-slow {
+        animation: bounce-slow 2s ease-in-out infinite;
+    }
+
+    :global(html) {
+        scroll-behavior: smooth;
+    }
 </style>
+
+
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach((anchor: Element) => {
+        if (!(anchor instanceof HTMLAnchorElement)) return;
+
+        anchor.addEventListener('click', function (e: MouseEvent) {
+            e.preventDefault();
+            const href = this.getAttribute('href');
+            if (!href) return;
+
+            const target = document.querySelector(href) as HTMLElement | null;
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>
