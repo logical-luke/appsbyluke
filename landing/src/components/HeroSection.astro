@@ -1,20 +1,20 @@
 ---
 import {Icon} from 'astro-icon/components';
 ---
-<div class="bg-blue-50 flex items-center justify-center border-y-2 border-black overflow-hidden min-h-screen">
-    <div class="w-full max-w-7xl px-3 md:px-4 z-10">
-        <section id="hero" class="flex items-center justify-center min-h-screen py-4 md:py-8 relative">
-            <div class="flex flex-col lg:flex-row gap-4 md:gap-8 items-center w-full">
+<div class="bg-blue-50 flex items-start md:items-center justify-center border-y-2 border-black overflow-hidden min-h-screen">
+    <div class="w-full max-w-7xl px-3 md:px-4 z-10 pt-4 md:pt-0">
+        <section id="hero" class="flex items-start md:items-center justify-center min-h-screen relative">
+            <div class="flex flex-col lg:flex-row gap-4 md:gap-8 items-center w-full mt-4 md:mt-0">
                 <div class="w-full text-center">
                     <div class="bg-white p-4 md:p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                        <h1 class="text-3xl md:text-4xl lg:text-7xl font-bold text-black mb-3 md:mb-4">
+                        <h1 class="text-3xl md:text-4xl lg:text-7xl font-bold text-black mb-2 md:mb-4">
                             Launch App In Weeks
                         </h1>
-                        <h2 class="text-lg md:text-2xl lg:text-3xl font-bold text-black mb-6 md:mb-8">Efficient,
+                        <h2 class="text-lg md:text-2xl lg:text-3xl font-bold text-black mb-4 md:mb-8">Efficient,
                             Affordable, Rapid</h2>
 
-                        <div class="flex justify-center mb-6 md:mb-8">
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 max-w-3xl">
+                        <div class="flex justify-center mb-4 md:mb-8">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 max-w-3xl">
                                 <div class="flex items-center justify-center md:justify-start gap-2 md:gap-3">
                                     <Icon name="tabler:coin" class="w-5 h-5 md:w-6 md:h-6"/>
                                     <span class="text-base md:text-lg">Fixed-Price MVP</span>
@@ -30,15 +30,16 @@ import {Icon} from 'astro-icon/components';
                             </div>
                         </div>
 
-                        <div class="flex flex-col items-center justify-center space-y-3 md:space-y-4">
-                            <a href="https://calendar.app.google/nhkv4uwW67KvXLAMA" target="_blank"
-                               class="relative text-center bg-green-700 hover:bg-green-800 text-white font-bold py-2.5 md:py-3 px-4 md:px-6 rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 inline-block text-lg md:text-xl transform hover:rotate-2 flex items-center gap-2"
+                        <div class="flex flex-col items-center justify-center space-y-2 md:space-y-4">
+                            <a href="https://calendar.app.google/nhkv4uwW67KvXLAMA"
+                               target="_blank"
+                               class="relative booking-button bg-green-700 hover:bg-green-800 text-white font-bold py-2 md:py-3 px-4 md:px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 flex items-center justify-center gap-2 text-lg md:text-xl"
                             >
-                                <Icon name="tabler:calendar-event" class="w-5 h-5 md:w-6 md:h-6"/>
+                                <Icon name="tabler:calendar" class="w-5 h-5 md:w-6 md:h-6"/>
                                 Book a Call
                                 <div class="absolute -top-2 -left-4 w-6 h-6 md:w-8 md:h-8 bg-purple-400 border-4 border-black rounded-full animate-bounce"></div>
                             </a>
-                            <div class="px-2 flex flex-col gap-1">
+                            <div class="px-2 flex flex-col gap-0.5 md:gap-1">
                                 <p class="text-xs md:text-sm text-gray-600 max-w-md">
                                     Zero pressure consultation.
                                 </p>
@@ -52,7 +53,7 @@ import {Icon} from 'astro-icon/components';
             </div>
 
             <a href="#pricing"
-               class="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer animate-bounce-slow flex flex-col items-center text-black hover:text-gray-700 transition-colors duration-500">
+               class="absolute bottom-2 md:bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer animate-bounce-slow flex flex-col items-center text-black hover:text-gray-700 transition-colors duration-500">
                 <span class="text-xs md:text-sm mb-1 md:mb-2">Read More</span>
                 <Icon name="tabler:chevron-down" class="w-6 h-6 md:w-8 md:h-8"/>
             </a>
@@ -93,7 +94,6 @@ import {Icon} from 'astro-icon/components';
         scroll-behavior: smooth;
     }
 </style>
-
 
 <script>
     document.querySelectorAll('a[href^="#"]').forEach((anchor: Element) => {
