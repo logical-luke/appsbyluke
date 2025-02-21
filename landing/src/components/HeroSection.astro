@@ -52,10 +52,11 @@ import {Icon} from 'astro-icon/components';
                 </div>
             </div>
 
-            <a href="#pricing"
-               class="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer animate-bounce-slow flex flex-col items-center text-black hover:text-gray-700 transition-colors duration-500">
-                <span class="text-xs md:text-sm mb-1 md:mb-2">Read More</span>
-                <Icon name="tabler:chevron-down" class="w-6 h-6 md:w-8 md:h-8"/>
+            <a href="#pricing" class="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer">
+                <div class="bg-white border-2 border-black px-3 py-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 flex items-center gap-2">
+                    <span class="text-xs md:text-sm font-bold">Read More</span>
+                    <Icon name="tabler:chevron-down" class="w-6 h-6 md:w-8 md:h-8"/>
+                </div>
             </a>
         </section>
     </div>
