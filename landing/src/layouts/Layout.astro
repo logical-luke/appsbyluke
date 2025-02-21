@@ -4,6 +4,7 @@ import '@fontsource/bebas-neue';
 import '@fontsource-variable/rubik';
 import {SEO} from "astro-seo";
 import {ClientRouter} from 'astro:transitions';
+import Logo from "../components/Logo.astro";
 import Footer from "../components/Footer.astro";
 
 export interface Props {
@@ -54,6 +55,7 @@ const isProduction = import.meta.env.PROD;
 </head>
 <body class="font-sans">
     <div class="flex flex-col min-h-screen">
+        <Logo />
         <main transition:animate="initial" class="grow overflow-hidden">
             <slot/>
         </main>

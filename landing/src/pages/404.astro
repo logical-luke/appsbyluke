@@ -5,22 +5,10 @@ import {Image} from 'astro:assets';
 ---
 
 <Layout
-    title="Page Not Found | AppsByLuke"
-    description="Oops! The page you're looking for doesn't exist."
+        title="Page Not Found | AppsByLuke"
+        description="Oops! The page you're looking for doesn't exist."
 >
-    <div class="relative min-h-[calc(100vh-140px)]">
-        <div class="absolute top-4 left-6 transform -rotate-2 z-20">
-            <a href="/" class="inline-block">
-                <Image
-                    src='/appsbyluke.svg'
-                    width="256.2"
-                    loading="eager"
-                    height="120"
-                    alt="AppsByLuke Logo"
-                />
-            </a>
-        </div>
-
+    <div class="min-h-[calc(100vh-140px)]">
         <BlockSection id="404" backgroundColor="bg-blue-50">
             <div class="mt-32 relative flex flex-col justify-center min-h-[calc(100vh-398px)]">
                 <div class="absolute top-0 left-0 w-16 h-16 md:w-24 md:h-24 bg-blue-400 border-4 border-black transform -rotate-12 -translate-x-8 -translate-y-8 md:-translate-x-12 md:-translate-y-12"></div>
@@ -36,7 +24,8 @@ import {Image} from 'astro:assets';
                     </div>
 
                     <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] space-y-4 mb-8">
-                        <p class="text-lg md:text-xl">You've stumbled into the internet's Bermuda Triangle. What happened?</p>
+                        <p class="text-lg md:text-xl">You've stumbled into the internet's Bermuda Triangle. What
+                            happened?</p>
                         <ul class="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
                             <li>The page took an extended coffee break.</li>
                             <li>A mischievous AI had your URL for breakfast.</li>

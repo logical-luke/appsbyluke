@@ -6,382 +6,368 @@ import {Image} from 'astro:assets';
 ---
 
 <Layout
-    title="Privacy Policy | AppsByLuke"
-    description="This Privacy Policy outlines how AppsByLuke collects, uses, and protects your personal information when using my Services and Website."
+        title="Privacy Policy | AppsByLuke"
+        description="This Privacy Policy outlines how AppsByLuke collects, uses, and protects your personal information when using my Services and Website."
 >
-    <div class="relative">
-        <div class="absolute top-4 left-6 transform -rotate-2 z-20">
-            <a href="/" class="inline-block">
-                <Image
-                    src='/appsbyluke.svg'
-                    width="256.2"
-                    loading="eager"
-                    height="120"
-                    alt="AppsByLuke Logo"
-                />
-            </a>
-        </div>
+    <BlockSection id="privacy" backgroundColor="bg-blue-50">
+        <div class="mt-32 space-y-8">
+            <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <h2 class="text-2xl font-bold mb-4">1. Introduction</h2>
+                <p>This Privacy Policy describes how Łukasz Ziaja ("Company," "I," "me," or "my"), operating under
+                    the business name AppsByLuke, collects, uses, and protects your information when you use my
+                    Services and Website. By using my Services, you agree to the collection and use of information
+                    in accordance with this Privacy Policy.</p>
+            </div>
 
-        <BlockSection id="privacy" backgroundColor="bg-blue-50">
-            <div class="mt-32 space-y-8">
-                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                    <h2 class="text-2xl font-bold mb-4">1. Introduction</h2>
-                    <p>This Privacy Policy describes how Łukasz Ziaja ("Company," "I," "me," or "my"), operating under
-                        the business name AppsByLuke, collects, uses, and protects your information when you use my
-                        Services and Website. By using my Services, you agree to the collection and use of information
-                        in accordance with this Privacy Policy.</p>
-                </div>
-
-                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                    <h2 class="text-2xl font-bold mb-4">2. Definitions</h2>
-                    <div class="space-y-4">
-                        <div class="bg-yellow-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">2.1. Company</h3>
-                            <p>"Company" refers to Łukasz Ziaja, registered at al. Wiśniowa 36a/304 53-137 Wrocław, Poland,
-                                operating under the business name AppsByLuke.</p>
-                        </div>
-
-                        <div class="bg-blue-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">2.2. Website</h3>
-                            <p>"Website" refers to https://appsbyluke.com</p>
-                        </div>
-
-                        <div class="bg-green-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">2.3. Personal Data</h3>
-                            <p>Information that can be used to identify you directly or indirectly.</p>
-                        </div>
-
-                        <div class="bg-pink-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">2.4. Usage Data</h3>
-                            <p>Information collected automatically through the use of my Services.</p>
-                        </div>
+            <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <h2 class="text-2xl font-bold mb-4">2. Definitions</h2>
+                <div class="space-y-4">
+                    <div class="bg-yellow-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">2.1. Company</h3>
+                        <p>"Company" refers to Łukasz Ziaja, registered at al. Wiśniowa 36a/304 53-137 Wrocław, Poland,
+                            operating under the business name AppsByLuke.</p>
                     </div>
-                </div>
 
-                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                    <h2 class="text-2xl font-bold mb-4">3. Data Collection</h2>
-                    <div class="space-y-4">
-                        <div class="bg-yellow-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">3.1. Personal Data</h3>
-                            <p>I may collect:</p>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Name and contact information</li>
-                                <li>Business information</li>
-                                <li>Payment details</li>
-                                <li>Communication preferences</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-blue-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">3.2. Usage Data</h3>
-                            <p>I automatically collect:</p>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Browser type and version</li>
-                                <li>Access times and dates</li>
-                                <li>Pages viewed</li>
-                                <li>Device information</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-green-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">3.3. Analytics</h3>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Self-hosted Plausible Analytics (cookie-free analytics solution)</li>
-                                <li>No personal data collection for analytics purposes</li>
-                                <li>No cookies used for tracking</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-pink-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">3.4. Third-Party Service Providers</h3>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Monitor and analyze website usage</li>
-                                <li>Process payments</li>
-                                <li>Provide hosting services</li>
-                                <li>Send communications</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-purple-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">3.5. Data Collection Purposes</h3>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>To provide and maintain my Services</li>
-                                <li>To notify you about changes to my Services</li>
-                                <li>To provide customer support</li>
-                                <li>To gather analysis for improving my Services</li>
-                                <li>To monitor usage of my Services</li>
-                                <li>To detect, prevent and address technical issues</li>
-                                <li>To fulfill legal obligations</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-orange-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">3.6. Legal Requirements</h3>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>To comply with legal obligations</li>
-                                <li>To protect and defend my rights or property</li>
-                                <li>To prevent or investigate possible wrongdoing</li>
-                                <li>To protect against legal liability</li>
-                            </ul>
-                        </div>
+                    <div class="bg-blue-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">2.2. Website</h3>
+                        <p>"Website" refers to https://appsbyluke.com</p>
                     </div>
-                </div>
 
-                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                    <h2 class="text-2xl font-bold mb-4">4. Data Processing</h2>
-                    <div class="space-y-4">
-                        <div class="bg-yellow-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">4.1. Data Processing Location</h3>
-                            <p>Your information is processed at my operating offices and in any other places where the
-                                parties involved in the processing are located. This means that your data may be transferred
-                                to — and maintained on — computers located outside of your state, province, country, or
-                                other governmental jurisdiction.</p>
-                        </div>
-
-                        <div class="bg-blue-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">4.2. Data Processing Consent</h3>
-                            <p>Your consent to this Privacy Policy followed by your submission of personal information
-                                represents your agreement to such transfer.</p>
-                        </div>
-
-                        <div class="bg-green-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">4.3. Data Processing Security</h3>
-                            <p>I take all steps reasonably necessary to ensure that your data is treated securely and in
-                                accordance with this Privacy Policy. No transfer of your Personal Data will take place to an
-                                organization or a country unless there are adequate controls in place.</p>
-                        </div>
+                    <div class="bg-green-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">2.3. Personal Data</h3>
+                        <p>Information that can be used to identify you directly or indirectly.</p>
                     </div>
-                </div>
 
-                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                    <h2 class="text-2xl font-bold mb-4">5. Data Protection</h2>
-                    <div class="space-y-4">
-                        <div class="bg-yellow-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">5.1. Security Measures</h3>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Implementation of industry-standard security protocols</li>
-                                <li>Regular security audits and updates</li>
-                                <li>Secure data encryption in transit and at rest</li>
-                                <li>Access controls and authentication measures</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-blue-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">5.2. Data Breaches</h3>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Prompt notification of any security breaches</li>
-                                <li>Investigation and mitigation procedures</li>
-                                <li>Cooperation with relevant authorities</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-green-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">5.3. International Data Transfers</h3>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>All international transfers comply with GDPR requirements</li>
-                                <li>Standard Contractual Clauses (SCCs) are implemented where necessary</li>
-                                <li>Appropriate safeguards are in place for data transfers outside the EEA</li>
-                                <li>Transparency about data storage locations and transfer mechanisms</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                    <h2 class="text-2xl font-bold mb-4">6. Data Storage and Transfer</h2>
-                    <div class="space-y-4">
-                        <div class="bg-yellow-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">6.1. Storage Location</h3>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Data stored both within and outside the European Economic Area (EEA)</li>
-                                <li>Use of international service providers including:
-                                    <ul class="list-disc list-inside ml-8 mt-2">
-                                        <li>Cloudflare (USA)</li>
-                                        <li>Other US-based cloud service providers</li>
-                                    </ul>
-                                </li>
-                                <li>International transfers protected by appropriate safeguards:
-                                    <ul class="list-disc list-inside ml-8 mt-2">
-                                        <li>Standard Contractual Clauses (SCCs)</li>
-                                        <li>Service providers' compliance with EU-US Data Privacy Framework</li>
-                                        <li>Additional technical and organizational measures</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-blue-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">6.2. Retention Period</h3>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Data retained only as long as necessary</li>
-                                <li>Analytics data retained for 14 months</li>
-                                <li>Regular review of stored information</li>
-                                <li>Secure deletion of unnecessary data</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                    <h2 class="text-2xl font-bold mb-4">7. Your Rights</h2>
-                    <div class="space-y-4">
-                        <div class="bg-yellow-50 border-2 border-black p-4">
-                            <p>Under GDPR, you have the following rights:</p>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Right to access your personal data</li>
-                                <li>Right to rectification of inaccurate data</li>
-                                <li>Right to erasure ("right to be forgotten")</li>
-                                <li>Right to restrict processing</li>
-                                <li>Right to data portability</li>
-                                <li>Right to object to processing</li>
-                                <li>Right to withdraw consent</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                    <h2 class="text-2xl font-bold mb-4">8. Cookies and Analytics</h2>
-                    <div class="space-y-4">
-                        <div class="bg-yellow-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">8.1. Types of Cookies Used</h3>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Essential cookies for website functionality only</li>
-                                <li>No tracking or analytics cookies used</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-blue-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">8.2. Analytics</h3>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Self-hosted Plausible Analytics for basic website statistics</li>
-                                <li>No personal data collection</li>
-                                <li>No cookies required for analytics</li>
-                                <li>Compliant with GDPR and privacy regulations</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-green-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">8.3. Third-Party Services</h3>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Payment processors for transactions</li>
-                                <li>Hosting and infrastructure providers</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                    <h2 class="text-2xl font-bold mb-4">9. Children's Privacy</h2>
-                    <div class="space-y-4">
-                        <div class="bg-yellow-50 border-2 border-black p-4">
-                            <p>My Services are not intended for use by children under 18 years of age. I do not knowingly
-                                collect personal information from children. If you become aware that a child has provided me
-                                with personal information, please contact me.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                    <h2 class="text-2xl font-bold mb-4">10. Changes to Privacy Policy</h2>
-                    <div class="space-y-4">
-                        <div class="bg-yellow-50 border-2 border-black p-4">
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Right to update this policy at any time</li>
-                                <li>Notification of material changes via email</li>
-                                <li>30 days notice for significant changes</li>
-                                <li>Continued use constitutes acceptance</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                    <h2 class="text-2xl font-bold mb-4">11. Legal Basis for Processing</h2>
-                    <div class="space-y-4">
-                        <div class="bg-yellow-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">11.1. I process your data based on:</h3>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Contract performance</li>
-                                <li>Legal obligations</li>
-                                <li>Legitimate interests</li>
-                                <li>Your consent</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-blue-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">11.2. Legitimate Interests Include:</h3>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Improving my Services</li>
-                                <li>Security and fraud prevention</li>
-                                <li>Business administration</li>
-                                <li>Marketing (where permitted)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                    <h2 class="text-2xl font-bold mb-4">12. Contact Information</h2>
-                    <div class="space-y-4">
-                        <div class="bg-yellow-50 border-2 border-black p-4">
-                            <p class="mb-4">For any questions about this Privacy Policy or my data practices:</p>
-                            <ul class="list-none space-y-2">
-                                <li>Data Controller: Łukasz Ziaja</li>
-                                <li>Operating as: AppsByLuke</li>
-                                <li>Address: al. Wiśniowa 36a/304</li>
-                                <li>53-137 Wrocław</li>
-                                <li>Poland</li>
-                                <li>Email: <a href="mailto:privacy@appsbyluke.com"
-                                              class="text-blue-600 hover:text-blue-800 underline">privacy@appsbyluke.com</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-blue-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">Response Times for Data Requests</h3>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Access requests: Within 30 days</li>
-                                <li>Deletion requests: Within 30 days</li>
-                                <li>Data portability requests: Within 30 days</li>
-                                <li>Privacy concerns: Within 5 business days</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-green-50 border-2 border-black p-4">
-                            <h3 class="text-xl font-bold mb-2">Supervisory Authority</h3>
-                            <p class="mb-4">You have the right to lodge a complaint with a supervisory authority. For
-                                Poland, the supervisory authority is:</p>
-                            <ul class="list-none space-y-2">
-                                <li>President of the Personal Data Protection Office (UODO)</li>
-                                <li>ul. Stawki 2, 00-193 Warsaw</li>
-                                <li>Poland</li>
-                                <li>Website: <a href="https://uodo.gov.pl/"
-                                                class="text-blue-600 hover:text-blue-800 underline">https://uodo.gov.pl/</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-8 pt-8 border-t-2 border-black">
-                    <div class="flex flex-col md:flex-row justify-between items-center">
-                        <p class="text-sm mb-2 md:mb-0">
-                            Last Updated: February 20, 2025
-                            <a href="https://github.com/logical-luke/appsbyluke/commits/main/landing/src/pages/privacy-policy.astro"
-                               class="text-blue-600 hover:text-blue-800 underline ml-2"
-                               target="_blank"
-                               rel="noopener noreferrer">
-                                (Version History)
-                            </a>
-                        </p>
-                        <div class="flex items-center gap-2">
-                            <Icon name="tabler:shield-lock" class="w-5 h-5"/>
-                            <span class="text-sm font-bold">Official Privacy Policy Document</span>
-                        </div>
+                    <div class="bg-pink-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">2.4. Usage Data</h3>
+                        <p>Information collected automatically through the use of my Services.</p>
                     </div>
                 </div>
             </div>
-        </BlockSection>
-    </div>
+
+            <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <h2 class="text-2xl font-bold mb-4">3. Data Collection</h2>
+                <div class="space-y-4">
+                    <div class="bg-yellow-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">3.1. Personal Data</h3>
+                        <p>I may collect:</p>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Name and contact information</li>
+                            <li>Business information</li>
+                            <li>Payment details</li>
+                            <li>Communication preferences</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-blue-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">3.2. Usage Data</h3>
+                        <p>I automatically collect:</p>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Browser type and version</li>
+                            <li>Access times and dates</li>
+                            <li>Pages viewed</li>
+                            <li>Device information</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-green-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">3.3. Analytics</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Self-hosted Plausible Analytics (cookie-free analytics solution)</li>
+                            <li>No personal data collection for analytics purposes</li>
+                            <li>No cookies used for tracking</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-pink-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">3.4. Third-Party Service Providers</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Monitor and analyze website usage</li>
+                            <li>Process payments</li>
+                            <li>Provide hosting services</li>
+                            <li>Send communications</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-purple-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">3.5. Data Collection Purposes</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>To provide and maintain my Services</li>
+                            <li>To notify you about changes to my Services</li>
+                            <li>To provide customer support</li>
+                            <li>To gather analysis for improving my Services</li>
+                            <li>To monitor usage of my Services</li>
+                            <li>To detect, prevent and address technical issues</li>
+                            <li>To fulfill legal obligations</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-orange-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">3.6. Legal Requirements</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>To comply with legal obligations</li>
+                            <li>To protect and defend my rights or property</li>
+                            <li>To prevent or investigate possible wrongdoing</li>
+                            <li>To protect against legal liability</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <h2 class="text-2xl font-bold mb-4">4. Data Processing</h2>
+                <div class="space-y-4">
+                    <div class="bg-yellow-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">4.1. Data Processing Location</h3>
+                        <p>Your information is processed at my operating offices and in any other places where the
+                            parties involved in the processing are located. This means that your data may be transferred
+                            to — and maintained on — computers located outside of your state, province, country, or
+                            other governmental jurisdiction.</p>
+                    </div>
+
+                    <div class="bg-blue-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">4.2. Data Processing Consent</h3>
+                        <p>Your consent to this Privacy Policy followed by your submission of personal information
+                            represents your agreement to such transfer.</p>
+                    </div>
+
+                    <div class="bg-green-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">4.3. Data Processing Security</h3>
+                        <p>I take all steps reasonably necessary to ensure that your data is treated securely and in
+                            accordance with this Privacy Policy. No transfer of your Personal Data will take place to an
+                            organization or a country unless there are adequate controls in place.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <h2 class="text-2xl font-bold mb-4">5. Data Protection</h2>
+                <div class="space-y-4">
+                    <div class="bg-yellow-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">5.1. Security Measures</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Implementation of industry-standard security protocols</li>
+                            <li>Regular security audits and updates</li>
+                            <li>Secure data encryption in transit and at rest</li>
+                            <li>Access controls and authentication measures</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-blue-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">5.2. Data Breaches</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Prompt notification of any security breaches</li>
+                            <li>Investigation and mitigation procedures</li>
+                            <li>Cooperation with relevant authorities</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-green-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">5.3. International Data Transfers</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>All international transfers comply with GDPR requirements</li>
+                            <li>Standard Contractual Clauses (SCCs) are implemented where necessary</li>
+                            <li>Appropriate safeguards are in place for data transfers outside the EEA</li>
+                            <li>Transparency about data storage locations and transfer mechanisms</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <h2 class="text-2xl font-bold mb-4">6. Data Storage and Transfer</h2>
+                <div class="space-y-4">
+                    <div class="bg-yellow-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">6.1. Storage Location</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Data stored both within and outside the European Economic Area (EEA)</li>
+                            <li>Use of international service providers including:
+                                <ul class="list-disc list-inside ml-8 mt-2">
+                                    <li>Cloudflare (USA)</li>
+                                    <li>Other US-based cloud service providers</li>
+                                </ul>
+                            </li>
+                            <li>International transfers protected by appropriate safeguards:
+                                <ul class="list-disc list-inside ml-8 mt-2">
+                                    <li>Standard Contractual Clauses (SCCs)</li>
+                                    <li>Service providers' compliance with EU-US Data Privacy Framework</li>
+                                    <li>Additional technical and organizational measures</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-blue-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">6.2. Retention Period</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Data retained only as long as necessary</li>
+                            <li>Analytics data retained for 14 months</li>
+                            <li>Regular review of stored information</li>
+                            <li>Secure deletion of unnecessary data</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <h2 class="text-2xl font-bold mb-4">7. Your Rights</h2>
+                <div class="space-y-4">
+                    <div class="bg-yellow-50 border-2 border-black p-4">
+                        <p>Under GDPR, you have the following rights:</p>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Right to access your personal data</li>
+                            <li>Right to rectification of inaccurate data</li>
+                            <li>Right to erasure ("right to be forgotten")</li>
+                            <li>Right to restrict processing</li>
+                            <li>Right to data portability</li>
+                            <li>Right to object to processing</li>
+                            <li>Right to withdraw consent</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <h2 class="text-2xl font-bold mb-4">8. Cookies and Analytics</h2>
+                <div class="space-y-4">
+                    <div class="bg-yellow-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">8.1. Types of Cookies Used</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Essential cookies for website functionality only</li>
+                            <li>No tracking or analytics cookies used</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-blue-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">8.2. Analytics</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Self-hosted Plausible Analytics for basic website statistics</li>
+                            <li>No personal data collection</li>
+                            <li>No cookies required for analytics</li>
+                            <li>Compliant with GDPR and privacy regulations</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-green-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">8.3. Third-Party Services</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Payment processors for transactions</li>
+                            <li>Hosting and infrastructure providers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <h2 class="text-2xl font-bold mb-4">9. Children's Privacy</h2>
+                <div class="space-y-4">
+                    <div class="bg-yellow-50 border-2 border-black p-4">
+                        <p>My Services are not intended for use by children under 18 years of age. I do not knowingly
+                            collect personal information from children. If you become aware that a child has provided me
+                            with personal information, please contact me.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <h2 class="text-2xl font-bold mb-4">10. Changes to Privacy Policy</h2>
+                <div class="space-y-4">
+                    <div class="bg-yellow-50 border-2 border-black p-4">
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Right to update this policy at any time</li>
+                            <li>Notification of material changes via email</li>
+                            <li>30 days notice for significant changes</li>
+                            <li>Continued use constitutes acceptance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <h2 class="text-2xl font-bold mb-4">11. Legal Basis for Processing</h2>
+                <div class="space-y-4">
+                    <div class="bg-yellow-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">11.1. I process your data based on:</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Contract performance</li>
+                            <li>Legal obligations</li>
+                            <li>Legitimate interests</li>
+                            <li>Your consent</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-blue-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">11.2. Legitimate Interests Include:</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Improving my Services</li>
+                            <li>Security and fraud prevention</li>
+                            <li>Business administration</li>
+                            <li>Marketing (where permitted)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <h2 class="text-2xl font-bold mb-4">12. Contact Information</h2>
+                <div class="space-y-4">
+                    <div class="bg-yellow-50 border-2 border-black p-4">
+                        <p class="mb-4">For any questions about this Privacy Policy or my data practices:</p>
+                        <ul class="list-none space-y-2">
+                            <li>Data Controller: Łukasz Ziaja</li>
+                            <li>Operating as: AppsByLuke</li>
+                            <li>Address: al. Wiśniowa 36a/304</li>
+                            <li>53-137 Wrocław</li>
+                            <li>Poland</li>
+                            <li>Email: <a href="mailto:privacy@appsbyluke.com"
+                                          class="text-blue-600 hover:text-blue-800 underline">privacy@appsbyluke.com</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-blue-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">Response Times for Data Requests</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Access requests: Within 30 days</li>
+                            <li>Deletion requests: Within 30 days</li>
+                            <li>Data portability requests: Within 30 days</li>
+                            <li>Privacy concerns: Within 5 business days</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-green-50 border-2 border-black p-4">
+                        <h3 class="text-xl font-bold mb-2">Supervisory Authority</h3>
+                        <p class="mb-4">You have the right to lodge a complaint with a supervisory authority. For
+                            Poland, the supervisory authority is:</p>
+                        <ul class="list-none space-y-2">
+                            <li>President of the Personal Data Protection Office (UODO)</li>
+                            <li>ul. Stawki 2, 00-193 Warsaw</li>
+                            <li>Poland</li>
+                            <li>Website: <a href="https://uodo.gov.pl/"
+                                            class="text-blue-600 hover:text-blue-800 underline">https://uodo.gov.pl/</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-8 border-t-2 border-black">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-sm mb-2 md:mb-0">
+                        Last Updated: February 20, 2025
+                        <a href="https://github.com/logical-luke/appsbyluke/commits/main/landing/src/pages/privacy-policy.astro"
+                           class="text-blue-600 hover:text-blue-800 underline ml-2"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            (Version History)
+                        </a>
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <Icon name="tabler:shield-lock" class="w-5 h-5"/>
+                        <span class="text-sm font-bold">Official Privacy Policy Document</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </BlockSection>
 </Layout>
