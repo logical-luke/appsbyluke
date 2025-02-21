@@ -1,7 +1,6 @@
 ---
 import '../styles/base.css';
 import '@fontsource-variable/rubik';
-import {SEO} from "astro-seo";
 import {ClientRouter} from 'astro:transitions';
 import Logo from "../components/Logo.astro";
 import Footer from "../components/Footer.astro";
@@ -26,39 +25,38 @@ const isProduction = import.meta.env.PROD;
     <link rel="sitemap" href="/sitemap-index.xml"/>
     <title>{title}</title>
     <ClientRouter/>
-    <SEO
-            description={description}
-            openGraph={{
-                basic: {
-                    title: title,
-                    type: "website",
-                    image: "https://appsbyluke.com/og-facebook.png",
-                },
-                image: {
-                    alt: title
-                }
-            }}
-            twitter={{
-                title: title,
-                creator: "@appsbyluke",
-                image: "https://appsbyluke.com/og-twitter.png",
-                imageAlt: title
-            }}
-    ></SEO>
-    <meta property="og:logo" content="https://appsbyluke.com/appsbyluke.svg" />
+
+    <meta name="description" content={description}/>
+
+    <meta property="og:title" content={title}/>
+    <meta property="og:description" content={description}/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://appsbyluke.com/og-facebook.png"/>
+    <meta property="og:image:alt" content={title}/>
+    <meta property="og:logo" content="https://appsbyluke.com/appsbyluke.svg"/>
+
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content={title}/>
+    <meta name="twitter:description" content={description}/>
+    <meta name="twitter:creator" content="@appsbyluke"/>
+    <meta name="twitter:image" content="https://appsbyluke.com/og-twitter.png"/>
+    <meta name="twitter:image:alt" content={title}/>
+    <meta property="og:logo" content="https://appsbyluke.com/appsbyluke.svg"/>
 
     {isProduction && (
-        <script type="text/javascript" defer data-domain="appsbyluke.com" src="https://plausible.makeitlogical.io/js/script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js"></script>
-        <script>window.plausible = window.plausible || function() {(window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+        <script is:inline type="text/javascript" defer data-domain="appsbyluke.com" src="https://plausible.makeitlogical.io/js/script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js" />
+        <script is:inline type="text/javascript">window.plausible = window.plausible || function () {
+            (window.plausible.q = window.plausible.q || []).push(arguments)
+        }</script>
     )}
 </head>
 <body class="font-sans">
-    <div class="flex flex-col min-h-screen">
-        <Logo />
-        <main transition:animate="initial" class="grow overflow-hidden">
-            <slot/>
-        </main>
-        <Footer/>
-    </div>
+<div class="flex flex-col min-h-screen">
+    <Logo/>
+    <main transition:animate="initial" class="grow overflow-hidden">
+        <slot/>
+    </main>
+    <Footer/>
+</div>
 </body>
 </html>
